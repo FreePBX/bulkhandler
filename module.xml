@@ -1,0 +1,13 @@
+<module>
+	<rawname>bulkextensions</rawname>
+	<name>Bulk Extensions</name>
+	<version>0.1.1</version>
+	<type>tool</type>
+	<category>Third Party Addon</category>
+	<menuitems>
+		<bulkextensions>Bulk Extensions</bulkextensions>
+	</menuitems>
+	<location></location>
+	<info></info>
+	<md5sum></md5sum>
+</module>

@@ -1,0 +1,12 @@
+action,extension,name,cid_masquerade,sipname,directdid,didalert,mohclass,outboundcid,ringtimer,callwaiting,emergency_cid,tech,hardware,devinfo_secret,devinfo_channel,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,faxexten,faxemail,answer,wait,privacyman,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,devicetype,password,noanswer,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbridged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_notransfer	
+
+add,12345,John Doe,,,,,default,,,enabled,,sip,,1234,,rfc2833,no,from-internal,dynamic,friend,yes,5060,yes,,,,,,,,default,,0,0,no,Adhoc,Adhoc,enabled,123456789,jdoe@nowhere.fast.net,,attach=no,saycid=no,envelope=no,delete=no,,default,,fixed,,,,,,,,,,,
+add,12345,John Doe,,,,,default,,,enabled,,iax2,,1234,,rfc2833,no,from-internal,dynamic,friend,yes,5060,yes,,,,,,,,default,,0,0,no,Adhoc,Adhoc,enabled,123456789,jdoe@nowhere.fast.net,,attach=no,saycid=no,envelope=no,delete=no,,default,,fixed,,,,,,,,,,,yes
+add,12345,John Doe,,,,,default,,,enabled,,zap,,1234,1,rfc2833,no,from-internal,dynamic,friend,yes,5060,yes,,,,,,,,default,,0,0,no,Adhoc,Adhoc,enabled,123456789,jdoe@nowhere.fast.net,,attach=no,saycid=no,envelope=no,delete=no,,default,,fixed,,,no,fxo_ks,yes,no,800,no,7,no,
+
+del,12345
+
+edit,12345,John Doe,,,,,default,,,enabled,,sip,,1234,,rfc2833,no,from-internal,dynamic,friend,yes,5060,yes,,,,,,,,default,,0,0,no,Adhoc,Adhoc,enabled,123456789,jdoe@nowhere.fast.net,,attach=no,saycid=no,envelope=no,delete=no,,default,,fixed,,,,,,,,,,,
+edit,12345,John Doe,,,,,default,,,enabled,,iax2,,1234,,rfc2833,no,from-internal,dynamic,friend,yes,5060,yes,,,,,,,,default,,0,0,no,Adhoc,Adhoc,enabled,123456789,jdoe@nowhere.fast.net,,attach=no,saycid=no,envelope=no,delete=no,,default,,fixed,,,,,,,,,,,yes
+edit,12345,John Doe,,,,,default,,,enabled,,zap,,1234,1,rfc2833,no,from-internal,dynamic,friend,yes,5060,yes,,,,,,,,default,,0,0,no,Adhoc,Adhoc,enabled,123456789,jdoe@nowhere.fast.net,,attach=no,saycid=no,envelope=no,delete=no,,default,,fixed,,,no,fxo_
+
