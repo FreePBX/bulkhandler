@@ -10,9 +10,7 @@
 	<location></location>
 	<info></info>
 	<changelog>
-		*0.2.0*	New feature - Export Extensions
-			Documented all supported Extension fields
-			Minor code clean ups
+		*0.2.0*	New feature - Export Extensions Documented all supported Extension fields Minor code clean ups
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
