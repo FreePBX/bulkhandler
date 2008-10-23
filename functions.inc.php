@@ -1,307 +1,305 @@
 <?php
-/* $Id:$ */
+/* functions.inc.php - functions for BulkExtensions module. */
+include("modules/voicemail/functions.inc.php");		// for using voicemail module functions to retrieve voicemail settings
+include("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
+include("modules/languages/functions.inc.php");		// for using languages functions to retrieve language setting
+include("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
 
-function exportextensions_allusers()
-{
+/* Verify existence of voicemail, dictate, languages and findmefollow functions. */
+if (function_exists("voicemail_mailbox_get") && function_exists("voicemail_mailbox_add") && function_exists("voicemail_mailbox_del") && function_exists("voicemail_mailbox_remove") && class_exists("vmxObject")) {
+	$vm_exists	= TRUE;
+} else {
+	$vm_exists	= FALSE;
+}
+if (function_exists("dictate_get") && function_exists("dictate_update") && function_exists("dictate_del")) {
+	$dict_exists	= TRUE;
+} else {
+	$dict_exists	= FALSE;
+}
+if (function_exists("languages_user_get") && function_exists("languages_user_update") && function_exists("languages_user_del")) {
+	$lang_exists	= TRUE;
+} else {
+	$lang_exists	= FALSE;
+}
+if (function_exists("findmefollow_get") && function_exists("findmefollow_add") && function_exists("findmefollow_del")) {
+	$findme_exists	= TRUE;
+} else {
+	$findme_exists	= FALSE;
+}
 
+function exportextensions_allusers() {
 	global $db;
-	$action = "edit";
-	$fname = "bulkext__" .  (string) time() . ".csv";
-	$csv_header = "action,extension,name,cid_masquerade,sipname,directdid,didalert,mohclass,outboundcid,ringtimer,callwaiting,emergency_cid,tech,hardware,devinfo_secret,devinfo_channel,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,faxexten,faxemail,answer,wait,privacyman,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,devicetype,password,noanswer,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbridged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_notransfer\n";
-	$data = $csv_header;
-	$exts = get_all_exts();
+	global $vm_exists;
+	global $dict_exists;
+	global $lang_exists;
+	global $findme_exists;
+	$action		= "edit";
+	$fname		= "bulkext__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
+	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,password,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accoountcode,devinfo_mailbox,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest\n";
+	$data 		= $csv_header;
+	$exts 		= get_all_exts();
 
-	foreach($exts as $ext)
-	{
-		$e = $ext[0];
+	foreach ($exts as $ext) {
+		$e 	= $ext[0];
 		$u_info = core_users_get($e);
 		$d_info = core_devices_get($e);
-		$voicemail = get_voicemail_info($e); 
-		if($voicemail == null)
-		{
-			$v_enabled = "disabled";
-			$v_context = '';
-			$v_pwd = '';
-			$v_email = '';
-			$v_pager = '';
-			$v_options = '';
-			$v_attach = '';
-			$v_saycid = '';
-			$v_envelope = '';
-			$v_delete = '';
+		if ($vm_exists) {
+			$v_info	= voicemail_mailbox_get($e);
+		} else {
+			$v_info = NULL;
 		}
-		else
-		{
-			$v_enabled = "enabled";
-			$v_context = isset($voicemail['vmcontext'])?$voicemail['vmcontext']:'';
-			$v_pwd = isset($voicemail['pwd'])?$voicemail['pwd']:'';
-			$v_email = isset($voicemail['email'])?$voicemail['email']:'';
-			$v_pager = isset($voicemail['pager'])?$voicemail['pager']:'';
-
-			$x = isset($voicemail['options'])?$voicemail['options']:'';
-			$p = 0;
-			$first = true;
-			$c = count($x);
-			reset($x);
-
-			while($p < $c)
-			{
-				if((key($x) != 'attach') && (key($x) != 'saycid') && (key($x) != 'envelope') && (key($x) != 'delete'))
-				{
-					if($first)
-					{
-						$vmopts_output = key($x) . "=" . $x[key($x)];
-						$first = false;
-					} else
-					{
-						$vmopts_output = $vmopts_output . "|" . key($x) . "=" . $x[key($x)];
+		/* To properly obtain voicemail information, detect enabled/disabled vm value.   */
+		/* Parse extra voicemail options.						 */
+		if ($v_info == NULL) {
+			$v_enabled	= "disabled";
+		} else {
+			$v_enabled 	= "enabled";
+			$v_options 	= isset($v_info["options"])?$v_info["options"]:"";
+			$vm_other_opts 	= "";
+			$i 		= 0;
+			$first 		= TRUE;
+			$c 		= count($v_options);
+			reset($v_options);
+			while ($i < $c) {
+				if ((key($v_options) != "attach") && (key($v_options) != "saycid") && (key($v_options) != "envelope") && (key($v_options) != "delete")) {
+					if ($first) {
+						$vm_other_opts	= key($v_options) . "=" . $v_options[key($v_options)];
+						$first 		= false;
+					} else {
+						$vm_other_opts .=  "|" . key($v_options) . "=" . $v_options[key($v_options)];
 					}
 				}
-				$p++;
-				next($x);
+				$i++;
+				next($v_options);
 			}
-			$v_options = isset($vmopts_output)?$vmopts_output:'';
-			$vmopts_output = "";			
-			$v_attach = "attach=" . isset($x['attach'])?$x['attach']:'no'; 
-			$v_saycid = "saycid=" . isset($x['saycid'])?$x['saycid']:'no';
-			$v_envelope = "envelope=" . isset($x['envelope'])?$x['envelope']:'no';
-			$v_delete = "delete=" . isset($x['delete'])?$x['delete']:'no';
-
+		}
+		/* Obtain vmx settings. */
+		if ($vm_exists) {
+			$vmxobj		= new vmxObject($e);
+		} else {
+			$vmxobj		= NULL;
+		}
+		
+		if (is_object($vmxobj)) {
+			$vmx_state 		= ($vmxobj->isEnabled())?"checked":"";
+			$vmx_unavail_enabled 	= ($vmxobj->getState("unavail")=="enabled")?"checked":"";
+			$vmx_busy_enabled 	= ($vmxobj->getState("busy")=="enabled")?"checked":"";
+			$vmx_play_instructions 	= ($vmxobj->getVmPlay())?"checked":"";
+			$vmx_option_0_number 	= $vmxobj->getMenuOpt(0);
+			if ($vmx_option_0_number == "") {
+				$vmx_option_0_system_default = "checked";
+			} else {
+				$vmx_option_0_system_default = "";
+			}
+			if (is_object($vmxobj)) {
+				if ($vmxobj->hasFollowMe() && $vmxobj->isFollowMe()) {
+					$vmx_option_1_system_default 	= "checked";
+					$vmx_option_1_number 		= "";
+				} else {
+					$vmx_option_1_system_default 	= "";
+					$vmx_option_1_number 		= $vmxobj->getMenuOpt(1);
+				}
+				$vmx_option_2_number 			= $vmxobj->getMenuOpt(2);
+			}
+		}
+			
+		/* Obtain dictation services settings. */
+		if ($dict_exists) {
+			$dictate_settings = dictate_get($e);
 		}
 
-		$csv_line[0] 	= $action;
-		$csv_line[1] 	= isset($u_info['extension'])?$u_info['extension']:'';
-		$csv_line[2] 	= isset($u_info['name'])?$u_info['name']:'';
-		$csv_line[3] 	= isset($u_info['cidnum'])?$u_info['cidnum']:'';
-		$csv_line[4] 	= isset($u_info['sipname'])?$u_info['sipname']:'';
-		$csv_line[5] 	= isset($u_info['directdid'])?$u_info['directdid']:'';
-		$csv_line[6] 	= isset($u_info['didalert'])?$u_info['didalert']:'';
-		$csv_line[7] 	= isset($u_info['mohclass'])?$u_info['mohclass']:'';
-		$csv_line[8] 	= isset($u_info['outboundcid'])?$u_info['outboundcid']:'';
-		$csv_line[9] 	= isset($u_info['ringtimer'])?$u_info['ringtimer']:'';
-		$csv_line[10]	= isset($u_info['callwaiting'])?$u_info['callwaiting']:'';
-		$csv_line[11]	= isset($d_info['emergency_cid'])?$d_info['emergency_cid']:'';
-		$csv_line[12]	= isset($d_info['tech'])?$d_info['tech']:'';
-		$csv_line[13]	= ''; //hardware
-		$csv_line[14]	= isset($d_info['secret'])?$d_info['secret']:'';
-		$csv_line[15]	= isset($d_info['channel'])?$d_info['channel']:'';   
-		$csv_line[16]	= isset($d_info['dtmfmode'])?$d_info['dtmfmode']:'';
-		$csv_line[17]	= isset($d_info['canreinvite'])?$d_info['canreinvite']:'';
-		$csv_line[18]	= isset($d_info['context'])?$d_info['context']:'';
-		$csv_line[19]	= isset($d_info['host'])?$d_info['host']:'';
-		$csv_line[20]	= isset($d_info['type'])?$d_info['type']:'';
-		$csv_line[21]	= isset($d_info['nat'])?$d_info['nat']:'';
-		$csv_line[22]	= isset($d_info['port'])?$d_info['port']:'';
-		$csv_line[23]	= isset($d_info['qualify'])?$d_info['qualify']:'';
-		$csv_line[24]	= isset($d_info['callgroup'])?$d_info['callgroup']:'';
-		$csv_line[25]	= isset($d_info['pickupgroup'])?$d_info['pickupgroup']:'';
-		$csv_line[26]	= isset($d_info['disallow'])?$d_info['disallow']:'';
-		$csv_line[27]	= isset($d_info['allow'])?$d_info['allow']:'';
-		$csv_line[28]	= isset($d_info['accountcode'])?$d_info['accountcode']:'';
-		$csv_line[28]	= isset($d_info['dial'])?$d_info['dial']:'';
-		$csv_line[29] 	= isset($d_info['accountcode'])?$d_info['accountcode']:'';
-		$csv_line[30]	= isset($d_info['mailbox'])?$d_info['mailbox']:'';
-		$csv_line[31]	= isset($u_info['faxexten'])?$u_info['faxexten']:'';
-		$csv_line[32]	= isset($u_info['faxemail'])?$u_info['faxemail']:'';
-		$csv_line[33]	= isset($u_info['answer'])?$u_info['answer']:'';
-		$csv_line[34]	= isset($u_info['wait'])?$u_info['wait']:'';
-		$csv_line[35]	= isset($u_info['privacyman'])?$u_info['privacyman']:'';
-		$csv_line[36]	= isset($d_info['record_in'])?$d_info['record_in']:'';
-		$csv_line[37]	= isset($d_info['record_out'])?$d_info['record_out']:'';
-		$csv_line[38]	= $v_enabled;
-		$csv_line[39]	= $v_pwd;
-		$csv_line[40]	= $v_email;
-		$csv_line[41]	= $v_pager;
-		$csv_line[42]	= $v_attach;
-		$csv_line[43]	= $v_saycid;
-		$csv_line[44]	= $v_envelope;
-		$csv_line[45]	= $v_delete;
-		$csv_line[46]	= $v_options;
-		$csv_line[47]	= $v_context;
-		$csv_line[48]	= isset($u_info['vmx_state'])?$u_info['vmx_state']:'';
-		$csv_line[49]	= isset($d_info['devicetype'])?$d_info['devicetype']:'';
-		$csv_line[50]	= isset($u_info['password'])?$u_info['password']:'';
-		$csv_line[51]	= isset($u_info['noanswer'])?$u_info['noanswer']:'';
-		$csv_line[52]	= isset($d_info['immediate'])?$d_info['immediate']:'';
-		$csv_line[53]	= isset($d_info['signalling'])?$d_info['signalling']:'';
-		$csv_line[54]	= isset($d_info['echocancel'])?$d_info['echocancel']:'';
-		$csv_line[55]	= isset($d_info['echocancelwhenbridged'])?$d_info['echocancelwhenbridged']:'';
-		$csv_line[56]	= isset($d_info['echotraining'])?$d_info['echotraining']:'';
-		$csv_line[57]	= isset($d_info['busydetect'])?$d_info['busydetect']:'';
-		$csv_line[58]	= isset($d_info['busycount'])?$d_info['busycount']:'';
-		$csv_line[59]	= isset($d_info['callprogress'])?$d_info['callprogress']:'';
-		$csv_line[60]	= isset($d_info['notransfer'])?$d_info['notransfer']:'';
+		/* Obtain language code. */
+		if ($lang_exists) {
+			$langcode = languages_user_get($e);
+		}
 
-		for($i = 0; $i < count($csv_line); $i++)
-		{
-			if($i != count($csv_line) - 1)
-			{
+		/* Obtain follow me settings. */
+		if ($findme_exists) {
+			$followme_settings = findmefollow_get($u_info["extension"], TRUE);
+		}
+		if (isset($followme_settings)) {
+			$account	= isset($followme_settings["grpnum"])?$followme_settings["grpnum"]:"";
+			$strategy	= isset($followme_settings["strategy"])?$followme_settings["strategy"]:"";
+			$grptime	= isset($followme_settings["grptime"])?$followme_settings["grptime"]:"";
+			$grppre		= isset($followme_settings["grppre"])?$followme_settings["grppre"]:"";
+			$grplist	= isset($followme_settings["grplist"])?$followme_settings["grplist"]:"";
+			$annmsg_id	= isset($followme_settings["annmsg_id"])?$followme_settings["annmsg_id"]:"";
+			$postdest	= isset($followme_settings["postdest"])?$followme_settings["postdest"]:"";
+			$dring 		= isset($followme_settings["dring"])?$followme_settings["dring"]:"";
+			$needsconf 	= isset($followme_settings["needsconf"])?$followme_settings["needsconf"]:"";
+			$remotealert_id = isset($followme_settings["remotealert_id"])?$followme_settings["remotealert_id"]:"";
+			$toolate_id 	= isset($followme_settings["toolate_id"])?$followme_settings["toolate_id"]:"";
+			$ringing 	= isset($followme_settings["ringing"])?$followme_settings["ringing"]:"";
+			$pre_ring 	= isset($followme_settings["pre_ring"])?$followme_settings["pre_ring"]:"";
+			$ddial 		= isset($followme_settings["ddial"])?$followme_settings["ddial"]:"";
+		}
+		$csv_line[0] 	= $action;
+		$csv_line[1] 	= isset($u_info["extension"])?$u_info["extension"]:"";
+		$csv_line[2] 	= isset($u_info["name"])?$u_info["name"]:"";
+		$csv_line[3] 	= isset($u_info["cid_masquerade"])?$u_info["cid_masquerade"]:"";
+		$csv_line[4] 	= isset($u_info["sipname"])?$u_info["sipname"]:"";
+		$csv_line[5] 	= isset($u_info["outboundcid"])?$u_info["outboundcid"]:"";
+		$csv_line[6] 	= isset($u_info["ringtimer"])?$u_info["ringtimer"]:"";
+		$csv_line[7]	= isset($u_info["callwaiting"])?$u_info["callwaiting"]:"";
+		$csv_line[8]	= isset($u_info["call_screen"])?$u_info["call_screen"]:"0";
+		$csv_line[9]	= isset($u_info["password"])?$u_info["password"]:"";
+
+		$csv_line[10]	= isset($d_info["emergency_cid"])?$d_info["emergency_cid"]:"";
+		$csv_line[11]	= isset($d_info["tech"])?$d_info["tech"]:"";
+		$csv_line[12]	= ""; 	// hardware
+		$csv_line[13]	= isset($d_info["channel"])?$d_info["channel"]:"";
+		$csv_line[14]	= isset($d_info["secret"])?$d_info["secret"]:"";
+		$csv_line[15]	= isset($d_info["notransfer"])?$d_info["notransfer"]:"";
+		$csv_line[16]	= isset($d_info["dtmfmode"])?$d_info["dtmfmode"]:"";
+		$csv_line[17]	= isset($d_info["canreinvite"])?$d_info["canreinvite"]:"";
+		$csv_line[18]	= isset($d_info["context"])?$d_info["context"]:"";
+		$csv_line[19]	= isset($d_info["immediate"])?$d_info["immediate"]:"";
+		$csv_line[20]	= isset($d_info["signalling"])?$d_info["signalling"]:"";
+		$csv_line[21]	= isset($d_info["echocancel"])?$d_info["echocancel"]:"";
+		$csv_line[22]	= isset($d_info["echocancelwhenbridged"])?$d_info["echocancelwhenbridged"]:"";
+		$csv_line[23]	= isset($d_info["echotraining"])?$d_info["echotraining"]:"";
+		$csv_line[24]	= isset($d_info["busydetect"])?$d_info["busydetect"]:"";
+		$csv_line[25]	= isset($d_info["busycount"])?$d_info["busycount"]:"";
+		$csv_line[26]	= isset($d_info["callprogress"])?$d_info["callprogress"]:"";
+		$csv_line[27]	= isset($d_info["host"])?$d_info["host"]:"";
+		$csv_line[28]	= isset($d_info["type"])?$d_info["type"]:"";
+		$csv_line[29]	= isset($d_info["nat"])?$d_info["nat"]:"";
+		$csv_line[30]	= isset($d_info["port"])?$d_info["port"]:"";
+		$csv_line[31]	= isset($d_info["qualify"])?$d_info["qualify"]:"";
+		$csv_line[32]	= isset($d_info["callgroup"])?$d_info["callgroup"]:"";
+		$csv_line[33]	= isset($d_info["pickupgroup"])?$d_info["pickupgroup"]:"";
+		$csv_line[34]	= isset($d_info["disallow"])?$d_info["disallow"]:"";
+		$csv_line[35]	= isset($d_info["allow"])?$d_info["allow"]:"";
+		$csv_line[36]	= isset($d_info["dial"])?$d_info["dial"]:"";
+		$csv_line[37]	= isset($d_info["accountcode"])?$d_info["accountcode"]:"";
+		$csv_line[38]	= isset($d_info["mailbox"])?$d_info["mailbox"]:"";
+		$csv_line[39]	= isset($d_info["devicetype"])?$d_info["devicetype"]:"fixed";
+		$csv_line[40]	= (isset($d_info["deviceid"]) || ($d_info["deviceid"]==""))?$d_info["deviceid"]:(isset($u_info["extension"])?$u_info["extension"]:"");
+		$csv_line[41]	= (isset($d_info["deviceuser"]) && ($d_info["deviceuser"] != ""))?$d_info["deviceuser"]:(isset($u_info["extension"])?$u_info["extension"]:"none");
+		$csv_line[42]	= isset($d_info["description"])?$d_info["description"]:(isset($u_info["name"])?$u_info["name"]:"");
+
+		$csv_line[43]	= isset($dictate_settings["enabled"])?$dictate_settings["enabled"]:"disabled";	// dictenabled
+		$csv_line[44]	= isset($dictate_settings["format"])?$dictate_settings["format"]:"ogg";		// dictformat (ogg is default)
+		$csv_line[45]	= isset($dictate_settings["email"])?$dictate_settings["email"]:""; 		// dictemail
+
+		$csv_line[46]	= isset($langcode)?$langcode:"";
+
+		$csv_line[47]	= isset($d_info["record_in"])?$d_info["record_in"]:"";
+		$csv_line[48]	= isset($d_info["record_out"])?$d_info["record_out"]:"";
+
+		$csv_line[49]	= $v_enabled; // vm
+		$csv_line[50]	= isset($v_info["pwd"])?$v_info["pwd"]:"";
+		$csv_line[51]	= isset($v_info["email"])?$v_info["email"]:"";
+		$csv_line[52]	= isset($v_info["pager"])?$v_info["pager"]:"";
+		$csv_line[53]	= isset($v_info["options"]["attach"])?("attach=" . $v_info["options"]["attach"]):"attach=no";
+		$csv_line[54]	= isset($v_info["options"]["saycid"])?("saycid=" . $v_info["options"]["saycid"]):"saycid=no";
+		$csv_line[55]	= isset($v_info["options"]["envelope"])?("envelope=" . $v_info["options"]["envelope"]):"envelope=no";
+		$csv_line[56]	= isset($v_info["options"]["delete"])?("delete=". $v_info["options"]["delete"]):"delete=no";
+		$csv_line[57]	= isset($vm_other_opts)?$vm_other_opts:""; // additional options
+		$csv_line[58]	= isset($v_info["vmcontext"])?$v_info["vmcontext"]:"";
+		$csv_line[59]	= isset($vmx_state)?$vmx_state:"";
+		$csv_line[60]	= isset($vmx_unavail_enabled)?$vmx_unavail_enabled:"";
+		$csv_line[61]	= isset($vmx_busy_enabled)?$vmx_busy_enabled:"";
+		$csv_line[62]	= isset($vmx_play_instructions)?$vmx_play_instructions:"";
+		$csv_line[63]	= isset($vmx_option_0_system_default)?$vmx_option_0_system_default:"";
+		$csv_line[64]	= isset($vmx_option_0_number)?$vmx_option_0_number:"";
+		$csv_line[65]	= isset($vmx_option_1_system_default)?$vmx_option_1_system_default:"";
+		$csv_line[66]	= isset($vmx_option_1_number)?$vmx_option_1_number:"";
+		$csv_line[67]	= isset($vmx_option_2_number)?$vmx_option_2_number:"";
+		$csv_line[68]	= isset($account)?$account:"";
+		$csv_line[69]	= isset($ddial)?$ddial:"";
+		$csv_line[70]	= isset($pre_ring)?$pre_ring:"";
+		$csv_line[71]	= isset($strategy)?$strategy:"";
+		$csv_line[72]	= isset($grptime)?$grptime:"";
+		$csv_line[73]	= isset($grplist)?$grplist:"";
+		$csv_line[74]	= isset($annmsg_id)?$annmsg_id:"";
+		$csv_line[75]	= isset($ringing)?$ringing:"";
+		$csv_line[76]	= isset($grppre)?$grppre:"";
+		$csv_line[77]	= isset($dring)?$dring:"";
+		$csv_line[78]	= isset($needsconf)?$needsconf:"";
+		$csv_line[79]	= isset($remotealert_id)?$remotealert_id:"";
+		$csv_line[80]	= isset($toolate_id)?$toolate_id:"";
+		$csv_line[81]	= isset($postdest)?$postdest:"";
+		for ($i = 0; $i < count($csv_line); $i++) {
+			/* If the string contains a comma, enclose it in double-quotes. */
+			if (strpos($csv_line[$i], ",") !== FALSE) {
+				$csv_line[$i] = "\"" . $csv_line[$i] . "\"";
+			}
+			if ($i != count($csv_line) - 1) {
 				$data = $data . $csv_line[$i] . ",";
-			} else
-			{
+			} else {
 				$data = $data . $csv_line[$i];
 			}
-				
 		}
 		$data = $data . "\n";
-
 		unset($csv_line);
-
 	}
-
 	force_download($data, $fname);
 	return;
 }
 
-function get_all_exts()
-{
-	$sql = "SELECT extension FROM users ORDER BY extension";
-	
+function get_all_exts() {
+	$sql 	= "SELECT extension FROM users ORDER BY extension";
 	$extens = sql($sql,"getAll");
-
-	if (isset($extens))
-	{
+	if (isset($extens)) {
 		return $extens;
-	} else
-	{
+	} else {
 		return null;
 	}
 }
 
-function get_voicemail_info($mbox)
-{
-	global $amp_conf;
-	
-	$vmconf = null;
-	$section = null;
-	my_parse_voicemailconf(rtrim($amp_conf["ASTETCDIR"],"/")."/voicemail.conf", $vmconf, $section);
-	if($vmconf == null) echo("Uh-oh");
-	//my_parse_voicemailconf("/etc/asterisk/voicemail.conf", $vmconf, $section);
-	//$uservm = voicemail_getVoicemail();
-        $vmcontexts = array_keys($vmconf);
-        
-        foreach ($vmcontexts as $vmcontext) {
-		//echo("$vmcontext<br/>");
-		//echo("$mbox<br/>");
-                if(isset($vmconf[$vmcontext][$mbox])){
-                        $vmbox['vmcontext'] = $vmcontext;                                                                                
-                        $vmbox['pwd'] =		$vmconf[$vmcontext][$mbox]['pwd'];
-                        $vmbox['name'] =	$vmconf[$vmcontext][$mbox]['name'];
-                        $vmbox['email'] =	$vmconf[$vmcontext][$mbox]['email'];
-                        $vmbox['pager'] =	$vmconf[$vmcontext][$mbox]['pager'];
-                        $vmbox['options'] =	$vmconf[$vmcontext][$mbox]['options'];
-                        return $vmbox;
-                }
-        }
-                                                                            
-        return null;
-
-
+function force_download ($data, $name, $mimetype="", $filesize=false) {
+    // File size not set?
+    if ($filesize == false OR !is_numeric($filesize)) {
+        $filesize = strlen($data);
+    }
+    // Mimetype not set?
+    if (empty($mimetype)) {
+        $mimetype = "application/octet-stream";
+    }
+    // Make sure there's not anything else left
+    ob_clean_all();
+    // Start sending headers
+    header("Pragma: public"); // required
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Cache-Control: private",false); // required for certain browsers
+    header("Content-Transfer-Encoding: binary");
+    header("Content-Type: " . $mimetype);
+    header("Content-Length: " . $filesize);
+    header("Content-Disposition: attachment; filename=\"" . $name . "\";" );
+    // Send data
+    echo $data;
+    die();
 }
 
-
-/** Recursively read voicemail.conf (and any included files)                    
- * This function is called by get_voicemail_info()
- */
-function my_parse_voicemailconf($filename, &$vmconf, &$section) {
-        if (is_null($vmconf)) {
-                $vmconf = array();
-        }
-        if (is_null($section)) {
-                $section = "general";
-        }
-
-        if (file_exists($filename)) {                                      
-                $fd = fopen($filename, "r");                       
-                while ($line = fgets($fd, 1024)) {
-                        if (preg_match("/^\s*(\d+)\s*=>\s*(\d*),(.*),(.*),(.*),(.*)\s*([;#].*)?/",$line,$matches)) {
-                                // "mailbox=>password,name,email,pager,options"
-                                // this is a voicemail line
-                                $vmconf[$section][ $matches[1] ] = array("mailbox"=>$matches[1],
-                                                                        "pwd"=>$matches[2],
-                                                                        "name"=>$matches[3],
-                                                                        "email"=>$matches[4],
-                                                                        "pager"=>$matches[5],
-                                                                        "options"=>array(),
-                                                                        );
-
-                                // parse options
-                                                                           
-                                foreach (explode("|",$matches[6]) as $opt) {
-                                        $temp = explode("=",$opt);
-                                        //output($temp);
-                                        if (isset($temp[1])) {
-                                                list($key,$value) = $temp;
-                                                $vmconf[$section][ $matches[1] ]["options"][$key] = $value;
-                                        }
-                                }
-                   } else if (preg_match("/^\s*(\d+)\s*=>\s*dup,(.*)\s*([;#].*)?/",$line,$matches)) {
-                                // "mailbox=>dup,name"
-                                // duplace name line
-                                $vmconf[$section][ $matches[1] ]["dups"][] = $matches[2];
-                        } else if (preg_match("/^\s*#include\s+(.*)\s*([;#].*)?/",$line,$matches)) {
-                                // include another file
-
-                                if ($matches[1][0] == "/") {
-                                        // absolute path
-                                        $filename = $matches[1];
-                                } else {
-                                        // relative path
-                                        $filename =  dirname($filename)."/".$matches[1];
-                                }
-
-                                my_parse_voicemailconf($filename, $vmconf, $section);
-
-                        } else if (preg_match("/^\s*\[(.+)\]/",$line,$matches)) {
-                                // section name
-                                $section = strtolower($matches[1]);
-                        } else if (preg_match("/^\s*([a-zA-Z0-9-_]+)\s*=\s*(.*?)\s*([;#].*)?$/",$line,$matches)) {
-                                // name = value
-                                // option line
-                                $vmconf[$section][ $matches[1] ] = $matches[2];
-                        }
-                }
-                fclose($fd);                              
-        }
+function ob_clean_all () {
+    $ob_active = ob_get_length () !== false;
+    while($ob_active) {
+        ob_end_clean();
+        $ob_active = ob_get_length () !== false;
+    }
+    return true;
 }
 
-function force_download ($data, $name, $mimetype='', $filesize=false) { 
-    // File size not set? 
-    if ($filesize == false OR !is_numeric($filesize)) { 
-        $filesize = strlen($data); 
-    } 
-
-    // Mimetype not set? 
-    if (empty($mimetype)) { 
-        $mimetype = 'application/octet-stream'; 
-    } 
-
-    // Make sure there's not anything else left 
-    ob_clean_all(); 
-
-    // Start sending headers 
-    header("Pragma: public"); // required 
-    header("Expires: 0"); 
-    header("Cache-Control: must-revalidate, post-check=0, pre-check=0"); 
-    header("Cache-Control: private",false); // required for certain browsers 
-    header("Content-Transfer-Encoding: binary"); 
-    header("Content-Type: " . $mimetype); 
-    header("Content-Length: " . $filesize); 
-    header("Content-Disposition: attachment; filename=\"" . $name . "\";" ); 
-
-    // Send data 
-    echo $data; 
-    die(); 
-} 
-
-function ob_clean_all () { 
-    $ob_active = ob_get_length () !== false; 
-    while($ob_active) { 
-        ob_end_clean(); 
-        $ob_active = ob_get_length () !== false; 
-    } 
-
-    return true; 
+function generate_table_rows() {
+	$fh = fopen("modules/bulkextensions/table.csv", "r");
+	if ($fh == NULL) {
+		return NULL;
+	}
+	$k = 0;
+	while (($csv_data = fgetcsv($fh, 1000, ",", "\"")) !== FALSE) {
+		$k++;
+		/* Name,Default,Allowed,On Extensions page,Details */
+		for ($i = 0; $i < 5; $i++) {
+			if (isset($csv_data[$i])) {
+				$table[$k][$i] .= $csv_data[$i];
+			} else {
+				$table[$k][$i] = "";
+			}
+		}
+	}
+	fclose($fh);
+	return $table;
 }
-
 ?>
