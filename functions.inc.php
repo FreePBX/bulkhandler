@@ -1,9 +1,9 @@
 <?php
 /* functions.inc.php - functions for BulkExtensions module. */
-include("modules/voicemail/functions.inc.php");		// for using voicemail module functions to retrieve voicemail settings
-include("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
-include("modules/languages/functions.inc.php");		// for using languages functions to retrieve language setting
-include("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
+include_once("modules/voicemail/functions.inc.php");		// for using voicemail module functions to retrieve voicemail settings
+include_once("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
+include_once("modules/languages/functions.inc.php");		// for using languages functions to retrieve language setting
+include_once("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
 
 /* Verify existence of voicemail, dictate, languages and findmefollow functions. */
 if (function_exists("voicemail_mailbox_get") && function_exists("voicemail_mailbox_add") && function_exists("voicemail_mailbox_del") && function_exists("voicemail_mailbox_remove") && class_exists("vmxObject")) {
