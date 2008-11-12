@@ -1,8 +1,8 @@
 <module>
 	<rawname>bulkextensions</rawname>
 	<name>Bulk Extensions</name>
-	<description>Bulk Extensions uses CSV files to import and export of extensions.</description>
-	<version>2.5.0.1</version>
+	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
+	<version>2.5.0.2</version>
 	<type>tool</type>
 	<category>Third Party Addon</category>
 	<menuitems>
@@ -14,6 +14,8 @@
 	<location></location>
 	<info></info>
 	<changelog>
+		*2.5.0.2* New feature - Enforce extension range restrictions for admin users - thanks dinhtrung
+			  New feature - Email notification for new accounts
 		*2.5.0.1* changed includes to include_once
 		*2.5.0* Version for FreePBX 2.5
 		*0.2.1*	Beta support for FreePBX 2.5 (unreleased)
