@@ -12,6 +12,44 @@ $output = "";
 if ($_REQUEST["csv_type"] == "output") {
 	exportextensions_allusers();
 } elseif ($_REQUEST["csv_type"] == "input") {
+	// Set email notification variables
+	if (isset($_REQUEST["default_email"])) {
+		$default_email = $_REQUEST["default_email"];
+	} else {
+		$default_email = "";
+	}
+	if (isset($_REQUEST["override_email"])) {
+		$override_email = $_REQUEST["override_email"];
+	} else {
+		$override_email = "";
+	}
+	if (isset($_REQUEST["email_from"])) {
+		$email_from = $_REQUEST["email_from"];
+	} else {
+		$email_from = "";
+	}
+	if (isset($_REQUEST["email_replyto"])) {
+		$email_replyto = $_REQUEST["email_replyto"];
+	} else {
+		$email_replyto = "";
+	}
+	if (isset($_REQUEST["email_subject"])) {
+		$email_subject = $_REQUEST["email_subject"];
+	} else {
+		$email_subject = "";
+	}
+	if (isset($_REQUEST["email_body_open"])) {
+		$email_body_open = $_REQUEST["email_body_open"];
+	} else {
+		$email_body_open = "";
+	}
+	if (isset($_REQUEST["email_body_close"])) {
+		$email_body_close = $_REQUEST["email_body_close"];
+	} else {
+		$email_body_close = "";
+	}
+	$line_end = "\n";
+
     $aFields = array (
       "action" => array(false, -1),
       "extension" => array(false, -1),
@@ -498,161 +536,233 @@ if ($_REQUEST["csv_type"] == "output") {
 
 	      $_REQUEST = $vars;
 
-	      switch ($vars["action"]) {
-	      	case "add":
-			// Only add if no voicemail, no user and no device entry already
-			// exist for the extension we're trying to add.
-			// Check the list of voicemail entries.
-			// user_vmexists == false means add  new voicemail entry.
-			$user_vmexists = FALSE;
-			if ($vm_exists) {
-				$uservm = voicemail_getVoicemail();
-				$vmcontexts = array_keys($uservm);
-				foreach ($vmcontexts as $vmcontext) {
-					if (isset($uservm[$vmcontext][$vars["extension"]])) {
-						$user_vmexists = TRUE;		// DO NOT add.
-					}
-				}
-			}
-			if ($user_vmexists || core_users_get($vars["extension"]) || core_devices_get($vars["extension"])) {
-				$output .= "Row $k: Extension " . $vars["extension"] . " already exists" . "<BR>";
-			} else {
-				if ($vm_exists) {
-					voicemail_mailbox_add($vars["extension"], $vars);
-				}
-				core_users_add($vars);
-				core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
-				
-				if ($lang_exists) {
-					languages_user_update($vars["extension"], $vars["langcode"]);
-				}
-				if ($dict_exists) {
-					dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"]);
-				}
-				if ($findme_exists && $followme_set) {
-					findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
-				}
-				$output .= "Row $k: Added: " . $vars["extension"] . "<BR>";
-				$change = true;
-			}
-			break;
-		case "edit":
-			// Functions core_devices_del and core_users_del
-			// do not check that the device or user actually
-			// exists.
-			// We check that the device or user exists before
-                        // deleting by looking them up by the extension.
-			// Only if the device or user exists do we call
-			// core_devices_del or core_users_del.
-			if (core_devices_get($vars["extension"])) {
-				core_devices_del($vars["extension"]);
-				$change = true;
-			}
-			if (core_users_get($vars["extension"])) {
-				core_users_del($vars["extension"]);
-				core_users_cleanastdb($vars["extension"]);
-				if ($findme_exists) {
-					findmefollow_del($vars["extension"]);
-				}
-				if ($dict_exists) {
-					dictate_del($vars["extension"]);
-				}
-				if ($lang_exists) {
-					languages_user_del($vars["extension"]);
-				}
-				$change = true;
-			}
-			// The voicemail functions have their own internal
-			// checking.
-			// If the voicemail box in question does not exist,
-			// the functions simply return.  No harm done.
-			//
-			// When editting an existing extension do not call
-			// voicemail_mailbox_remove, it will delete existing
-			// voicemail messages, which is undesirable.
-			if ($vm_exists) {
-				voicemail_mailbox_del($vars["extension"]);
-			}
-			// Only add if no voicemail, no user and no device entry already
-			// exist for the extension we're trying to add.
-			// Check the list of voicemail entries.
-			// user_vmexists == false means add new voicemail entry.
-			$user_vmexists = FALSE;
-			if ($vm_exists) {
-				$uservm = voicemail_getVoicemail();
-				$vmcontexts = array_keys($uservm);
-				foreach ($vmcontexts as $vmcontext) {
-					if (isset($uservm[$vmcontext][$vars["extension"]])) {
-						$user_vmexists = TRUE;		// DO NOT add.
-					}
-				}
-			}
-			if ($user_vmexists || core_users_get($vars["extension"]) || core_devices_get($vars["extension"])) {
-				$output .= "Row $k: Extension " . $vars["extension"] . " already exists" . "<BR>";
-			} else {
-				if ($vm_exists) {
-					voicemail_mailbox_add($vars["extension"], $vars);
-				}
-				core_users_add($vars);
-				core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
-				if ($lang_exists) {
-					languages_user_update($vars["extension"], $vars["langcode"]);
-				}
-				if ($dict_exists) {
-					dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"]);
-				}
-				if ($findme_exists && $followme_set) {
-					findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
-				}
-				$change = true;
-			}
-			$output .= "Row $k: Edited: " . $vars["extension"] . "<BR>";
-			break;
-		case "del":
-			// Functions core_devices_del and core_users_del
-			// do not check that the device or user actually
-			// exists.
-			// We check that the device or user exists before
-                        // deleting by looking them up by the extension.
-			// Only if the device or user exists do we call
-			// core_devices_del or core_users_del.
-			if (core_devices_get($vars["extension"])) {
-				core_devices_del($vars["extension"]);
-				$change = true;
-			}
-			if (core_users_get($vars["extension"])) {
-				core_users_del($vars["extension"]);
-				core_users_cleanastdb($vars["extension"]);
-				if ($findme_exists) {
-					findmefollow_del($vars["extension"]);
-				}
-				if ($dict_exists) {
-					dictate_del($vars["extension"]);
-				}
-				if ($lang_exists) {
-					languages_user_del($vars["extension"]);
-				}
-				$change = true;
-			}
-			// The voicemail functions have their own internal
-			// checking.
-			// If the voicemail box in question does not exist,
-			// the functions simply return.  No harm done.
-			//
-			// call remove BEFORE del
-			if ($vm_exists) {
-				voicemail_mailbox_remove($vars["extension"]);
-				voicemail_mailbox_del($vars["extension"]);
-			}
-			$output .= "Row $k: Deleted: " . $vars["extension"] . "<BR>";
-			break;
-		default:
-			$output .= "Row $k: Unrecognized action: the only actions recognized are add, edit, del.\n";
-			break;
-	      }
+	      if (checkRange($vars["extension"])) {
 
-	      if ($change) {
-		  needreload();
+		      switch ($vars["action"]) {
+		      	case "add":
+				// Only add if no voicemail, no user and no device entry already
+				// exist for the extension we're trying to add.
+				// Check the list of voicemail entries.
+				// user_vmexists == false means add  new voicemail entry.
+				$user_vmexists = FALSE;
+				if ($vm_exists) {
+					$uservm = voicemail_getVoicemail();
+					$vmcontexts = array_keys($uservm);
+					foreach ($vmcontexts as $vmcontext) {
+						if (isset($uservm[$vmcontext][$vars["extension"]])) {
+							$user_vmexists = TRUE;		// DO NOT add.
+						}
+					}
+				}
+				if ($user_vmexists || core_users_get($vars["extension"]) || core_devices_get($vars["extension"])) {
+					$output .= "Row $k: Extension " . $vars["extension"] . " already exists" . "<BR>";
+				} else {
+					if ($vm_exists) {
+						voicemail_mailbox_add($vars["extension"], $vars);
+					}
+					core_users_add($vars);
+					core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
+					
+					if ($lang_exists) {
+						languages_user_update($vars["extension"], $vars["langcode"]);
+					}
+					if ($dict_exists) {
+						dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"]);
+					}
+					if ($findme_exists && $followme_set) {
+						findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
+					}
+					// begin status output for this row
+					$output .= "Row $k: Added: " . $vars["extension"];
+					// send notification email for new voicemail account
+					$email_to = "";
+					// first use user email defined for voicemail account
+					if (isset($vars["email"])) {
+						$email_to = $vars["email"];
+					}
+					// if no user email specified, use default email
+					if (isset($default_email) && ($email_to == "")) {
+						$email_to = $default_email;
+					}
+					// if an override email is specified, use it
+					// if "noemail" is set for override email
+					// set email_to = "" so that an email will not be sent
+					if (isset($override_email) && ($override_email != "")) {
+						if ($override_email == "noemail") {
+							$email_to = "";
+						} else {
+							$email_to = $override_email;
+						}
+					}
+					if ($email_to != "") {
+
+						// SUBJECT - set default subject if not set by user
+						if (!isset($email_subject) || $email_subject == "") {
+							$email_subject = _("Voicemail Account Activated");
+						}
+
+						// FROM - if specified, use that, otherwise leave blank
+						if (isset($email_from) && $email_from != "") {
+							$email_from = "From: " . $email_from . $line_end;
+						} else {
+							$email_from = "";
+						}
+
+						// REPLY-TO - if specified, use that, otherwise leave blank
+						if (isset($email_replyto) && $email_replyto != "") {
+							$email_replyto = "Reply-To: " . $email_replyto . $line_end;
+						} else {
+							$email_replyto = "";
+						}
+
+						// HEADERS
+						$email_headers = $email_from . $email_replyto;
+
+						// BODY
+						if (!isset($email_body_open) || $email_body_open == "") {
+							$email_body = _("Login information for your voicemail account is as follows:"). "\n\n";
+						} else {
+							$email_body = $email_body_open . "\n\n";
+						}
+						$email_body .= "\t" . _("Account Name: ") . $vars["name"] . $line_end;
+						$email_body .= "\t" . _("Extension: ") . $vars["extension"] . $line_end;
+						$email_body .= "\t" . _("Voicemail Password: ") . $vars["vmpwd"] . $line_end;
+						if (isset($email_body_close) && $email_body_close != "") {
+							$email_body .= "\n\n" . $email_body_close . $line_end;
+						}
+						
+						// Mail it!
+						if (mail($email_to, $email_subject, $email_body, $email_headers)) {
+							$output .= ", notification sent to: " . $email_to;
+						} else {
+							$output .= ", notification failed to: " . $email_to;
+						}
+					}
+					// close status output for this row with line break
+					$output .= "<br />";
+					$change = true;
+				}
+				break;
+			case "edit":
+				// Functions core_devices_del and core_users_del
+				// do not check that the device or user actually
+				// exists.
+				// We check that the device or user exists before
+	                        // deleting by looking them up by the extension.
+				// Only if the device or user exists do we call
+				// core_devices_del or core_users_del.
+				if (core_devices_get($vars["extension"])) {
+					core_devices_del($vars["extension"]);
+					$change = true;
+				}
+				if (core_users_get($vars["extension"])) {
+					core_users_del($vars["extension"]);
+					core_users_cleanastdb($vars["extension"]);
+					if ($findme_exists) {
+						findmefollow_del($vars["extension"]);
+					}
+					if ($dict_exists) {
+						dictate_del($vars["extension"]);
+					}
+					if ($lang_exists) {
+						languages_user_del($vars["extension"]);
+					}
+					$change = true;
+				}
+				// The voicemail functions have their own internal
+				// checking.
+				// If the voicemail box in question does not exist,
+				// the functions simply return.  No harm done.
+				//
+				// When editting an existing extension do not call
+				// voicemail_mailbox_remove, it will delete existing
+				// voicemail messages, which is undesirable.
+				if ($vm_exists) {
+					voicemail_mailbox_del($vars["extension"]);
+				}
+				// Only add if no voicemail, no user and no device entry already
+				// exist for the extension we're trying to add.
+				// Check the list of voicemail entries.
+				// user_vmexists == false means add new voicemail entry.
+				$user_vmexists = FALSE;
+				if ($vm_exists) {
+					$uservm = voicemail_getVoicemail();
+					$vmcontexts = array_keys($uservm);
+					foreach ($vmcontexts as $vmcontext) {
+						if (isset($uservm[$vmcontext][$vars["extension"]])) {
+							$user_vmexists = TRUE;		// DO NOT add.
+						}
+					}
+				}
+				if ($user_vmexists || core_users_get($vars["extension"]) || core_devices_get($vars["extension"])) {
+					$output .= "Row $k: Extension " . $vars["extension"] . " already exists" . "<BR>";
+				} else {
+					if ($vm_exists) {
+						voicemail_mailbox_add($vars["extension"], $vars);
+					}
+					core_users_add($vars);
+					core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
+					if ($lang_exists) {
+						languages_user_update($vars["extension"], $vars["langcode"]);
+					}
+					if ($dict_exists) {
+						dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"]);
+					}
+					if ($findme_exists && $followme_set) {
+						findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
+					}
+					$change = true;
+				}
+				$output .= "Row $k: Edited: " . $vars["extension"] . "<BR>";
+				break;
+			case "del":
+				// Functions core_devices_del and core_users_del
+				// do not check that the device or user actually
+				// exists.
+				// We check that the device or user exists before
+	                        // deleting by looking them up by the extension.
+				// Only if the device or user exists do we call
+				// core_devices_del or core_users_del.
+				if (core_devices_get($vars["extension"])) {
+					core_devices_del($vars["extension"]);
+					$change = true;
+				}
+				if (core_users_get($vars["extension"])) {
+					core_users_del($vars["extension"]);
+					core_users_cleanastdb($vars["extension"]);
+					if ($findme_exists) {
+						findmefollow_del($vars["extension"]);
+					}
+					if ($dict_exists) {
+						dictate_del($vars["extension"]);
+					}
+					if ($lang_exists) {
+						languages_user_del($vars["extension"]);
+					}
+					$change = true;
+				}
+				// The voicemail functions have their own internal
+				// checking.
+				// If the voicemail box in question does not exist,
+				// the functions simply return.  No harm done.
+				//
+				// call remove BEFORE del
+				if ($vm_exists) {
+					voicemail_mailbox_remove($vars["extension"]);
+					voicemail_mailbox_del($vars["extension"]);
+				}
+				$output .= "Row $k: Deleted: " . $vars["extension"] . "<BR>";
+				break;
+			default:
+				$output .= "Row $k: Unrecognized action: the only actions recognized are add, edit, del.\n";
+				break;
+		      }
+	
+		      if ($change) {
+			  needreload();
+		      }
+	      } else {
+		      $output .= "Row $k: Access denied to extension " . $vars["extension"] . ".  No action performed.<BR>";
 	      }
       } // while loop
 
@@ -698,11 +808,9 @@ Start by downloading the
 (right-click > save as) or clicking the Export Extensions button.
 </p>
 <p>
-The table below explains each column in the CSV file. Modify the CSV file to add,
-edit, or delete Extensions as desired. You can change the column order of the CSV
-file as you like, however, the column names must be preserved. Then load the CSV
-file. After the CSV file is processed, the action taken for each row will be
-displayed.
+Modify the CSV file to add, edit, or delete Extensions as desired. Then load
+the CSV file. After the CSV file is processed, the action taken for each row
+will be displayed.
 </p>
 <p>
 <b>Bulk extension changes can take a long time to complete. It can take 30-60
@@ -711,15 +819,130 @@ extensions it can take about 5 minutes to add 100 new extensions.</b>
 </p>
 
 <form action="<?php $_SERVER["PHP_SELF"] ?>" name="uploadcsv" method="post" enctype="multipart/form-data">
-<input id="csv_type" name="csv_type" type="hidden" value="none">
-<input type="submit" onclick="document.getElementById('csv_type').value='output';" value="Export Extensions">
-<br>
-<br>
-CSV File to Load: <input name="csvFile" type="file">
-<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="Load File">
+<input id="csv_type" name="csv_type" type="hidden" value="none" />
+<input type="submit" onclick="document.getElementById('csv_type').value='output';" value="Export Extensions" />
+&nbsp;&nbsp;CSV File to Load: <input name="csvFile" type="file" />
+<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="Load File" />
+<hr />
+<h3>Email Notification for New Accounts</h3>
+<p>
+By default, a notification email will be sent to the voicemail email address
+set for each account added. The settings below can be used to control the
+content and destination of the notification emails.
+<table>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Default Address:
+			<span>
+			If a Default Address is specified, notification emails
+			for new accounts without a voicemail email address will
+			be sent to the Default Address.
+			</span>
+			</a>
+		</td>
+		<td>
+			<input name="default_email" id="default_email" type="text" size="60" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Override Address:
+			<span>
+			If an Override Address is specified, all notification
+			emails will be sent to the Override Address only. Type
+			"noemail" (without the quotes) as the Override Address
+			to stop notification emails from being sent.
+			</span>
+			</a>
+		</td>
+		<td>
+			<input name="override_email" id="override_email" type="text" size="60" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Email From:
+			<span>
+			The Email From header may be specified. If left blank,
+			the system default will be used.
+			</span>
+			</a>
+		</td>
+		<td>
+			<input name="email_from" id="email_from" type="text" size="60" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Email Reply-To:
+			<span>
+			The Email Reply-To header may be specified. If left blank,
+			the system default will be used.
+			</span>
+			</a>
+		</td>
+		<td>
+			<input name="email_replyto" id="email-replyto" type="text" size="60" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Email Subject:
+			<span>
+			The Email Subject may be specified. If left blank, the
+			default subject, "Voicemail Account Activated", will be
+			used.
+			</span>
+			</a>
+		</td>
+		<td>
+			<input name="email_subject" id="email_subject" type="text" size="60" value="" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Email Opening:
+			<span>
+			The Email Opening may be specified. If left blank, the
+			default opening, "Login information for your voicemail
+			account is as follows:", will be used. The account name,
+			extension, and voicemail password will automatically be
+			inserted after the opening.
+			</span>
+			</a>
+		</td>
+		<td>
+			<textarea name="email_body_open" id="email_body_open" rows="2" cols="60"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="#" class="info">
+			Email Closing:
+			<span>
+			The Email Closing may be specified. If any text is
+			entered, it will be inserted at the end of the email.
+			</span>
+			</a>
+		</td>
+		<td>
+			<textarea name="email_body_close" id="email_body_close" rows="2" cols="60"></textarea>
+		</td>
+	</tr>
+</table>
 </form>
-<hr>
+<hr />
 <h3>Bulk Extensions CSV File Columns</h3>
+<p>
+The table below explains each column in the CSV file. You can change the column
+order of the CSV file as you like, however, the column names must be preserved.
+</p>
 <?php
 	print $table_output;
 }
