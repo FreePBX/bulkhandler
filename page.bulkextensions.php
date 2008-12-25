@@ -603,20 +603,20 @@ if ($_REQUEST["csv_type"] == "output") {
 
 						// FROM - if specified, use that, otherwise leave blank
 						if (isset($email_from) && $email_from != "") {
-							$email_from = "From: " . $email_from . $line_end;
+							$email_from_header = "From: " . $email_from . $line_end;
 						} else {
-							$email_from = "";
+							$email_from_header = "";
 						}
 
 						// REPLY-TO - if specified, use that, otherwise leave blank
 						if (isset($email_replyto) && $email_replyto != "") {
-							$email_replyto = "Reply-To: " . $email_replyto . $line_end;
+							$email_replyto_header = "Reply-To: " . $email_replyto . $line_end;
 						} else {
-							$email_replyto = "";
+							$email_replyto_header = "";
 						}
 
 						// HEADERS
-						$email_headers = $email_from . $email_replyto;
+						$email_headers = $email_from_header . $email_replyto_header;
 
 						// BODY
 						if (!isset($email_body_open) || $email_body_open == "") {
