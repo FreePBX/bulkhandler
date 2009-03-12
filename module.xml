@@ -11,7 +11,7 @@
 	<depends>
 		<version>ge2.5</version>
 	</depends>
-	<location>release/contributed_modules/bulkextensions-2.5.0.4.tgz</location>
+	<location>contributed_modules/release/bulkextensions-2.5.0.4.tgz</location>
 	<info></info>
 	<changelog>
 		*2.5.0.4* No changes, re-publishing to get md5sum and location info updated
@@ -25,6 +25,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>5e7e781c7c1ebfc62c1b2b4fc06126cc</md5sum>
+	<md5sum>4383bd852a2472e7f3a6860fbc959c3e</md5sum>
 </module>
 
