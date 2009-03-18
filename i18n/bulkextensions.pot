@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#    Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-18 21:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.bulkextensions.php:629
+msgid "Voicemail Account Activated"
+msgstr ""
+
+#: page.bulkextensions.php:651
+msgid "Login information for your voicemail account is as follows:"
+msgstr ""
+
+#: page.bulkextensions.php:655
+msgid "Account Name: "
+msgstr ""
+
+#: page.bulkextensions.php:656
+msgid "Extension: "
+msgstr ""
+
+#: page.bulkextensions.php:657
+msgid "Voicemail Password: "
+msgstr ""
+
+#: page.bulkextensions.php:829
+msgid "Bulk Extensions"
+msgstr ""
+
+#: page.bulkextensions.php:830
+msgid "Manage Extensions in bulk using CSV files."
+msgstr ""
+
+#: page.bulkextensions.php:833
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+
+#: page.bulkextensions.php:837
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+
+#: page.bulkextensions.php:839
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+
+#: page.bulkextensions.php:843
+msgid "Export Extensions"
+msgstr ""
+
+#: page.bulkextensions.php:844
+msgid "CSV File to Load"
+msgstr ""
+
+#: page.bulkextensions.php:845
+msgid "Load File"
+msgstr ""
+
+#: page.bulkextensions.php:849
+msgid "Email Notification for New Accounts"
+msgstr ""
+
+#: page.bulkextensions.php:851
+msgid ""
+"By default, a notification email will be sent to the voicemail email address "
+"set for each account added."
+msgstr ""
+
+#: page.bulkextensions.php:852
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+
+#: page.bulkextensions.php:858
+msgid "Default Address:"
+msgstr ""
+
+#: page.bulkextensions.php:859
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a voicemail email address will be sent to the Default Address."
+msgstr ""
+
+#: page.bulkextensions.php:870
+msgid "Override Address:"
+msgstr ""
+
+#: page.bulkextensions.php:871
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+
+#: page.bulkextensions.php:882
+msgid "Email From:"
+msgstr ""
+
+#: page.bulkextensions.php:884
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+
+#: page.bulkextensions.php:895
+msgid "Email Reply-To:"
+msgstr ""
+
+#: page.bulkextensions.php:897
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr ""
+
+#: page.bulkextensions.php:908
+msgid "Email Subject:"
+msgstr ""
+
+#: page.bulkextensions.php:910
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+
+#: page.bulkextensions.php:921
+msgid "Email Opening:"
+msgstr ""
+
+#: page.bulkextensions.php:923
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+
+#: page.bulkextensions.php:924
+msgid ""
+" The account name, extension, and voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+
+#: page.bulkextensions.php:935
+msgid "Email Closing:"
+msgstr ""
+
+#: page.bulkextensions.php:937
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+
+#: page.bulkextensions.php:949
+msgid "Bulk Extensions CSV File Columns"
+msgstr ""
+
+#: page.bulkextensions.php:950
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""

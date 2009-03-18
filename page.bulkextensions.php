@@ -1,4 +1,22 @@
 <?php
+//This file is part of FreePBX.
+//
+//    FreePBX is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 2 of the License, or
+//    (at your option) any later version.
+//
+//    FreePBX is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+//
+//    Copyright 2006 sasargen
+//    Portions Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
+//
 // This is a long running process, so extend time limit for execution.
 // Typical PHP default is 30 seconds, but this only allows 100 to 200
 // extensions to be processed. Setting time limit to 3000 seconds allows
@@ -90,6 +108,8 @@ if ($_REQUEST["csv_type"] == "output") {
       "devinfo_dial" => array(false, -1),
       "devinfo_accountcode" => array(false, -1),
       "devinfo_mailbox" => array(false, -1),
+      "devinfo_deny" => array(false, -1),
+      "devinfo_permit" => array(false, -1),
       "devicetype" => array(false, -1),
       "deviceid" => array(false, -1),
       "deviceuser" => array(false, -1),
@@ -323,6 +343,14 @@ if ($_REQUEST["csv_type"] == "output") {
 		      $vars["devinfo_mailbox"] = trim($aInfo[$aFields["devinfo_mailbox"][1]]);
 	      }
 
+      	  if ($aFields["devinfo_deny"][0]) {
+		      $vars["devinfo_deny"] = trim($aInfo[$aFields["devinfo_deny"][1]]);
+	      }
+
+      	  if ($aFields["devinfo_permit"][0]) {
+		      $vars["devinfo_permit"] = trim($aInfo[$aFields["devinfo_permit"][1]]);
+	      }
+	      
 	      if ($aFields["devicetype"][0]) {
 		      $vars["devicetype"] = trim($aInfo[$aFields["devicetype"][1]]);
 	      }
@@ -797,47 +825,38 @@ if ($_REQUEST["csv_type"] == "output") {
 		$table_output .= "</table>";
 	}
 
+
+echo "<h1>"._("Bulk Extensions")."</h1>";
+echo "<h2>"._("Manage Extensions in bulk using CSV files.")."</h2>";
+echo "<p>";
+
+echo sprintf(_("Start by downloading the %s Template CSV file %s (right-click > save as) or clicking the Export Extensions button."), "<a href=\"modules/bulkextensions/template.csv\">", "</a>"); 
+
+echo "<p>";
+
+echo _("Modify the CSV file to add, edit, or delete Extensions as desired. Then load the CSV file. After the CSV file is processed, the action taken for each row will be displayed.");
+echo "<p>";
+echo "<b>"._("Bulk extension changes can take a long time to complete. It can take 30-60 seconds to add 100 extensions on a small system. However, on a system with 2000 extensions it can take about 5 minutes to add 100 new extensions.")."</b>";
 ?>
-<h1>Bulk Extensions</h1>
-
-<h2>Manage Extensions in bulk using CSV files.</h2>
-
-<p>
-Start by downloading the
-<a href="modules/bulkextensions/template.csv">Template CSV file</a>
-(right-click > save as) or clicking the Export Extensions button.
-</p>
-<p>
-Modify the CSV file to add, edit, or delete Extensions as desired. Then load
-the CSV file. After the CSV file is processed, the action taken for each row
-will be displayed.
-</p>
-<p>
-<b>Bulk extension changes can take a long time to complete. It can take 30-60
-seconds to add 100 extensions on a small system. However, on a system with 2000
-extensions it can take about 5 minutes to add 100 new extensions.</b>
-</p>
-
 <form action="<?php $_SERVER["PHP_SELF"] ?>" name="uploadcsv" method="post" enctype="multipart/form-data">
 <input id="csv_type" name="csv_type" type="hidden" value="none" />
-<input type="submit" onclick="document.getElementById('csv_type').value='output';" value="Export Extensions" />
-&nbsp;&nbsp;CSV File to Load: <input name="csvFile" type="file" />
-<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="Load File" />
+<input type="submit" onclick="document.getElementById('csv_type').value='output';" value="<?php echo _("Export Extensions")?>" />
+&nbsp;&nbsp;<?php echo _("CSV File to Load")?>: <input name="csvFile" type="file" />
+<input type="submit" onclick="document.getElementById('csv_type').value='input';"  value="<?php echo _("Load File")?>" />
 <hr />
-<h3>Email Notification for New Accounts</h3>
-<p>
-By default, a notification email will be sent to the voicemail email address
-set for each account added. The settings below can be used to control the
-content and destination of the notification emails.
+
+<?php
+echo "<h3>"._("Email Notification for New Accounts")."</h3>";
+echo "<p>";
+echo _("By default, a notification email will be sent to the voicemail email address set for each account added.")."<br>";
+echo _(" The settings below can be used to control the content and destination of the notification emails.");
+?>
 <table>
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Default Address:
-			<span>
-			If a Default Address is specified, notification emails
-			for new accounts without a voicemail email address will
-			be sent to the Default Address.
+			<?php echo _("Default Address:")?>
+			<span><?php echo _("If a Default Address is specified, notification emails for new accounts without a voicemail email address will be sent to the Default Address.")?>
 			</span>
 			</a>
 		</td>
@@ -848,12 +867,8 @@ content and destination of the notification emails.
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Override Address:
-			<span>
-			If an Override Address is specified, all notification
-			emails will be sent to the Override Address only. Type
-			"noemail" (without the quotes) as the Override Address
-			to stop notification emails from being sent.
+			<?php echo _("Override Address:")?>
+			<span><?php echo _("If an Override Address is specified, all notification emails will be sent to the Override Address only. Type \"noemail\" (without the quotes) as the Override Address to stop notification emails from being sent.")?>
 			</span>
 			</a>
 		</td>
@@ -864,10 +879,9 @@ content and destination of the notification emails.
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Email From:
+			<?php echo _("Email From:")?>
 			<span>
-			The Email From header may be specified. If left blank,
-			the system default will be used.
+			<?php echo _("The Email From header may be specified. If left blank, the system default will be used.")?>
 			</span>
 			</a>
 		</td>
@@ -878,10 +892,9 @@ content and destination of the notification emails.
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Email Reply-To:
+			<?php echo _("Email Reply-To:")?>
 			<span>
-			The Email Reply-To header may be specified. If left blank,
-			the system default will be used.
+			<?php echo _("The Email Reply-To header may be specified. If left blank, the system default will be used.")?>
 			</span>
 			</a>
 		</td>
@@ -892,11 +905,9 @@ content and destination of the notification emails.
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Email Subject:
+			<?php echo _("Email Subject:")?>
 			<span>
-			The Email Subject may be specified. If left blank, the
-			default subject, "Voicemail Account Activated", will be
-			used.
+			<?php echo _("The Email Subject may be specified. If left blank, the default subject, \"Voicemail Account Activated\", will be used.")?>
 			</span>
 			</a>
 		</td>
@@ -907,13 +918,10 @@ content and destination of the notification emails.
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Email Opening:
+			<?php echo _("Email Opening:")?>
 			<span>
-			The Email Opening may be specified. If left blank, the
-			default opening, "Login information for your voicemail
-			account is as follows:", will be used. The account name,
-			extension, and voicemail password will automatically be
-			inserted after the opening.
+			<?php echo _("The Email Opening may be specified. If left blank, the default opening, \"Login information for your voicemail account is as follows:\", will be used.")?>
+			<?php echo _(" The account name, extension, and voicemail password will automatically be inserted after the opening.")?> 
 			</span>
 			</a>
 		</td>
@@ -924,10 +932,9 @@ content and destination of the notification emails.
 	<tr>
 		<td>
 			<a href="#" class="info">
-			Email Closing:
+			<?php echo _("Email Closing:")?>
 			<span>
-			The Email Closing may be specified. If any text is
-			entered, it will be inserted at the end of the email.
+			<?php echo _("The Email Closing may be specified. If any text is entered, it will be inserted at the end of the email.")?>
 			</span>
 			</a>
 		</td>
@@ -938,12 +945,9 @@ content and destination of the notification emails.
 </table>
 </form>
 <hr />
-<h3>Bulk Extensions CSV File Columns</h3>
-<p>
-The table below explains each column in the CSV file. You can change the column
-order of the CSV file as you like, however, the column names must be preserved.
-</p>
-<?php
+<?php 
+echo "<h3>"._("Bulk Extensions CSV File Columns")."</h3><p>";
+echo _("The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.")."<p>";
 	print $table_output;
 }
 ?>
