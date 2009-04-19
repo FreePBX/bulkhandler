@@ -14,7 +14,7 @@
 //    You should have received a copy of the GNU General Public License
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
-//    Copyright 2006 sasargen
+//    Copyright 2006 Seth Sargent, Steven Ward
 //    Portions Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
 //
 // This is a long running process, so extend time limit for execution.
