@@ -1,23 +1,4 @@
 <?php
-//This file is part of FreePBX.
-//
-//    FreePBX is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 2 of the License, or
-//    (at your option) any later version.
-//
-//    FreePBX is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-//
-//    Copyright 2008 sasargen
-//    Portions Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
-//
-
 /* functions.inc.php - functions for BulkExtensions module. */
 include_once("modules/voicemail/functions.inc.php");		// for using voicemail module functions to retrieve voicemail settings
 include_once("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
@@ -304,14 +285,9 @@ function ob_clean_all () {
 }
 
 function generate_table_rows() {
-	$langcookie =  $_COOKIE['lang'];
-	if (file_exists("modules/bulkextensions/i18n/$langcookie/LC_MESSAGES/table.csv")) {		// check if translated file exists
-		$fh = fopen("modules/bulkextensions/i18n/$langcookie/LC_MESSAGES/table.csv", "r");	// open it
-    		} else { 										// nope, no translated file was found, open the default one
-	        $fh = fopen("modules/bulkextensions/table.csv", "r");
-    		}
-        if ($fh == NULL) {
-                return NULL;
+	$fh = fopen("modules/bulkextensions/table.csv", "r");
+	if ($fh == NULL) {
+		return NULL;
 	}
 	$k = 0;
 	while (($csv_data = fgetcsv($fh, 1000, ",", "\"")) !== FALSE) {
