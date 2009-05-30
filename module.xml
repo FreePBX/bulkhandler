@@ -2,7 +2,7 @@
 	<rawname>bulkextensions</rawname>
 	<name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.5.0.5</version>
+	<version>2.5.0.4</version>
 	<type>tool</type>
 	<category>Third Party Addon</category>
 	<menuitems>
@@ -11,10 +11,9 @@
 	<depends>
 		<version>ge2.5</version>
 	</depends>
-	<location>release/contributed_modules/bulkextensions-2.5.0.3.tgz</location>
+	<location>contributed_modules/release/bulkextensions-2.5.0.4.tgz</location>
 	<info></info>
 	<changelog>
-		*2.5.0.5* Added Permit and Deny fields 
 		*2.5.0.4* No changes, re-publishing to get md5sum and location info updated
 		*2.5.0.3* Fixed bug - every notification email after the first one had increasing amounts of unwanted white space at the beginning of the message
 		*2.5.0.2* New feature - Enforce extension range restrictions for admin users - thanks dinhtrung
@@ -26,6 +25,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>0be37625af7d972b7b726551df500549</md5sum>
+	<md5sum>b48bbbe84441349953a097f1844b9ca7</md5sum>
 </module>
 
