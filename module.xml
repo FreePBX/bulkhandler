@@ -2,7 +2,7 @@
 	<rawname>bulkextensions</rawname>
 	<name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.5.0.4</version>
+	<version>2.5.0.6</version>
 	<type>tool</type>
 	<category>Third Party Addon</category>
 	<menuitems>
@@ -11,9 +11,11 @@
 	<depends>
 		<version>ge2.5</version>
 	</depends>
-	<location>contributed_modules/release/bulkextensions-2.5.0.4.tgz</location>
+	<location>contributed_modules/release/bulkextensions-2.5.0.6.tgz</location>
 	<info></info>
 	<changelog>
+		*2.5.0.6* Fixes a small typo for devinfo_accountcode, adds swedish language (partial) - thanks mickecarlsson
+		*2.5.0.5* Added Permit and Deny fields from #3584 - thanks C4colo
 		*2.5.0.4* No changes, re-publishing to get md5sum and location info updated
 		*2.5.0.3* Fixed bug - every notification email after the first one had increasing amounts of unwanted white space at the beginning of the message
 		*2.5.0.2* New feature - Enforce extension range restrictions for admin users - thanks dinhtrung
