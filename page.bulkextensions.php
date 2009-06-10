@@ -528,6 +528,15 @@ if ($_REQUEST["csv_type"] == "output") {
 		      $vars["postdest"] = trim($aInfo[$aFields["postdest"][1]]);
 	      }
 
+	      // If deny and permit are empty fill in default 0.0.0.0/0.0.0.0
+	      if (!isset($vars["devinfo_deny"]) || ($vars["devinfo_deny"] == "")){
+			      $vars["devinfo_deny"] = "0.0.0.0/0.0.0.0";	// default value
+			      }
+	
+	      if (!isset($vars["devinfo_permit"]) || ($vars["devinfo_permit"] == "")){
+			      $vars["devinfo_permit"] = "0.0.0.0/0.0.0.0";	// default value
+			      }
+			      
 	      /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime, */
 	      /* grplist and pre_ring.								     */
 	      if ($followme_set) {
