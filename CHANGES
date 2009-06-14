@@ -1,0 +1,9 @@
+Added permit/deny fields. Thank you 4Colo
+Fixed some minor issues with table.csv, corrected spellings.
+Fixed a missing comma for the password field
+Fixed a spelling error in template.csv causing accountcode not to import
+Added the ability to localize/translate table.csv. 
+   Copy table.csv to i18n/<language>/LC_TEMPLATE, than you can translate the text.
+   Note: Translate only the text, not labels. All labels in position 1 must remain as they are.
+   
+   
