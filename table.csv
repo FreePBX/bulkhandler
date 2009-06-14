@@ -40,7 +40,7 @@
 "devinfo_deny",,,"deny","Network/Mask of IP address range to deny.  Default is 0.0.0.0/0.0.0.0 (or everything)."
 "devinfo_permit",,,"permit","Network/Mask of IP address range to permit.  Default is 0.0.0.0/0.0.0.0 (or everything).  Valid examples would be: 192.168.1.0/255.255.255.0 (all IP addresses from 192.168.1.0-255) or 10.1.0.42/255.255.255.255 (a single address)."
 "devicetype","fixed","fixed, adhoc",,"Extensions require that devicetype be fixed. If devicetype is adhoc, FreePBX must manage it in Device and Users mode, not Extensions mode."
-"deviceid",,,,"Defaults to be the value of extension (see item 1 of this table)."
+"deviceid",,,,"Defaults to be the value of extension (see item 2 of this table)."
 "deviceuser",,,,"Fixed devices will always be mapped to this user.  Adhoc devices will be mapped to this user by default.<br><br>If selecting 'New User', a new User Extension of the same Device ID will be set as the Default User."
 "description",,,,"The caller id name for this device will be set to this description (until it is logged into - possible when adhoc devicetype is used)."
 "dictenabled","disabled","enabled, disabled","Dictation Service",,
@@ -48,7 +48,7 @@
 "dictemail",,,"Email Address","The email address that completed dictations are sent to."
 "langcode",,,"Language Code","The language code for this user. This will result in messages such as voiclangcode prompts to use the selected language if installed."
 "record_in","Adhoc","Adhoc, Always, Never","Record Incoming","Record all inbound calls received at this extension."
-"record_out","Adhoc","Adhoc, Always, Never","Record Outgoing","Record all outbound calls received at this extension."
+"record_out","Adhoc","Adhoc, Always, Never","Record Outgoing","Record all outbound calls made by this extension."
 "vm","disabled","enabled, disabled","Status","Set voicemail status for this user."
 "vmpwd",,,"Voicemail Password","This is the password used to access the voicemail system.<br><br>This password can only contain numbers.<br><br>A user can change the password you enter here after logging into the voicemail system (*98) with a phone."
 "email",,,"Email Address","The email address that voicemails are sent to."
