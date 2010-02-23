@@ -42,7 +42,7 @@
 "devicetype","fixed","fixed, adhoc",,"Anknytningar kräver att enhetstypen sätts till fixed. Om enhetstypen är adhoc måste FreePBX hantera den i <b>Device and Users mode</b> i stället för <b>Extensions mode</b>."
 "deviceid",,,,"Som standard är detta värdet på anknytningen (se val nr 2 i denna tabell)."
 "deviceuser",,,,"Fasta enheter kommer alltid att vara kopplade till denna användare. Adhoc-enheter kommer som standard att kopplas till denna användare.<br><br>Om en 'Ny användare' väljs, kommer en ny anknytning med samma Device-id att sättas som Standard användare."
-"description",,,,"Nummerpresentationsnamnet för denna enhet kommer att vara detta man tills någon loggar in på enheten)."
+"description",,,,"Nummerpresentationsnamnet för denna enhet kommer att vara detta tills någon loggar in på enheten)."
 "dictenabled","disabled","enabled, disabled","Diktamen",,
 "dictformat","ogg","ogg, gsm, wav","Format för diktamen",,
 "dictemail",,,"E-postadress","E-postadressen som diktamen ska skickas till."
