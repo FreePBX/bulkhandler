@@ -15,14 +15,22 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    Copyright 2008 sasargen
-//    Portions Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
+//    Portions Copyright 2009, 2010 Mikael Carlsson, mickecamino@gmail.com
 //
 
 /* functions.inc.php - functions for BulkExtensions module. */
-include_once("modules/voicemail/functions.inc.php");		// for using voicemail module functions to retrieve voicemail settings
-include_once("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
-include_once("modules/languages/functions.inc.php");		// for using languages functions to retrieve language setting
-include_once("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
+if (file_exists("modules/voicemail/functions.inc.php")) {
+    include_once("modules/voicemail/functions.inc.php");	// for using voicemail module functions to retrieve voicemail settings
+    };
+if (file_exists("modules/dictate/functions.inc.php")) {
+    include_once("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
+    };
+if (file_exists("modules/languages/functions.inc.php")) {
+    include_once("modules/languages/functions.inc.php");	// for using languages functions to retrieve language setting
+    };
+if (file_exists("modules/findmefollow/functions.inc.php")) {
+    include_once("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
+    };
 
 /* Verify existence of voicemail, dictate, languages and findmefollow functions. */
 if (function_exists("voicemail_mailbox_get") && function_exists("voicemail_mailbox_add") && function_exists("voicemail_mailbox_del") && function_exists("voicemail_mailbox_remove") && class_exists("vmxObject")) {
@@ -319,7 +327,7 @@ function generate_table_rows() {
 		/* Name,Default,Allowed,On Extensions page,Details */
 		for ($i = 0; $i < 5; $i++) {
 			if (isset($csv_data[$i])) {
-				$table[$k][$i] .= $csv_data[$i];
+    				$table[$k][$i] = $csv_data[$i];
 			} else {
 				$table[$k][$i] = "";
 			}

@@ -26,10 +26,11 @@ set_time_limit(3000);
 // are made, no reload will be prompted.
 $change = false;
 $output = "";
+$action = isset($_REQUEST["csv_type"])?$_REQUEST["csv_type"]:'';
 
-if ($_REQUEST["csv_type"] == "output") {
+if ($action == "output") {
 	exportextensions_allusers();
-} elseif ($_REQUEST["csv_type"] == "input") {
+} elseif ($action == "input") {
 	// Set email notification variables
 	if (isset($_REQUEST["default_email"])) {
 		$default_email = $_REQUEST["default_email"];
