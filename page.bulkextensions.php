@@ -410,13 +410,25 @@ if ($action == "output") {
 	      }
 
       	      if ($aFields["devinfo_deny"][0]) {
-		      $vars["devinfo_deny"] = trim($aInfo[$aFields["devinfo_deny"][1]]);
+	      // If field is empty fill in default 0.0.0.0/0.0.0.0
+        	      if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_deny"][1]] == "")){
+			    $vars["devinfo_deny"] = "0.0.0.0/0.0.0.0";	// default value
+			    }
+		      else {
+		    	    $vars["devinfo_deny"] = trim($aInfo[$aFields["devinfo_deny"][1]]);
+		    	  }
 	      }
 
-	      if ($aFields["devinfo_permit"][0]) {
-		      $vars["devinfo_permit"] = trim($aInfo[$aFields["devinfo_permit"][1]]);
+      	      if ($aFields["devinfo_permit"][0]) {
+	      // If field is empty fill in default 0.0.0.0/0.0.0.0      	      
+	    	      if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_permit"][1]] == "")){
+			    $vars["devinfo_permit"] = "0.0.0.0/0.0.0.0"; // default value
+			    }
+		      else {
+		    	    $vars["devinfo_permit"] = trim($aInfo[$aFields["devinfo_permit"][1]]);
+		    	    }
 	      }
-	      
+
 	      if ($aFields["devicetype"][0]) {
 		      $vars["devicetype"] = trim($aInfo[$aFields["devicetype"][1]]);
 	      }
@@ -594,25 +606,6 @@ if ($action == "output") {
 		      $vars["postdest"] = trim($aInfo[$aFields["postdest"][1]]);
 	      }
 
-      	      if ($aFields["devinfo_deny"][0]) {
-	      // If field is empty fill in default 0.0.0.0/0.0.0.0
-        	      if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_deny"][1]] == "")){
-			    $vars["devinfo_deny"] = "0.0.0.0/0.0.0.0";	// default value
-			    }
-		      else {
-		    	    $vars["devinfo_deny"] = trim($aInfo[$aFields["devinfo_deny"][1]]);
-		    	  }
-	      }
-
-      	      if ($aFields["devinfo_permit"][0]) {
-	      // If field is empty fill in default 0.0.0.0/0.0.0.0      	      
-	    	      if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_permit"][1]] == "")){
-			    $vars["devinfo_permit"] = "0.0.0.0/0.0.0.0"; // default value
-			    }
-		      else {
-		    	    $vars["devinfo_permit"] = trim($aInfo[$aFields["devinfo_permit"][1]]);
-		    	    }
-	      }
 	       
 	      /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime, */
 	      /* grplist and pre_ring.								     */
