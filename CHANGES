@@ -5,6 +5,7 @@ Fixed a spelling error in template.csv causing accountcode not to import
 Added the ability to localize/translate table.csv. 
    Copy table.csv to i18n/<language>/LC_MESSAGE/, translate the text in the file.
    Note: Translate only the text, not labels. All labels in position 1 must remain as they are.
+Fixed bug when setting one entry in a field in the csv file all fields that where empty got an empty line in the config files
    
    
    

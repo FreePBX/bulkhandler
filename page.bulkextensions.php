@@ -241,7 +241,12 @@ if ($action == "output") {
 	      }
 
 	      if ($aFields["devinfo_channel"][0]) {
-		      $vars["devinfo_channel"] = trim($aInfo[$aFields["devinfo_channel"][1]]);
+	      	    if (!isset($aInfo[$aFields["devinfo_channel"][1]]) || ($aInfo[$aFields["devinfo_channel"][1]] == "")){
+	    	        unset($vars["devinfo_channel"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_channel"] = trim($aInfo[$aFields["devinfo_channel"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_secret"][0]) {
@@ -249,7 +254,12 @@ if ($action == "output") {
 	      }
 
 	      if ($aFields["devinfo_notransfer"][0]) {
-		      $vars["devinfo_notransfer"] = trim($aInfo[$aFields["devinfo_notransfer"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_notransfer"][1]]) || ($aInfo[$aFields["devinfo_notransfer"][1]] == "")){
+	    	        unset($vars["devinfo_notransfer"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_notransfer"] = trim($aInfo[$aFields["devinfo_notransfer"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_dtmfmode"][0]) {
@@ -265,35 +275,75 @@ if ($action == "output") {
 	      }
 
 	      if ($aFields["devinfo_immediate"][0]) {
-		      $vars["devinfo_immediate"] = trim($aInfo[$aFields["devinfo_immediate"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_immediate"][1]]) || ($aInfo[$aFields["devinfo_immediate"][1]] == "")){
+	    	        unset($vars["devinfo_immediate"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_immediate"] = trim($aInfo[$aFields["devinfo_immediate"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_signalling"][0]) {
-		      $vars["devinfo_signalling"] = trim($aInfo[$aFields["devinfo_signalling"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_signalling"][1]]) || ($aInfo[$aFields["devinfo_signalling"][1]] == "")){
+	    	        unset($vars["devinfo_signalling"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_signalling"] = trim($aInfo[$aFields["devinfo_signalling"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_echocancel"][0]) {
-		      $vars["devinfo_echocancel"] = trim($aInfo[$aFields["devinfo_echocancel"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_echocancel"][1]]) || ($aInfo[$aFields["devinfo_echocancel"][1]] == "")){
+	    	        unset($vars["devinfo_echocancel"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_echocancel"] = trim($aInfo[$aFields["devinfo_echocancel"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_echocancelwhenbridged"][0]) {
-		      $vars["devinfo_echocancelwhenbridged"] = trim($aInfo[$aFields["devinfo_echocancelwhenbridged"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_echocancelwhenbridged"][1]]) || ($aInfo[$aFields["devinfo_echocancelwhenbridged"][1]] == "")){
+	    	        unset($vars["devinfo_echocancelwhenbridged"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_echocancelwhenbridged"] = trim($aInfo[$aFields["devinfo_echocancelwhenbridged"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_echotraining"][0]) {
-		      $vars["devinfo_echotraining"] = trim($aInfo[$aFields["devinfo_echotraining"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_echotraining"][1]]) || ($aInfo[$aFields["devinfo_echotraining"][1]] == "")){
+	    	        unset($vars["devinfo_echotraining"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_echotraining"] = trim($aInfo[$aFields["devinfo_echotraining"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_busydetect"][0]) {
-		      $vars["devinfo_busydetect"] = trim($aInfo[$aFields["devinfo_busydetect"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_busydetect"][1]]) || ($aInfo[$aFields["devinfo_busydetect"][1]] == "")){
+	    	        unset($vars["devinfo_busydetect"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_busydetect"] = trim($aInfo[$aFields["devinfo_busydetect"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_busycount"][0]) {
-		      $vars["devinfo_busycount"] = trim($aInfo[$aFields["devinfo_busycount"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_busycount"][1]]) || ($aInfo[$aFields["devinfo_busycount"][1]] == "")){
+	    	        unset($vars["devinfo_busycount"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_busycount"] = trim($aInfo[$aFields["devinfo_busycount"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_callprogress"][0]) {
-		      $vars["devinfo_callprogress"] = trim($aInfo[$aFields["devinfo_callprogress"][1]]);
+	    	    if (!isset($aInfo[$aFields["devinfo_callprogress"][1]]) || ($aInfo[$aFields["devinfo_callprogress"][1]] == "")){
+	    	        unset($vars["devinfo_callprogress"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_callprogress"] = trim($aInfo[$aFields["devinfo_callprogress"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_host"][0]) {
@@ -317,11 +367,21 @@ if ($action == "output") {
 	      }
 
 	      if ($aFields["devinfo_callgroup"][0]) {
-		      $vars["devinfo_callgroup"] = trim($aInfo[$aFields["devinfo_callgroup"][1]]);
+	    	      if (!isset($aInfo[$aFields["devinfo_callgroup"][1]]) || ($aInfo[$aFields["devinfo_callgroup"][1]] == "")){
+	    	        unset($vars["devinfo_callgroup"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_callgroup"] = trim($aInfo[$aFields["devinfo_callgroup"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_pickupgroup"][0]) {
-		      $vars["devinfo_pickupgroup"] = trim($aInfo[$aFields["devinfo_pickupgroup"][1]]);
+	    	      if (!isset($aInfo[$aFields["devinfo_pickupgroup"][1]]) || ($aInfo[$aFields["devinfo_pickupgroup"][1]] == "")){
+	    	      unset($vars["devinfo_pickupgroup"]);
+	    	      }
+	    	      else {
+	    	           $vars["devinfo_pickupgroup"] = trim($aInfo[$aFields["devinfo_pickupgroup"][1]]);
+	    	           }
 	      }
 
 	      if ($aFields["devinfo_disallow"][0]) {
@@ -337,18 +397,23 @@ if ($action == "output") {
 	      }
 
 	      if ($aFields["devinfo_accountcode"][0]) {
-		      $vars["devinfo_accountcode"] = trim($aInfo[$aFields["devinfo_accountcode"][1]]);
+	    	      if (!isset($aInfo[$aFields["devinfo_accountcode"][1]]) || ($aInfo[$aFields["devinfo_accountcode"][1]] == "")){
+	    	        unset($vars["devinfo_accountcode"]);
+	       		}
+	       	    else {
+	       		$vars["devinfo_accountcode"] = trim($aInfo[$aFields["devinfo_accountcode"][1]]);
+	       		}
 	      }
 
 	      if ($aFields["devinfo_mailbox"][0]) {
 		      $vars["devinfo_mailbox"] = trim($aInfo[$aFields["devinfo_mailbox"][1]]);
 	      }
 
-      	  if ($aFields["devinfo_deny"][0]) {
+      	      if ($aFields["devinfo_deny"][0]) {
 		      $vars["devinfo_deny"] = trim($aInfo[$aFields["devinfo_deny"][1]]);
 	      }
 
-      	  if ($aFields["devinfo_permit"][0]) {
+	      if ($aFields["devinfo_permit"][0]) {
 		      $vars["devinfo_permit"] = trim($aInfo[$aFields["devinfo_permit"][1]]);
 	      }
 	      
@@ -529,15 +594,26 @@ if ($action == "output") {
 		      $vars["postdest"] = trim($aInfo[$aFields["postdest"][1]]);
 	      }
 
-	      // If deny and permit are empty fill in default 0.0.0.0/0.0.0.0
-	      if (!isset($vars["devinfo_deny"]) || ($vars["devinfo_deny"] == "")){
-			      $vars["devinfo_deny"] = "0.0.0.0/0.0.0.0";	// default value
-			      }
-	
-	      if (!isset($vars["devinfo_permit"]) || ($vars["devinfo_permit"] == "")){
-			      $vars["devinfo_permit"] = "0.0.0.0/0.0.0.0";	// default value
-			      }
-			      
+      	      if ($aFields["devinfo_deny"][0]) {
+	      // If field is empty fill in default 0.0.0.0/0.0.0.0
+        	      if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_deny"][1]] == "")){
+			    $vars["devinfo_deny"] = "0.0.0.0/0.0.0.0";	// default value
+			    }
+		      else {
+		    	    $vars["devinfo_deny"] = trim($aInfo[$aFields["devinfo_deny"][1]]);
+		    	  }
+	      }
+
+      	      if ($aFields["devinfo_permit"][0]) {
+	      // If field is empty fill in default 0.0.0.0/0.0.0.0      	      
+	    	      if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_permit"][1]] == "")){
+			    $vars["devinfo_permit"] = "0.0.0.0/0.0.0.0"; // default value
+			    }
+		      else {
+		    	    $vars["devinfo_permit"] = trim($aInfo[$aFields["devinfo_permit"][1]]);
+		    	    }
+	      }
+	       
 	      /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime, */
 	      /* grplist and pre_ring.								     */
 	      if ($followme_set) {
