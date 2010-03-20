@@ -15,7 +15,7 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    Copyright 2006 Seth Sargent, Steven Ward
-//    Portions Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
+//    Portions Copyright 2009, 2010 Mikael Carlsson, mickecamino@gmail.com
 //
 // This is a long running process, so extend time limit for execution.
 // Typical PHP default is 30 seconds, but this only allows 100 to 200
@@ -385,11 +385,21 @@ if ($action == "output") {
 	      }
 
 	      if ($aFields["devinfo_disallow"][0]) {
-		      $vars["devinfo_disallow"] = trim($aInfo[$aFields["devinfo_disallow"][1]]);
+	    	      if (!isset($aInfo[$aFields["devinfo_disallow"][1]]) || ($aInfo[$aFields["devinfo_disallow"][1]] == "")){
+	    	      unset($vars["devinfo_disallow"]);
+	    	      }
+	    	      else {
+	    	           $vars["devinfo_disallow"] = trim($aInfo[$aFields["devinfo_disallow"][1]]);
+	    	           }
 	      }
 
 	      if ($aFields["devinfo_allow"][0]) {
-		      $vars["devinfo_allow"] = trim($aInfo[$aFields["devinfo_allow"][1]]);
+	    	      if (!isset($aInfo[$aFields["devinfo_allow"][1]]) || ($aInfo[$aFields["devinfo_allow"][1]] == "")){
+	    	      unset($vars["devinfo_allow"]);
+	    	      }
+	    	      else {
+	    	           $vars["devinfo_allow"] = trim($aInfo[$aFields["devinfo_allow"][1]]);
+	    	           }
 	      }
 
 	      if ($aFields["devinfo_dial"][0]) {
