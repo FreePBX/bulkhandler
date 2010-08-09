@@ -2,7 +2,7 @@
 	<rawname>bulkextensions</rawname>
 	<name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.5.0.6</version>
+	<version>2.5.0.7</version>
 	<type>tool</type>
 	<category>Third Party Addon</category>
 	<menuitems>
@@ -11,9 +11,10 @@
 	<depends>
 		<version>ge2.5</version>
 	</depends>
-	<location>contributed_modules/release/bulkextensions-2.5.0.6.tgz</location>
+	<location>contributed_modules/release/bulkextensions-2.5.0.7.tgz</location>
 	<info></info>
 	<changelog>
+		*2.6.0.7* #4495
 		*2.5.0.6* #4150
 		*2.5.0.5* Add permit/deny fields provided by 4Colo. Fixed a small bug in table.csv. Fixed spelling error in template.csv. Added localization for table.csv. See CHANGES for how-to.
 		*2.5.0.4* No changes, re-publishing to get md5sum and location info updated
@@ -27,6 +28,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>c283845c0c672b74902c89667ebc9df1</md5sum>
+	<md5sum>738e8641bb0fce3646cefb80d7579fce</md5sum>
 </module>
 
