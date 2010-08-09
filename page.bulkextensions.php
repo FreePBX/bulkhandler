@@ -79,6 +79,7 @@ if ($action == "output") {
       "ringtimer" => array(false, -1),
       "callwaiting" => array(false, -1),
       "call_screen" => array(false, -1),
+      "pinless" => array(false, -1),
       "password" => array(false, -1),
       "emergency_cid" => array(false, -1),
       "tech" => array(false, -1),
@@ -222,6 +223,10 @@ if ($action == "output") {
 
 	      if ($aFields["call_screen"][0]) {
 		      $vars["call_screen"] = trim($aInfo[$aFields["call_screen"][1]]);
+	      }
+
+	      if ($aFields["pinless"][0]) {
+		      $vars["pinless"] = trim($aInfo[$aFields["pinless"][1]]);
 	      }
 
 	      if ($aFields["password"][0]) {

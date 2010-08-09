@@ -7,6 +7,7 @@
 "ringtimer","0","0-120","Ringtid","Antal sekunder att ringa före samtalet kopplas till röstbrevlåda. Standard är värdet som är satt i <b>Generella inställningar</b>. Om ingen röstbrevlåda är angiven har inställningen ingen funktion."
 "callwaiting","enabled","enabled, disabled","Samtal väntar","Sätter valet för Samtal väntar för denna anknytning."
 "call_screen","0","0, nomemory, memory","Sålla samtal","Sålla samtal kräver att externa uppringare måste ange sitt namn som kommer att spelas upp för den uppringde och ger denna då möjlighet att ta samtalet eller avböja det. Sålla samtal  - kom ihåg verifierar inkommande nummerpresentation endast första gången. Sålla samtal - kom inte ihåg kräver att uppringaren varje gång måste ange sitt namn. Bägge valen kommer att kommer att spela upp det sist inspelade namnet sparat med nummerpresentationen."
+"pinless",,"enabled, disabled","Ring utan PIN","Aktiveras Ring utan PIN kommer denna anknytning att ignorera alla satta PIN som normalt krävs för att göra utgående samtal" 
 "password",,,,"Används för att logga in och ur enheter i läget deviceanduser, detta val finns inte under Anknytningar."
 "emergency_cid",,,"Nummerpresentation för nödsamtal","Nummerpresentationen kommer att sättas till detta när ett samtal markerat som ett nödsamtal ringer ut. Denna nummerpresentation skriver över all annan nummerpresentation."
 "tech",,"sip, iax2, zap, custom",,"Typ av enhet."
