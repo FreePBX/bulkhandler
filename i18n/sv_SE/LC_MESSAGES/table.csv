@@ -83,3 +83,5 @@
 "remotealert_id","blankt eller 0 (Standard)","någon inspelnings-id aktiv på systemet","Fjärrmeddelande: (Sidan Följ-mig)","Meddelande att spela upp för den UPPRINGDE om 'Bekräfta samtal' är aktiverat.<br><br>För att lägga till inspelningar väljer du "Systeminspelningar" i menyn till vänster"
 "toolate_id","blankt eller 0 (Standard)","någon inspelnings-id aktivt på systemet","För-sent meddelande: (Sidan Följ-mig)","Meddelande att spela upp för den UPPRINGDE, om samtalet redan har besvarats av annan part, innan denna uppringda har tryckt 1.<br><br>För att lägga till inspelningar väljer du "Systeminspelningar"i menyn till vänster"
 "postdest",,"Text i formatet <b>context,exten,priority</b> som är en aktiv destination i nummerplanen på systemet","Destination vid inget svar: (Sidan Följ-mig)",
+"faxenabled",,"true eller tomt","Aktiverad","Aktiveras fax om inställningen sätts till <b>true</b>. Om detta fält är tomt readeras faxinställningen"
+"faxemail",,"Giltig e-postadress","E-post för fax","E-postadress dit mottagna fax skickas"

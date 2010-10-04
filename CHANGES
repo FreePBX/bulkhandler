@@ -6,6 +6,4 @@ Added the ability to localize/translate table.csv.
    Copy table.csv to i18n/<language>/LC_MESSAGE/, translate the text in the file.
    Note: Translate only the text, not labels. All labels in position 1 must remain as they are.
 Fixed bug when setting one entry in a field in the csv file all fields that where empty got an empty line in the config files
-   
-   
-   
+Added import for fax settings. Note: This will only works for FreePBX 2.7 and above   

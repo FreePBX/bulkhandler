@@ -154,7 +154,9 @@ if ($action == "output") {
       "needsconf" => array(false, -1),
       "remotealert_id" => array(false, -1),
       "toolate_id" => array(false, -1),
-      "postdest" => array(false, -1)
+      "postdest" => array(false, -1),
+      "faxenabled" => array(false, -1),
+      "faxemail" => array(false, -1)
       );
 
       $fh = fopen($_FILES["csvFile"]["tmp_name"], "r");
@@ -620,7 +622,20 @@ if ($action == "output") {
       	      if ($aFields["postdest"][0]) {
 		      $vars["postdest"] = trim($aInfo[$aFields["postdest"][1]]);
 	      }
-
+	      if ($aFields["faxenabled"][0]) {
+	      if (!isset($aInfo[$aFields["faxenabled"][1]]) || ($aInfo[$aFields["faxenabled"][1]] == "")){
+		    unset($vars["faxenabled"]);
+		    } else {
+			$vars["faxenabled"] = trim($aInfo[$aFields["faxenabled"][1]]);
+			}
+	      }
+	      if ($aFields["faxemail"][0]) {
+	      if (!isset($aInfo[$aFields["faxemail"][1]]) || ($aInfo[$aFields["faxemail"][1]] == "")){
+		    unset($vars["faxemail"]);
+		    } else {
+			$vars["faxemail"] = trim($aInfo[$aFields["faxemail"][1]]);
+			}
+	      }
 	       
 	      /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime, */
 	      /* grplist and pre_ring.								     */
@@ -641,6 +656,8 @@ if ($action == "output") {
 			      $vars["pre_ring"] = "0";			// default value
 		      }
 	      }
+
+
 
 	      if (!(isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser"))) {
 		      $vars["devicetype"] 	= "fixed";
@@ -694,6 +711,10 @@ if ($action == "output") {
 					if ($findme_exists && $followme_set) {
 						findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
 					}
+					if ($fax_exists) {
+						fax_save_user($vars["extension"], $vars["faxenabled"], $vars["faxemail"]);
+					}
+
 					// begin status output for this row
 					$output .= "Row $k: Added: " . $vars["extension"];
 					// send notification email for new voicemail account
@@ -835,6 +856,15 @@ if ($action == "output") {
 					}
 					$change = true;
 				}
+                                if ($fax_exists) {
+                                // If there is no entry in faxenabled, then delete the user in the fax table
+                                    if (!isset($aInfo[$aFields["faxenabled"][1]]) || ($aInfo[$aFields["faxenabled"][1]] == "")){
+                                        fax_delete_user($vars["extension"]);
+                                        } else {
+                                            fax_save_user($vars["extension"], $vars["faxenabled"], $vars["faxemail"]);
+                                            }
+                                    }
+
 				$output .= "Row $k: Edited: " . $vars["extension"] . "<BR>";
 				break;
 			case "del":
@@ -873,6 +903,10 @@ if ($action == "output") {
 					voicemail_mailbox_remove($vars["extension"]);
 					voicemail_mailbox_del($vars["extension"]);
 				}
+                                // Fax settings
+                                if ($fax_exists) {
+                                        fax_delete_user($vars["extension"]);
+                                }
 				$output .= "Row $k: Deleted: " . $vars["extension"] . "<BR>";
 				break;
 			default:

@@ -31,6 +31,9 @@ if (file_exists("modules/languages/functions.inc.php")) {
 if (file_exists("modules/findmefollow/functions.inc.php")) {
     include_once("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
     };
+if (file_exists("modules/fax/functions.inc.php")) {
+    include_once("modules/fax/functions.inc.php");             // for using fax functions to retreive fax settings
+    };
 
 /* Verify existence of voicemail, dictate, languages and findmefollow functions. */
 if (function_exists("voicemail_mailbox_get") && function_exists("voicemail_mailbox_add") && function_exists("voicemail_mailbox_del") && function_exists("voicemail_mailbox_remove") && class_exists("vmxObject")) {
@@ -53,6 +56,11 @@ if (function_exists("findmefollow_get") && function_exists("findmefollow_add") &
 } else {
 	$findme_exists	= FALSE;
 }
+if (function_exists("fax_get_user") && function_exists("fax_save_user") && function_exists("fax_delete_user")) {
+       $fax_exists     = TRUE;
+} else {
+       $fax_exists     = FALSE;
+}
 
 function exportextensions_allusers() {
 	global $db;
@@ -60,9 +68,10 @@ function exportextensions_allusers() {
 	global $dict_exists;
 	global $lang_exists;
 	global $findme_exists;
+	global $fax_exists;
 	$action		= "edit";
 	$fname		= "bulkext__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest\n";
+	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest,faxenabled,faxemail\n";
 	$data 		= $csv_header;
 	$exts 		= get_all_exts();
 
@@ -160,6 +169,16 @@ function exportextensions_allusers() {
 			$pre_ring 	= isset($followme_settings["pre_ring"])?$followme_settings["pre_ring"]:"";
 			$ddial 		= isset($followme_settings["ddial"])?$followme_settings["ddial"]:"";
 		}
+
+		/* Obtain fax settings */
+		if ($fax_exists) {
+		    $fax_settings = fax_get_user($e);
+		    }
+		if (isset($fax_settings)) {
+		$faxenabled     = isset($fax_settings["faxenabled"])?$fax_settings["faxenabled"]:"";
+		$faxemail       = isset($fax_settings["faxemail"])?$fax_settings["faxemail"]:"";
+		}
+
 		$csv_line[0] 	= $action;
 		$csv_line[1] 	= isset($u_info["extension"])?$u_info["extension"]:"";
 		$csv_line[2] 	= isset($u_info["name"])?$u_info["name"]:"";
@@ -249,6 +268,9 @@ function exportextensions_allusers() {
 		$csv_line[82]	= isset($remotealert_id)?$remotealert_id:"";
 		$csv_line[83]	= isset($toolate_id)?$toolate_id:"";
 		$csv_line[84]	= isset($postdest)?$postdest:"";
+		$csv_line[85]   = isset($faxenabled)?$faxenabled:"";
+		$csv_line[86]   = isset($faxemail)?$faxemail:"";
+
 		for ($i = 0; $i < count($csv_line); $i++) {
 			/* If the string contains a comma, enclose it in double-quotes. */
 			if (strpos($csv_line[$i], ",") !== FALSE) {
