@@ -71,7 +71,7 @@ function exportextensions_allusers() {
 	global $fax_exists;
 	$action		= "edit";
 	$fname		= "bulkext__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest,faxenabled,faxemail\n";
+	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,noanswer_dest,noanswer_cid,busy_dest,busy_cid,chanunavail_dest,chanunavail_cid,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,record_in,record_out,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest,faxenabled,faxemail\n";
 	$data 		= $csv_header;
 	$exts 		= get_all_exts();
 
@@ -178,7 +178,6 @@ function exportextensions_allusers() {
 		$faxenabled     = isset($fax_settings["faxenabled"])?$fax_settings["faxenabled"]:"";
 		$faxemail       = isset($fax_settings["faxemail"])?$fax_settings["faxemail"]:"";
 		}
-
 		$csv_line[0] 	= $action;
 		$csv_line[1] 	= isset($u_info["extension"])?$u_info["extension"]:"";
 		$csv_line[2] 	= isset($u_info["name"])?$u_info["name"]:"";
@@ -190,86 +189,89 @@ function exportextensions_allusers() {
 		$csv_line[8]	= isset($u_info["call_screen"])?$u_info["call_screen"]:"0";
 		$csv_line[9]	= isset($u_info["pinless"])?$u_info["pinless"]:"";
 		$csv_line[10]	= isset($u_info["password"])?$u_info["password"]:"";
+		$csv_line[11]   = isset($u_info["noanswer_dest"])?$u_info["noanswer_dest"]:"";
+		$csv_line[12]   = isset($u_info["noanswer_cid"])?$u_info["noanswer_cid"]:"";
+		$csv_line[13]   = isset($u_info["busy_dest"])?$u_info["busy_dest"]:"";
+		$csv_line[14]   = isset($u_info["busy_cid"])?$u_info["busy_cid"]:"";
+		$csv_line[15] = isset($u_info["chanunavail_dest"])?$u_info["chanunavail_dest"]:"";		
+		$csv_line[16]  = isset($u_info["chanunavail_cid"])?$u_info["chanunavail_cid"]:"";		
+		$csv_line[17]	= isset($d_info["emergency_cid"])?$d_info["emergency_cid"]:"";
+		$csv_line[18]	= isset($d_info["tech"])?$d_info["tech"]:"";
+		$csv_line[19]	= ""; 	// hardware
+		$csv_line[20]	= isset($d_info["channel"])?$d_info["channel"]:"";
+		$csv_line[21]	= isset($d_info["secret"])?$d_info["secret"]:"";
+		$csv_line[22]	= isset($d_info["notransfer"])?$d_info["notransfer"]:"";
+		$csv_line[23]	= isset($d_info["dtmfmode"])?$d_info["dtmfmode"]:"";
+		$csv_line[24]	= isset($d_info["canreinvite"])?$d_info["canreinvite"]:"";
+		$csv_line[25]	= isset($d_info["context"])?$d_info["context"]:"";
+		$csv_line[26]	= isset($d_info["immediate"])?$d_info["immediate"]:"";
+		$csv_line[27]	= isset($d_info["signalling"])?$d_info["signalling"]:"";
+		$csv_line[28]	= isset($d_info["echocancel"])?$d_info["echocancel"]:"";
+		$csv_line[29]	= isset($d_info["echocancelwhenbridged"])?$d_info["echocancelwhenbridged"]:"";
+		$csv_line[30]	= isset($d_info["echotraining"])?$d_info["echotraining"]:"";
+		$csv_line[31]	= isset($d_info["busydetect"])?$d_info["busydetect"]:"";
+		$csv_line[32]	= isset($d_info["busycount"])?$d_info["busycount"]:"";
+		$csv_line[33]	= isset($d_info["callprogress"])?$d_info["callprogress"]:"";
+		$csv_line[34]	= isset($d_info["host"])?$d_info["host"]:"";
+		$csv_line[35]	= isset($d_info["type"])?$d_info["type"]:"";
+		$csv_line[36]	= isset($d_info["nat"])?$d_info["nat"]:"";
+		$csv_line[37]	= isset($d_info["port"])?$d_info["port"]:"";
+		$csv_line[38]	= isset($d_info["qualify"])?$d_info["qualify"]:"";
+		$csv_line[39]	= isset($d_info["callgroup"])?$d_info["callgroup"]:"";
+		$csv_line[40]	= isset($d_info["pickupgroup"])?$d_info["pickupgroup"]:"";
+		$csv_line[41]	= isset($d_info["disallow"])?$d_info["disallow"]:"";
+		$csv_line[42]	= isset($d_info["allow"])?$d_info["allow"]:"";
+		$csv_line[43]	= isset($d_info["dial"])?$d_info["dial"]:"";
+		$csv_line[44]	= isset($d_info["accountcode"])?$d_info["accountcode"]:"";
+		$csv_line[45]	= isset($d_info["mailbox"])?$d_info["mailbox"]:"";
+		$csv_line[46]	= isset($d_info["deny"])?$d_info["deny"]:"";
+		$csv_line[47]	= isset($d_info["permit"])?$d_info["permit"]:"";
+		$csv_line[48]	= isset($d_info["devicetype"])?$d_info["devicetype"]:"fixed";
+		$csv_line[49]	= (isset($d_info["deviceid"]) || ($d_info["deviceid"]==""))?$d_info["deviceid"]:(isset($u_info["extension"])?$u_info["extension"]:"");
+		$csv_line[50]	= (isset($d_info["deviceuser"]) && ($d_info["deviceuser"] != ""))?$d_info["deviceuser"]:(isset($u_info["extension"])?$u_info["extension"]:"none");
+		$csv_line[51]	= isset($d_info["description"])?$d_info["description"]:(isset($u_info["name"])?$u_info["name"]:"");
 
-		$csv_line[11]	= isset($d_info["emergency_cid"])?$d_info["emergency_cid"]:"";
-		$csv_line[12]	= isset($d_info["tech"])?$d_info["tech"]:"";
-		$csv_line[13]	= ""; 	// hardware
-		$csv_line[14]	= isset($d_info["channel"])?$d_info["channel"]:"";
-		$csv_line[15]	= isset($d_info["secret"])?$d_info["secret"]:"";
-		$csv_line[16]	= isset($d_info["notransfer"])?$d_info["notransfer"]:"";
-		$csv_line[17]	= isset($d_info["dtmfmode"])?$d_info["dtmfmode"]:"";
-		$csv_line[18]	= isset($d_info["canreinvite"])?$d_info["canreinvite"]:"";
-		$csv_line[19]	= isset($d_info["context"])?$d_info["context"]:"";
-		$csv_line[20]	= isset($d_info["immediate"])?$d_info["immediate"]:"";
-		$csv_line[21]	= isset($d_info["signalling"])?$d_info["signalling"]:"";
-		$csv_line[22]	= isset($d_info["echocancel"])?$d_info["echocancel"]:"";
-		$csv_line[23]	= isset($d_info["echocancelwhenbridged"])?$d_info["echocancelwhenbridged"]:"";
-		$csv_line[24]	= isset($d_info["echotraining"])?$d_info["echotraining"]:"";
-		$csv_line[25]	= isset($d_info["busydetect"])?$d_info["busydetect"]:"";
-		$csv_line[26]	= isset($d_info["busycount"])?$d_info["busycount"]:"";
-		$csv_line[27]	= isset($d_info["callprogress"])?$d_info["callprogress"]:"";
-		$csv_line[28]	= isset($d_info["host"])?$d_info["host"]:"";
-		$csv_line[29]	= isset($d_info["type"])?$d_info["type"]:"";
-		$csv_line[30]	= isset($d_info["nat"])?$d_info["nat"]:"";
-		$csv_line[31]	= isset($d_info["port"])?$d_info["port"]:"";
-		$csv_line[32]	= isset($d_info["qualify"])?$d_info["qualify"]:"";
-		$csv_line[33]	= isset($d_info["callgroup"])?$d_info["callgroup"]:"";
-		$csv_line[34]	= isset($d_info["pickupgroup"])?$d_info["pickupgroup"]:"";
-		$csv_line[35]	= isset($d_info["disallow"])?$d_info["disallow"]:"";
-		$csv_line[36]	= isset($d_info["allow"])?$d_info["allow"]:"";
-		$csv_line[37]	= isset($d_info["dial"])?$d_info["dial"]:"";
-		$csv_line[38]	= isset($d_info["accountcode"])?$d_info["accountcode"]:"";
-		$csv_line[39]	= isset($d_info["mailbox"])?$d_info["mailbox"]:"";
-		$csv_line[40]	= isset($d_info["deny"])?$d_info["deny"]:"";
-		$csv_line[41]	= isset($d_info["permit"])?$d_info["permit"]:"";
-		$csv_line[42]	= isset($d_info["devicetype"])?$d_info["devicetype"]:"fixed";
-		$csv_line[43]	= (isset($d_info["deviceid"]) || ($d_info["deviceid"]==""))?$d_info["deviceid"]:(isset($u_info["extension"])?$u_info["extension"]:"");
-		$csv_line[44]	= (isset($d_info["deviceuser"]) && ($d_info["deviceuser"] != ""))?$d_info["deviceuser"]:(isset($u_info["extension"])?$u_info["extension"]:"none");
-		$csv_line[45]	= isset($d_info["description"])?$d_info["description"]:(isset($u_info["name"])?$u_info["name"]:"");
-		$csv_line[46]	= isset($dictate_settings["enabled"])?$dictate_settings["enabled"]:"disabled";	// dictenabled
-		$csv_line[47]	= isset($dictate_settings["format"])?$dictate_settings["format"]:"ogg";		// dictformat (ogg is default)
-		$csv_line[48]	= isset($dictate_settings["email"])?$dictate_settings["email"]:""; 		// dictemail
-
-		$csv_line[49]	= isset($langcode)?$langcode:"";
-
-		$csv_line[50]	= isset($d_info["record_in"])?$d_info["record_in"]:"";
-		$csv_line[51]	= isset($d_info["record_out"])?$d_info["record_out"]:"";
-
-		$csv_line[52]	= $v_enabled; // vm
-		$csv_line[53]	= isset($v_info["pwd"])?$v_info["pwd"]:"";
-		$csv_line[54]	= isset($v_info["email"])?$v_info["email"]:"";
-		$csv_line[55]	= isset($v_info["pager"])?$v_info["pager"]:"";
-		$csv_line[56]	= isset($v_info["options"]["attach"])?("attach=" . $v_info["options"]["attach"]):"attach=no";
-		$csv_line[57]	= isset($v_info["options"]["saycid"])?("saycid=" . $v_info["options"]["saycid"]):"saycid=no";
-		$csv_line[58]	= isset($v_info["options"]["envelope"])?("envelope=" . $v_info["options"]["envelope"]):"envelope=no";
-		$csv_line[59]	= isset($v_info["options"]["delete"])?("delete=". $v_info["options"]["delete"]):"delete=no";
-		$csv_line[60]	= isset($vm_other_opts)?$vm_other_opts:""; // additional options
-		$csv_line[61]	= isset($v_info["vmcontext"])?$v_info["vmcontext"]:"";
-		$csv_line[62]	= isset($vmx_state)?$vmx_state:"";
-		$csv_line[63]	= isset($vmx_unavail_enabled)?$vmx_unavail_enabled:"";
-		$csv_line[64]	= isset($vmx_busy_enabled)?$vmx_busy_enabled:"";
-		$csv_line[65]	= isset($vmx_play_instructions)?$vmx_play_instructions:"";
-		$csv_line[66]	= isset($vmx_option_0_system_default)?$vmx_option_0_system_default:"";
-		$csv_line[67]	= isset($vmx_option_0_number)?$vmx_option_0_number:"";
-		$csv_line[68]	= isset($vmx_option_1_system_default)?$vmx_option_1_system_default:"";
-		$csv_line[69]	= isset($vmx_option_1_number)?$vmx_option_1_number:"";
-		$csv_line[70]	= isset($vmx_option_2_number)?$vmx_option_2_number:"";
-		$csv_line[71]	= isset($account)?$account:"";
-		$csv_line[72]	= isset($ddial)?$ddial:"";
-		$csv_line[73]	= isset($pre_ring)?$pre_ring:"";
-		$csv_line[74]	= isset($strategy)?$strategy:"";
-		$csv_line[75]	= isset($grptime)?$grptime:"";
-		$csv_line[76]	= isset($grplist)?$grplist:"";
-		$csv_line[77]	= isset($annmsg_id)?$annmsg_id:"";
-		$csv_line[78]	= isset($ringing)?$ringing:"";
-		$csv_line[79]	= isset($grppre)?$grppre:"";
-		$csv_line[80]	= isset($dring)?$dring:"";
-		$csv_line[81]	= isset($needsconf)?$needsconf:"";
-		$csv_line[82]	= isset($remotealert_id)?$remotealert_id:"";
-		$csv_line[83]	= isset($toolate_id)?$toolate_id:"";
-		$csv_line[84]	= isset($postdest)?$postdest:"";
-		$csv_line[85]   = isset($faxenabled)?$faxenabled:"";
-		$csv_line[86]   = isset($faxemail)?$faxemail:"";
+		$csv_line[52]	= isset($dictate_settings["enabled"])?$dictate_settings["enabled"]:"disabled";	// dictenabled
+		$csv_line[53]	= isset($dictate_settings["format"])?$dictate_settings["format"]:"ogg";		// dictformat (ogg is default)
+		$csv_line[54]	= isset($dictate_settings["email"])?$dictate_settings["email"]:""; 		// dictemail
+		$csv_line[55]	= isset($langcode)?$langcode:"";
+		$csv_line[56]	= isset($d_info["record_in"])?$d_info["record_in"]:"";
+		$csv_line[57]	= isset($d_info["record_out"])?$d_info["record_out"]:"";
+		$csv_line[58]	= $v_enabled; // vm
+		$csv_line[59]	= isset($v_info["pwd"])?$v_info["pwd"]:"";
+		$csv_line[60]	= isset($v_info["email"])?$v_info["email"]:"";
+		$csv_line[61]	= isset($v_info["pager"])?$v_info["pager"]:"";
+		$csv_line[62]	= isset($v_info["options"]["attach"])?("attach=" . $v_info["options"]["attach"]):"attach=no";
+		$csv_line[63]	= isset($v_info["options"]["saycid"])?("saycid=" . $v_info["options"]["saycid"]):"saycid=no";
+		$csv_line[64]	= isset($v_info["options"]["envelope"])?("envelope=" . $v_info["options"]["envelope"]):"envelope=no";
+		$csv_line[65]	= isset($v_info["options"]["delete"])?("delete=". $v_info["options"]["delete"]):"delete=no";
+		$csv_line[66]	= isset($vm_other_opts)?$vm_other_opts:""; // additional options
+		$csv_line[67]	= isset($v_info["vmcontext"])?$v_info["vmcontext"]:"";
+		$csv_line[68]	= isset($vmx_state)?$vmx_state:"";
+		$csv_line[69]	= isset($vmx_unavail_enabled)?$vmx_unavail_enabled:"";
+		$csv_line[70]	= isset($vmx_busy_enabled)?$vmx_busy_enabled:"";
+		$csv_line[71]	= isset($vmx_play_instructions)?$vmx_play_instructions:"";
+		$csv_line[72]	= isset($vmx_option_0_system_default)?$vmx_option_0_system_default:"";
+		$csv_line[73]	= isset($vmx_option_0_number)?$vmx_option_0_number:"";
+		$csv_line[74]	= isset($vmx_option_1_system_default)?$vmx_option_1_system_default:"";
+		$csv_line[75]	= isset($vmx_option_1_number)?$vmx_option_1_number:"";
+		$csv_line[76]	= isset($vmx_option_2_number)?$vmx_option_2_number:"";
+		$csv_line[77]	= isset($account)?$account:"";
+		$csv_line[78]	= isset($ddial)?$ddial:"";
+		$csv_line[79]	= isset($pre_ring)?$pre_ring:"";
+		$csv_line[80]	= isset($strategy)?$strategy:"";
+		$csv_line[81]	= isset($grptime)?$grptime:"";
+		$csv_line[82]	= isset($grplist)?$grplist:"";
+		$csv_line[83]	= isset($annmsg_id)?$annmsg_id:"";
+		$csv_line[84]	= isset($ringing)?$ringing:"";
+		$csv_line[85]	= isset($grppre)?$grppre:"";
+		$csv_line[86]	= isset($dring)?$dring:"";
+		$csv_line[87]	= isset($needsconf)?$needsconf:"";
+		$csv_line[88]	= isset($remotealert_id)?$remotealert_id:"";
+		$csv_line[89]	= isset($toolate_id)?$toolate_id:"";
+		$csv_line[90]	= isset($postdest)?$postdest:"";
+		$csv_line[91]   = isset($faxenabled)?$faxenabled:"";
+		$csv_line[92]   = isset($faxemail)?$faxemail:"";
 
 		for ($i = 0; $i < count($csv_line); $i++) {
 			/* If the string contains a comma, enclose it in double-quotes. */

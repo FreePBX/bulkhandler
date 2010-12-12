@@ -81,6 +81,12 @@ if ($action == "output") {
       "call_screen" => array(false, -1),
       "pinless" => array(false, -1),
       "password" => array(false, -1),
+      "noanswer_dest" => array(false, -1),
+      "noanswer_cid" => array(false, -1),
+      "busy_dest" => array(false, -1),
+      "busy_cid" => array(false, -1),
+      "chanunavail_dest" => array(false, -1),
+      "chanunavail_cid" => array(false, -1),
       "emergency_cid" => array(false, -1),
       "tech" => array(false, -1),
       "hardware" => array(false, -1),
@@ -156,7 +162,7 @@ if ($action == "output") {
       "toolate_id" => array(false, -1),
       "postdest" => array(false, -1),
       "faxenabled" => array(false, -1),
-      "faxemail" => array(false, -1)
+      "faxemail" => array(false, -1),
       );
 
       $fh = fopen($_FILES["csvFile"]["tmp_name"], "r");
@@ -209,32 +215,56 @@ if ($action == "output") {
 
 	      if ($aFields["sipname"][0]) {
 		      $vars["sipname"] = trim($aInfo[$aFields["sipname"][1]]);
-	      }
+			}
 
 	      if ($aFields["outboundcid"][0]) {
 		      $vars["outboundcid"] = trim($aInfo[$aFields["outboundcid"][1]]);
-	      }
+			}
 
 	      if ($aFields["ringtimer"][0]) {
 		      $vars["ringtimer"] = trim($aInfo[$aFields["ringtimer"][1]]);
-	      }
+			}
 
-      	      if ($aFields["callwaiting"][0]) {
+	      if ($aFields["callwaiting"][0]) {
 		      $vars["callwaiting"] = trim($aInfo[$aFields["callwaiting"][1]]);
-	      }
+			}
 
 	      if ($aFields["call_screen"][0]) {
 		      $vars["call_screen"] = trim($aInfo[$aFields["call_screen"][1]]);
-	      }
+			}
 
 	      if ($aFields["pinless"][0]) {
 		      $vars["pinless"] = trim($aInfo[$aFields["pinless"][1]]);
-	      }
+			}
 
 	      if ($aFields["password"][0]) {
 		      $vars["password"] = trim($aInfo[$aFields["password"][1]]);
-	      }
+			}
 
+	      if ($aFields["noanswer_dest"][0]) {
+		      $vars["noanswer_dest"] = trim($aInfo[$aFields["noanswer_dest"][1]]);
+			}
+
+	      if ($aFields["noanswer_cid"][0]) {
+		      $vars["noanswer_cid"] = trim($aInfo[$aFields["noanswer_cid"][1]]);
+			}
+
+	      if ($aFields["busy_dest"][0]) {
+		      $vars["busy_dest"] = trim($aInfo[$aFields["busy_dest"][1]]);
+			}
+
+	      if ($aFields["busy_cid"][0]) {
+		      $vars["busy_cid"] = trim($aInfo[$aFields["busy_cid"][1]]);
+			}
+
+	      if ($aFields["chanunavail_dest"][0]) {
+		      $vars["chanunavail_dest"] = trim($aInfo[$aFields["chanunavail_dest"][1]]);
+			}
+
+	      if ($aFields["chanunavail_cid"][0]) {
+		      $vars["chanunavail_cid"] = trim($aInfo[$aFields["chanunavail_cid"][1]]);
+			}		
+		  
 	      if ($aFields["emergency_cid"][0]) {
 		      $vars["emergency_cid"] = trim($aInfo[$aFields["emergency_cid"][1]]);
 	      }
@@ -636,7 +666,6 @@ if ($action == "output") {
 			$vars["faxemail"] = trim($aInfo[$aFields["faxemail"][1]]);
 			}
 	      }
-	       
 	      /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime, */
 	      /* grplist and pre_ring.								     */
 	      if ($followme_set) {
@@ -656,8 +685,6 @@ if ($action == "output") {
 			      $vars["pre_ring"] = "0";			// default value
 		      }
 	      }
-
-
 
 	      if (!(isset($amp_conf["AMPEXTENSIONS"]) && ($amp_conf["AMPEXTENSIONS"] == "deviceanduser"))) {
 		      $vars["devicetype"] 	= "fixed";
