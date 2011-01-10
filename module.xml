@@ -3,18 +3,19 @@
 	<repo>extended</repo>
 	<name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.7.0.0</version>
+	<version>2.9.0.0</version>
 	<type>tool</type>
-	<category>Third Party Addon</category>
+	<category>Advanced Administration</category>
 	<menuitems>
 		<bulkextensions>Bulk Extensions</bulkextensions>
 	</menuitems>
 	<depends>
 		<version>ge2.7</version>
 	</depends>
-	<location>contributed_modules/release/bulkextensions-2.7.0.0.tgz</location>
+	<location>release/2.9/bulkextensions-2.9.0.0.tgz</location>
 	<info></info>
 	<changelog>
+		*2.9.0.0* Update for 2.9 changes
 		*2.7.0.0* #4567 Add fax setting
 		*2.6.0.7* #4495
 		*2.5.0.6* #4150
@@ -30,6 +31,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>3cc881c33d4c6142c1e541757e699d3d</md5sum>
+	<md5sum>13fa557dd1f0be92c862d3ffc6b78882</md5sum>
 </module>
 
