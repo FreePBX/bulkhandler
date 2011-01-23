@@ -368,7 +368,6 @@ function generate_table_rows() {
 function bulk_extensions_dest_add($destvars, $extension)
 {
 extract ($destvars);
-$myextension = $vars['extension'];
 $sql="UPDATE `users` set `noanswer_dest`='$noanswer_dest', `busy_dest`='$busy_dest', `chanunavail_dest`='$chanunavail_dest' WHERE `extension`='$extension'";
 sql($sql);
 }
