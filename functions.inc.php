@@ -15,7 +15,7 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    Copyright 2008 sasargen
-//    Portions Copyright 2009, 2010 Mikael Carlsson, mickecamino@gmail.com
+//    Portions Copyright 2009, 2010, 2011 Mikael Carlsson, mickecamino@gmail.com
 //
 
 /* functions.inc.php - functions for BulkExtensions module. */
@@ -359,5 +359,17 @@ function generate_table_rows() {
 	}
 	fclose($fh);
 	return $table;
+}
+
+// Function to add extensions destination.
+// Takes two parameters:
+// $destvars = array of the three destinations
+// $extension = the extension to add the destination
+function bulk_extensions_dest_add($destvars, $extension)
+{
+extract ($destvars);
+$myextension = $vars['extension'];
+$sql="UPDATE `users` set `noanswer_dest`='$noanswer_dest', `busy_dest`='$busy_dest', `chanunavail_dest`='$chanunavail_dest' WHERE `extension`='$extension'";
+sql($sql);
 }
 ?>

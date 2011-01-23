@@ -27,6 +27,7 @@ set_time_limit(3000);
 $change = false;
 $output = "";
 $action = isset($_REQUEST["csv_type"])?$_REQUEST["csv_type"]:'';
+global $db;
 
 if ($action == "output") {
   exportextensions_allusers();
@@ -241,7 +242,12 @@ if ($action == "output") {
       }
 
       if ($aFields["noanswer_dest"][0]) {
-        $vars["noanswer_dest"] = trim($aInfo[$aFields["noanswer_dest"][1]]);
+        if (!isset($aInfo[$aFields["noanswer_dest"][1]]) || ($aInfo[$aFields["noanswer_dest"][1]] == "")){
+          unset($vars["noanswer_dest"]);
+        }
+        else {
+          $destvars["noanswer_dest"] = trim($aInfo[$aFields["noanswer_dest"][1]]);
+        }
       }
 
       if ($aFields["noanswer_cid"][0]) {
@@ -249,15 +255,24 @@ if ($action == "output") {
       }
 
       if ($aFields["busy_dest"][0]) {
-        $vars["busy_dest"] = trim($aInfo[$aFields["busy_dest"][1]]);
+        if (!isset($aInfo[$aFields["busy_dest"][1]]) || ($aInfo[$aFields["busy_dest"][1]] == "")){
+          unset($vars["busy_dest"]);
+        }
+        else {
+          $destvars["busy_dest"] = trim($aInfo[$aFields["busy_dest"][1]]);
+        }
       }
-
       if ($aFields["busy_cid"][0]) {
         $vars["busy_cid"] = trim($aInfo[$aFields["busy_cid"][1]]);
       }
 
       if ($aFields["chanunavail_dest"][0]) {
-        $vars["chanunavail_dest"] = trim($aInfo[$aFields["chanunavail_dest"][1]]);
+        if (!isset($aInfo[$aFields["chanunavail_dest"][1]]) || ($aInfo[$aFields["chanunavail_dest"][1]] == "")){
+          unset($vars["chanunavail_dest"]);
+        }
+        else {
+          $destvars["chanunavail_dest"] = trim($aInfo[$aFields["chanunavail_dest"][1]]);
+        }
       }
 
       if ($aFields["chanunavail_cid"][0]) {
@@ -728,8 +743,11 @@ if ($action == "output") {
                 voicemail_mailbox_add($vars["extension"], $vars);
               }
               core_users_add($vars);
+              // This is to add destinations for extension, as the standard API core_users_add can't handle this
+              // a new function was needed.
+              bulk_extensions_dest_add($destvars, $vars["extension"]);
               core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
-
+              
               if ($lang_exists) {
                 languages_user_update($vars["extension"], $vars["langcode"]);
               }
@@ -867,6 +885,9 @@ if ($action == "output") {
                 voicemail_mailbox_add($vars["extension"], $vars);
               }
               core_users_add($vars);
+              // This is to add destinations for extension, as the standard API core_users_add can't handle this
+              // a new function was needed.
+              bulk_extensions_dest_add($destvars, $vars["extension"]);
               core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
               if ($lang_exists) {
                 languages_user_update($vars["extension"], $vars["langcode"]);
