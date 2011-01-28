@@ -12,10 +12,10 @@
 	<depends>
 		<version>ge2.7</version>
 	</depends>
-	<location>release/2.9/bulkextensions-2.9.0.0.tgz</location>
+	<location>release/2.9/bulkextensions-2.9.0.1.tgz</location>
 	<info></info>
 	<changelog>
-    *2.9.0.1* Update to handle extension destinations
+    *2.9.0.1* Update to handle extension destinations, code cleanup
 		*2.9.0.0* Update for 2.9 changes
 		*2.7.0.0* #4567 Add fax setting
 		*2.6.0.7* #4495
@@ -32,6 +32,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>13fa557dd1f0be92c862d3ffc6b78882</md5sum>
+	<md5sum>07bbf6664f019782de756d58ff0cb265</md5sum>
 </module>
 
