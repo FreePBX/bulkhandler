@@ -3,7 +3,7 @@
 	<repo>extended</repo>
 	<name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.9.0.1</version>
+	<version>2.9.0.2</version>
 	<type>tool</type>
 	<category>Advanced Administration</category>
 	<menuitems>
@@ -12,7 +12,7 @@
 	<depends>
 		<version>ge2.7</version>
 	</depends>
-	<location>release/2.9/bulkextensions-2.9.0.1.tgz</location>
+	<location>release/2.9/bulkextensions-2.9.0.2.tgz</location>
 	<info></info>
 	<changelog>
 	  *2.9.0.2* Bulk Extensions is only supported when FreePBX run in extension mode
@@ -33,6 +33,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>e8b98d2c0e97ed9577350de07dd3da26</md5sum>
+	<md5sum>536e0709c92b9156dba6f03987f83846</md5sum>
 </module>
 
