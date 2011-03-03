@@ -15,6 +15,7 @@
 	<location>release/2.9/bulkextensions-2.9.0.1.tgz</location>
 	<info></info>
 	<changelog>
+	  *2.9.0.2* Bulk Extensions is only supported when FreePBX run in extension mode
     *2.9.0.1* Update to handle extension destinations, code cleanup
 		*2.9.0.0* Update for 2.9 changes
 		*2.7.0.0* #4567 Add fax setting

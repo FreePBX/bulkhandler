@@ -994,6 +994,12 @@ if ($action == "output") {
   }
 
 echo "<h1>"._("Bulk Extensions")."</h1>";
+ if($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
+  echo "You are running FreePBX in <b>deviceanduser</b> mode";
+  echo "<br>This module is only supported when FreePBX is in <b>extension</b> mode";
+  }
+ else {
+
 echo "<h2>"._("Manage Extensions in bulk using CSV files.")."</h2>";
 echo "<p>";
 echo sprintf(_("Start by downloading the %s Template CSV file %s (right-click > save as) or clicking the Export Extensions button."), "<a href=\"modules/bulkextensions/template.csv\">", "</a>"); 
@@ -1114,4 +1120,6 @@ echo "<h3>"._("Bulk Extensions CSV File Columns")."</h3><p>";
 echo _("The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.")."<p>";
 print $table_output;
 }
+}
 ?>
+
