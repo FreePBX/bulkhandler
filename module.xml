@@ -12,7 +12,7 @@
 	<depends>
 		<version>ge2.7</version>
 	</depends>
-	<location>release/2.9/bulkextensions-2.9.0.2.tgz</location>
+	<location>release/2.9/bulkextensions-2.9.0.3.tgz</location>
 	<info></info>
 	<changelog>
 	  *2.9.0.3* Updated localizations
@@ -34,6 +34,6 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
-	<md5sum>536e0709c92b9156dba6f03987f83846</md5sum>
+	<md5sum>3773766481a56b99b2e7f24c37b4742f</md5sum>
 </module>
 
