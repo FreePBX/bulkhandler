@@ -995,8 +995,8 @@ if ($action == "output") {
 
 echo "<h1>"._("Bulk Extensions")."</h1>";
  if($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
-  echo "You are running FreePBX in <b>deviceanduser</b> mode";
-  echo "<br>This module is only supported when FreePBX is in <b>extension</b> mode";
+  echo _("You are running FreePBX in <b>deviceanduser</b> mode");
+  echo "<br>"._("This module is only supported when FreePBX is in <b>extensions</b> mode");
   }
  else {
 
