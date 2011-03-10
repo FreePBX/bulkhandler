@@ -20,7 +20,7 @@
 
 /* functions.inc.php - functions for BulkExtensions module. */
 if (file_exists("modules/voicemail/functions.inc.php")) {
-    include_once("modules/voicemail/functions.inc.php");	// for using voicemail module functions to retrieve voicemail settings
+    include_once("modules/voicemail/functions.inc.php");	// for using Voicemail module functions to retrieve Voicemail settings
     };
 if (file_exists("modules/dictate/functions.inc.php")) {
     include_once("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
@@ -35,7 +35,7 @@ if (file_exists("modules/fax/functions.inc.php")) {
     include_once("modules/fax/functions.inc.php");             // for using fax functions to retreive fax settings
     };
 
-/* Verify existence of voicemail, dictate, languages and findmefollow functions. */
+/* Verify existence of Voicemail, dictate, languages and findmefollow functions. */
 if (function_exists("voicemail_mailbox_get") && function_exists("voicemail_mailbox_add") && function_exists("voicemail_mailbox_del") && function_exists("voicemail_mailbox_remove") && class_exists("vmxObject")) {
 	$vm_exists	= TRUE;
 } else {
@@ -84,8 +84,8 @@ function exportextensions_allusers() {
 		} else {
 			$v_info = NULL;
 		}
-		/* To properly obtain voicemail information, detect enabled/disabled vm value.   */
-		/* Parse extra voicemail options.						 */
+		/* To properly obtain Voicemail information, detect enabled/disabled vm value.   */
+		/* Parse extra Voicemail options.						 */
 		if ($v_info == NULL) {
 			$v_enabled	= "disabled";
 		} else {

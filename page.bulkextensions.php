@@ -722,10 +722,10 @@ if ($action == "output") {
       if (checkRange($vars["extension"])) {
         switch ($vars["action"]) {
           case "add":
-            // Only add if no voicemail, no user and no device entry already
+            // Only add if no Voicemail, no user and no device entry already
             // exist for the extension we're trying to add.
-            // Check the list of voicemail entries.
-            // user_vmexists == false means add  new voicemail entry.
+            // Check the list of Voicemail entries.
+            // user_vmexists == false means add  new Voicemail entry.
             $user_vmexists = FALSE;
             if ($vm_exists) {
               $uservm = voicemail_getVoicemail();
@@ -763,9 +763,9 @@ if ($action == "output") {
 
               // begin status output for this row
               $output .= "Row $k: Added: " . $vars["extension"];
-              // send notification email for new voicemail account
+              // send notification email for new Voicemail account
               $email_to = "";
-              // first use user email defined for voicemail account
+              // first use user email defined for Voicemail account
               if (isset($vars["email"])) {
                 $email_to = $vars["email"];
               }
@@ -804,7 +804,7 @@ if ($action == "output") {
                 $email_headers = $email_from_header . $email_replyto_header;
                 // BODY
                 if (!isset($email_body_open) || $email_body_open == "") {
-                  $email_body = _("Login information for your voicemail account is as follows:"). "\n\n";
+                  $email_body = _("Login information for your Voicemail account is as follows:"). "\n\n";
                 } else {
                   $email_body = $email_body_open . "\n\n";
                 }
@@ -853,9 +853,9 @@ if ($action == "output") {
               }
               $change = true;
             }
-            // The voicemail functions have their own internal
+            // The Voicemail functions have their own internal
             // checking.
-            // If the voicemail box in question does not exist,
+            // If the Voicemail box in question does not exist,
             // the functions simply return.  No harm done.
             //
             // When editting an existing extension do not call
@@ -864,10 +864,10 @@ if ($action == "output") {
             if ($vm_exists) {
               voicemail_mailbox_del($vars["extension"]);
             }
-            // Only add if no voicemail, no user and no device entry already
+            // Only add if no Voicemail, no user and no device entry already
             // exist for the extension we're trying to add.
-            // Check the list of voicemail entries.
-            // user_vmexists == false means add new voicemail entry.
+            // Check the list of Voicemail entries.
+            // user_vmexists == false means add new Voicemail entry.
             $user_vmexists = FALSE;
             if ($vm_exists) {
               $uservm = voicemail_getVoicemail();
@@ -936,8 +936,8 @@ if ($action == "output") {
               }
               $change = true;
             }
-            // The voicemail functions have their own internal checking.
-            // If the voicemail box in question does not exist,
+            // The Voicemail functions have their own internal checking.
+            // If the Voicemail box in question does not exist,
             // the functions simply return. No harm done.
             //
             // call remove BEFORE del
@@ -1018,7 +1018,7 @@ echo "<b>"._("Bulk extension changes can take a long time to complete. It can ta
 <?php
 echo "<h3>"._("Email Notification for New Accounts")."</h3>";
 echo "<p>";
-echo _("By default, a notification email will be sent to the voicemail email address set for each account added.")."<br>";
+echo _("By default, a notification email will be sent to the Voicemail email address set for each account added.")."<br>";
 echo _(" The settings below can be used to control the content and destination of the notification emails.");
 ?>
 <table>
@@ -1026,7 +1026,7 @@ echo _(" The settings below can be used to control the content and destination o
     <td>
       <a href="#" class="info">
         <?php echo _("Default Address:")?>
-        <span><?php echo _("If a Default Address is specified, notification emails for new accounts without a voicemail email address will be sent to the Default Address.")?>
+        <span><?php echo _("If a Default Address is specified, notification emails for new accounts without a Voicemail email address will be sent to the Default Address.")?>
         </span>
       </a>
     </td>
@@ -1090,8 +1090,8 @@ echo _(" The settings below can be used to control the content and destination o
         <a href="#" class="info">
         <?php echo _("Email Opening:")?>
           <span>
-          <?php echo _("The Email Opening may be specified. If left blank, the default opening, \"Login information for your voicemail account is as follows:\", will be used.")?>
-          <?php echo _(" The account name, extension, and voicemail password will automatically be inserted after the opening.")?> 
+          <?php echo _("The Email Opening may be specified. If left blank, the default opening, \"Login information for your Voicemail account is as follows:\", will be used.")?>
+          <?php echo _(" The account name, extension, and Voicemail password will automatically be inserted after the opening.")?> 
           </span>
         </a>
       </td>
