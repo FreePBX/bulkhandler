@@ -4,8 +4,7 @@
 	<name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
 	<version>2.9.0.5</version>
-	<type>tool</type>
-	<category>Advanced Administration</category>
+	<category>Admin</category>
 	<menuitems>
 		<bulkextensions>Bulk Extensions</bulkextensions>
 	</menuitems>
