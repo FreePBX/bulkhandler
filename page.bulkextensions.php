@@ -164,6 +164,24 @@ if ($action == "output") {
       "postdest" => array(false, -1),
       "faxenabled" => array(false, -1),
       "faxemail" => array(false, -1),
+      "cfringtimer" => array(false, -1),
+      "concurrency_limit" => array(false, -1),
+      "answermode" => array(false, -1),
+      "qnostate" => array(false, -1),
+      "devinfo_trustrpid" => array(false, -1),
+      "devinfo_sendrpid" => array(false, -1),
+      "devinfo_qualifyfreq" => array(false, -1),
+      "devinfo_transport" => array(false, -1),
+      "devinfo_encryption" => array(false, -1),
+      "devinfo_vmexten" => array(false, -1),
+      "cc_agent_policy" => array(false, -1),
+      "cc_monitor_policy" => array(false, -1),
+      "recording_in_external" => array(false, -1),
+      "recording_out_external" => array(false, -1),
+      "recording_in_internal" => array(false, -1),
+      "recording_out_internal" => array(false, -1),
+      "recording_ondemand" => array(false, -1),
+      "recording_priority" => array(false, -1),
     );
 
     $fh = fopen($_FILES["csvFile"]["tmp_name"], "r");
@@ -684,6 +702,71 @@ if ($action == "output") {
           }
        }
 
+      if ($aFields["cfringtimer"][0]) {
+        $vars["cfringtimer"] = trim($aInfo[$aFields["cfringtimer"][1]]);
+      }
+      if ($aFields["concurrency_limit"][0]) {
+        $vars["concurrency_limit"] = trim($aInfo[$aFields["concurrency_limit"][1]]);
+      }
+      if ($aFields["answermode"][0]) {
+        $vars["answermode"] = trim($aInfo[$aFields["answermode"][1]]);
+      }
+      if ($aFields["qnostate"][0]) {
+        $vars["qnostate"] = trim($aInfo[$aFields["qnostate"][1]]);
+      }
+      if ($aFields["devinfo_trustrpid"][0]) {
+        $vars["devinfo_trustrpid"] = trim($aInfo[$aFields["devinfo_trustrpid"][1]]);
+      }
+      if ($aFields["devinfo_sendrpid"][0]) {
+        $vars["devinfo_sendrpid"] = trim($aInfo[$aFields["devinfo_sendrpid"][1]]);
+      }
+      if ($aFields["devinfo_qualifyfreq"][0]) {
+        $vars["devinfo_qualifyfreq"] = trim($aInfo[$aFields["devinfo_qualifyfreq"][1]]);
+      }
+      if ($aFields["devinfo_transport"][0]) {
+        $vars["devinfo_transport"] = trim($aInfo[$aFields["devinfo_transport"][1]]);
+      }
+      if ($aFields["devinfo_encryption"][0]) {
+        $vars["devinfo_encryption"] = trim($aInfo[$aFields["devinfo_encryption"][1]]);
+      }
+      if ($aFields["devinfo_vmexten"][0]) {
+        $vars["devinfo_vmexten"] = trim($aInfo[$aFields["devinfo_vmexten"][1]]);
+      }
+      if ($aFields["cc_agent_policy"][0]) {
+        $vars["cc_agent_policy"] = trim($aInfo[$aFields["cc_agent_policy"][1]]);
+      }
+      if ($aFields["cc_monitor_policy"][0]) {
+        $vars["cc_monitor_policy"] = trim($aInfo[$aFields["cc_monitor_policy"][1]]);
+      }
+      if ($aFields["recording_in_external"][0]) {
+        if (isset($aInfo[$aFields["recording_in_external"][1]]) || ($aInfo[$aFields["recording_in_external"][1]] != "")){
+		$vars["recording_in_external"] = 'recording_in_external='.trim($aInfo[$aFields["recording_in_external"][1]]);
+	}
+      }
+      if ($aFields["recording_out_external"][0]) {
+      	if (isset($aInfo[$aFields["recording_out_external"][1]]) || ($aInfo[$aFields["recording_out_external"][1]] != "")){
+                $vars["recording_out_external"] = 'recording_out_external='.trim($aInfo[$aFields["recording_out_external"][1]]);
+        }
+      }
+      if ($aFields["recording_in_internal"][0]) {
+	if (isset($aInfo[$aFields["recording_in_internal"][1]]) || ($aInfo[$aFields["recording_in_internal"][1]] != "")){
+        	$vars["recording_in_internal"] = 'recording_in_internal='.trim($aInfo[$aFields["recording_in_internal"][1]]);
+	}
+      }
+      if ($aFields["recording_out_internal"][0]) {
+	if (isset($aInfo[$aFields["recording_out_internal"][1]]) || ($aInfo[$aFields["recording_out_internal"][1]] != "")){
+        $vars["recording_out_internal"] = 'recording_out_internal='.trim($aInfo[$aFields["recording_out_internal"][1]]);
+	}
+      }
+      if ($aFields["recording_ondemand"][0]) {
+       	if (isset($aInfo[$aFields["recording_ondemand"][1]]) || ($aInfo[$aFields["recording_ondemand"][1]] != "")){
+		$vars["recording_ondemand"] = 'recording_ondemand='.trim($aInfo[$aFields["recording_ondemand"][1]]);
+	}
+      }
+      if ($aFields["recording_priority"][0]) {
+        $vars["recording_priority"] = trim($aInfo[$aFields["recording_priority"][1]]);
+      }
+
       /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime,  */
       /* grplist and pre_ring.                                                                */
       if ($followme_set) {
@@ -762,6 +845,12 @@ if ($action == "output") {
                 fax_save_user($vars["extension"], $vars["faxenabled"], $vars["faxemail"]);
               }
 
+              if ($campon_exists) {
+                campon_update($vars["extension"], array('cc_agent_policy' => $vars["cc_agent_policy"],'cc_monitor_policy' => $vars["cc_monitor_policy"]));
+              }
+	      if ($queue_exists) {
+		queues_set_qnostate($vars["extension"], $vars["qnostate"]);
+	      }
               // begin status output for this row
               $output .= "Row $k: Added: " . $vars["extension"];
               // send notification email for new Voicemail account
@@ -909,6 +998,12 @@ if ($action == "output") {
                 fax_save_user($vars["extension"], $vars["faxenabled"], $vars["faxemail"]);
               }
             }
+            if ($campon_exists) {
+              campon_update($vars["extension"], array('cc_agent_policy' => $vars["cc_agent_policy"],'cc_monitor_policy' => $vars["cc_monitor_policy"]));
+            }
+	    if ($queue_exists) {
+		queues_set_qnostate($vars["extension"], $vars["qnostate"]);
+	    }
             $output .= "Row $k: Edited: " . $vars["extension"] . "<BR>";
             break;
           case "del":
@@ -949,6 +1044,9 @@ if ($action == "output") {
             // Fax settings
             if ($fax_exists) {
               fax_delete_user($vars["extension"]);
+            }
+            if ($campon_exists) {
+              campon_del($vars["extension"]);
             }
             $output .= "Row $k: Deleted: " . $vars["extension"] . "<BR>";
             break;

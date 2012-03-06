@@ -1,7 +1,8 @@
 <module>
 	<rawname>bulkextensions</rawname>
 	<repo>extended</repo>
-	<name>Bulk Extensions</name>
+    <name>Bulk Extensions</name>
+    <publisher>Schmoozecom.com</publisher>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
 	<version>2.10.0.1</version>
 	<category>Applications</category>
@@ -9,7 +10,7 @@
 		<bulkextensions>Bulk Extensions</bulkextensions>
 	</menuitems>
 	<depends>
-		<version>ge2.7</version>
+		<version>ge2.10</version>
 	</depends>
 	<location>release/2.10/bulkextensions-2.10.0.1.tgz</location>
 	<info/>
