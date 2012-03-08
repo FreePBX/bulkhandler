@@ -586,7 +586,11 @@ if ($action == "output") {
       }
 
       if ($aFields["vmcontext"][0]) {
-        $vars["vmcontext"] = trim($aInfo[$aFields["vmcontext"][1]]);
+            if (!isset($aInfo[$aFields["vmcontext"][1]]) || ($aInfo[$aFields["vmcontext"][1]] == "")){
+                $vars["vmcontext"] = 'default';
+            } else {
+                $vars["vmcontext"] = trim($aInfo[$aFields["vmcontext"][1]]);
+            }
       }
 
       if ($aFields["vmx_state"][0]) {
