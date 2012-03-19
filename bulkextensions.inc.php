@@ -19,29 +19,6 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //    Portions Copyright 2009, 2010, 2011 Mikael Carlsson, mickecamino@gmail.com
 //
 
-/* functions.inc.php - functions for BulkExtensions module. */
-if (file_exists("modules/voicemail/functions.inc.php")) {
-    include_once("modules/voicemail/functions.inc.php");	// for using Voicemail module functions to retrieve Voicemail settings
-    };
-if (file_exists("modules/dictate/functions.inc.php")) {
-    include_once("modules/dictate/functions.inc.php");		// for using dictation services functions to retrieve dictation settings
-    };
-if (file_exists("modules/languages/functions.inc.php")) {
-    include_once("modules/languages/functions.inc.php");	// for using languages functions to retrieve language setting
-    };
-if (file_exists("modules/findmefollow/functions.inc.php")) {
-    include_once("modules/findmefollow/functions.inc.php");	// for using findmefollow functions to retreive follow me settings
-    };
-if (file_exists("modules/fax/functions.inc.php")) {
-    include_once("modules/fax/functions.inc.php");             // for using fax functions to retreive fax settings
-    };
-if (file_exists("modules/campon/functions.inc.php")) {
-    include_once("modules/campon/functions.inc.php");             // for using campon functions to retreive campon settings
-    };
-if (file_exists("modules/queues/functions.inc.php")) {
-    include_once("modules/queues/functions.inc.php");             // for using queues functions to retreive queues settings
-    };
-
 /* Verify existence of Voicemail, dictate, languages and findmefollow functions. */
 if (function_exists("voicemail_mailbox_get") && function_exists("voicemail_mailbox_add") && function_exists("voicemail_mailbox_del") && function_exists("voicemail_mailbox_remove") && class_exists("vmxObject")) {
 	$vm_exists	= TRUE;
@@ -79,7 +56,7 @@ if (function_exists("queues_get_qnostate") && function_exists("queues_set_qnosta
 	$queue_exists = FALSE;
 } 
 
-function exportextensions_allusers() {
+function bulkextensions_exportextensions_allusers() {
 	global $db;
 	global $vm_exists;
 	global $dict_exists;
@@ -91,7 +68,7 @@ function exportextensions_allusers() {
 	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,noanswer_dest,noanswer_cid,busy_dest,busy_cid,chanunavail_dest,chanunavail_cid,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest,faxenabled,faxemail,cfringtimer,concurrency_limit,answermode,qnostate,devinfo_trustrpid,devinfo_sendrpid,devinfo_qualifyfreq,devinfo_transport,devinfo_encryption,devinfo_vmexten,cc_agent_policy,cc_monitor_policy,recording_in_external,recording_out_external,recording_in_internal,recording_out_internal,recording_ondemand,recording_priority\n";
 
 	$data 		= $csv_header;
-	$exts 		= get_all_exts();
+	$exts 		= bulkextensions_get_all_exts();
 
 	foreach ($exts as $ext) {
 		$e 	= $ext[0];
@@ -336,11 +313,11 @@ function exportextensions_allusers() {
 		$data = $data . "\n";
 		unset($csv_line);
 	}
-	force_download($data, $fname);
+	bulkextensions_force_download($data, $fname);
 	return;
 }
 
-function get_all_exts() {
+function bulkextensions_get_all_exts() {
 	$sql 	= "SELECT extension FROM users ORDER BY extension";
 	$extens = sql($sql,"getAll");
 	if (isset($extens)) {
@@ -350,7 +327,7 @@ function get_all_exts() {
 	}
 }
 
-function force_download ($data, $name, $mimetype="", $filesize=false) {
+function bulkextensions_force_download ($data, $name, $mimetype="", $filesize=false) {
     // File size not set?
     if ($filesize == false OR !is_numeric($filesize)) {
         $filesize = strlen($data);
@@ -360,7 +337,7 @@ function force_download ($data, $name, $mimetype="", $filesize=false) {
         $mimetype = "application/octet-stream";
     }
     // Make sure there's not anything else left
-    ob_clean_all();
+    bulkextensions_ob_clean_all();
     // Start sending headers
     header("Pragma: public"); // required
     header("Expires: 0");
@@ -375,7 +352,7 @@ function force_download ($data, $name, $mimetype="", $filesize=false) {
     die();
 }
 
-function ob_clean_all () {
+function bulkextensions_ob_clean_all () {
     $ob_active = ob_get_length () !== false;
     while($ob_active) {
         ob_end_clean();
@@ -384,7 +361,7 @@ function ob_clean_all () {
     return true;
 }
 
-function generate_table_rows() {
+function bulkextensions_generate_table_rows() {
 	$langcookie =  $_COOKIE['lang'];
 	if (file_exists("modules/bulkextensions/i18n/$langcookie/LC_MESSAGES/table.csv")) {		// check if translated file exists
 		$fh = fopen("modules/bulkextensions/i18n/$langcookie/LC_MESSAGES/table.csv", "r");	// open it
@@ -414,7 +391,7 @@ function generate_table_rows() {
 // Takes two parameters:
 // $destvars = array of the three destinations
 // $extension = the extension to add the destination
-function bulk_extensions_dest_add($destvars, $extension)
+function bulkextensions_dest_add($destvars, $extension)
 {
 extract ($destvars);
 $sql="UPDATE `users` set `noanswer_dest`='$noanswer_dest', `busy_dest`='$busy_dest', `chanunavail_dest`='$chanunavail_dest' WHERE `extension`='$extension'";

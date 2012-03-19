@@ -1,5 +1,6 @@
 <?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+
 //This file is part of FreePBX.
 //
 //    FreePBX is free software: you can redistribute it and/or modify
@@ -18,6 +19,8 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //    Copyright 2006 Seth Sargent, Steven Ward
 //    Portions Copyright 2009, 2010, 2011 Mikael Carlsson, mickecamino@gmail.com
 //
+include('bulkextensions.inc.php');
+
 // This is a long running process, so extend time limit for execution.
 // Typical PHP default is 30 seconds, but this only allows 100 to 200
 // extensions to be processed. Setting time limit to 3000 seconds allows
@@ -31,7 +34,7 @@ $action = isset($_REQUEST["csv_type"])?$_REQUEST["csv_type"]:'';
 global $db;
 
 if ($action == "output") {
-  exportextensions_allusers();
+  bulkextensions_exportextensions_allusers();
 } elseif ($action == "input") {
     // Set email notification variables
     if (isset($_REQUEST["default_email"])) {
@@ -833,7 +836,7 @@ if ($action == "output") {
               core_users_add($vars);
               // This is to add destinations for extension, as the standard API core_users_add can't handle this
               // a new function was needed.
-              bulk_extensions_dest_add($destvars, $vars["extension"]);
+              bulkextensions_dest_add($destvars, $vars["extension"]);
               core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
               
               if ($lang_exists) {
@@ -981,7 +984,7 @@ if ($action == "output") {
               core_users_add($vars);
               // This is to add destinations for extension, as the standard API core_users_add can't handle this
               // a new function was needed.
-              bulk_extensions_dest_add($destvars, $vars["extension"]);
+              bulkextensions_dest_add($destvars, $vars["extension"]);
               core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
               if ($lang_exists) {
                 languages_user_update($vars["extension"], $vars["langcode"]);
@@ -1070,7 +1073,7 @@ if ($action == "output") {
 } else
 {
   $table_output = "";
-  $table_rows = generate_table_rows();
+  $table_rows = bulkextensions_generate_table_rows();
   if ($table_rows === NULL) {
     $table_output = "Table unavailable";
   } else {
