@@ -209,7 +209,7 @@ if ($action == "output") {
       }
 
       $k = 0;
-
+$i=0;
     while ($file_ok && (($aInfo = fgetcsv($fh, 2000, ",", "\"")) !== FALSE)) {
       $k++;
       if (empty($aInfo[0])) {
@@ -222,7 +222,7 @@ if ($action == "output") {
           $aKeys = array_keys($aFields);
           foreach ($aKeys as $sKey) {
             if ($aInfo[$j] == $sKey) {
-              $aFields[$sKey][0] = true;
+              	$aFields[$sKey][0] = true;
               $aFields[$sKey][1] = $j;
             }
           }

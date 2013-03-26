@@ -219,7 +219,7 @@ function bulkextensions_exportextensions_allusers() {
 			$xactview_createprofile	= isset($xactview_settings["add_profile"])?$xactview_settings["add_profile"]:"0";
 			$xactview_profilepassword = isset($xactview_settings["password"])?$xactview_settings["password"]:"";
 		}
-		if (isset($xmpp_exists)) {
+		if (isset($xmpp_exists) && $xmpp_exists) {
 			$xmpp_settings = xmpp_users_get($e);
 		}
 		//number our columns
