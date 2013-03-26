@@ -56,6 +56,21 @@ if (function_exists("queues_get_qnostate") && function_exists("queues_set_qnosta
 	$queue_exists = FALSE;
 } 
 
+if (function_exists("xactview_user_get") && function_exists("xactview_user_update") && function_exists("xactview_user_del")) {
+        $xactview_exists = TRUE;
+} else {
+        $xactview_exists = FALSE;
+}
+if (function_exists("xmpp_users_get") && function_exists("xmpp_users_put") && function_exists("xmpp_users_del")) {
+	$xmpp_exists = TRUE;
+} else {
+	$xmpp_exists = FALSE;
+}
+if (function_exists("extensionroutes_list") && function_exists("extensionroutes_add_user") && function_exists("extensionroutes_edit_user") && function_exists("extensionroutes_del_user")) {
+	$extensionroutes_exists = TRUE;
+} else {
+	$extensionroutes_exists = FALSE;
+}
 function bulkextensions_exportextensions_allusers() {
 	global $db;
 	global $vm_exists;
@@ -63,9 +78,14 @@ function bulkextensions_exportextensions_allusers() {
 	global $lang_exists;
 	global $findme_exists;
 	global $fax_exists;
+	global $campon_exists;
+	global $queue_exists;
+	global $xactview_exists;
+	global $xmpp_exists; 
+
 	$action		= "edit";
 	$fname		= "bulkext__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,noanswer_dest,noanswer_cid,busy_dest,busy_cid,chanunavail_dest,chanunavail_cid,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest,faxenabled,faxemail,cfringtimer,concurrency_limit,answermode,qnostate,devinfo_trustrpid,devinfo_sendrpid,devinfo_qualifyfreq,devinfo_transport,devinfo_encryption,devinfo_vmexten,cc_agent_policy,cc_monitor_policy,recording_in_external,recording_out_external,recording_in_internal,recording_out_internal,recording_ondemand,recording_priority\n";
+	$csv_header 	= "action,extension,name,cid_masquerade,sipname,outboundcid,ringtimer,callwaiting,call_screen,pinless,password,noanswer_dest,noanswer_cid,busy_dest,busy_cid,chanunavail_dest,chanunavail_cid,emergency_cid,tech,hardware,devinfo_channel,devinfo_secret,devinfo_notransfer,devinfo_dtmfmode,devinfo_canreinvite,devinfo_context,devinfo_immediate,devinfo_signalling,devinfo_echocancel,devinfo_echocancelwhenbrdiged,devinfo_echotraining,devinfo_busydetect,devinfo_busycount,devinfo_callprogress,devinfo_host,devinfo_type,devinfo_nat,devinfo_port,devinfo_qualify,devinfo_callgroup,devinfo_pickupgroup,devinfo_disallow,devinfo_allow,devinfo_dial,devinfo_accountcode,devinfo_mailbox,devinfo_deny,devinfo_permit,devicetype,deviceid,deviceuser,description,dictenabled,dictformat,dictemail,langcode,vm,vmpwd,email,pager,attach,saycid,envelope,delete,options,vmcontext,vmx_state,vmx_unavail_enabled,vmx_busy_enabled,vmx_play_instructions,vmx_option_0_sytem_default,vmx_option_0_number,vmx_option_1_system_default,vmx_option_1_number,vmx_option_2_number,account,ddial,pre_ring,strategy,grptime,grplist,annmsg_id,ringing,grppre,dring,needsconf,remotealert_id,toolate_id,postdest,faxenabled,faxemail,cfringtimer,concurrency_limit,answermode,qnostate,devinfo_trustrpid,devinfo_sendrpid,devinfo_qualifyfreq,devinfo_transport,devinfo_encryption,devinfo_vmexten,cc_agent_policy,cc_monitor_policy,recording_in_external,recording_out_external,recording_in_internal,recording_out_internal,recording_ondemand,recording_priority,add_xactview,xactview_autoanswer,xactview_email,xactview_cell,jabber_host,jabber_domain,jabber_resource,jabber_port,jabber_username,jabber_password,xactview_createprofile,xactview_profilepassword,xmpp_user,xmpp_pass\n";
 
 	$data 		= $csv_header;
 	$exts 		= bulkextensions_get_all_exts();
@@ -180,6 +200,28 @@ function bulkextensions_exportextensions_allusers() {
 			$q_info = queues_get_qnostate($e);
 		}
 
+		//SHMZ		
+		/* Obtain xactview settings */
+		if($xactview_exists) {
+			$xactview_settings = xactview_user_get($e);
+		}
+		if(isset($xactview_settings)) {
+			$add_xactview 		= isset($xactview_settings["add_extension"])?$xactview_settings["add_extension"]:"0";
+			$xactview_autoanswer 	= isset($xactview_settings["auto_answer"])?$xactview_settings["auto_answer"]:"0";
+			$xactview_email		= isset($xactview_settings["email"])?$xactview_settings["email"]:"";
+			$xactview_cell		= isset($xactview_settings["cell_phone"])?$xactview_settings["cell_phone"]:"";
+			$jabber_host		= isset($xactview_settings["jabber_host"])?$xactview_settings["jabber_host"]:"";
+			$jabber_domain		= isset($xactview_settings["jabber_domain"])?$xactview_settings["jabber_domain"]:"";
+			$jabber_resource	= isset($xactview_settings["jabber_resource"])?$xactview_settings["jabber_resource"]:"XactView";
+			$jabber_port		= isset($xactview_settings["jabber_port"])?$xactview_settings["jabber_port"]:"5222";
+			$jabber_username	= isset($xactview_settings["jabber_user_name"])?$xactview_settings["jabber_user_name"]:"";
+			$jabber_password	= isset($xactview_settings["jabber_password"])?$xactview_settings["jabber_password"]:"";
+			$xactview_createprofile	= isset($xactview_settings["add_profile"])?$xactview_settings["add_profile"]:"0";
+			$xactview_profilepassword = isset($xactview_settings["password"])?$xactview_settings["password"]:"";
+		}
+		if (isset($xmpp_exists)) {
+			$xmpp_settings = xmpp_users_get($e);
+		}
 		//number our columns
 		$csvi = 1;
 		
@@ -296,8 +338,21 @@ function bulkextensions_exportextensions_allusers() {
 		$csv_line[$csvi++]  	= isset($u_info['recording_in_internal'])?$u_info['recording_in_internal']:"dontcare";
 		$csv_line[$csvi++]  	= isset($u_info['recording_out_internal'])?$u_info['recording_out_internal']:"dontcare";
 		$csv_line[$csvi++]  	= isset($u_info['recording_ondemand'])?$u_info['recording_ondemand']:"disabled";
-		$csv_line[$csvi++]  	= isset($u_info['recording_priority'])?$u_info['recording_priority']:"10";
-
+		$csv_line[$csvi++]  	= isset($u_info['recording_priority'])?$u_info['recording_priority']:"10";		
+		$csv_line[$csvi++] 	= isset($add_xactview)?$add_xactview:"0";
+		$csv_line[$csvi++]   	= isset($xactview_autoanswer)?$xactview_autoanswer:"0";
+		$csv_line[$csvi++]   	= isset($xactview_email)?$xactview_email:"";
+		$csv_line[$csvi++]   	= isset($xactview_cell)?$xactview_cell:"";
+		$csv_line[$csvi++]   	= isset($jabber_host)?$jabber_host:"";
+		$csv_line[$csvi++]   	= isset($jabber_domain)?$jabber_domain:"";
+		$csv_line[$csvi++]  	= isset($jabber_resource)?$jabber_resource:"";	
+		$csv_line[$csvi++]  	= isset($jabber_port)?$jabber_port:"5222";
+		$csv_line[$csvi++]  	= isset($jabber_username)?$jabber_username:"";
+		$csv_line[$csvi++]  	= isset($jabber_password)?$jabber_password:"";
+		$csv_line[$csvi++]  	= isset($xactview_createprofile)?$xactview_createprofile:"0";	
+		$csv_line[$csvi++]  	= isset($xactview_profilepassword)?$xactview_profilepassword:"";
+		$csv_line[$csvi++]  	= isset($xmpp_settings["username"])?$xmpp_settings["username"]:"";
+		$csv_line[$csvi++]  	= isset($xmpp_settings["password"])?$xmpp_settings["password"]:"";
 
 		for ($i = 0; $i < count($csv_line); $i++) {
 			/* If the string contains a comma, enclose it in double-quotes. */

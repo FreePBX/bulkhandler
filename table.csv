@@ -107,4 +107,17 @@
 "recording_out_internal",,"always,dontcare,never","Outbound Internal Calls","Recording of calls made to other extensions on the system."
 "recording_ondemand",,"enabled, disabled","On Demand Recording","Enable or disable the ability to do on demand (one-touch) recording. The overall calling policy rules still apply and if calls are already being recorded they can not be paused."
 "recording_priority",,"0-20","Record Priority Policy","Call recording policy priority relative to other extensions when there is a conflict between an extension wanting recording and the other not wanting it. The higher of the two determines the policy, on a tie the global policy (caller or callee) determines the policy."
-
+"add_xactview",,,,
+"xactview_autoanswer",,,,
+"xactview_email",,,,
+"xactview_cell",,,,
+"jabber_host",,,,
+"jabber_domain",,,,
+"jabber_resource",,,,
+"jabber_port",,,,
+"jabber_username",,,,
+"jabber_password",,,,
+"xactview_createprofile",,,,
+"xactview_profilepassword",,,,
+"xmpp_user",,,,
+"xmpp_pass",,,,

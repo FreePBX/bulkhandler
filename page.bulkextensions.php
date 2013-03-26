@@ -185,6 +185,20 @@ if ($action == "output") {
       "recording_out_internal" => array(false, -1),
       "recording_ondemand" => array(false, -1),
       "recording_priority" => array(false, -1),
+      "add_xactview" => array(false, -1),
+      "xactview_autoanswer" => array(false, -1),
+      "xactview_email" => array(false, -1),
+      "xactview_cell" => array(false, -1),
+      "jabber_host" => array(false, -1),
+      "jabber_domain" => array(false, -1),
+      "jabber_resource" => array(false, -1),
+      "jabber_port" => array(false, -1),
+      "jabber_username" => array(false, -1),
+      "jabber_password" => array(false, -1),
+      "xactview_createprofile" => array(false, -1),
+      "xactview_profilepassword" => array(false, -1),
+      "xmpp_user" => array(false, -1),
+      "xmpp_pass" => array(false,-1)
     );
 
     $fh = fopen($_FILES["csvFile"]["tmp_name"], "r");
@@ -773,7 +787,84 @@ if ($action == "output") {
       if ($aFields["recording_priority"][0]) {
         $vars["recording_priority"] = trim($aInfo[$aFields["recording_priority"][1]]);
       }
-
+	      if ($aFields["xactview_email"][0]) {
+                      $vars["xactview_email"] = trim($aInfo[$aFields["xactview_email"][1]]);
+              }
+              if ($aFields["xactview_cell"][0]) {
+                      $vars["xactview_cell"] = trim($aInfo[$aFields["xactview_cell"][1]]);
+              }
+              if ($aFields["jabber_host"][0]) {
+                      $vars["jabber_host"] = trim($aInfo[$aFields["jabber_host"][1]]);
+              }
+              if ($aFields["jabber_domain"][0]) {
+                      $vars["jabber_domain"] = trim($aInfo[$aFields["jabber_domain"][1]]);
+              }
+	      if ($aFields["jabber_resource"][0]) {
+                        if (!isset($aInfo[$aFields["jabber_resource"][1]]) || ($aInfo[$aFields["jabber_resource"][1]] == "")){
+                                $vars["jabber_resource"] = "XactView"; //default
+                        } else {
+                                $vars["jabber_resource"] = trim($aInfo[$aFields["jabber_resource"][1]]);
+                        }
+              }
+	      if ($aFields["jabber_port"][0]) {
+                        if (!isset($aInfo[$aFields["jabber_port"][1]]) || ($aInfo[$aFields["jabber_port"][1]] == "")){
+                                $vars["jabber_port"] = "5222"; //default
+                        } else {
+                                $vars["jabber_port"] = trim($aInfo[$aFields["jabber_port"][1]]);
+                        }
+              }
+              if ($aFields["jabber_username"][0]) {
+                      $vars["jabber_username"] = trim($aInfo[$aFields["jabber_username"][1]]);
+              }
+              if ($aFields["jabber_password"][0]) {
+                      $vars["jabber_password"] = trim($aInfo[$aFields["jabber_password"][1]]);
+              }
+			if ($aFields["xactview_createprofile"][0]) {
+				if (!isset($aInfo[$aFields["xactview_createprofile"][1]]) || ($aInfo[$aFields["xactview_createprofile"][1]] == "")){
+					$vars["xactview_createprofile"] = "0"; //default
+				} else {
+					$vars["xactview_createprofile"] = trim($aInfo[$aFields["xactview_createprofile"][1]]);
+				}
+			}
+              if ($aFields["xactview_profilepassword"][0]) {
+                      $vars["xactview_profilepassword"] = trim($aInfo[$aFields["xactview_profilepassword"][1]]);
+              }
+	      if ($aFields["add_xactview"][0]) {
+                      $vars["add_xactview"] = trim($aInfo[$aFields["add_xactview"][1]]);
+              }
+              if ($aFields["xactview_autoanswer"][0]) {
+                      $vars["xactview_autoanswer"] = trim($aInfo[$aFields["xactview_autoanswer"][1]]);
+              }
+              if ($aFields["xactview_email"][0]) {
+                      $vars["xactview_email"] = trim($aInfo[$aFields["xactview_email"][1]]);
+              }
+              if ($aFields["xactview_cell"][0]) {
+                      $vars["xactview_cell"] = trim($aInfo[$aFields["xactview_cell"][1]]);
+              }
+              if ($aFields["jabber_host"][0]) {
+                      $vars["jabber_host"] = trim($aInfo[$aFields["jabber_host"][1]]);
+              }
+              if ($aFields["jabber_domain"][0]) {
+                      $vars["jabber_domain"] = trim($aInfo[$aFields["jabber_domain"][1]]);
+              }
+              if ($aFields["jabber_resource"][0]) {
+                      $vars["jabber_resource"] = trim($aInfo[$aFields["jabber_resource"][1]]);
+              }
+              if ($aFields["jabber_port"][0]) {
+                      $vars["jabber_port"] = trim($aInfo[$aFields["jabber_port"][1]]);
+              }
+              if ($aFields["jabber_username"][0]) {
+                      $vars["jabber_username"] = trim($aInfo[$aFields["jabber_username"][1]]);
+              }
+              if ($aFields["jabber_password"][0]) {
+                      $vars["jabber_password"] = trim($aInfo[$aFields["jabber_password"][1]]);
+              }
+            if ($aFields["xmpp_user"][0]) {
+                    $vars["xmpp_user"] = trim($aInfo[$aFields["xmpp_user"][1]]);
+            }
+            if ($aFields["xmpp_pass"][0]) {
+                    $vars["xmpp_pass"] = trim($aInfo[$aFields["xmpp_pass"][1]]);
+            }
       /* Needed fields for creating a Follow Me are account (aka grpnum), strategy, grptime,  */
       /* grplist and pre_ring.                                                                */
       if ($followme_set) {
@@ -857,6 +948,22 @@ if ($action == "output") {
               }
 	      if ($queue_exists) {
 		queues_set_qnostate($vars["extension"], $vars["qnostate"]);
+	      }
+	      if ($xmpp_exists) {
+  	      	xmpp_users_put(array("user"=>$vars["extension"], "jabber_user" =>$vars["xmpp_user"],"jabber_pass"=>$vars["xmpp_pass"]));
+	      }
+	      if ($xactview_exists) {
+	     	xactview_user_add($vars["extension"],$vars["add_xactview"], $vars["xactview_createprofile"], $vars["xactview_profilepassword"], $vars["name"], $vars["devinfo_dial"], $vars["xactview_cell"], $vars["xactview_email"], $vars["xactview_autoanswer"], $vars["xactview_autoanswer"], $vars["jabber_host"], $vars["jabber_domain"], $vars["jabber_resource"], $vars["jabber_port"], $vars["jabber_username"], $vars["jabber_password"]); 
+	      }
+	      if ($extensionroutes_exists) {
+		$routes = core_routing_list();
+
+		foreach ($routes as $value) {
+        		if (isset($value['route_id']) && !empty($value['route_id'])) {
+                		$route_list[] = $value['route_id'];
+        		}
+		}
+		extensionroutes_add_user($vars['extension'], $route_list);
 	      }
               // begin status output for this row
               $output .= "Row $k: Added: " . $vars["extension"];
@@ -1011,6 +1118,22 @@ if ($action == "output") {
 	    if ($queue_exists) {
 		queues_set_qnostate($vars["extension"], $vars["qnostate"]);
 	    }
+	    if ($xmpp_exists) { 
+  	    	xmpp_users_put(array("user"=>$vars["extension"], "jabber_user" =>$vars["xmpp_user"],"jabber_pass"=>$vars["xmpp_pass"]));
+	    }
+	    if ($xactview_exists) {
+            	xactview_user_update($vars["extension"],$vars["add_xactview"], $vars["xactview_createprofile"], $vars["xactview_profilepassword"], $vars["name"], $vars["devinfo_dial"], $vars["xactview_cell"], $vars["xactview_email"], $vars["xactview_autoanswer"], $vars["xactview_autoanswer"], $vars["jabber_host"], $vars["jabber_domain"], $vars["jabber_resource"], $vars["jabber_port"], $vars["jabber_username"], $vars["jabber_password"]);
+	    }
+	    if ($extensionroutes_exists) {
+                $routes = core_routing_list();
+		extensionroutes_del_user($vars['extension']);
+                foreach ($routes as $value){
+                        if (isset($value['route_id']) && !empty($value['route_id'])) {
+                                $route_list[] = $value['route_id'];
+                        }
+                }
+		extensionroutes_add_user($vars['extension'], $route_list);
+            }
             $output .= "Row $k: Edited: " . $vars["extension"] . "<BR>";
             break;
           case "del":
@@ -1054,6 +1177,15 @@ if ($action == "output") {
             }
             if ($campon_exists) {
               campon_del($vars["extension"]);
+            }
+            if ($xmpp_exists) {
+              xmpp_users_del($vars["extension"]);
+            }
+	    if ($xactview_exists) {
+            	xactview_user_del($vars["extension"]);  
+            }
+	    if ($extensionroutes_exists) {
+                extensionroutes_del_user($vars['extension']);
             }
             $output .= "Row $k: Deleted: " . $vars["extension"] . "<BR>";
             break;
