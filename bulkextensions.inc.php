@@ -54,7 +54,7 @@ if (function_exists("queues_get_qnostate") && function_exists("queues_set_qnosta
 	$queue_exists = TRUE;
 } else {
 	$queue_exists = FALSE;
-} 
+}
 
 if (function_exists("xactview_user_get") && function_exists("xactview_user_update") && function_exists("xactview_user_del")) {
         $xactview_exists = TRUE;
@@ -81,7 +81,7 @@ function bulkextensions_exportextensions_allusers() {
 	global $campon_exists;
 	global $queue_exists;
 	global $xactview_exists;
-	global $xmpp_exists; 
+	global $xmpp_exists;
 
 	$action		= "edit";
 	$fname		= "bulkext__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
@@ -130,7 +130,7 @@ function bulkextensions_exportextensions_allusers() {
 		} else {
 			$vmxobj		= NULL;
 		}
-		
+
 		if (is_object($vmxobj)) {
 			$vmx_state 		= ($vmxobj->isEnabled())?"checked":"";
 			$vmx_unavail_enabled 	= ($vmxobj->getState("unavail")=="enabled")?"checked":"";
@@ -153,7 +153,7 @@ function bulkextensions_exportextensions_allusers() {
 				$vmx_option_2_number 			= $vmxobj->getMenuOpt(2);
 			}
 		}
-			
+
 		/* Obtain dictation services settings. */
 		if ($dict_exists) {
 			$dictate_settings = dictate_get($e);
@@ -200,7 +200,7 @@ function bulkextensions_exportextensions_allusers() {
 			$q_info = queues_get_qnostate($e);
 		}
 
-		//SHMZ		
+		//SHMZ
 		/* Obtain xactview settings */
 		if($xactview_exists) {
 			$xactview_settings = xactview_user_get($e);
@@ -224,7 +224,7 @@ function bulkextensions_exportextensions_allusers() {
 		}
 		//number our columns
 		$csvi = 1;
-		
+
 		$csv_line[$csvi] 	= $action;
 		$csv_line[$csvi++] 	= isset($u_info["extension"])?$u_info["extension"]:"";
 		$csv_line[$csvi++] 	= isset($u_info["name"])?$u_info["name"]:"";
@@ -240,8 +240,8 @@ function bulkextensions_exportextensions_allusers() {
 		$csv_line[$csvi++]   	= isset($u_info["noanswer_cid"])?$u_info["noanswer_cid"]:"";
 		$csv_line[$csvi++]   	= isset($u_info["busy_dest"])?$u_info["busy_dest"]:"";
 		$csv_line[$csvi++]   	= isset($u_info["busy_cid"])?$u_info["busy_cid"]:"";
-		$csv_line[$csvi++] 	= isset($u_info["chanunavail_dest"])?$u_info["chanunavail_dest"]:"";		
-		$csv_line[$csvi++]  	= isset($u_info["chanunavail_cid"])?$u_info["chanunavail_cid"]:"";		
+		$csv_line[$csvi++] 	= isset($u_info["chanunavail_dest"])?$u_info["chanunavail_dest"]:"";
+		$csv_line[$csvi++]  	= isset($u_info["chanunavail_cid"])?$u_info["chanunavail_cid"]:"";
 		$csv_line[$csvi++]	= isset($d_info["emergency_cid"])?$d_info["emergency_cid"]:"";
 		$csv_line[$csvi++]	= isset($d_info["tech"])?$d_info["tech"]:"";
 		$csv_line[$csvi++]	= ""; 	// hardware
@@ -319,16 +319,16 @@ function bulkextensions_exportextensions_allusers() {
 		$csv_line[$csvi++]   	= isset($faxemail)?$faxemail:"";
 		//missing extension options
 		$csv_line[$csvi++]   	= isset($u_info["cfringtimer"])?$u_info["cfringtimer"]:0;
-		$csv_line[$csvi++]   	= isset($u_info["concurrency_limit"])?$u_info["concurrency_limit"]:0;		
+		$csv_line[$csvi++]   	= isset($u_info["concurrency_limit"])?$u_info["concurrency_limit"]:0;
 		$csv_line[$csvi++]   	= isset($u_info["answermode"])?$u_info["answermode"]:"disabled";
 		$csv_line[$csvi++]   	= isset($q_info["qnostate"])?$q_info["qnostate"]:"usestate";
 		//missing device info
-		$csv_line[$csvi++]   	= isset($d_info["devinfo_trustrpid"])?$d_info["devinfo_trustrpid"]:"yes";
-		$csv_line[$csvi++]   	= isset($d_info["devinfo_sendrpid"])?$d_info["devinfo_sendrpid"]:"no";
-		$csv_line[$csvi++]   	= isset($d_info["devinfo_qualifyfreq"])?$d_info["devinfo_qualifyfreq"]:"60";
-		$csv_line[$csvi++]  	= isset($d_info["devinfo_transport"])?$d_info["devinfo_transport"]:"udp";
-		$csv_line[$csvi++]  	= isset($d_info["devinfo_encryption"])?$d_info["devinfo_encryption"]:"no";
-		$csv_line[$csvi++]  	= isset($d_info["devinfo_vmexten"])?$d_info["devinfo_vmexten"]:"";
+		$csv_line[$csvi++]   	= isset($d_info["trustrpid"])?$d_info["trustrpid"]:"yes";
+		$csv_line[$csvi++]   	= isset($d_info["sendrpid"])?$d_info["sendrpid"]:"no";
+		$csv_line[$csvi++]   	= isset($d_info["qualifyfreq"])?$d_info["qualifyfreq"]:"60";
+		$csv_line[$csvi++]  	= isset($d_info["transport"])?$d_info["transport"]:"udp";
+		$csv_line[$csvi++]  	= isset($d_info["encryption"])?$d_info["encryption"]:"no";
+		$csv_line[$csvi++]  	= isset($d_info["vmexten"])?$d_info["vmexten"]:"";
 		//campon
 		$csv_line[$csvi++]  	= isset($campon_settings['cc_agent_policy'])?$campon_settings['cc_agent_policy']:"generic";
 		$csv_line[$csvi++]  	= isset($campon_settings['cc_monitor_policy'])?$campon_settings['cc_monitor_policy']:"generic";
@@ -338,18 +338,18 @@ function bulkextensions_exportextensions_allusers() {
 		$csv_line[$csvi++]  	= isset($u_info['recording_in_internal'])?$u_info['recording_in_internal']:"dontcare";
 		$csv_line[$csvi++]  	= isset($u_info['recording_out_internal'])?$u_info['recording_out_internal']:"dontcare";
 		$csv_line[$csvi++]  	= isset($u_info['recording_ondemand'])?$u_info['recording_ondemand']:"disabled";
-		$csv_line[$csvi++]  	= isset($u_info['recording_priority'])?$u_info['recording_priority']:"10";		
+		$csv_line[$csvi++]  	= isset($u_info['recording_priority'])?$u_info['recording_priority']:"10";
 		$csv_line[$csvi++] 	= isset($add_xactview)?$add_xactview:"0";
 		$csv_line[$csvi++]   	= isset($xactview_autoanswer)?$xactview_autoanswer:"0";
 		$csv_line[$csvi++]   	= isset($xactview_email)?$xactview_email:"";
 		$csv_line[$csvi++]   	= isset($xactview_cell)?$xactview_cell:"";
 		$csv_line[$csvi++]   	= isset($jabber_host)?$jabber_host:"";
 		$csv_line[$csvi++]   	= isset($jabber_domain)?$jabber_domain:"";
-		$csv_line[$csvi++]  	= isset($jabber_resource)?$jabber_resource:"";	
+		$csv_line[$csvi++]  	= isset($jabber_resource)?$jabber_resource:"";
 		$csv_line[$csvi++]  	= isset($jabber_port)?$jabber_port:"5222";
 		$csv_line[$csvi++]  	= isset($jabber_username)?$jabber_username:"";
 		$csv_line[$csvi++]  	= isset($jabber_password)?$jabber_password:"";
-		$csv_line[$csvi++]  	= isset($xactview_createprofile)?$xactview_createprofile:"0";	
+		$csv_line[$csvi++]  	= isset($xactview_createprofile)?$xactview_createprofile:"0";
 		$csv_line[$csvi++]  	= isset($xactview_profilepassword)?$xactview_profilepassword:"";
 		$csv_line[$csvi++]  	= isset($xmpp_settings["username"])?$xmpp_settings["username"]:"";
 		$csv_line[$csvi++]  	= isset($xmpp_settings["password"])?$xmpp_settings["password"]:"";
