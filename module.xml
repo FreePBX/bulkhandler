@@ -42,5 +42,8 @@
 		*0.1.1*	Fixed bad path and error in tar file
 		*0.1*	First release
 	</changelog>
+	<supported>
+		<version>2.10</version>
+	</supported>
 	<md5sum>4dcbccd9d80dc6896db34ad22398db1a</md5sum>
 </module>
