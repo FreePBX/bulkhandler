@@ -231,7 +231,10 @@ $i=0;
         $output .= "<BR><BR>Row $k: Headers parsed. <BR>";
         continue;
       }
-
+			
+			//reset destvars array or else we end up with extensions sharing destinations
+			$destvars = array();
+			
       if ($aFields["action"][0]) {
         $vars["action"] = trim($aInfo[$aFields["action"][1]]);
       }
