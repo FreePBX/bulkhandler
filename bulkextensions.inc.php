@@ -307,7 +307,7 @@ function bulkextensions_exportextensions_allusers() {
 		$csv_line[$csvi++]   	= isset($u_info["cfringtimer"])?$u_info["cfringtimer"]:0;
 		$csv_line[$csvi++]   	= isset($u_info["concurrency_limit"])?$u_info["concurrency_limit"]:0;
 		$csv_line[$csvi++]   	= isset($u_info["answermode"])?$u_info["answermode"]:"disabled";
-		$csv_line[$csvi++]   	= isset($q_info["qnostate"])?$q_info["qnostate"]:"usestate";
+		$csv_line[$csvi++]   	= isset($q_info)?$q_info:"usestate";
 		//missing device info
 		$csv_line[$csvi++]   	= isset($d_info["trustrpid"])?$d_info["trustrpid"]:"yes";
 		$csv_line[$csvi++]   	= isset($d_info["sendrpid"])?$d_info["sendrpid"]:"no";
