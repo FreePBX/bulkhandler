@@ -2,9 +2,11 @@
 	<rawname>bulkextensions</rawname>
 	<repo>extended</repo>
     <name>Bulk Extensions</name>
-    <publisher>Schmoozecom.com</publisher>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.11.0.1</version>
+	<version>2.11.0.7</version>
+	<publisher>Schmooze Com Inc</publisher>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<menuitems>
 		<bulkextensions>Bulk Extensions</bulkextensions>
@@ -15,6 +17,8 @@
 	<location>release/2.11/bulkextensions-2.11.0.0.tgz</location>
 	<info/>
 	<changelog>
+		*2.11.0.7* #7363
+		*2.11.0.6* Generate license file
 		*2.11.0.1* #7099
 		*2.11.0.0* #6149
 		*2.10.0.4* Packaging of ver 2.10.0.4
