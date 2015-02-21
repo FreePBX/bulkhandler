@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 16:48-0500\n"
+"POT-Creation-Date: 2015-02-20 19:02-0500\n"
 "PO-Revision-Date: 2014-03-04 09:09+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Hebrew <http://git.freepbx.org/projects/freepbx/"
@@ -32,180 +32,187 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.9-dev\n"
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1322
+#: page.bulkextensions.php:1322
 msgid ""
 " The account name, extension, and Voicemail password will automatically be "
 "inserted after the opening."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1250
+#: page.bulkextensions.php:1250
 msgid ""
 " The settings below can be used to control the content and destination of "
 "the notification emails."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1005
+#: page.bulkextensions.php:1005
 msgid "Account Name: "
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1224
+#: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
+#, fuzzy
+msgid "Applications"
+msgstr "יישומים"
+
+#: bulkextensions.i18n.php:3 bulkextensions.i18n.php:6
+#: bulkextensions.i18n.php:8 bulkextensions.i18n.php:14
+#: page.bulkextensions.php:1224
 msgid "Bulk Extensions"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1347
+#: page.bulkextensions.php:1347
 msgid "Bulk Extensions CSV File Columns"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1237
+#: bulkextensions.i18n.php:5 bulkextensions.i18n.php:12
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+
+#: page.bulkextensions.php:1237
 msgid ""
 "Bulk extension changes can take a long time to complete. It can take 30-60 "
 "seconds to add 100 extensions on a small system. However, on a system with "
 "2000 extensions it can take about 5 minutes to add 100 new extensions."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1249
+#: page.bulkextensions.php:1249
 msgid ""
 "By default, a notification email will be sent to the Voicemail email address "
 "set for each account added."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1242
+#: page.bulkextensions.php:1242
 msgid "CSV File to Load"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1256
+#: page.bulkextensions.php:1256
 msgid "Default Address:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1333
+#: page.bulkextensions.php:1333
 msgid "Email Closing:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1280
+#: page.bulkextensions.php:1280
 msgid "Email From:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1247
+#: page.bulkextensions.php:1247
 msgid "Email Notification for New Accounts"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1319
+#: page.bulkextensions.php:1319
 msgid "Email Opening:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1293
+#: page.bulkextensions.php:1293
 msgid "Email Reply-To:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1306
+#: page.bulkextensions.php:1306
 msgid "Email Subject:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1241
+#: page.bulkextensions.php:1241
 msgid "Export Extensions"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1006
+#: page.bulkextensions.php:1006
 msgid "Extension: "
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1257
+#: page.bulkextensions.php:1257
 msgid ""
 "If a Default Address is specified, notification emails for new accounts "
 "without a Voicemail email address will be sent to the Default Address."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1269
+#: page.bulkextensions.php:1269
 msgid ""
 "If an Override Address is specified, all notification emails will be sent to "
 "the Override Address only. Type \"noemail\" (without the quotes) as the "
 "Override Address to stop notification emails from being sent."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1243
+#: page.bulkextensions.php:1243
 msgid "Load File"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1001
+#: page.bulkextensions.php:1001
 msgid "Login information for your Voicemail account is as follows:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1231
+#: page.bulkextensions.php:1231
 msgid "Manage Extensions in bulk using CSV files."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1235
+#: page.bulkextensions.php:1235
 msgid ""
 "Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
 "the CSV file. After the CSV file is processed, the action taken for each row "
 "will be displayed."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1268
+#: page.bulkextensions.php:1268
 msgid "Override Address:"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1233
+#: page.bulkextensions.php:1233
 #, php-format
 msgid ""
 "Start by downloading the %s Template CSV file %s (right-click > save as) or "
 "clicking the Export Extensions button."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1335
+#: page.bulkextensions.php:1335
 msgid ""
 "The Email Closing may be specified. If any text is entered, it will be "
 "inserted at the end of the email."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1282
+#: page.bulkextensions.php:1282
 msgid ""
 "The Email From header may be specified. If left blank, the system default "
 "will be used."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1321
+#: page.bulkextensions.php:1321
 msgid ""
 "The Email Opening may be specified. If left blank, the default opening, "
 "\"Login information for your Voicemail account is as follows:\", will be "
 "used."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1295
+#: page.bulkextensions.php:1295
 msgid ""
 "The Email Reply-To header may be specified. If left blank, the system "
 "default will be used."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1308
+#: page.bulkextensions.php:1308
 msgid ""
 "The Email Subject may be specified. If left blank, the default subject, "
 "\"Voicemail Account Activated\", will be used."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1348
+#: page.bulkextensions.php:1348
 msgid ""
 "The table below explains each column in the CSV file. You can change the "
 "column order of the CSV file as you like, however, the column names must be "
 "preserved."
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1227
+#: page.bulkextensions.php:1227
 msgid "This module is only supported when FreePBX is in <b>extensions</b> mode"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:983
+#: page.bulkextensions.php:983
 msgid "Voicemail Account Activated"
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1007
+#: page.bulkextensions.php:1007
 msgid "Voicemail Password: "
 msgstr ""
 
-#: /usr/src/freepbx/bulkextensions/page.bulkextensions.php:1226
+#: page.bulkextensions.php:1226
 msgid "You are running FreePBX in <b>deviceanduser</b> mode"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Applications"
-#~ msgstr "יישומים"
