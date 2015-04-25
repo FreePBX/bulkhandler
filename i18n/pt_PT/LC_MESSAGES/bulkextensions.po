@@ -10,43 +10,50 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:02-0500\n"
-"PO-Revision-Date: 2015-02-20 19:02-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-04-25 00:59+0200\n"
+"Last-Translator: Paulo <paulop1975@gmail.com>\n"
+"Language-Team: Portuguese (Portugal) "
+"<http://weblate.freepbx.org/projects/freepbx/bulkextensions/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: page.bulkextensions.php:1322
 msgid ""
 " The account name, extension, and Voicemail password will automatically be "
 "inserted after the opening."
 msgstr ""
+" O nome de conta, a extensão e a password do correio de voz serão inseridos "
+"automaticamente depois da abertura."
 
 #: page.bulkextensions.php:1250
 msgid ""
 " The settings below can be used to control the content and destination of "
 "the notification emails."
 msgstr ""
+" As configurações abaixo podem ser usadas para controlar o conteúdo e "
+"destino dos emails de notificação."
 
 #: page.bulkextensions.php:1005
 msgid "Account Name: "
-msgstr ""
+msgstr "Nome de Conta "
 
 #: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
 msgid "Applications"
-msgstr ""
+msgstr "Aplicações"
 
 #: bulkextensions.i18n.php:3 bulkextensions.i18n.php:6
 #: bulkextensions.i18n.php:8 bulkextensions.i18n.php:14
 #: page.bulkextensions.php:1224
 msgid "Bulk Extensions"
-msgstr ""
+msgstr "Extensões em Massa"
 
 #: page.bulkextensions.php:1347
 msgid "Bulk Extensions CSV File Columns"
-msgstr ""
+msgstr "Colunas do Ficheiro CSV das Extensões em Massa"
 
 #: bulkextensions.i18n.php:5 bulkextensions.i18n.php:12
 msgid "Bulk Extensions uses CSV files to import and export extensions."
