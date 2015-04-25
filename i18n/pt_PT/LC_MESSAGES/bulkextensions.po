@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:02-0500\n"
-"PO-Revision-Date: 2015-04-25 00:59+0200\n"
+"PO-Revision-Date: 2015-04-25 01:11+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkextensions/pt_PT/>\n"
@@ -39,7 +39,7 @@ msgstr ""
 
 #: page.bulkextensions.php:1005
 msgid "Account Name: "
-msgstr "Nome de Conta "
+msgstr "Nome de Conta: "
 
 #: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
 msgid "Applications"
@@ -58,6 +58,7 @@ msgstr "Colunas do Ficheiro CSV das Extensões em Massa"
 #: bulkextensions.i18n.php:5 bulkextensions.i18n.php:12
 msgid "Bulk Extensions uses CSV files to import and export extensions."
 msgstr ""
+"Extensões em Massa usa ficheiros CSV para importar ou exportar extensões."
 
 #: page.bulkextensions.php:1237
 msgid ""
@@ -65,52 +66,60 @@ msgid ""
 "seconds to add 100 extensions on a small system. However, on a system with "
 "2000 extensions it can take about 5 minutes to add 100 new extensions."
 msgstr ""
+"Alterações de Extensões em Massa pode demorr algum tempo, Pode demorar 30 a "
+"60 segundos a adicionar 100 extensões num sistema de pequena dimensão. No "
+"entanto, num sistema com 200 extensões poderá demorar 5 minutos para "
+"adicionar 100 extensões."
 
 #: page.bulkextensions.php:1249
 msgid ""
 "By default, a notification email will be sent to the Voicemail email address "
 "set for each account added."
 msgstr ""
+"Por defeito, será enviado um email de notificação para o endereço email do "
+"Correio de Voz definido para cada conta."
 
 #: page.bulkextensions.php:1242
 msgid "CSV File to Load"
-msgstr ""
+msgstr "Ficheiro CSV a Carregar"
 
 #: page.bulkextensions.php:1256
 msgid "Default Address:"
-msgstr ""
+msgstr "Endereço por Defeito:"
 
 #: page.bulkextensions.php:1333
+#, fuzzy
 msgid "Email Closing:"
-msgstr ""
+msgstr "Fecho do Email:"
 
 #: page.bulkextensions.php:1280
 msgid "Email From:"
-msgstr ""
+msgstr "Email De:"
 
 #: page.bulkextensions.php:1247
 msgid "Email Notification for New Accounts"
-msgstr ""
+msgstr "Notificação de email para Novas Contas"
 
 #: page.bulkextensions.php:1319
+#, fuzzy
 msgid "Email Opening:"
-msgstr ""
+msgstr "Email Abrindo:"
 
 #: page.bulkextensions.php:1293
 msgid "Email Reply-To:"
-msgstr ""
+msgstr "Email Responder a:"
 
 #: page.bulkextensions.php:1306
 msgid "Email Subject:"
-msgstr ""
+msgstr "Assunto do Email:"
 
 #: page.bulkextensions.php:1241
 msgid "Export Extensions"
-msgstr ""
+msgstr "Exportar Extensões"
 
 #: page.bulkextensions.php:1006
 msgid "Extension: "
-msgstr ""
+msgstr "Extensão: "
 
 #: page.bulkextensions.php:1257
 msgid ""
@@ -127,7 +136,7 @@ msgstr ""
 
 #: page.bulkextensions.php:1243
 msgid "Load File"
-msgstr ""
+msgstr "Carregar Ficheiro"
 
 #: page.bulkextensions.php:1001
 msgid "Login information for your Voicemail account is as follows:"
@@ -135,7 +144,7 @@ msgstr ""
 
 #: page.bulkextensions.php:1231
 msgid "Manage Extensions in bulk using CSV files."
-msgstr ""
+msgstr "Gerir Extensões em massa usando ficheiros CSV."
 
 #: page.bulkextensions.php:1235
 msgid ""
@@ -199,11 +208,11 @@ msgstr ""
 
 #: page.bulkextensions.php:983
 msgid "Voicemail Account Activated"
-msgstr ""
+msgstr "Conta de Correio de Voz Ativada"
 
 #: page.bulkextensions.php:1007
 msgid "Voicemail Password: "
-msgstr ""
+msgstr "Password de Correio de Voz: "
 
 #: page.bulkextensions.php:1226
 msgid "You are running FreePBX in <b>deviceanduser</b> mode"
