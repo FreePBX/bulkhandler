@@ -121,11 +121,16 @@ class Bulkhandler implements \BMO {
 		foreach($modules as $module) {
 			if(!empty($module)) {}
 			foreach($module as $items) {
-				$headers = array_merge($headers,array_keys($items));
-				$rows[$row] = array_fill(0, count($headers), "");
+				$currentheaders = array_keys($items);
+				$headers = array_merge($headers,array_combine($currentheaders, $currentheaders));
+			}
+			foreach($module as $items) {
+//				$rows[$row] = array_fill(0, count($headers), "");
+				$rows[$row] = array_fill_keys($headers, "");
 				foreach($items as $key => $value) {
-					$d = array_search($key,$headers);
-					$rows[$row][$d] = $value;
+//					$d = array_search($key,$headers);
+//					$rows[$row][$d] = $value;
+					$rows[$row][$key] = $value;
 				}
 				$row++;
 			}
