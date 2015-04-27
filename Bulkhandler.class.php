@@ -25,13 +25,23 @@ class Bulkhandler implements \BMO {
 	public function restore($backup){
 	}
 
+	private function fileToArray($file) {
+		$rawData = Array();
+
+		return $rawData;
+	}
+
+	private function arrayToFile($rawData, $type) {
+		return $file;
+	}
+
 	public function getTypes() {
 		$modules = $this->freepbx->Hooks->processHooks();
 		foreach($modules as $module) {
 		}
 	}
 
-	public function import($type) {
+	public function import($type, $rawData) {
 		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
 		foreach($modules as $module) {
 
@@ -45,7 +55,7 @@ class Bulkhandler implements \BMO {
 		}
 	}
 
-	public function validate($type) {
+	public function validate($type, $rawData) {
 		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
 		foreach($modules as $module) {
 
