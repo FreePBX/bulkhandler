@@ -7,20 +7,18 @@
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Aadmin</category>
+	<category>Admin</category>
 	<menuitems>
 		<bulkhandler>Bulk Handler</bulkhandler>
 	</menuitems>
 	<depends>
 		<version>ge2.10alpha0</version>
 	</depends>
-	<location>release/2.11/bulkdids-2.11.0.0.tgz</location>
 	<info/>
 	<changelog>
 
 	</changelog>
 	<supported>
-		<version>2.10</version>
+		<version>13.0</version>
 	</supported>
-	<md5sum>b37d02df3a974cea0181fffe2aa0edd0</md5sum>
 </module>
