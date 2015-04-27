@@ -7,9 +7,9 @@
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
-	<category>Applications</category>
+	<category>Aadmin</category>
 	<menuitems>
-		<bulkdids>Bulk DIDs</bulkdids>
+		<bulkhandler>Bulk Handler</bulkhandler>
 	</menuitems>
 	<depends>
 		<version>ge2.10alpha0</version>
