@@ -25,8 +25,26 @@ class Bulkhandler implements \BMO {
 	public function restore($backup){
 	}
 
+	public function showPage() {
+		if($_REQUEST['quietmode']) {
+			$this->export($_REQUEST['export']);
+		} else {
+			$type = (!empty($_REQUEST['type']) && $_REQUEST['type'] == 'export') ? 'export' : 'import';
+			switch($type) {
+				case "export":
+					return load_view(__DIR__."/views/export.php",array("typed" => $type, "types" => $this->getTypes($type)));
+				break;
+				case "import":
+				default:
+					return load_view(__DIR__."/views/import.php",array("typed" => $type, "types" => $this->getTypes($type)));
+				break;
+			}
+		}
+
+	}
+
 	private function fileToArray($file) {
-		$rawData = Array();
+		$rawData = array();
 
 		return $rawData;
 	}
@@ -35,10 +53,57 @@ class Bulkhandler implements \BMO {
 		return $file;
 	}
 
-	public function getTypes() {
-		$modules = $this->freepbx->Hooks->processHooks();
-		foreach($modules as $module) {
+	public function getActionBar($request) {
+		$buttons = array();
+		switch($request['display']) {
+			case 'bulkhandler':
+				$buttons = array(
+					'reset' => array(
+						'name' => 'reset',
+						'id' => 'reset',
+						'value' => _('Reset')
+					),
+					'submit' => array(
+						'name' => 'submit',
+						'id' => 'submit',
+						'value' => _('Submit')
+					)
+				);
+			break;
 		}
+		return $buttons;
+	}
+
+	public function getTypes($type='import') {
+		$modules = $this->freepbx->Hooks->processHooks();
+		$types = array();
+		foreach($modules as $k => $module) {
+			switch($type) {
+				case "import":
+					foreach($module as $el) {
+						foreach($el as $type => $name) {
+							$types[$k."-".$type] = array(
+								"name" => $name,
+								"mod" => $k,
+								"type" => $type
+							);
+						}
+					}
+				break;
+				case "export":
+					foreach($module as $el) {
+						foreach($el as $section => $name) {
+							$types[$k."-".$type] = array(
+								"name" => $name,
+								"mod" => $k,
+								"type" => $type
+							);
+						}
+					}
+				break;
+			}
+		}
+		return $types;
 	}
 
 	public function import($type, $rawData) {
@@ -50,9 +115,30 @@ class Bulkhandler implements \BMO {
 
 	public function export($type) {
 		$modules = $this->freepbx->Hooks->processHooks($type);
+		$rows = array();
+		$headers = array();
+		$row = 0;
 		foreach($modules as $module) {
-
+			if(!empty($module)) {}
+			foreach($module as $items) {
+				$headers = array_merge($headers,array_keys($items));
+				$rows[$row] = array_fill(0, count($headers), "");
+				foreach($items as $key => $value) {
+					$d = array_search($key,$headers);
+					$rows[$row][$d] = $value;
+				}
+				$row++;
+			}
 		}
+		$out = fopen('php://output', 'w');
+		header('Content-type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="export.csv"');
+		fputcsv($out,$headers);
+		$headersc = count($headers);
+		foreach($rows as $row) {
+			fputcsv($out,  $row);
+		}
+		fclose($out);
 	}
 
 	public function validate($type, $rawData) {
