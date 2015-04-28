@@ -9,7 +9,17 @@
 				</ul>
 				<div class="tab-content display">
 					<?php foreach($types as $key => $type) {?>
-					<div id="<?php echo $key?>" class="tab-pane <?php echo $type['active'] ? 'active' : ''?>">
+						<div id="<?php echo $key?>" class="tab-pane <?php echo $type['active'] ? 'active' : ''?>">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<div class="panel-title">
+									<a href="#" data-toggle="collapse" data-target="#<?php echo $key?>-moreinfo"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo sprintf(_('What are "%s"?'),$type['type'])?></div>
+							</div>
+							<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
+							<div class="panel-body collapse" id="<?php echo $key?>-moreinfo">
+								<?php echo $type['description']?>
+							</div>
+						</div>
 						<div class="container-fluid">
 								<div class="element-container">
 									<div class="row">

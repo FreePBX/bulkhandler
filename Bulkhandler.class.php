@@ -157,6 +157,7 @@ class Bulkhandler implements \BMO {
 							if(!isset($types[$k."-".$type])) {
 								$types[$k."-".$type] = array(
 									"name" => $name['name'],
+									"description" => $name['description'],
 									"mod" => $k,
 									"type" => $type,
 									"active" => ($i == 0),
@@ -174,6 +175,7 @@ class Bulkhandler implements \BMO {
 							if(!isset($types[$k."-".$type])) {
 								$types[$k."-".$type] = array(
 									"name" => $name['name'],
+									"description" => $name['description'],
 									"mod" => $k,
 									"type" => $type,
 									"active" => ($i == 0)
