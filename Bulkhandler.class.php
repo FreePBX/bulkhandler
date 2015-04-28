@@ -44,11 +44,12 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								$this->import($_POST['type'], $array);
+								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "imports" => $array));
 							} catch(\Exception $e) {
 								$message = $e->getMessage();
 							}
 						}
+
 					}
 					return load_view(__DIR__."/views/import.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
 				break;
@@ -190,11 +191,26 @@ class Bulkhandler implements \BMO {
 		return $types;
 	}
 
+	public function ajaxRequest($req, &$setting) {
+		return true;
+	}
+
+	public function ajaxHandler() {
+		$ret = array("status" => true);
+		switch ($_REQUEST['command']) {
+			case "import":
+				$this->import($_POST['type'], array($_POST['imports']));
+			break;
+		}
+		return $ret;
+	}
+
 	public function import($type, $rawData) {
 		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
 		foreach($modules as $module) {
 
 		}
+		return array("status" => true, "message" => "message");
 	}
 
 	public function export($type, $onlyHeaders = false) {
