@@ -42,7 +42,7 @@
 																<label class="control-label" for="<?php echo $key?>-headers"><?php echo _('Supported Headers')?></label>
 																<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-headers"></i>
 															</div>
-															<div class="col-md-9"><pre><?php echo print_r($headers);?></pre></div>
+															<div class="col-md-9"><pre><?php echo print_r($type['headers']);?></pre></div>
 														</div>
 													</div>
 												</div>

@@ -50,8 +50,7 @@ class Bulkhandler implements \BMO {
 							}
 						}
 					}
-					$headers = $this->export('extensions', true);
-					return load_view(__DIR__."/views/import.php",array("message" => $message, "headers" => $headers, "typed" => $type, "types" => $this->getTypes($type)));
+					return load_view(__DIR__."/views/import.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
 				break;
 			}
 		}
@@ -160,7 +159,8 @@ class Bulkhandler implements \BMO {
 									"name" => $name['name'],
 									"mod" => $k,
 									"type" => $type,
-									"active" => ($i == 0)
+									"active" => ($i == 0),
+									"headers" => $this->export($type, true)
 								);
 								$i++;
 							}
