@@ -82,6 +82,7 @@ class Bulkhandler implements \BMO {
 				case "import":
 					foreach($module as $el) {
 						foreach($el as $type => $name) {
+							dbug($name);
 							$types[$k."-".$type] = array(
 								"name" => $name,
 								"mod" => $k,
@@ -92,7 +93,7 @@ class Bulkhandler implements \BMO {
 				break;
 				case "export":
 					foreach($module as $el) {
-						foreach($el as $section => $name) {
+						foreach($el as $type => $name) {
 							$types[$k."-".$type] = array(
 								"name" => $name,
 								"mod" => $k,
@@ -114,6 +115,7 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function export($type) {
+		$time_start = microtime(true);
 		$modules = $this->freepbx->Hooks->processHooks($type);
 		$rows = array();
 		$headers = array();
@@ -124,17 +126,20 @@ class Bulkhandler implements \BMO {
 				$currentheaders = array_keys($items);
 				$headers = array_merge($headers,array_combine($currentheaders, $currentheaders));
 			}
+		}
+		$headers = array_keys($headers);
+		foreach($modules as $module) {
+			if(!empty($module)) {}
 			foreach($module as $items) {
-//				$rows[$row] = array_fill(0, count($headers), "");
-				$rows[$row] = array_fill_keys($headers, "");
+				$rows[$row] = array_fill(0, count($headers), "");
 				foreach($items as $key => $value) {
-//					$d = array_search($key,$headers);
-//					$rows[$row][$d] = $value;
-					$rows[$row][$key] = $value;
+					$d = array_search($key,$headers);
+					$rows[$row][$d] = $value;
 				}
 				$row++;
 			}
 		}
+
 		$out = fopen('php://output', 'w');
 		header('Content-type: application/octet-stream');
 		header('Content-Disposition: attachment; filename="export.csv"');
@@ -144,6 +149,7 @@ class Bulkhandler implements \BMO {
 			fputcsv($out,  $row);
 		}
 		fclose($out);
+		dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
 	}
 
 	public function validate($type, $rawData) {
