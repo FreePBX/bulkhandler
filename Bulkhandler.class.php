@@ -146,51 +146,40 @@ class Bulkhandler implements \BMO {
 		}
 	}
 
-	public function getActionBar($request) {
-		$buttons = array();
-		switch($request['display']) {
-			case 'bulkhandler':
-				$buttons = array(
-					'reset' => array(
-						'name' => 'reset',
-						'id' => 'reset',
-						'value' => _('Reset')
-					),
-					'submit' => array(
-						'name' => 'submit',
-						'id' => 'submit',
-						'value' => _('Submit')
-					)
-				);
-			break;
-		}
-		return $buttons;
-	}
-
 	public function getTypes($type='import') {
 		$modules = $this->freepbx->Hooks->processHooks();
 		$types = array();
 		foreach($modules as $k => $module) {
 			switch($type) {
 				case "import":
+					$i = 0;
 					foreach($module as $el) {
 						foreach($el as $type => $name) {
-							$types[$k."-".$type] = array(
-								"name" => $name,
-								"mod" => $k,
-								"type" => $type
-							);
+							if(!isset($types[$k."-".$type])) {
+								$types[$k."-".$type] = array(
+									"name" => $name,
+									"mod" => $k,
+									"type" => $type,
+									"active" => ($i == 0)
+								);
+								$i++;
+							}
 						}
 					}
 				break;
 				case "export":
+					$i = 0;
 					foreach($module as $el) {
 						foreach($el as $type => $name) {
-							$types[$k."-".$type] = array(
-								"name" => $name,
-								"mod" => $k,
-								"type" => $type
-							);
+							if(!isset($types[$k."-".$type])) {
+								$types[$k."-".$type] = array(
+									"name" => $name,
+									"mod" => $k,
+									"type" => $type,
+									"active" => ($i == 0)
+								);
+								$i++;
+							}
 						}
 					}
 				break;
