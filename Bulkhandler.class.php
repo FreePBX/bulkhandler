@@ -26,31 +26,124 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function showPage() {
-		if($_REQUEST['quietmode']) {
+		if($_REQUEST['quietmode'] && $_REQUEST['type'] == 'export') {
 			$this->export($_REQUEST['export']);
 		} else {
 			$type = (!empty($_REQUEST['type']) && $_REQUEST['type'] == 'export') ? 'export' : 'import';
+			$message = '';
 			switch($type) {
 				case "export":
-					return load_view(__DIR__."/views/export.php",array("typed" => $type, "types" => $this->getTypes($type)));
+					return load_view(__DIR__."/views/export.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
 				break;
 				case "import":
 				default:
-					return load_view(__DIR__."/views/import.php",array("typed" => $type, "types" => $this->getTypes($type)));
+					if(!empty($_FILES)) {
+						$ret = $this->uploadFile();
+						if(!$ret['status']) {
+							$message = $ret['message'];
+						} else {
+							try {
+								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
+								$this->import($_POST['type'], $array);
+							} catch(\Exception $e) {
+								$message = $e->getMessage();
+							}
+						}
+					}
+					$headers = $this->export('extensions', true);
+					return load_view(__DIR__."/views/import.php",array("message" => $message, "headers" => $headers, "typed" => $type, "types" => $this->getTypes($type)));
 				break;
 			}
 		}
 
 	}
 
-	private function fileToArray($file) {
-		$rawData = array();
+	private function uploadFile() {
+		$temp = sys_get_temp_dir() . "/bhimports";
+		if(!file_exists($temp)) {
+			if(!mkdir($temp)) {
+				return array("status" => false, "message" => sprintf(_("Cant Create Temp Directory: %s"),$temp));
+			}
+		}
+		$error = $_FILES["import"]["error"];
+		switch($error) {
+			case UPLOAD_ERR_OK:
+				$extension = pathinfo($_FILES["import"]["name"], PATHINFO_EXTENSION);
+				$extension = strtolower($extension);
+				if($extension == 'csv') {
+					$tmp_name = $_FILES["import"]["tmp_name"];
+					$dname = $_FILES["import"]["name"];
+					$id = time();
+					$name = pathinfo($_FILES["import"]["name"],PATHINFO_FILENAME) . '-' . $id . '.' . $extension;
+					move_uploaded_file($tmp_name, $temp."/".$name);
+					if(!file_exists($temp."/".$name)) {
+						return array("status" => false, "message" => _("Cant find uploaded file"), "localfilename" => $temp."/".$name);
+					}
+					return array("status" => true, "filename" => $dname, "localfilename" => $temp."/".$name, "id" => $id, "extension" => $extension);
+				} else {
+					return array("status" => false, "message" => _("Unsupported file format"));
+					break;
+				}
+			break;
+			case UPLOAD_ERR_INI_SIZE:
+				return array("status" => false, "message" => _("The uploaded file exceeds the upload_max_filesize directive in php.ini"));
+			break;
+			case UPLOAD_ERR_FORM_SIZE:
+				return array("status" => false, "message" => _("The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"));
+			break;
+			case UPLOAD_ERR_PARTIAL:
+				return array("status" => false, "message" => _("The uploaded file was only partially uploaded"));
+			break;
+			case UPLOAD_ERR_NO_FILE:
+				return array("status" => false, "message" => _("No file was uploaded"));
+			break;
+			case UPLOAD_ERR_NO_TMP_DIR:
+				return array("status" => false, "message" => _("Missing a temporary folder"));
+			break;
+			case UPLOAD_ERR_CANT_WRITE:
+				return array("status" => false, "message" => _("Failed to write file to disk"));
+			break;
+			case UPLOAD_ERR_EXTENSION:
+				return array("status" => false, "message" => _("A PHP extension stopped the file upload"));
+			break;
+		}
+		return array("status" => false, "message" => _("Can Not Find Uploaded Files"));
+	}
 
+	private function fileToArray($file,$type='csv') {
+		$rawData = array();
+		switch($type) {
+			case 'csv':
+				$header = null;
+				$handle = fopen($file, "r");
+				while ($row = fgetcsv($handle)) {
+					if ($header === null) {
+						$header = $row;
+						continue;
+					}
+					$rawData[] = array_combine($header, $row);
+				}
+			break;
+			default:
+				throw new \Exception(_("Unsupported file type"));
+			break;
+		}
 		return $rawData;
 	}
 
-	private function arrayToFile($rawData, $type) {
-		return $file;
+	private function arrayToFile($rawData,$type='csv') {
+		switch($type) {
+			case 'csv':
+			default:
+				$out = fopen('php://output', 'w');
+				header('Content-type: application/octet-stream');
+				header('Content-Disposition: attachment; filename="export.csv"');
+				foreach($rawData as $row) {
+					fputcsv($out,  $row);
+				}
+				fclose($out);
+			break;
+		}
 	}
 
 	public function getActionBar($request) {
@@ -82,7 +175,6 @@ class Bulkhandler implements \BMO {
 				case "import":
 					foreach($module as $el) {
 						foreach($el as $type => $name) {
-							dbug($name);
 							$types[$k."-".$type] = array(
 								"name" => $name,
 								"mod" => $k,
@@ -114,42 +206,40 @@ class Bulkhandler implements \BMO {
 		}
 	}
 
-	public function export($type) {
+	public function export($type, $onlyHeaders = false) {
 		$time_start = microtime(true);
 		$modules = $this->freepbx->Hooks->processHooks($type);
 		$rows = array();
 		$headers = array();
-		$row = 0;
-		foreach($modules as $module) {
+		foreach($modules as $key => $module) {
 			if(!empty($module)) {}
 			foreach($module as $items) {
-				$currentheaders = array_keys($items);
-				$headers = array_merge($headers,array_combine($currentheaders, $currentheaders));
+				foreach(array_keys($items) as $h) {
+					if(!in_array($h,$headers)) {
+						$headers[] = $h;
+					}
+				}
+
 			}
 		}
-		$headers = array_keys($headers);
+		if($onlyHeaders) {
+			return $headers;
+		}
 		foreach($modules as $module) {
 			if(!empty($module)) {}
-			foreach($module as $items) {
-				$rows[$row] = array_fill(0, count($headers), "");
+			foreach($module as $id => $items) {
+				if(empty($rows[$id])) {
+					$rows[$id] = array_fill(0, count($headers), "");
+				}
 				foreach($items as $key => $value) {
 					$d = array_search($key,$headers);
-					$rows[$row][$d] = $value;
+					$rows[$id][$d] = $value;
 				}
-				$row++;
 			}
 		}
-
-		$out = fopen('php://output', 'w');
-		header('Content-type: application/octet-stream');
-		header('Content-Disposition: attachment; filename="export.csv"');
-		fputcsv($out,$headers);
-		$headersc = count($headers);
-		foreach($rows as $row) {
-			fputcsv($out,  $row);
-		}
-		fclose($out);
+		array_unshift($rows,$headers);
 		dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
+		$this->arrayToFile($rows,'csv');
 	}
 
 	public function validate($type, $rawData) {
