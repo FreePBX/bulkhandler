@@ -153,36 +153,32 @@ class Bulkhandler implements \BMO {
 			switch($type) {
 				case "import":
 					$i = 0;
-					foreach($module as $el) {
-						foreach($el as $type => $name) {
-							if(!isset($types[$k."-".$type])) {
-								$types[$k."-".$type] = array(
-									"name" => $name['name'],
-									"description" => $name['description'],
-									"mod" => $k,
-									"type" => $type,
-									"active" => ($i == 0),
-									"headers" => $this->export($type, true)
-								);
-								$i++;
-							}
+					foreach($module as $type => $name) {
+						if(!isset($types[$k."-".$type])) {
+							$types[$k."-".$type] = array(
+								"name" => $name['name'],
+								"description" => $name['description'],
+								"mod" => $k,
+								"type" => $type,
+								"active" => ($i == 0),
+								"headers" => $this->export($type, true)
+							);
+							$i++;
 						}
 					}
 				break;
 				case "export":
 					$i = 0;
-					foreach($module as $el) {
-						foreach($el as $type => $name) {
-							if(!isset($types[$k."-".$type])) {
-								$types[$k."-".$type] = array(
-									"name" => $name['name'],
-									"description" => $name['description'],
-									"mod" => $k,
-									"type" => $type,
-									"active" => ($i == 0)
-								);
-								$i++;
-							}
+					foreach($module as $type => $name) {
+						if(!isset($types[$k."-".$type])) {
+							$types[$k."-".$type] = array(
+								"name" => $name['name'],
+								"description" => $name['description'],
+								"mod" => $k,
+								"type" => $type,
+								"active" => ($i == 0)
+							);
+							$i++;
 						}
 					}
 				break;
