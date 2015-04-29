@@ -33,7 +33,7 @@ class Bulkhandler implements \BMO {
 			$message = '';
 			switch($type) {
 				case "export":
-					//return load_view(__DIR__."/views/export.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
+					return load_view(__DIR__."/views/export.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
 				break;
 				case "import":
 				default:
@@ -44,7 +44,7 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								//return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "imports" => $array));
+								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "imports" => $array));
 							} catch(\Exception $e) {
 								$message = $e->getMessage();
 							}
@@ -213,7 +213,7 @@ class Bulkhandler implements \BMO {
 			return array("status" => false, "message" => $e->getMessage());
 		}
 		foreach($modules as $module => $values) {
-			if(!$values['status']) {
+			if($values && !$values['status']) {
 				return array("status" => false, "message" => "There was an error in ".$module.", message:".$values['message']);
 			}
 		}
