@@ -33,7 +33,7 @@ class Bulkhandler implements \BMO {
 			$message = '';
 			switch($type) {
 				case "export":
-					return load_view(__DIR__."/views/export.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
+					//return load_view(__DIR__."/views/export.php",array("message" => $message, "typed" => $type, "types" => $this->getTypes($type)));
 				break;
 				case "import":
 				default:
@@ -44,7 +44,7 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "imports" => $array));
+								//return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "imports" => $array));
 							} catch(\Exception $e) {
 								$message = $e->getMessage();
 							}
@@ -115,8 +115,12 @@ class Bulkhandler implements \BMO {
 		switch($type) {
 			case 'csv':
 				$header = null;
+				ini_set("auto_detect_line_endings", true);
 				$handle = fopen($file, "r");
+				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
+
 				while ($row = fgetcsv($handle)) {
+					dbug($row);
 					if ($header === null) {
 						$header = $row;
 						continue;
@@ -195,18 +199,25 @@ class Bulkhandler implements \BMO {
 		$ret = array("status" => true);
 		switch ($_REQUEST['command']) {
 			case "import":
-				$this->import($_POST['type'], array($_POST['imports']));
+				$ret = $this->import($_POST['type'], array($_POST['imports']));
 			break;
 		}
 		return $ret;
 	}
 
 	public function import($type, $rawData) {
-		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
-		foreach($modules as $module) {
-
+		try {
+			$methods = $this->freepbx->Hooks->returnHooks();
+			$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
+		} catch(\Exception $e) {
+			return array("status" => false, "message" => $e->getMessage());
 		}
-		return array("status" => true, "message" => "message");
+		foreach($modules as $module => $values) {
+			if(!$values['status']) {
+				return array("status" => false, "message" => "There was an error in ".$module.", message:".$values['message']);
+			}
+		}
+		return array("status" => true);
 	}
 
 	public function export($type, $onlyHeaders = false) {
