@@ -41,7 +41,12 @@ $("#submit").click(function() {
 	$.each(imports, function(i,v) {
 		//loop over and import indivudally
 		$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v},function( data ) {
-
+			if(!data.status) {
+				$("tr[data-uniqueid=row-"+i+"] td").css("background-color","red");
+				alert("There was an error importing row "+i+": "+data.message);
+			} else {
+				$("tr[data-uniqueid=row-"+i+"] td").css("background-color","lightgreen");
+			}
 		});
 	});
 });
