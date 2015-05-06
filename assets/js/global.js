@@ -22,7 +22,26 @@ $("#validation-list").on("post-body.bs.table",function() {
 		} else if(type == "edit" && typeof jsonid !== "undefined") {
 			editId = jsonid;
 			$.each(imports[jsonid], function(i,v) {
-				html = html + '<div class="form-group"><label for="'+i+'">'+i+'</label><input type="text" class="form-control" id="'+i+'" value="'+v+'"></div>';
+				var label = i;
+				var input = '<input type="text" class="form-control" id="'+i+'" value="'+v+'">';
+
+				if (headers && (header = headers[i])) {
+					label = header['description'] ? header['description'] : i;
+
+					if (!header['type'] || header['type'] == 'string') {
+						if (header['values']) {
+							input = '<select id="'+i+'" class="form-control">';
+							$.each(header['values'], function(l) {
+								value = header['values'][l];
+								input = input + '<option value="'+l+'" '+(v==l?'selected':'')+'>'+value+'</option>';
+							});
+							input = input + '</select>';
+						}
+					} else if (header['type'] == 'destination') {
+						/* TODO: Add destination dropdowns here. */
+					}
+				}
+				html = html + '<div class="form-group"><label for="'+i+'">'+label+'</label>' + input + '</div>';
 			});
 			$("#edit .edit-fields").html(html);
 			$('#edit').modal('show');

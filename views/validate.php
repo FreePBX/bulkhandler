@@ -2,24 +2,21 @@
 <table data-toggle="table" data-sort-name="stargazers_count" data-sort-order="desc" id="validation-list">
 	<thead>
 		<tr>
-			<th data-field="id" data-sortable="true"><?php echo _('ID')?></th>
-			<th data-field="name" data-sortable="true"><?php echo _('Name')?></th>
-			<th data-field="description" data-sortable="true"><?php echo _('Description')?></th>
+			<?php foreach ($headers as $key => $header) { ?>
+				<?php if ($header['identifier']) { ?>
+					<?php $identifiers[] = $key;?>
+					<th data-field="<?php echo $key?>" data-sortable="true"><?php echo $header['identifier']?></th>
+				<?php } ?>
+			<?php } ?>
 			<th data-field="actions"><?php echo _('Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($imports as $id => $import) {?>
+		<?php foreach($imports as $id => $import) { ?>
 			<tr class="scheme" data-unique-id="row-<?php echo $id?>" data-jsonid='<?php echo $id?>'>
-				<td>
-					<?php echo $import['extension']?>
-				</td>
-				<td>
-					<?php echo $import['name']?>
-				</td>
-				<td>
-					<?php echo $import['description']?>
-				</td>
+				<?php foreach ($identifiers as $identifier) { ?>
+					<td><?php echo $import[$identifier]?></td>
+				<?php } ?>
 				<td class="actions">
 					<i class="fa fa-pencil-square-o" data-type="edit" data-id="<?php echo $id?>"></i>
 					<i class="fa fa-trash-o" data-type="delete" data-id="<?php echo $id?>"></i>
@@ -46,5 +43,5 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script>var type = "<?php echo $type?>"; var imports = <?php echo json_encode($imports)?>;</script>
+<script>var type = "<?php echo $type?>"; var imports = <?php echo json_encode($imports)?>; var headers = <?php echo json_encode($headers)?>;</script>
 <button type="button" id="submit">Submit</button>

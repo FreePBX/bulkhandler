@@ -53,7 +53,11 @@
 																<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-headers"></i>
 															</div>
 															<div class="col-md-9">
-																<pre><?php foreach($type['headers'] as $header) {?><?php echo $header.",\n";?><?php } ?></pre>
+																<pre><?php
+																	foreach($type['headers'] as $key => $header) {
+																		echo $key . ($header['description'] ? " (" . $header['description'] . ")" : "") . ",\n";
+																	}
+																?></pre>
 															</div>
 														</div>
 													</div>
@@ -86,8 +90,8 @@
 		</div>
 		<div class="col-sm-3 hidden-xs bootnav">
 			<div class="list-group">
-				<a href="?display=bulkhandler&amp;type=import" class="list-group-item <?php echo ($typed == "import") ? 'active' : ''?>"><?php echo _('Import');?></a>
-				<a href="?display=bulkhandler&amp;type=export" class="list-group-item <?php echo ($typed == "export") ? 'active' : ''?>"><?php echo _('Export')?></a>
+				<a href="?display=bulkhandler&amp;activity=import" class="list-group-item <?php echo ($activity == "import") ? 'active' : ''?>"><?php echo _('Import');?></a>
+				<a href="?display=bulkhandler&amp;activity=export" class="list-group-item <?php echo ($activity == "export") ? 'active' : ''?>"><?php echo _('Export')?></a>
 			</div>
 		</div>
 	</div>
