@@ -3,7 +3,7 @@
 	<thead>
 		<tr>
 			<?php foreach ($headers as $key => $header) { ?>
-				<?php if ($header['identifier']) { ?>
+				<?php if (isset($header['identifier']) && $header['identifier']) { ?>
 					<?php $identifiers[] = $key;?>
 					<th data-field="<?php echo $key?>" data-sortable="true"><?php echo $header['identifier']?></th>
 				<?php } ?>

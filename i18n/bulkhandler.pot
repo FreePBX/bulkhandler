@@ -1,0 +1,128 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for bulkhandler
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-21 16:56-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Bulkhandler.class.php:107
+msgid "A PHP extension stopped the file upload"
+msgstr ""
+
+#: views/validate.php:11
+msgid "Actions"
+msgstr ""
+
+#: views/export.php:32
+#: views/import.php:35
+msgid "CSV File"
+msgstr ""
+
+#: Bulkhandler.class.php:110
+msgid "Can Not Find Uploaded Files"
+msgstr ""
+
+#: Bulkhandler.class.php:65
+#, php-format
+msgid "Cant Create Temp Directory: %s"
+msgstr ""
+
+#: Bulkhandler.class.php:80
+msgid "Cant find uploaded file"
+msgstr ""
+
+#: views/export.php:35
+#: views/export.php:55
+#: views/import.php:97
+msgid "Export"
+msgstr ""
+
+#: views/export.php:42
+msgid "Export to CSV"
+msgstr ""
+
+#: Bulkhandler.class.php:104
+msgid "Failed to write file to disk"
+msgstr ""
+
+#: views/import.php:45
+msgid "File to Import"
+msgstr ""
+
+#: views/export.php:56
+#: views/import.php:98
+msgid "Import"
+msgstr ""
+
+#: Bulkhandler.class.php:101
+msgid "Missing a temporary folder"
+msgstr ""
+
+#: views/export.php:5
+msgid "No Bulk Exporters have been defined"
+msgstr ""
+
+#: views/import.php:5
+msgid "No Bulk Importers have been defined"
+msgstr ""
+
+#: Bulkhandler.class.php:98
+msgid "No file was uploaded"
+msgstr ""
+
+#: assets/js/global.js:5
+msgid "Not file specified"
+msgstr ""
+
+#: assets/js/global.js:10
+msgid "Only CSV files are supported"
+msgstr ""
+
+#: views/import.php:81
+msgid "Submit"
+msgstr ""
+
+#: views/import.php:55
+msgid "Supported Headers"
+msgstr ""
+
+#: views/import.php:71
+msgid "Supported Headers in the CSV File"
+msgstr ""
+
+#: Bulkhandler.class.php:92
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form"
+msgstr ""
+
+#: Bulkhandler.class.php:89
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
+msgstr ""
+
+#: Bulkhandler.class.php:95
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
+
+#: Bulkhandler.class.php:84
+#: Bulkhandler.class.php:131
+msgid "Unsupported file format"
+msgstr ""
+
+#: views/export.php:19
+#: views/import.php:19
+#, php-format
+msgid "What are \"%s\"?"
+msgstr ""

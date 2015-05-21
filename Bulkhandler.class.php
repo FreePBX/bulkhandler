@@ -26,17 +26,13 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function showPage() {
-		if($_REQUEST['quietmode'] && $_REQUEST['activity'] == 'export') {
+		if(!empty($_REQUEST['quietmode']) && $_REQUEST['activity'] == 'export') {
 			$this->export($_REQUEST['export']);
 		} else {
-			$activity = (!empty($_REQUEST['activity']) && $_REQUEST['activity'] == 'export') ? 'export' : 'import';
+			$activity = (!empty($_REQUEST['activity']) && $_REQUEST['activity'] == 'import') ? 'import' : 'export';
 			$message = '';
 			switch($activity) {
-				case "export":
-					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
-				break;
 				case "import":
-				default:
 					if(!empty($_FILES)) {
 						$ret = $this->uploadFile();
 						if(!$ret['status']) {
@@ -44,7 +40,7 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								return load_view(__DIR__."/views/validate.php",array("activity" => $_POST['activity'], "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'])));
+								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'])));
 							} catch(\Exception $e) {
 								$message = $e->getMessage();
 							}
@@ -52,6 +48,10 @@ class Bulkhandler implements \BMO {
 
 					}
 					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
+				break;
+				case "export":
+				default:
+					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
 				break;
 			}
 		}
@@ -120,7 +120,6 @@ class Bulkhandler implements \BMO {
 				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
 
 				while ($row = fgetcsv($handle)) {
-					dbug($row);
 					if ($header === null) {
 						$header = $row;
 						continue;
@@ -208,7 +207,7 @@ class Bulkhandler implements \BMO {
 		$ret = array("status" => true);
 		switch ($_REQUEST['command']) {
 			case "import":
-				$ret = $this->import($_POST['activity'], array($_POST['imports']));
+				$ret = $this->import($_POST['type'], array($_POST['imports']));
 			break;
 		}
 		return $ret;
@@ -217,13 +216,15 @@ class Bulkhandler implements \BMO {
 	public function import($type, $rawData) {
 		try {
 			$methods = $this->freepbx->Hooks->returnHooks();
-			$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
 		} catch(\Exception $e) {
 			return array("status" => false, "message" => $e->getMessage());
 		}
-		foreach($modules as $module => $values) {
-			if($values && !$values['status']) {
-				return array("status" => false, "message" => "There was an error in ".$module.", message:".$values['message']);
+		foreach($methods as $method) {
+			$mod = $method['module'];
+			$meth = $method['method'];
+			$ret = \FreePBX::$mod()->$meth($type, $rawData);
+			if($ret['status'] === false) {
+				return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
 			}
 		}
 		return array("status" => true);
@@ -235,19 +236,22 @@ class Bulkhandler implements \BMO {
 		$rows = array();
 		$headers = array();
 		foreach($modules as $key => $module) {
-			if(!empty($module)) {}
+			if(empty($module)) {
+				continue;
+			}
 			foreach($module as $items) {
 				foreach(array_keys($items) as $h) {
 					if(!in_array($h,$headers)) {
 						$headers[] = $h;
 					}
 				}
-
 			}
 		}
 
 		foreach($modules as $module) {
-			if(!empty($module)) {}
+			if(empty($module)) {
+				continue;
+			}
 			foreach($module as $id => $items) {
 				if(empty($rows[$id])) {
 					$rows[$id] = array_fill(0, count($headers), "");
@@ -259,7 +263,7 @@ class Bulkhandler implements \BMO {
 			}
 		}
 		array_unshift($rows,$headers);
-		dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
+		//dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
 		$this->arrayToFile($rows,'csv');
 	}
 
