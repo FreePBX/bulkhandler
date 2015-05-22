@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:02-0500\n"
+"POT-Creation-Date: 2015-05-22 11:28-0400\n"
 "PO-Revision-Date: 2013-11-07 12:54+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -47,7 +47,7 @@ msgstr ""
 "Language: Japanese\n"
 "X-Generator: Poedit 1.5.7\n"
 
-#: page.bulkextensions.php:1322
+#: page.bulkextensions.php:1326
 msgid ""
 " The account name, extension, and Voicemail password will automatically be "
 "inserted after the opening."
@@ -55,7 +55,7 @@ msgstr ""
 "アカウント名、内線、ボイスメールパスワードが自動的に書き出し文の後に挿入され"
 "ます。"
 
-#: page.bulkextensions.php:1250
+#: page.bulkextensions.php:1254
 msgid ""
 " The settings below can be used to control the content and destination of "
 "the notification emails."
@@ -67,27 +67,15 @@ msgstr ""
 msgid "Account Name: "
 msgstr "アカウント名："
 
-#: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
-msgid "Applications"
-msgstr "アプリケーション"
-
-#: bulkextensions.i18n.php:3 bulkextensions.i18n.php:6
-#: bulkextensions.i18n.php:8 bulkextensions.i18n.php:14
-#: page.bulkextensions.php:1224
+#: page.bulkextensions.php:1228
 msgid "Bulk Extensions"
 msgstr "内線一括処理"
 
-#: page.bulkextensions.php:1347
+#: page.bulkextensions.php:1351
 msgid "Bulk Extensions CSV File Columns"
 msgstr "内線一括処理CSVファイルカラム"
 
-#: bulkextensions.i18n.php:5 bulkextensions.i18n.php:12
-msgid "Bulk Extensions uses CSV files to import and export extensions."
-msgstr ""
-"内線一括処理は内線をインポート/エクスポートする際に、CSVファイルを使用しま"
-"す。"
-
-#: page.bulkextensions.php:1237
+#: page.bulkextensions.php:1241
 msgid ""
 "Bulk extension changes can take a long time to complete. It can take 30-60 "
 "seconds to add 100 extensions on a small system. However, on a system with "
@@ -97,7 +85,7 @@ msgstr ""
 "の内線を追加する場合、30～60秒かかります。しかし、2000台分の内線を持つような"
 "システムの場合、100台分の内線を追加するのにおよそ5分程かかってしまいます。"
 
-#: page.bulkextensions.php:1249
+#: page.bulkextensions.php:1253
 msgid ""
 "By default, a notification email will be sent to the Voicemail email address "
 "set for each account added."
@@ -105,39 +93,39 @@ msgstr ""
 "デフォルトでは、通知メールは各アカウントに追加されたボイスメールアドレスセッ"
 "トに送信されます。"
 
-#: page.bulkextensions.php:1242
+#: page.bulkextensions.php:1246
 msgid "CSV File to Load"
 msgstr "ロードするCSVファイル"
 
-#: page.bulkextensions.php:1256
+#: page.bulkextensions.php:1260
 msgid "Default Address:"
 msgstr "デフォルトアドレス："
 
-#: page.bulkextensions.php:1333
+#: page.bulkextensions.php:1337
 msgid "Email Closing:"
 msgstr "Eメール 締め文:"
 
-#: page.bulkextensions.php:1280
+#: page.bulkextensions.php:1284
 msgid "Email From:"
 msgstr "Eメール From："
 
-#: page.bulkextensions.php:1247
+#: page.bulkextensions.php:1251
 msgid "Email Notification for New Accounts"
 msgstr "新規アカウントのEメール通知"
 
-#: page.bulkextensions.php:1319
+#: page.bulkextensions.php:1323
 msgid "Email Opening:"
 msgstr "Eメール 書き出し："
 
-#: page.bulkextensions.php:1293
+#: page.bulkextensions.php:1297
 msgid "Email Reply-To:"
 msgstr "Eメール Reply-To:"
 
-#: page.bulkextensions.php:1306
+#: page.bulkextensions.php:1310
 msgid "Email Subject:"
 msgstr "Eメール 件名:"
 
-#: page.bulkextensions.php:1241
+#: page.bulkextensions.php:1245
 msgid "Export Extensions"
 msgstr "内線をエクスポート"
 
@@ -145,7 +133,7 @@ msgstr "内線をエクスポート"
 msgid "Extension: "
 msgstr "内線："
 
-#: page.bulkextensions.php:1257
+#: page.bulkextensions.php:1261
 msgid ""
 "If a Default Address is specified, notification emails for new accounts "
 "without a Voicemail email address will be sent to the Default Address."
@@ -153,7 +141,7 @@ msgstr ""
 "デフォルトアドレスが指定された場合、ボイスメールアドレスのない新規アカウント"
 "への通知メールはデフォルトアドレスに送信されます。"
 
-#: page.bulkextensions.php:1269
+#: page.bulkextensions.php:1273
 msgid ""
 "If an Override Address is specified, all notification emails will be sent to "
 "the Override Address only. Type \"noemail\" (without the quotes) as the "
@@ -163,7 +151,7 @@ msgstr ""
 "されます。通知メールの送信を止める場合は、上書きアドレスに\"noemail\"(クォー"
 "トなしで)とタイプしてください。"
 
-#: page.bulkextensions.php:1243
+#: page.bulkextensions.php:1247
 msgid "Load File"
 msgstr "ファイルのロード"
 
@@ -171,11 +159,11 @@ msgstr "ファイルのロード"
 msgid "Login information for your Voicemail account is as follows:"
 msgstr "あなたのボイスメールアカウントへのログイン情報："
 
-#: page.bulkextensions.php:1231
+#: page.bulkextensions.php:1235
 msgid "Manage Extensions in bulk using CSV files."
 msgstr "内線をCSVファイルを使用して一括管理します。"
 
-#: page.bulkextensions.php:1235
+#: page.bulkextensions.php:1239
 msgid ""
 "Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
 "the CSV file. After the CSV file is processed, the action taken for each row "
@@ -185,11 +173,11 @@ msgstr ""
 "CSVファイルをロードします。CSVファイルの処理が行われると、実行されたそれぞれ"
 "の行が表示されます。"
 
-#: page.bulkextensions.php:1268
+#: page.bulkextensions.php:1272
 msgid "Override Address:"
 msgstr "上書きアドレス："
 
-#: page.bulkextensions.php:1233
+#: page.bulkextensions.php:1237
 #, php-format
 msgid ""
 "Start by downloading the %s Template CSV file %s (right-click > save as) or "
@@ -198,7 +186,7 @@ msgstr ""
 "%s テンプレートCSVファイル %sをダウンロード(右クリック > 対象をファイルに保"
 "存) するか、内線をエクスポートボタンをクリックしてスタートします。"
 
-#: page.bulkextensions.php:1335
+#: page.bulkextensions.php:1339
 msgid ""
 "The Email Closing may be specified. If any text is entered, it will be "
 "inserted at the end of the email."
@@ -206,7 +194,7 @@ msgstr ""
 "Eメールの締めの文章を指定することができます。何らかのテキストを入力すると、"
 "メールの最後に挿入されます。"
 
-#: page.bulkextensions.php:1282
+#: page.bulkextensions.php:1286
 msgid ""
 "The Email From header may be specified. If left blank, the system default "
 "will be used."
@@ -214,7 +202,7 @@ msgstr ""
 "Eメール Fromのヘッダーを指定することができます。空欄にしたら、デフォルトシス"
 "テムが使用されます。"
 
-#: page.bulkextensions.php:1321
+#: page.bulkextensions.php:1325
 msgid ""
 "The Email Opening may be specified. If left blank, the default opening, "
 "\"Login information for your Voicemail account is as follows:\", will be "
@@ -223,13 +211,13 @@ msgstr ""
 "Eメールの書き出し文を指定することができます。デフォルトの書き出し文は、\"あな"
 "たのボイスメールアカウントへのログイン情報：\"が使用されます。"
 
-#: page.bulkextensions.php:1295
+#: page.bulkextensions.php:1299
 msgid ""
 "The Email Reply-To header may be specified. If left blank, the system "
 "default will be used."
 msgstr "EメールReply-To headerの設定ができます"
 
-#: page.bulkextensions.php:1308
+#: page.bulkextensions.php:1312
 msgid ""
 "The Email Subject may be specified. If left blank, the default subject, "
 "\"Voicemail Account Activated\", will be used."
@@ -237,7 +225,7 @@ msgstr ""
 "メールの件名を指定することができます。空欄にしたら、デフォルト件名'Voicemail "
 "Account Activated'が使用されま"
 
-#: page.bulkextensions.php:1348
+#: page.bulkextensions.php:1352
 msgid ""
 "The table below explains each column in the CSV file. You can change the "
 "column order of the CSV file as you like, however, the column names must be "
@@ -246,7 +234,13 @@ msgstr ""
 "以下のテーブルはCSVファイルの各カラムの説明です。CSVファイルのカラム順は好き"
 "なように変更できますが、カラム名は保持しなければいけません。"
 
-#: page.bulkextensions.php:1227
+#: page.bulkextensions.php:1225
+msgid ""
+"This module is depreciated in favor of Bulk Handler. Please use that "
+"instead. The two modules are not compatible!"
+msgstr ""
+
+#: page.bulkextensions.php:1231
 msgid "This module is only supported when FreePBX is in <b>extensions</b> mode"
 msgstr "このモジールはFreePBXが<b>内線</b>モード時のみサポートしてます。"
 
@@ -258,6 +252,14 @@ msgstr "ボイスメールアカウントがアクティベートされました
 msgid "Voicemail Password: "
 msgstr "ボイスメールパスワード："
 
-#: page.bulkextensions.php:1226
+#: page.bulkextensions.php:1230
 msgid "You are running FreePBX in <b>deviceanduser</b> mode"
 msgstr "FreePBXは<b>デバイス&ユーザー</b>モードで起動中"
+
+#~ msgid "Applications"
+#~ msgstr "アプリケーション"
+
+#~ msgid "Bulk Extensions uses CSV files to import and export extensions."
+#~ msgstr ""
+#~ "内線一括処理は内線をインポート/エクスポートする際に、CSVファイルを使用しま"
+#~ "す。"
