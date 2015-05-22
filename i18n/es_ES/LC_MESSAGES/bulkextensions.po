@@ -1,0 +1,244 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for bulkextensions
+# Copyright (C) 2008-2015 Sangoma, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-20 19:02-0500\n"
+"PO-Revision-Date: 2015-03-25 07:47+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/bulkextensions/es_ES/>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
+
+#: page.bulkextensions.php:1322
+msgid ""
+" The account name, extension, and Voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+" El nombre de la cuenta, la extensión, y contraseña del correo de voz se "
+"insertan automáticamente después de la apertura."
+
+#: page.bulkextensions.php:1250
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+" Los ajustes siguientes se pueden utilizar para controlar el contenido y "
+"destino de los correos electrónicos de notificación."
+
+#: page.bulkextensions.php:1005
+msgid "Account Name: "
+msgstr "Nombre de la cuenta: "
+
+#: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
+msgid "Applications"
+msgstr "Aplicaciones"
+
+#: bulkextensions.i18n.php:3 bulkextensions.i18n.php:6
+#: bulkextensions.i18n.php:8 bulkextensions.i18n.php:14
+#: page.bulkextensions.php:1224
+msgid "Bulk Extensions"
+msgstr "Extensiones a granel"
+
+#: page.bulkextensions.php:1347
+msgid "Bulk Extensions CSV File Columns"
+msgstr "Columnas en archivo CSV para extensiones a granel"
+
+#: bulkextensions.i18n.php:5 bulkextensions.i18n.php:12
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+"Extensiones a granel usa archivos CSV para importar y exportar extensiones."
+
+#: page.bulkextensions.php:1237
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+"Cambios Extensión a granel de Extensiones  pueden tardar mucho tiempo en "
+"completarse. Puede tomar 30 a 60 segundos para agregar 100 extensiones en un "
+"sistema pequeño. Sin embargo, en un sistema con 2.000 extensiones puede "
+"tardar unos 5 minutos añadir 100 nuevas extensiones."
+
+#: page.bulkextensions.php:1249
+msgid ""
+"By default, a notification email will be sent to the Voicemail email address "
+"set for each account added."
+msgstr ""
+"Por defecto, un email de notificación será enviado a la dirección asociada "
+"en el correo de voz para cada extensión agregada."
+
+#: page.bulkextensions.php:1242
+msgid "CSV File to Load"
+msgstr "Archivo CSV a cargar"
+
+#: page.bulkextensions.php:1256
+msgid "Default Address:"
+msgstr "Dirección por defecto:"
+
+#: page.bulkextensions.php:1333
+msgid "Email Closing:"
+msgstr "Cierre correo:"
+
+#: page.bulkextensions.php:1280
+msgid "Email From:"
+msgstr "Correo desde:"
+
+#: page.bulkextensions.php:1247
+msgid "Email Notification for New Accounts"
+msgstr "Notificación de correo para Nuevas Cuentas"
+
+#: page.bulkextensions.php:1319
+msgid "Email Opening:"
+msgstr "Apretura email:"
+
+#: page.bulkextensions.php:1293
+msgid "Email Reply-To:"
+msgstr "Responder-a correo:"
+
+#: page.bulkextensions.php:1306
+msgid "Email Subject:"
+msgstr "Asunto Correo:"
+
+#: page.bulkextensions.php:1241
+msgid "Export Extensions"
+msgstr "Exportar Extensiones"
+
+#: page.bulkextensions.php:1006
+msgid "Extension: "
+msgstr "Extensión: "
+
+#: page.bulkextensions.php:1257
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a Voicemail email address will be sent to the Default Address."
+msgstr ""
+"Si una dirección por defecto se especifica, los correos de notificación "
+"cuentas sin un email asociado a su correo de voz, serán enviadas al correo "
+"por defecto."
+
+#: page.bulkextensions.php:1269
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+"Si se especifica una dirección de reemplazo (Override), todos los correos "
+"electrónicos de notificación se enviarán únicamente a la esta Dirección. "
+"Escriba \"noemail\" (sin las comillas) como la dirección de reemplazo para "
+"detener los mensajes de notificación se envíe."
+
+#: page.bulkextensions.php:1243
+msgid "Load File"
+msgstr "Carga archivo"
+
+#: page.bulkextensions.php:1001
+msgid "Login information for your Voicemail account is as follows:"
+msgstr "Información de Ingreso para su cuenta de correo de voz es como sigue:"
+
+#: page.bulkextensions.php:1231
+msgid "Manage Extensions in bulk using CSV files."
+msgstr "Gestionar Extensiones a granel usando archivos CSV."
+
+#: page.bulkextensions.php:1235
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+"Modificar el archivo CSV para agregar, editar o eliminar extensiones a "
+"pedido. Cargue entonces el archivo CSV. Después que el archivo es procesado "
+"y se muestran las acciones ejecutadas en cada registro."
+
+#: page.bulkextensions.php:1268
+msgid "Override Address:"
+msgstr "Dirección de reemplazo:"
+
+#: page.bulkextensions.php:1233
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+"Comience por descargar La %s Plantilla CSV archivo %s (clic derecho> Guardar "
+"como) o haciendo clic en el botón Exportar Extensiones."
+
+#: page.bulkextensions.php:1335
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+"El cierre del correo electrónico se puede especificar. Si se introduce un "
+"texto, se inserta al final del correo electrónico."
+
+#: page.bulkextensions.php:1282
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+"El  encabezado \"From:\"  puede ser especificado. Si se deja en blanco, se "
+"utilizará el valor por defecto del sistema."
+
+#: page.bulkextensions.php:1321
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your Voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+"La apertura del correo electrónico puede especificarse. Si se deja en "
+"blanco, la apertura por defecto, \"información de acceso a su cuenta de "
+"correo de voz es como siguiente:\", se utilizará."
+
+#: page.bulkextensions.php:1295
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr ""
+"El encabezado \"Reply-To\" se puede especificar. Si se deja en blanco, se "
+"utilizará el valor por defecto del sistema."
+
+#: page.bulkextensions.php:1308
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+"El Asunto del correo se puede especificar. Si se deja en blanco, se "
+"utilizará el asunto predeterminado, \"Cuenta de correo de voz activado\",."
+
+#: page.bulkextensions.php:1348
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""
+"La siguiente tabla explica cada columna en el archivo CSV. Puede cambiar el "
+"orden de las columnas del archivo CSV que desee, sin embargo, los nombres de "
+"columna deben ser preservados."
+
+#: page.bulkextensions.php:1227
+msgid "This module is only supported when FreePBX is in <b>extensions</b> mode"
+msgstr ""
+"Este módulo sólo es soportado cuando FreePBX esta en modo <b>extensiones</b>"
+
+#: page.bulkextensions.php:983
+msgid "Voicemail Account Activated"
+msgstr "Cuenta de correo de voz activada"
+
+#: page.bulkextensions.php:1007
+msgid "Voicemail Password: "
+msgstr "Contraseña Correo de Voz: "
+
+#: page.bulkextensions.php:1226
+msgid "You are running FreePBX in <b>deviceanduser</b> mode"
+msgstr "Está ejecutando FreePBX en Modo <b>deviceanduser</b>"
