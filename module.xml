@@ -3,7 +3,7 @@
 	<repo>extended</repo>
     <name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>2.11.0.7</version>
+	<version>13.0.1alpha1</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 	<location>release/2.11/bulkextensions-2.11.0.0.tgz</location>
 	<info/>
 	<changelog>
+		*13.0.1alpha1* Add unsupported messages
 		*2.11.0.7* #7363
 		*2.11.0.6* Generate license file
 		*2.11.0.1* #7099
@@ -48,7 +49,7 @@
 		*0.1*	First release
 	</changelog>
 	<supported>
-		<version>2.10</version>
+		<version>13.0</version>
 	</supported>
 	<md5sum>4dcbccd9d80dc6896db34ad22398db1a</md5sum>
 </module>

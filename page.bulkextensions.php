@@ -218,10 +218,10 @@ $i=0;
         $output .= "<BR><BR>Row $k: Headers parsed. <BR>";
         continue;
       }
-			
+
 			//reset destvars array or else we end up with extensions sharing destinations
 			$destvars = array();
-			
+
       if ($aFields["action"][0]) {
         $vars["action"] = trim($aInfo[$aFields["action"][1]]);
       }
@@ -507,7 +507,7 @@ $i=0;
       }
 
       if ($aFields["devinfo_permit"][0]) {
-        // If field is empty fill in default 0.0.0.0/0.0.0.0      	      
+        // If field is empty fill in default 0.0.0.0/0.0.0.0
         if (!isset($aInfo[$aFields["devinfo_deny"][1]]) || ($aInfo[$aFields["devinfo_permit"][1]] == "")){
          $vars["devinfo_permit"] = "0.0.0.0/0.0.0.0"; // default value
         }
@@ -704,7 +704,7 @@ $i=0;
           $vars["faxenabled"] = trim($aInfo[$aFields["faxenabled"][1]]);
         }
       }
-        
+
       if ($aFields["faxemail"][0]) {
         if (!isset($aInfo[$aFields["faxemail"][1]]) || ($aInfo[$aFields["faxemail"][1]] == "")){
           unset($vars["faxemail"]);
@@ -919,7 +919,7 @@ $i=0;
               // a new function was needed.
               bulkextensions_dest_add($destvars, $vars["extension"]);
               core_devices_add($vars["deviceid"],$vars["tech"],$vars["devinfo_dial"],$vars["devicetype"],$vars["deviceuser"],$vars["description"],$vars["emergency_cid"]);
-              
+
               if ($lang_exists) {
                 languages_user_update($vars["extension"], $vars["langcode"]);
               }
@@ -943,7 +943,7 @@ $i=0;
   	      	xmpp_users_put(array("user"=>$vars["extension"], "jabber_user" =>$vars["xmpp_user"],"jabber_pass"=>$vars["xmpp_pass"]));
 	      }
 	      if ($xactview_exists) {
-	     	xactview_user_add($vars["extension"],$vars["add_xactview"], $vars["xactview_createprofile"], $vars["xactview_profilepassword"], $vars["name"], $vars["devinfo_dial"], $vars["xactview_cell"], $vars["xactview_email"], $vars["xactview_autoanswer"], $vars["xactview_autoanswer"], $vars["jabber_host"], $vars["jabber_domain"], $vars["jabber_resource"], $vars["jabber_port"], $vars["jabber_username"], $vars["jabber_password"]); 
+	     	xactview_user_add($vars["extension"],$vars["add_xactview"], $vars["xactview_createprofile"], $vars["xactview_profilepassword"], $vars["name"], $vars["devinfo_dial"], $vars["xactview_cell"], $vars["xactview_email"], $vars["xactview_autoanswer"], $vars["xactview_autoanswer"], $vars["jabber_host"], $vars["jabber_domain"], $vars["jabber_resource"], $vars["jabber_port"], $vars["jabber_username"], $vars["jabber_password"]);
 	      }
 	      if ($extensionroutes_exists) {
 		$routes = core_routing_list();
@@ -1108,7 +1108,7 @@ $i=0;
 	    if ($queue_exists) {
 		queues_set_qnostate($vars["extension"], $vars["qnostate"]);
 	    }
-	    if ($xmpp_exists) { 
+	    if ($xmpp_exists) {
   	    	xmpp_users_put(array("user"=>$vars["extension"], "jabber_user" =>$vars["xmpp_user"],"jabber_pass"=>$vars["xmpp_pass"]));
 	    }
 	    if ($xactview_exists) {
@@ -1172,7 +1172,7 @@ $i=0;
               xmpp_users_del($vars["extension"]);
             }
 	    if ($xactview_exists) {
-            	xactview_user_del($vars["extension"]);  
+            	xactview_user_del($vars["extension"]);
             }
 	    if ($extensionroutes_exists) {
                 extensionroutes_del_user($vars['extension']);
@@ -1220,7 +1220,11 @@ $i=0;
     }
     $table_output .= "</table>";
   }
-
+?>
+<div class="alert alert-danger">
+	<?php echo _("This module is depreciated in favor of Bulk Handler. Please use that instead. The two modules are not compatible!")?>
+</div>
+<?php
 echo "<h1>"._("Bulk Extensions")."</h1>";
  if($amp_conf['AMPEXTENSIONS'] == "deviceanduser") {
   echo _("You are running FreePBX in <b>deviceanduser</b> mode");
@@ -1230,7 +1234,7 @@ echo "<h1>"._("Bulk Extensions")."</h1>";
 
 echo "<h2>"._("Manage Extensions in bulk using CSV files.")."</h2>";
 echo "<p>";
-echo sprintf(_("Start by downloading the %s Template CSV file %s (right-click > save as) or clicking the Export Extensions button."), "<a href=\"modules/bulkextensions/template.csv\">", "</a>"); 
+echo sprintf(_("Start by downloading the %s Template CSV file %s (right-click > save as) or clicking the Export Extensions button."), "<a href=\"modules/bulkextensions/template.csv\">", "</a>");
 echo "<p>";
 echo _("Modify the CSV file to add, edit, or delete Extensions as desired. Then load the CSV file. After the CSV file is processed, the action taken for each row will be displayed.");
 echo "<p>";
@@ -1319,7 +1323,7 @@ echo _(" The settings below can be used to control the content and destination o
         <?php echo _("Email Opening:")?>
           <span>
           <?php echo _("The Email Opening may be specified. If left blank, the default opening, \"Login information for your Voicemail account is as follows:\", will be used.")?>
-          <?php echo _(" The account name, extension, and Voicemail password will automatically be inserted after the opening.")?> 
+          <?php echo _(" The account name, extension, and Voicemail password will automatically be inserted after the opening.")?>
           </span>
         </a>
       </td>
@@ -1343,11 +1347,10 @@ echo _(" The settings below can be used to control the content and destination o
 </table>
 </form>
 <hr />
-<?php 
+<?php
 echo "<h3>"._("Bulk Extensions CSV File Columns")."</h3><p>";
 echo _("The table below explains each column in the CSV file. You can change the column order of the CSV file as you like, however, the column names must be preserved.")."<p>";
 print $table_output;
 }
 }
 ?>
-
