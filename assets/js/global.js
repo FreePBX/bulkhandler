@@ -17,7 +17,7 @@ $("#validation-list").on("post-body.bs.table",function() {
 	$(".actions i").click(function() {
 		var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '';
 		if(type == "delete") {
-			$('table').bootstrapTable('hideRow', {index: 'row-'+id,isIdField: true});
+			$('table').bootstrapTable('remove', {field: 'id', values: [id.toString()]})
 			delete(imports[jsonid]);
 		} else if(type == "edit" && typeof jsonid !== "undefined") {
 			editId = jsonid;
@@ -57,15 +57,39 @@ $("#edit button.save").click(function() {
 	$('#edit').modal('hide');
 });
 $("#submit").click(function() {
+	$("#submit").prop("disabled",true);
+
 	$.each(imports, function(i,v) {
-		//loop over and import indivudally
-		$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v},function( data ) {
+		if(typeof v === "undefined") {
+			return true;
+		}
+		//loop over and import indivudally.
+		//below is not allowed in new specs....
+		/*
+		$.ajax({
+			method: "POST",
+			url: "ajax.php",
+			async: false,
+			dataType: "json",
+			data: {command: 'import', type: type, module: 'bulkhandler', imports: v}
+		}).done(function( data ) {
+
 			if(!data.status) {
-				$("tr[data-uniqueid=row-"+i+"] td").css("background-color","red");
+				$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
 				alert("There was an error importing row "+i+": "+data.message);
 			} else {
-				$("tr[data-uniqueid=row-"+i+"] td").css("background-color","lightgreen");
+				$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
+			}
+		});
+		*/
+		$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v},function( data ) {
+			if(!data.status) {
+				$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
+				alert("There was an error importing row "+i+": "+data.message);
+			} else {
+				$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
 			}
 		});
 	});
+	$("#submit").prop("disabled",false);
 });

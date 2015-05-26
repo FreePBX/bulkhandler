@@ -2,6 +2,7 @@
 <table data-toggle="table" data-sort-name="stargazers_count" data-sort-order="desc" id="validation-list">
 	<thead>
 		<tr>
+			<th data-field="id"><?php echo _('ID')?></th>
 			<?php foreach ($headers as $key => $header) { ?>
 				<?php if (isset($header['identifier']) && $header['identifier']) { ?>
 					<?php $identifiers[] = $key;?>
@@ -14,6 +15,7 @@
 	<tbody>
 		<?php foreach($imports as $id => $import) { ?>
 			<tr class="scheme" data-unique-id="row-<?php echo $id?>" data-jsonid='<?php echo $id?>'>
+				<td><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) { ?>
 					<td><?php echo $import[$identifier]?></td>
 				<?php } ?>
