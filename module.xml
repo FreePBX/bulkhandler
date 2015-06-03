@@ -1,6 +1,6 @@
 <module>
 	<rawname>bulkhandler</rawname>
-	<repo>supported</repo>
+	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description></description>
 	<version>13.0.3</version>
