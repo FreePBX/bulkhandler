@@ -4,7 +4,7 @@
     <name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
 	<version>13.0.2</version>
-	<publisher>Schmooze Com Inc</publisher>
+	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
@@ -15,7 +15,7 @@
 		<version>ge2.10</version>
 	</depends>
 	<location>release/2.11/bulkextensions-2.11.0.0.tgz</location>
-	<info />
+	<info/>
 	<changelog>
 		*13.0.2* Version bump Beta
 		*13.0.1alpha1* Add unsupported messages
