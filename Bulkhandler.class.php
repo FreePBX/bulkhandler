@@ -134,13 +134,14 @@ class Bulkhandler implements \BMO {
 		return $rawData;
 	}
 
-	private function arrayToFile($rawData, $format='csv') {
+	private function arrayToFile($rawData, $type, $format='csv') {
 		switch($format) {
 			case 'csv':
 			default:
+				$filename = ($type ? $type : 'export') . '.csv';
 				$out = fopen('php://output', 'w');
 				header('Content-type: application/octet-stream');
-				header('Content-Disposition: attachment; filename="export.csv"');
+				header('Content-Disposition: attachment; filename="' . $filename . '"');
 				foreach($rawData as $row) {
 					fputcsv($out,  $row);
 				}
@@ -264,7 +265,7 @@ class Bulkhandler implements \BMO {
 		}
 		array_unshift($rows,$headers);
 		//dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
-		$this->arrayToFile($rows,'csv');
+		$this->arrayToFile($rows, $type, 'csv');
 	}
 
 	public function validate($type, $rawData) {
