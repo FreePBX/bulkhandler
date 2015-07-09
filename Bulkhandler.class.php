@@ -167,6 +167,9 @@ class Bulkhandler implements \BMO {
 		$modules = $this->freepbx->Hooks->processHooks();
 		$types = array();
 		foreach($modules as $key => $module) {
+			if(empty($module)) {
+				continue;
+			}
 			switch($activity) {
 				case "import":
 					foreach($module as $type => $name) {
@@ -220,6 +223,7 @@ class Bulkhandler implements \BMO {
 		} catch(\Exception $e) {
 			return array("status" => false, "message" => $e->getMessage());
 		}
+		$methods = is_array($methods) ? $methods : array();
 		foreach($methods as $method) {
 			$mod = $method['module'];
 			$meth = $method['method'];
@@ -270,6 +274,7 @@ class Bulkhandler implements \BMO {
 
 	public function validate($type, $rawData) {
 		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
+		$methods = is_array($methods) ? $methods : array();
 		foreach($modules as $module) {
 
 		}

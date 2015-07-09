@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.4</version>
+	<version>13.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.5* Fix invalid looping errors
 		*13.0.4* FREEPBX-9594 slightly better name for exported file
 		*13.0.3* Fixes to functionality
 		*13.0.2* Initial release to the world!
