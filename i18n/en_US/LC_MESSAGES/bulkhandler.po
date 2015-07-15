@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-26 18:43-0400\n"
+"POT-Creation-Date: 2015-07-14 21:50-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr ""
 
-#: views/validate.php:12
+#: views/validate.php:24
 msgid "Actions"
 msgstr ""
 
@@ -42,6 +42,18 @@ msgstr ""
 msgid "Cant find uploaded file"
 msgstr ""
 
+#: views/validate.php:54
+msgid "Close"
+msgstr ""
+
+#: views/validate.php:2
+msgid "Data Validation"
+msgstr ""
+
+#: views/validate.php:47
+msgid "Edit"
+msgstr ""
+
 #: views/export.php:35 views/export.php:55 views/import.php:97
 msgid "Export"
 msgstr ""
@@ -58,11 +70,11 @@ msgstr ""
 msgid "File to Import"
 msgstr ""
 
-#: views/validate.php:5
+#: views/validate.php:17
 msgid "ID"
 msgstr ""
 
-#: views/export.php:56 views/import.php:98
+#: Bulkhandler.class.php:290 views/export.php:56 views/import.php:98
 msgid "Import"
 msgstr ""
 
@@ -82,12 +94,16 @@ msgstr ""
 msgid "No file was uploaded"
 msgstr ""
 
-#: assets/js/global.js:5
+#: assets/js/global.js:6
 msgid "Not file specified"
 msgstr ""
 
-#: assets/js/global.js:10
+#: assets/js/global.js:11
 msgid "Only CSV files are supported"
+msgstr ""
+
+#: views/validate.php:55
+msgid "Save changes"
 msgstr ""
 
 #: views/import.php:81
