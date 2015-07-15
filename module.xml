@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.5</version>
+	<version>13.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,10 +12,11 @@
 		<bulkhandler>Bulk Handler</bulkhandler>
 	</menuitems>
 	<depends>
-		<version>ge2.10alpha0</version>
+		<version>13.0</version>
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.6* FREEPBX-9712 add progress bar and use action bar
 		*13.0.5* Fix invalid looping errors
 		*13.0.4* FREEPBX-9594 slightly better name for exported file
 		*13.0.3* Fixes to functionality

@@ -1,5 +1,6 @@
-var editId = null;
+var editId = null, total=null;
 $(function() {
+	total = imports.length;
 	$("form.bulkhandler").submit(function() {
 		if($(".importer:visible").val() == "") {
 			alert(_("Not file specified"));
@@ -12,6 +13,46 @@ $(function() {
 			return false;
 		}
 	});
+	$("#edit button.save").click(function() {
+		$(".edit-fields input").each(function() {
+			var id = $(this).prop("id");
+			var val = $(this).val();
+			imports[editId][id] = val;
+		});
+		$('#edit').modal('hide');
+	});
+	$("#import").click(function(e) {
+		var count = 0;
+		e.preventDefault();
+		e.stopPropagation();
+
+		$("#import").prop("disabled",true);
+		$("tr td").css("background-color","");
+		$(".progress-bar").css("width","");
+		$(".progress").removeClass("hidden");
+		$(".progress-bar").addClass("active");
+		$.each(imports, function(i,v) {
+			if(typeof v === "undefined") {
+				return true;
+			}
+			//loop over and import indivudally.
+			$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v},function( data ) {
+				if(!data.status) {
+					$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
+					alert("There was an error importing row "+i+": "+data.message);
+				} else {
+					$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
+				}
+				count++
+
+				$(".progress-bar").css("width",(count/total * 100) + "%");
+				if(count == total) {
+					$(".progress-bar").removeClass("active");
+					$("#import").prop("disabled",false);
+				}
+			});
+		});
+	});
 });
 $("#validation-list").on("post-body.bs.table",function() {
 	$(".actions i").click(function() {
@@ -19,6 +60,7 @@ $("#validation-list").on("post-body.bs.table",function() {
 		if(type == "delete") {
 			$('table').bootstrapTable('remove', {field: 'id', values: [id.toString()]})
 			delete(imports[jsonid]);
+			total--;
 		} else if(type == "edit" && typeof jsonid !== "undefined") {
 			editId = jsonid;
 			$.each(imports[jsonid], function(i,v) {
@@ -47,49 +89,4 @@ $("#validation-list").on("post-body.bs.table",function() {
 			$('#edit').modal('show');
 		}
 	});
-});
-$("#edit button.save").click(function() {
-	$(".edit-fields input").each(function() {
-		var id = $(this).prop("id");
-		var val = $(this).val();
-		imports[editId][id] = val;
-	});
-	$('#edit').modal('hide');
-});
-$("#submit").click(function() {
-	$("#submit").prop("disabled",true);
-
-	$.each(imports, function(i,v) {
-		if(typeof v === "undefined") {
-			return true;
-		}
-		//loop over and import indivudally.
-		//below is not allowed in new specs....
-		/*
-		$.ajax({
-			method: "POST",
-			url: "ajax.php",
-			async: false,
-			dataType: "json",
-			data: {command: 'import', type: type, module: 'bulkhandler', imports: v}
-		}).done(function( data ) {
-
-			if(!data.status) {
-				$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
-				alert("There was an error importing row "+i+": "+data.message);
-			} else {
-				$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
-			}
-		});
-		*/
-		$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v},function( data ) {
-			if(!data.status) {
-				$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
-				alert("There was an error importing row "+i+": "+data.message);
-			} else {
-				$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
-			}
-		});
-	});
-	$("#submit").prop("disabled",false);
 });

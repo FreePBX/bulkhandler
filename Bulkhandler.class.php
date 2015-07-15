@@ -279,4 +279,19 @@ class Bulkhandler implements \BMO {
 
 		}
 	}
+	public function getActionBar($request) {
+		$buttons = array();
+		switch($request['activity']) {
+			case "import":
+				$buttons = array(
+					'import' => array(
+						'name' => 'import',
+						'id' => 'import',
+						'value' => _('Import')
+					)
+				);
+			break;
+		}
+		return $buttons;
+	}
 }

@@ -1,5 +1,17 @@
-<h1>Data Validation</h1>
-<table data-toggle="table" data-sort-name="stargazers_count" data-sort-order="desc" id="validation-list">
+<div class="header-section">
+	<h1 class="header"><?php echo _("Data Validation")?></h1>
+	<div class="progress hidden">
+		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+			<span class="sr-only">0% Complete</span>
+		</div>
+	</div>
+</div>
+<table data-toggle="table" data-maintain-selected="true"
+        data-show-columns="true"
+        data-show-toggle="true"
+        data-toggle="table"
+        data-pagination="true"
+        data-search="true" data-sort-name="stargazers_count" data-sort-order="desc" id="validation-list">
 	<thead>
 		<tr>
 			<th data-field="id"><?php echo _('ID')?></th>
@@ -32,18 +44,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title"><?php echo _('Edit')?></h4>
       </div>
       <div class="modal-body">
 				<div class="edit-fields">
 				</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary save">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _('Close')?></button>
+        <button type="button" class="btn btn-primary save"><?php echo _('Save changes')?></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <script>var type = "<?php echo $type?>"; var imports = <?php echo json_encode($imports)?>; var headers = <?php echo json_encode($headers)?>;</script>
-<button type="button" id="submit">Submit</button>
