@@ -3,19 +3,20 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.6</version>
+	<version>13.0.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Admin</category>
 	<menuitems>
-		<bulkhandler>Bulk Handler</bulkhandler>
+		<bulkhandler needsenginedb="yes">Bulk Handler</bulkhandler>
 	</menuitems>
 	<depends>
 		<version>13.0</version>
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.6* Require Asterisk to be running
 		*13.0.6* FREEPBX-9712 add progress bar and use action bar
 		*13.0.5* Fix invalid looping errors
 		*13.0.4* FREEPBX-9594 slightly better name for exported file
