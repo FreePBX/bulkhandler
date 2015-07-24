@@ -23,7 +23,7 @@
 										<?php echo $type['description']?>
 									</div>
 								</div>
-								<form class="fpbx-submit bulkhandler" name="bulkhandler" action="config.php?display=bulkhandler&amp;activity=import" method="post" role="form" enctype="multipart/form-data">
+								<form class="fpbx-submit bulkhandler" name="bulkhandler" action="config.php?display=bulkhandler&amp;activity=validate" method="post" role="form" enctype="multipart/form-data">
 									<input type="hidden" name="type" value="<?php echo $type['type']?>">
 									<div class="container-fluid">
 											<div class="element-container">

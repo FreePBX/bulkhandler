@@ -29,10 +29,10 @@ class Bulkhandler implements \BMO {
 		if(!empty($_REQUEST['quietmode']) && $_REQUEST['activity'] == 'export') {
 			$this->export($_REQUEST['export']);
 		} else {
-			$activity = (!empty($_REQUEST['activity']) && $_REQUEST['activity'] == 'import') ? 'import' : 'export';
 			$message = '';
+			$activity = !empty($_REQUEST['activity']) ? $_REQUEST['activity'] : 'export';
 			switch($activity) {
-				case "import":
+				case "validate":
 					if(!empty($_FILES)) {
 						$ret = $this->uploadFile();
 						if(!$ret['status']) {
@@ -47,10 +47,13 @@ class Bulkhandler implements \BMO {
 						}
 
 					}
+				//fallthrough if there are no files
+				case "import":
 					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
 				break;
 				case "export":
 				default:
+					$activity = 'export';
 					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
 				break;
 			}
@@ -282,12 +285,17 @@ class Bulkhandler implements \BMO {
 	public function getActionBar($request) {
 		$buttons = array();
 		switch($request['activity']) {
-			case "import":
+			case "validate":
 				$buttons = array(
 					'import' => array(
 						'name' => 'import',
 						'id' => 'import',
 						'value' => _('Import')
+					),
+					'cancel' => array(
+						'name' => 'cancel',
+						'id' => 'cancel',
+						'value' => _('Cancel')
 					)
 				);
 			break;

@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.7</version>
+	<version>13.0.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.8* FREEPBX-9596 Add cancel option when importing in Bulk Handler
 		*13.0.6* Require Asterisk to be running
 		*13.0.6* FREEPBX-9712 add progress bar and use action bar
 		*13.0.5* Fix invalid looping errors

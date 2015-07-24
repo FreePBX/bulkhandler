@@ -1,6 +1,6 @@
 var editId = null, total=null;
 $(function() {
-	total = imports.length;
+	total = (typeof imports !== "undefined") ? imports.length : 0;
 	$("form.bulkhandler").submit(function() {
 		if($(".importer:visible").val() == "") {
 			alert(_("Not file specified"));
@@ -20,6 +20,11 @@ $(function() {
 			imports[editId][id] = val;
 		});
 		$('#edit').modal('hide');
+	});
+	$("#cancel").click(function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		window.location = '?display=bulkhandler&activity=import';
 	});
 	$("#import").click(function(e) {
 		var count = 0;
