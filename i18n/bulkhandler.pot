@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-14 21:50-0400\n"
+"POT-Creation-Date: 2015-07-24 13:43-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Bulkhandler.class.php:107
+#: Bulkhandler.class.php:110
 msgid "A PHP extension stopped the file upload"
 msgstr ""
 
@@ -30,16 +30,20 @@ msgstr ""
 msgid "CSV File"
 msgstr ""
 
-#: Bulkhandler.class.php:110
+#: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
 msgstr ""
 
-#: Bulkhandler.class.php:65
+#: Bulkhandler.class.php:298
+msgid "Cancel"
+msgstr ""
+
+#: Bulkhandler.class.php:68
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr ""
 
-#: Bulkhandler.class.php:80
+#: Bulkhandler.class.php:83
 msgid "Cant find uploaded file"
 msgstr ""
 
@@ -65,7 +69,7 @@ msgstr ""
 msgid "Export to CSV"
 msgstr ""
 
-#: Bulkhandler.class.php:104
+#: Bulkhandler.class.php:107
 msgid "Failed to write file to disk"
 msgstr ""
 
@@ -77,13 +81,13 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: Bulkhandler.class.php:290
+#: Bulkhandler.class.php:293
 #: views/export.php:56
 #: views/import.php:98
 msgid "Import"
 msgstr ""
 
-#: Bulkhandler.class.php:101
+#: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
 msgstr ""
 
@@ -95,7 +99,7 @@ msgstr ""
 msgid "No Bulk Importers have been defined"
 msgstr ""
 
-#: Bulkhandler.class.php:98
+#: Bulkhandler.class.php:101
 msgid "No file was uploaded"
 msgstr ""
 
@@ -123,22 +127,22 @@ msgstr ""
 msgid "Supported Headers in the CSV File"
 msgstr ""
 
-#: Bulkhandler.class.php:92
+#: Bulkhandler.class.php:95
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
 
-#: Bulkhandler.class.php:89
+#: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 
-#: Bulkhandler.class.php:95
+#: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: Bulkhandler.class.php:84
-#: Bulkhandler.class.php:131
+#: Bulkhandler.class.php:87
+#: Bulkhandler.class.php:134
 msgid "Unsupported file format"
 msgstr ""
 
