@@ -2,7 +2,7 @@ var editId = null, total=null;
 $(function() {
 	total = (typeof imports !== "undefined") ? imports.length : 0;
 	$("form.bulkhandler").submit(function() {
-		if($(".importer:visible").val() == "") {
+		if($(".importer:visible").val() === "") {
 			alert(_("Not file specified"));
 			$(".importer:visible").focus();
 			return false;
@@ -70,7 +70,7 @@ $("#validation-list").on("post-body.bs.table",function() {
 			editId = jsonid;
 			$.each(imports[jsonid], function(i,v) {
 				var label = i;
-				var input = '<input type="text" class="form-control" id="'+i+'" value="'+v+'">';
+				var input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
 
 				if (headers && (header = headers[i])) {
 					label = header['description'] ? header['description'] : i;
@@ -95,3 +95,25 @@ $("#validation-list").on("post-body.bs.table",function() {
 		}
 	});
 });
+
+function htmlEntities(str) {
+	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function addslashes(str) {
+  //  discuss at: http://phpjs.org/functions/addslashes/
+  // original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // improved by: Ates Goral (http://magnetiq.com)
+  // improved by: marrtins
+  // improved by: Nate
+  // improved by: Onno Marsman
+  // improved by: Brett Zamir (http://brett-zamir.me)
+  // improved by: Oskar Larsson Högfeldt (http://oskar-lh.name/)
+  //    input by: Denny Wardhana
+  //   example 1: addslashes("kevin's birthday");
+  //   returns 1: "kevin\\'s birthday"
+
+  return (str + '')
+    .replace(/[\\"']/g, '\\$&')
+    .replace(/\u0000/g, '\\0');
+}

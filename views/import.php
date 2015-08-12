@@ -52,7 +52,7 @@
 														<div class="row">
 															<div class="form-group">
 																<div class="col-md-3">
-																	<label class="control-label" for="<?php echo $key?>-headers"><?php echo _('Supported Headers')?></label>
+																	<label class="control-label" for="<?php echo $key?>-headers"><?php echo _('Required/Recommended Headers')?></label>
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-headers"></i>
 																</div>
 																<div class="col-md-9">
@@ -68,7 +68,7 @@
 												</div>
 												<div class="row">
 													<div class="col-md-12">
-														<span id="<?php echo $key?>-headers-help" class="help-block fpbx-help-block"><?php echo _('Supported Headers in the CSV File')?></span>
+														<span id="<?php echo $key?>-headers-help" class="help-block fpbx-help-block"><?php echo _('Required/Recommended headers are the minimum headers you must supply to be able to import. For a full list of all supported headers export out a CSV file from the export display')?></span>
 													</div>
 												</div>
 											</div>
