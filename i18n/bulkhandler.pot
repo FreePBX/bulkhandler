@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 13:43-0400\n"
+"POT-Creation-Date: 2015-08-12 06:58-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,20 +111,23 @@ msgstr ""
 msgid "Only CSV files are supported"
 msgstr ""
 
+#: views/import.php:55
+msgid "Required/Recommended Headers"
+msgstr ""
+
+#: views/import.php:71
+msgid ""
+"Required/Recommended headers are the minimum headers you must supply to be "
+"able to import. For a full list of all supported headers export out a CSV "
+"file from the export display"
+msgstr ""
+
 #: views/validate.php:55
 msgid "Save changes"
 msgstr ""
 
 #: views/import.php:81
 msgid "Submit"
-msgstr ""
-
-#: views/import.php:55
-msgid "Supported Headers"
-msgstr ""
-
-#: views/import.php:71
-msgid "Supported Headers in the CSV File"
 msgstr ""
 
 #: Bulkhandler.class.php:95
