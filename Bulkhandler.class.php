@@ -42,10 +42,10 @@ class Bulkhandler implements \BMO {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
 								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'])));
 							} catch(\Exception $e) {
+								$activity = "import";
 								$message = $e->getMessage();
 							}
 						}
-
 					}
 				//fallthrough if there are no files
 				case "import":
@@ -120,12 +120,16 @@ class Bulkhandler implements \BMO {
 				$header = null;
 				ini_set("auto_detect_line_endings", true);
 				$handle = fopen($file, "r");
+				$headerc = 0;
 				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
-
 				while ($row = fgetcsv($handle)) {
 					if ($header === null) {
 						$header = $row;
+						$headerc = count($header);
 						continue;
+					}
+					if($headerc != count($row)) {
+						throw new \Exception(_("Header row and data row count do not match"));
 					}
 					$rawData[] = array_combine($header, $row);
 				}
@@ -133,6 +137,9 @@ class Bulkhandler implements \BMO {
 			default:
 				throw new \Exception(_("Unsupported file format"));
 			break;
+		}
+		if(empty($rawData)) {
+			throw new \Exception(_("Unable to parse file"));
 		}
 		return $rawData;
 	}

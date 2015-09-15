@@ -32,7 +32,7 @@
 															<label class="control-label" for="<?php echo $key?>-export"><?php echo _('CSV File')?></label>
 															<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-export"></i>
 														</div>
-														<div class="col-md-9"><a href="config.php?display=bulkhandler&amp;quietmode=1&amp;activity=export&amp;export=<?php echo $type['type']?>" target="_blank" class="btn btn-info" role="button"><?php echo _('Export')?></a></div>
+														<div class="col-md-9"><a href="config.php?display=bulkhandler&amp;quietmode=1&amp;activity=export&amp;export=<?php echo $type['type']?>" target="_blank" class="btn" role="button"><?php echo _('Export')?></a></div>
 													</div>
 												</div>
 											</div>

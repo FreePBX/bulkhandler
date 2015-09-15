@@ -4,6 +4,9 @@
 			<?php if(empty($types)) {?>
 				<div class="alert alert-warning" role="alert"><?php echo _('No Bulk Importers have been defined')?></div>
 			<?php } else { ?>
+				<?php if(!empty($message)) {?>
+					<div class="alert alert-danger" role="alert"><?php echo $message?></div>
+				<?php } ?>
 				<div class="fpbx-container">
 						<ul class="nav nav-tabs" role="tablist">
 							<?php foreach($types as $key => $type) {?>
