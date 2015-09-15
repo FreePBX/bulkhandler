@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-12 06:58-0700\n"
+"POT-Creation-Date: 2015-09-15 15:27-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/export.php:32 views/import.php:35
+#: views/export.php:32 views/import.php:38
 msgid "CSV File"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Can Not Find Uploaded Files"
 msgstr ""
 
-#: Bulkhandler.class.php:298
+#: Bulkhandler.class.php:305
 msgid "Cancel"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: views/export.php:35 views/export.php:55 views/import.php:97
+#: views/export.php:35 views/export.php:55 views/import.php:100
 msgid "Export"
 msgstr ""
 
@@ -70,15 +70,19 @@ msgstr ""
 msgid "Failed to write file to disk"
 msgstr ""
 
-#: views/import.php:45
+#: views/import.php:48
 msgid "File to Import"
+msgstr ""
+
+#: Bulkhandler.class.php:132
+msgid "Header row and data row count do not match"
 msgstr ""
 
 #: views/validate.php:17
 msgid "ID"
 msgstr ""
 
-#: Bulkhandler.class.php:293 views/export.php:56 views/import.php:98
+#: Bulkhandler.class.php:300 views/export.php:56 views/import.php:101
 msgid "Import"
 msgstr ""
 
@@ -106,11 +110,11 @@ msgstr ""
 msgid "Only CSV files are supported"
 msgstr ""
 
-#: views/import.php:55
+#: views/import.php:58
 msgid "Required/Recommended Headers"
 msgstr ""
 
-#: views/import.php:71
+#: views/import.php:74
 msgid ""
 "Required/Recommended headers are the minimum headers you must supply to be "
 "able to import. For a full list of all supported headers export out a CSV "
@@ -121,7 +125,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: views/import.php:81
+#: views/import.php:84
 msgid "Submit"
 msgstr ""
 
@@ -139,11 +143,15 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: Bulkhandler.class.php:87 Bulkhandler.class.php:134
+#: Bulkhandler.class.php:142
+msgid "Unable to parse file"
+msgstr ""
+
+#: Bulkhandler.class.php:87 Bulkhandler.class.php:138
 msgid "Unsupported file format"
 msgstr ""
 
-#: views/export.php:19 views/import.php:19
+#: views/export.php:19 views/import.php:22
 #, php-format
 msgid "What are \"%s\"?"
 msgstr ""
