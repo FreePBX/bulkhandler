@@ -113,7 +113,7 @@ class Bulkhandler implements \BMO {
 		return array("status" => false, "message" => _("Can Not Find Uploaded Files"));
 	}
 
-	private function fileToArray($file, $format='csv') {
+	public function fileToArray($file, $format='csv') {
 		$rawData = array();
 		switch($format) {
 			case 'csv':
