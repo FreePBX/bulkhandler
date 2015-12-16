@@ -116,6 +116,7 @@ if ($action == "output") {
       "dictenabled" => array(false, -1),
       "dictformat" => array(false, -1),
       "dictemail" => array(false, -1),
+      "dictemailfrom" => array(false, -1),
       "langcode" => array(false, -1),
       "record_in" => array(false, -1),
       "record_out" => array(false, -1),
@@ -544,6 +545,10 @@ $i=0;
         $vars["dictemail"] = trim($aInfo[$aFields["dictemail"][1]]);
       }
 
+      if ($aFields["dictemailfrom"][0]) {
+        $vars["dictemailfrom"] = trim($aInfo[$aFields["dictemailfrom"][1]]);
+      }
+
       if ($aFields["langcode"][0]) {
         $vars["langcode"] = trim($aInfo[$aFields["langcode"][1]]);
       }
@@ -924,7 +929,7 @@ $i=0;
                 languages_user_update($vars["extension"], $vars["langcode"]);
               }
               if ($dict_exists) {
-                dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"]);
+                dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"], $vars["dictemailfrom"]);
               }
               if ($findme_exists && $followme_set) {
                 findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
@@ -1087,7 +1092,7 @@ $i=0;
                 languages_user_update($vars["extension"], $vars["langcode"]);
               }
               if ($dict_exists) {
-                dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"]);
+                dictate_update($vars["extension"], $vars["dictenabled"], $vars["dictformat"], $vars["dictemail"], $vars["dictemailfrom"]);
               }
               if ($findme_exists && $followme_set) {
                 findmefollow_add($vars["account"], $vars["strategy"], $vars["grptime"], $vars["grplist"], $vars["postdest"], $vars["grppre"], $vars["annmsg_id"], $vars["dring"], $vars["needsconf"], $vars["remotealert_id"], $vars["toolate_id"], $vars["ringing"], $vars["pre_ring"], $vars["ddial"]);
