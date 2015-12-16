@@ -3,7 +3,7 @@
 	<repo>extended</repo>
     <name>Bulk Extensions</name>
 	<description>Bulk Extensions uses CSV files to import and export extensions.</description>
-	<version>13.0.2</version>
+	<version>13.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 	<location>release/2.11/bulkextensions-2.11.0.0.tgz</location>
 	<info/>
 	<changelog>
+		*13.0.3* FREEPBX-10968 support fifth parameter in dicate
 		*13.0.2* Version bump Beta
 		*13.0.1alpha1* Add unsupported messages
 		*2.11.0.7* #7363

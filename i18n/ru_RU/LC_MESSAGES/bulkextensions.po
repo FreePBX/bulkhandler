@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 11:28-0400\n"
+"POT-Creation-Date: 2015-12-15 16:09-0800\n"
 "PO-Revision-Date: 2015-04-23 16:20+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -33,7 +33,7 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: page.bulkextensions.php:1326
+#: page.bulkextensions.php:1331
 msgid ""
 " The account name, extension, and Voicemail password will automatically be "
 "inserted after the opening."
@@ -41,7 +41,7 @@ msgstr ""
 " Название учетной записи, номер и пароль голосовой почты будет автоматически "
 "включены в уведомления после начала текста уведомления."
 
-#: page.bulkextensions.php:1254
+#: page.bulkextensions.php:1259
 msgid ""
 " The settings below can be used to control the content and destination of "
 "the notification emails."
@@ -49,19 +49,30 @@ msgstr ""
 " Параметры ниже могут использоваться для управления содержимым и адресом "
 "получателя уведомлений."
 
-#: page.bulkextensions.php:1005
+#: page.bulkextensions.php:1010
 msgid "Account Name: "
 msgstr "Имя учётной записи: "
 
-#: page.bulkextensions.php:1228
+#: bulkextensions.i18n.php:6 bulkextensions.i18n.php:12
+msgid "Applications"
+msgstr "Приложения"
+
+#: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
+#: page.bulkextensions.php:1233
 msgid "Bulk Extensions"
 msgstr "Массовые абоненты"
 
-#: page.bulkextensions.php:1351
+#: page.bulkextensions.php:1356
 msgid "Bulk Extensions CSV File Columns"
 msgstr "Столбцы CSV файла с массовым описанием абонентов"
 
-#: page.bulkextensions.php:1241
+#: bulkextensions.i18n.php:8
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+"Модуль 'Массовые абоненты' использует CSV файлы для импорта и экспорта "
+"абонентов."
+
+#: page.bulkextensions.php:1246
 msgid ""
 "Bulk extension changes can take a long time to complete. It can take 30-60 "
 "seconds to add 100 extensions on a small system. However, on a system with "
@@ -72,7 +83,7 @@ msgstr ""
 "абонентов. На системах с 2000 и более абонентов, время добавления новых 100 "
 "абонентов может составлять около 5 минут."
 
-#: page.bulkextensions.php:1253
+#: page.bulkextensions.php:1258
 msgid ""
 "By default, a notification email will be sent to the Voicemail email address "
 "set for each account added."
@@ -80,47 +91,47 @@ msgstr ""
 "по умолчанию, уведомление будет отправлено на email адрес голосовой почты "
 "каждого нового абонента."
 
-#: page.bulkextensions.php:1246
+#: page.bulkextensions.php:1251
 msgid "CSV File to Load"
 msgstr "CSV файл для загрузки"
 
-#: page.bulkextensions.php:1260
+#: page.bulkextensions.php:1265
 msgid "Default Address:"
 msgstr "Адрес по умолчанию:"
 
-#: page.bulkextensions.php:1337
+#: page.bulkextensions.php:1342
 msgid "Email Closing:"
 msgstr "Конец текста уведомления:"
 
-#: page.bulkextensions.php:1284
+#: page.bulkextensions.php:1289
 msgid "Email From:"
 msgstr "Отправитель:"
 
-#: page.bulkextensions.php:1251
+#: page.bulkextensions.php:1256
 msgid "Email Notification for New Accounts"
 msgstr "Уведомления по e-mail о новых абонентах"
 
-#: page.bulkextensions.php:1323
+#: page.bulkextensions.php:1328
 msgid "Email Opening:"
 msgstr "Начало текста уведомления:"
 
-#: page.bulkextensions.php:1297
+#: page.bulkextensions.php:1302
 msgid "Email Reply-To:"
 msgstr "Адрес Reply-To:"
 
-#: page.bulkextensions.php:1310
+#: page.bulkextensions.php:1315
 msgid "Email Subject:"
 msgstr "Тема уведомления:"
 
-#: page.bulkextensions.php:1245
+#: page.bulkextensions.php:1250
 msgid "Export Extensions"
 msgstr "Экспорт абонентов"
 
-#: page.bulkextensions.php:1006
+#: page.bulkextensions.php:1011
 msgid "Extension: "
 msgstr "Номер абонента: "
 
-#: page.bulkextensions.php:1261
+#: page.bulkextensions.php:1266
 msgid ""
 "If a Default Address is specified, notification emails for new accounts "
 "without a Voicemail email address will be sent to the Default Address."
@@ -128,7 +139,7 @@ msgstr ""
 "Если 'Адрес по умолчанию' указан, уведомления для новых абонентов без "
 "указанного адрес голосовой почты будут отправлены на этот адрес."
 
-#: page.bulkextensions.php:1273
+#: page.bulkextensions.php:1278
 msgid ""
 "If an Override Address is specified, all notification emails will be sent to "
 "the Override Address only. Type \"noemail\" (without the quotes) as the "
@@ -138,19 +149,19 @@ msgstr ""
 "Укажите в этом поле 'noemail' без кавычек что бы отменить отправку "
 "уведомлений."
 
-#: page.bulkextensions.php:1247
+#: page.bulkextensions.php:1252
 msgid "Load File"
 msgstr "Загрузить файл"
 
-#: page.bulkextensions.php:1001
+#: page.bulkextensions.php:1006
 msgid "Login information for your Voicemail account is as follows:"
 msgstr "Информация для входа в Вашу голосовую почту ниже:"
 
-#: page.bulkextensions.php:1235
+#: page.bulkextensions.php:1240
 msgid "Manage Extensions in bulk using CSV files."
 msgstr "Управление абонентами в массовом режиме через CSV файлы."
 
-#: page.bulkextensions.php:1239
+#: page.bulkextensions.php:1244
 msgid ""
 "Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
 "the CSV file. After the CSV file is processed, the action taken for each row "
@@ -160,11 +171,11 @@ msgstr ""
 "После этого загрузите CSV файл. После того, как CSV будет обработан, каждая "
 "обработанная строка будет отображена."
 
-#: page.bulkextensions.php:1272
+#: page.bulkextensions.php:1277
 msgid "Override Address:"
 msgstr "Переназначенный адрес:"
 
-#: page.bulkextensions.php:1237
+#: page.bulkextensions.php:1242
 #, php-format
 msgid ""
 "Start by downloading the %s Template CSV file %s (right-click > save as) or "
@@ -173,7 +184,7 @@ msgstr ""
 "Загрузите %s шаблонный CSV файл %s (правая кнопка мыши -> Сохранить как) или "
 "нажимте кнопку 'Экспорт абонентов'."
 
-#: page.bulkextensions.php:1339
+#: page.bulkextensions.php:1344
 msgid ""
 "The Email Closing may be specified. If any text is entered, it will be "
 "inserted at the end of the email."
@@ -181,7 +192,7 @@ msgstr ""
 "Окончание текста уведомления может быть указано. Если оно задано, "
 "уведомление будет оканчиваться указанным текстом."
 
-#: page.bulkextensions.php:1286
+#: page.bulkextensions.php:1291
 msgid ""
 "The Email From header may be specified. If left blank, the system default "
 "will be used."
@@ -189,7 +200,7 @@ msgstr ""
 "Адрес отправителя уведомлений. Если не указан, будет использован адрес "
 "системы по умолчанию."
 
-#: page.bulkextensions.php:1325
+#: page.bulkextensions.php:1330
 msgid ""
 "The Email Opening may be specified. If left blank, the default opening, "
 "\"Login information for your Voicemail account is as follows:\", will be "
@@ -199,7 +210,7 @@ msgstr ""
 "уведомление будет начинаться: 'Login information for your Voicemail account "
 "is as follows:'."
 
-#: page.bulkextensions.php:1299
+#: page.bulkextensions.php:1304
 msgid ""
 "The Email Reply-To header may be specified. If left blank, the system "
 "default will be used."
@@ -207,7 +218,7 @@ msgstr ""
 "Устанавливает адрес Reply-To при отправке уведомлений. Если не указан, будет "
 "использован адрес по умолчанию."
 
-#: page.bulkextensions.php:1312
+#: page.bulkextensions.php:1317
 msgid ""
 "The Email Subject may be specified. If left blank, the default subject, "
 "\"Voicemail Account Activated\", will be used."
@@ -215,7 +226,7 @@ msgstr ""
 "Можно указать тему уведомления. Если не указана, то будет использована тема "
 "по умолчанию 'Voice Mail Account Activated'."
 
-#: page.bulkextensions.php:1352
+#: page.bulkextensions.php:1357
 msgid ""
 "The table below explains each column in the CSV file. You can change the "
 "column order of the CSV file as you like, however, the column names must be "
@@ -224,32 +235,24 @@ msgstr ""
 "Таблица описывает каждый столбец в CSV файле. Вы можете изменять порядок "
 "столбцов, как Вам удобно, но не должны изменять названия столбцов."
 
-#: page.bulkextensions.php:1225
+#: page.bulkextensions.php:1230
 msgid ""
 "This module is depreciated in favor of Bulk Handler. Please use that "
 "instead. The two modules are not compatible!"
 msgstr ""
 
-#: page.bulkextensions.php:1231
+#: page.bulkextensions.php:1236
 msgid "This module is only supported when FreePBX is in <b>extensions</b> mode"
 msgstr "Этот модуль работает только в режиме FreePBX <b>extensions</b>"
 
-#: page.bulkextensions.php:983
+#: page.bulkextensions.php:988
 msgid "Voicemail Account Activated"
 msgstr "Учётная запись голосовой почты подключена"
 
-#: page.bulkextensions.php:1007
+#: page.bulkextensions.php:1012
 msgid "Voicemail Password: "
 msgstr "Пароль голосовой почты: "
 
-#: page.bulkextensions.php:1230
+#: page.bulkextensions.php:1235
 msgid "You are running FreePBX in <b>deviceanduser</b> mode"
 msgstr "FreePBX работает в режиме <b>deviceanduser</b>"
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
-
-#~ msgid "Bulk Extensions uses CSV files to import and export extensions."
-#~ msgstr ""
-#~ "Модуль 'Массовые абоненты' использует CSV файлы для импорта и экспорта "
-#~ "абонентов."
