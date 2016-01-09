@@ -44,7 +44,7 @@
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-import"></i>
 																</div>
 																<div class="col-md-9">
-																	<span class="btn btn-default btn-file"><?php echo _("Browse")?> <input type="file" class="form-control importer" name="import" id="import"></span>
+																	<span class="btn btn-default btn-file"><?php echo _("Browse")?> <input type="file" class="form-control importer" name="import"></span>
 																	<span class="filename"></span>
 																</div>
 															</div>

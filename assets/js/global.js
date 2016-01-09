@@ -36,6 +36,10 @@ $(function() {
 		$(".progress-bar").css("width","");
 		$(".progress").removeClass("hidden");
 		$(".progress-bar").addClass("active");
+		if(total === 0) {
+			alert(_("There is nothing to import!"));
+			return;
+		}
 		async.forEachOfSeries(imports, function (v, i, callback) {
 			if(typeof v === "undefined") {
 				callback();
