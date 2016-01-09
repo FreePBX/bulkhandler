@@ -27,7 +27,7 @@ $(function() {
 		window.location = '?display=bulkhandler&activity=import';
 	});
 	$("#import").click(function(e) {
-		var count = 0;
+		var count = 0, errors = 0, replace = $("#replaceexisting_yes").is(":checked");
 		e.preventDefault();
 		e.stopPropagation();
 
@@ -36,32 +36,39 @@ $(function() {
 		$(".progress-bar").css("width","");
 		$(".progress").removeClass("hidden");
 		$(".progress-bar").addClass("active");
-		$.each(imports, function(i,v) {
+		async.forEachOfSeries(imports, function (v, i, callback) {
 			if(typeof v === "undefined") {
-				return true;
+				callback();
+				return;
 			}
-			//loop over and import indivudally.
-			$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v},function( data ) {
+			$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v, replace: (replace ? 1 : 0)},function( data ) {
 				if(!data.status) {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
-					alert("There was an error importing row "+i+": "+data.message);
+					alert(sprintf(_("There was an error importing row %s: %s"),i,data.message));
+					errors++;
 				} else {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
 				}
-				count++
+				count++;
 
 				$(".progress-bar").css("width",(count/total * 100) + "%");
 				if(count == total) {
 					$(".progress-bar").removeClass("active");
 					$("#import").prop("disabled",false);
 				}
+				callback();
 			});
+		}, function (err) {
+			if(errors === 0) {
+				$("#import").prop("value",_("Reimport"));
+				$("#cancel").prop("value",_("Finished"));
+			}
 		});
 	});
 });
 $("#validation-list").on("post-body.bs.table",function() {
 	$(".actions i").click(function() {
-		var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '';
+		var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '', destid = 0;
 		if(type == "delete") {
 			$('table').bootstrapTable('remove', {field: 'id', values: [id.toString()]})
 			delete(imports[jsonid]);
@@ -85,7 +92,16 @@ $("#validation-list").on("post-body.bs.table",function() {
 							input = input + '</select>';
 						}
 					} else if (header['type'] == 'destination') {
-						/* TODO: Add destination dropdowns here. */
+						/* TODO: Add destination dropdowns here.
+						/* Problem is that every destination can be slightly different than
+						/* the previous one if using custom. Forgo this for now
+						input = "<div id='dest-"+destid+"' class='destination-loading'>"+_("Loading")+"</div>";
+						$.post( "ajax.php", {module: "bulkhandler", command: "destinationdrawselect", id: i, value: v, destid: destid}, function( data ) {
+							$("#dest-"+data.destid).html(data.html);
+						});
+						destid++;
+						*/
+						input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
 					}
 				}
 				html = html + '<div class="form-group"><label for="'+i+'">'+label+'</label>' + input + '</div>';

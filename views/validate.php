@@ -6,12 +6,23 @@
 		</div>
 	</div>
 </div>
-<table data-toggle="table" data-maintain-selected="true"
+<div id="toolbar-all">
+	<label><?php echo _("Replace/Update existing data")?></label>
+	<div class="radioset" style="display: inline-block;">
+		<input type="radio" name="replaceexisting" id="replaceexisting_yes" value="true" checked="">
+		<label for="replaceexisting_yes"><?php echo _("Yes")?></label>
+		<input type="radio" name="replaceexisting" id="replaceexisting_no" value="false">
+		<label for="replaceexisting_no"><?php echo _("No")?></label>
+	</div>
+</div>
+<table data-toggle="table"
+				data-toolbar="#toolbar-all"
         data-show-columns="true"
         data-show-toggle="true"
         data-toggle="table"
-        data-pagination="true"
-        data-search="true" data-sort-name="stargazers_count" data-sort-order="desc" id="validation-list">
+        data-pagination="false"
+        data-search="true"
+				id="validation-list">
 	<thead>
 		<tr>
 			<th data-field="id"><?php echo _('ID')?></th>
@@ -29,6 +40,7 @@
 			<tr class="scheme" data-unique-id="row-<?php echo $id?>" data-jsonid='<?php echo $id?>'>
 				<td><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) { ?>
+
 					<td><?php echo $import[$identifier]?></td>
 				<?php } ?>
 				<td class="actions">
@@ -39,6 +51,9 @@
 		<?php } ?>
 	</tbody>
 </table>
+<br/>
+<br/>
+<br/>
 <div id="edit" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">

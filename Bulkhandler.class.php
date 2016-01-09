@@ -40,7 +40,7 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'])));
+								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'],true)));
 							} catch(\Exception $e) {
 								$activity = "import";
 								$message = $e->getMessage();
@@ -160,13 +160,22 @@ class Bulkhandler implements \BMO {
 		}
 	}
 
-	public function getHeaders($type) {
+	public function getHeaders($type,$validation=false) {
 		$headers = array();
 
 		$modules = $this->freepbx->Hooks->processHooks($type);
 		foreach ($modules as $key => $module) {
 			if ($module) {
-				$headers = array_merge($headers, $module);
+				$final = array();
+				foreach($module as $key1 => $data1) {
+					if(!$validation && isset($data1['display']) && !$data1['display']) {
+						continue;
+					}
+					$final[$key1] = $data1;
+				}
+				if(!empty($final)) {
+					$headers = array_merge($headers, $final);
+				}
 			}
 		}
 
@@ -190,7 +199,7 @@ class Bulkhandler implements \BMO {
 								"mod" => $key,
 								"type" => $type,
 								"active" => (count($types) == 0),
-								"headers" => $this->getHeaders($type)
+								"headers" => $this->getHeaders($type,false)
 							);
 						}
 					}
@@ -214,20 +223,40 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function ajaxRequest($req, &$setting) {
-		return true;
+		switch($req) {
+			case "import":
+			case "destinationdrawselect":
+				return true;
+			break;
+			default:
+				return false;
+			break;
+		}
 	}
 
 	public function ajaxHandler() {
 		$ret = array("status" => true);
 		switch ($_REQUEST['command']) {
 			case "import":
-				$ret = $this->import($_POST['type'], array($_POST['imports']));
+				$ret = $this->import($_POST['type'], array($_POST['imports']), (!empty($_POST['replace']) ? true : false));
+			break;
+			case "destinationdrawselect":
+				global $active_modules;
+				$active_modules = $this->freepbx->Modules->getActiveModules();
+				$this->freepbx->Modules->getDestinations();
+				$ret = array("status" => true, "destid" => $_POST['destid'], "html" => drawselects($_POST['value'],$_POST['id'], false, false));
 			break;
 		}
 		return $ret;
 	}
 
-	public function import($type, $rawData) {
+	/**
+	 * Import Data
+	 * @param  string $type            The type of data import
+	 * @param  array $rawData         Raw array of data to import
+	 * @param  bool $replaceExisting Replace or Update existing data
+	 */
+	public function import($type, $rawData, $replaceExisting = false) {
 		try {
 			$methods = $this->freepbx->Hooks->returnHooks();
 		} catch(\Exception $e) {
@@ -237,7 +266,7 @@ class Bulkhandler implements \BMO {
 		foreach($methods as $method) {
 			$mod = $method['module'];
 			$meth = $method['method'];
-			$ret = \FreePBX::$mod()->$meth($type, $rawData);
+			$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
 			if($ret['status'] === false) {
 				return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
 			}
@@ -245,6 +274,10 @@ class Bulkhandler implements \BMO {
 		return array("status" => true);
 	}
 
+	/**
+	 * Export Data
+	 * @param  string $type The type of export
+	 */
 	public function export($type) {
 		$time_start = microtime(true);
 		$modules = $this->freepbx->Hooks->processHooks($type);
@@ -286,7 +319,7 @@ class Bulkhandler implements \BMO {
 		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
 		$methods = is_array($methods) ? $methods : array();
 		foreach($modules as $module) {
-
+			//TODO: This does nothing ok...
 		}
 	}
 	public function getActionBar($request) {
