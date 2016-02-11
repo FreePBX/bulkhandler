@@ -198,7 +198,7 @@ class Bulkhandler implements \BMO {
 								"description" => $name['description'],
 								"mod" => $key,
 								"type" => $type,
-								"active" => (count($types) == 0),
+								"active" => !empty($_COOKIE['bulkhandler-display']) ? ($_COOKIE['bulkhandler-display'] == $key."-".$type) : (count($types) == 0),
 								"headers" => $this->getHeaders($type,false)
 							);
 						}
@@ -212,7 +212,7 @@ class Bulkhandler implements \BMO {
 								"description" => $name['description'],
 								"mod" => $key,
 								"type" => $type,
-								"active" => (count($types) == 0)
+								"active" => !empty($_COOKIE['bulkhandler-display']) ? ($_COOKIE['bulkhandler-display'] == $key."-".$type) : (count($types) == 0),
 							);
 						}
 					}

@@ -1,5 +1,13 @@
-var editId = null, total=null;
+var editId = null, total=null, tabDisplay = $.cookie("bulkhandler-display");
+if(typeof tabDisplay !== "undefined") {
+	$('[aria-controls='+tabDisplay+']').tab('show');
+}
+
 $(function() {
+	$('.nav-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		var name = $(e.target).parents("li").data("name");
+		$.cookie("bulkhandler-display",name);
+	});
 	total = (typeof imports !== "undefined") ? imports.length : 0;
 	$("form.bulkhandler").submit(function() {
 		if($(".importer:visible").val() === "") {
