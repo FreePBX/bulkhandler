@@ -2,8 +2,8 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<description/>
-	<version>13.0.13</version>
+	<description />
+	<version>13.0.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -14,8 +14,9 @@
 	<depends>
 		<version>13.0</version>
 	</depends>
-	<info/>
+	<info />
 	<changelog>
+		*13.0.14* Remove en_US Translations
 		*13.0.13* Dont id the same as the real importer
 		*13.0.12* FREEPBX-10077 added edit functionality and better workflows
 		*13.0.11* Add fwconsole import. Update navigation.
