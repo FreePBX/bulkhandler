@@ -11,13 +11,26 @@ class Bulkimport extends Command {
         ->setAliases(array('bi'))
         ->setDescription('This command is used to import extensions and dids')
         ->setDefinition(array(
+            new InputOption('replace', '-r', InputOption::VALUE_NONE, 'Overwrite Existing Data'),
             new InputOption('type', 't', InputOption::VALUE_REQUIRED, 'Type of file'),
             new InputArgument('filename', InputArgument::REQUIRED, 'Filename', null),))
-        ->setHelp('Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv');
+        ->setHelp('Import a file: fwconsole bulkimport [--replace] --type={type} filename.csv');
     }
     protected function execute(InputInterface $input, OutputInterface $output){
         $filename = $input->getArgument('filename');
-        $type = $input->getOption('type');
+        $type = strtolower($input->getOption('type'));
+        $valid_types = \FreePBX::Bulkhandler()->getTypes('import');
+        $validtype = false;
+        $typetext = '';
+        $typelist = array();
+        foreach ($valid_types as $key => $value) {
+          $typelist[] = $value['type'];
+          if($value['type'] == $type){
+            $validtype = true;
+            $typetext = $value['description'];
+          }
+        }
+        $replace = ($input->getOption('replace'))?true:false;
         if(file_exists($filename)){
           $data = \FreePBX::Bulkhandler()->fileToArray($filename);
         }else{
@@ -28,19 +41,19 @@ class Bulkimport extends Command {
           $output->writeln('<error>The file provided did not process properly. Check the file formatting</error>');
           return false;
         }
-        switch ($type) {
-          case 'dids':
-            $output->writeln('Importing bulk dids');
-            $ret = \FreePBX::Bulkhandler()->import('dids', $data);
-          break;
-          case 'extensions':
-            $output->writeln('Importing bulk extensions');
-            $ret = \FreePBX::Bulkhandler()->import('extensions', $data);
-          break;
-          default:
-            $output->writeln('<error>You must specify the file type of --type=dids or --type=extensions</error>');
-            return false;
-          break;
+        if($validtype){
+            $output->writeln(sprintf(_('Importing %s'),$typetext));
+            if($replace){
+              $output->writeln(_('Replace flag set, overwriting existing data'));
+            }
+            $ret = \FreePBX::Bulkhandler()->import($type, $data, $replace);
+        }else{
+          $output->writeln('<error>You must specify the file type of --type=type</error>');
+          $output->writeln('<error>Valid types are:</error>');
+          foreach($typelist as $t){
+            $output->writeln('<error>'.$t.'</error>');
+          }
+          return false;
         }
         if(!$ret){
           $output->writeln('<error>The import failed</error>');
