@@ -1,0 +1,10 @@
+<Files "template.csv">
+  <IfModule !authz_core_module>
+    #apache 2.2
+    Allow from all
+  </IfModule>
+  <IfModule authz_core_module>
+    #apache 2.4
+    Require all granted
+  </IfModule>
+</Files>

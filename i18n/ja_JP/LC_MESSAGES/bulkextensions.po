@@ -1,0 +1,268 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+#
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (FreePBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with FreePBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as FreePBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+#
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for bulkextensions
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.10.0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-15 16:09-0800\n"
+"PO-Revision-Date: 2013-11-07 12:54+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: Japanese\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: page.bulkextensions.php:1331
+msgid ""
+" The account name, extension, and Voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+"アカウント名、内線、ボイスメールパスワードが自動的に書き出し文の後に挿入され"
+"ます。"
+
+#: page.bulkextensions.php:1259
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+"以下の設定は、通知メールの内容と送信先を制御するために使用することができま"
+"す。"
+
+#: page.bulkextensions.php:1010
+msgid "Account Name: "
+msgstr "アカウント名："
+
+#: bulkextensions.i18n.php:6 bulkextensions.i18n.php:12
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
+#: page.bulkextensions.php:1233
+msgid "Bulk Extensions"
+msgstr "内線一括処理"
+
+#: page.bulkextensions.php:1356
+msgid "Bulk Extensions CSV File Columns"
+msgstr "内線一括処理CSVファイルカラム"
+
+#: bulkextensions.i18n.php:8
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+"内線一括処理は内線をインポート/エクスポートする際に、CSVファイルを使用しま"
+"す。"
+
+#: page.bulkextensions.php:1246
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+"内線の一括変更は完了するまでに時間がかかります。小規模システムのように100台分"
+"の内線を追加する場合、30～60秒かかります。しかし、2000台分の内線を持つような"
+"システムの場合、100台分の内線を追加するのにおよそ5分程かかってしまいます。"
+
+#: page.bulkextensions.php:1258
+msgid ""
+"By default, a notification email will be sent to the Voicemail email address "
+"set for each account added."
+msgstr ""
+"デフォルトでは、通知メールは各アカウントに追加されたボイスメールアドレスセッ"
+"トに送信されます。"
+
+#: page.bulkextensions.php:1251
+msgid "CSV File to Load"
+msgstr "ロードするCSVファイル"
+
+#: page.bulkextensions.php:1265
+msgid "Default Address:"
+msgstr "デフォルトアドレス："
+
+#: page.bulkextensions.php:1342
+msgid "Email Closing:"
+msgstr "Eメール 締め文:"
+
+#: page.bulkextensions.php:1289
+msgid "Email From:"
+msgstr "Eメール From："
+
+#: page.bulkextensions.php:1256
+msgid "Email Notification for New Accounts"
+msgstr "新規アカウントのEメール通知"
+
+#: page.bulkextensions.php:1328
+msgid "Email Opening:"
+msgstr "Eメール 書き出し："
+
+#: page.bulkextensions.php:1302
+msgid "Email Reply-To:"
+msgstr "Eメール Reply-To:"
+
+#: page.bulkextensions.php:1315
+msgid "Email Subject:"
+msgstr "Eメール 件名:"
+
+#: page.bulkextensions.php:1250
+msgid "Export Extensions"
+msgstr "内線をエクスポート"
+
+#: page.bulkextensions.php:1011
+msgid "Extension: "
+msgstr "内線："
+
+#: page.bulkextensions.php:1266
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a Voicemail email address will be sent to the Default Address."
+msgstr ""
+"デフォルトアドレスが指定された場合、ボイスメールアドレスのない新規アカウント"
+"への通知メールはデフォルトアドレスに送信されます。"
+
+#: page.bulkextensions.php:1278
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+"上書きアドレスが指定された場合、すべての通知メールは上書きアドレスにのみ送信"
+"されます。通知メールの送信を止める場合は、上書きアドレスに\"noemail\"(クォー"
+"トなしで)とタイプしてください。"
+
+#: page.bulkextensions.php:1252
+msgid "Load File"
+msgstr "ファイルのロード"
+
+#: page.bulkextensions.php:1006
+msgid "Login information for your Voicemail account is as follows:"
+msgstr "あなたのボイスメールアカウントへのログイン情報："
+
+#: page.bulkextensions.php:1240
+msgid "Manage Extensions in bulk using CSV files."
+msgstr "内線をCSVファイルを使用して一括管理します。"
+
+#: page.bulkextensions.php:1244
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+"内線を望みどおりに追加、編集、削除するため、CSVファイルを修正します。次に、"
+"CSVファイルをロードします。CSVファイルの処理が行われると、実行されたそれぞれ"
+"の行が表示されます。"
+
+#: page.bulkextensions.php:1277
+msgid "Override Address:"
+msgstr "上書きアドレス："
+
+#: page.bulkextensions.php:1242
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+"%s テンプレートCSVファイル %sをダウンロード(右クリック > 対象をファイルに保"
+"存) するか、内線をエクスポートボタンをクリックしてスタートします。"
+
+#: page.bulkextensions.php:1344
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+"Eメールの締めの文章を指定することができます。何らかのテキストを入力すると、"
+"メールの最後に挿入されます。"
+
+#: page.bulkextensions.php:1291
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+"Eメール Fromのヘッダーを指定することができます。空欄にしたら、デフォルトシス"
+"テムが使用されます。"
+
+#: page.bulkextensions.php:1330
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your Voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+"Eメールの書き出し文を指定することができます。デフォルトの書き出し文は、\"あな"
+"たのボイスメールアカウントへのログイン情報：\"が使用されます。"
+
+#: page.bulkextensions.php:1304
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr "EメールReply-To headerの設定ができます"
+
+#: page.bulkextensions.php:1317
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+"メールの件名を指定することができます。空欄にしたら、デフォルト件名'Voicemail "
+"Account Activated'が使用されま"
+
+#: page.bulkextensions.php:1357
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""
+"以下のテーブルはCSVファイルの各カラムの説明です。CSVファイルのカラム順は好き"
+"なように変更できますが、カラム名は保持しなければいけません。"
+
+#: page.bulkextensions.php:1230
+msgid ""
+"This module is depreciated in favor of Bulk Handler. Please use that "
+"instead. The two modules are not compatible!"
+msgstr ""
+
+#: page.bulkextensions.php:1236
+msgid "This module is only supported when FreePBX is in <b>extensions</b> mode"
+msgstr "このモジールはFreePBXが<b>内線</b>モード時のみサポートしてます。"
+
+#: page.bulkextensions.php:988
+msgid "Voicemail Account Activated"
+msgstr "ボイスメールアカウントがアクティベートされました"
+
+#: page.bulkextensions.php:1012
+msgid "Voicemail Password: "
+msgstr "ボイスメールパスワード："
+
+#: page.bulkextensions.php:1235
+msgid "You are running FreePBX in <b>deviceanduser</b> mode"
+msgstr "FreePBXは<b>デバイス&ユーザー</b>モードで起動中"

@@ -1,0 +1,284 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#    Copyright 2009 Mikael Carlsson, mickecamino@gmail.com
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX bulkextensions\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-15 16:09-0800\n"
+"PO-Revision-Date: 2009-03-18 21:57+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: page.bulkextensions.php:1331
+msgid ""
+" The account name, extension, and Voicemail password will automatically be "
+"inserted after the opening."
+msgstr ""
+
+#: page.bulkextensions.php:1259
+msgid ""
+" The settings below can be used to control the content and destination of "
+"the notification emails."
+msgstr ""
+"Inställningarna nedan kan användas för att ändra innehållet och "
+"destinationen för detta meddelande."
+
+#: page.bulkextensions.php:1010
+msgid "Account Name: "
+msgstr "Kontonamn:"
+
+#: bulkextensions.i18n.php:6 bulkextensions.i18n.php:12
+msgid "Applications"
+msgstr ""
+
+#: bulkextensions.i18n.php:4 bulkextensions.i18n.php:10
+#: page.bulkextensions.php:1233
+msgid "Bulk Extensions"
+msgstr "Importera anknytningar"
+
+#: page.bulkextensions.php:1356
+msgid "Bulk Extensions CSV File Columns"
+msgstr "CSV-filens kolumnnamn"
+
+#: bulkextensions.i18n.php:8
+msgid "Bulk Extensions uses CSV files to import and export extensions."
+msgstr ""
+"Bulk Extensions använder CSV filer för att importera och exportera "
+"anknytningar"
+
+#: page.bulkextensions.php:1246
+msgid ""
+"Bulk extension changes can take a long time to complete. It can take 30-60 "
+"seconds to add 100 extensions on a small system. However, on a system with "
+"2000 extensions it can take about 5 minutes to add 100 new extensions."
+msgstr ""
+"Att importera anknytningar kan ta en längre tid att behandla. Att lägga till "
+"100 anknytningar kan ta mellan 30-60 sekunder på ett långsamt system. Dock "
+"kan det på ett system med 1000 anknytningar ta upp till 5 minuter för att "
+"lägga till 100 anknytningar."
+
+#: page.bulkextensions.php:1258
+msgid ""
+"By default, a notification email will be sent to the Voicemail email address "
+"set for each account added."
+msgstr ""
+
+#: page.bulkextensions.php:1251
+msgid "CSV File to Load"
+msgstr "Öppna CSV-fil"
+
+#: page.bulkextensions.php:1265
+msgid "Default Address:"
+msgstr "E-postadress:"
+
+#: page.bulkextensions.php:1342
+msgid "Email Closing:"
+msgstr "Avslutande text:"
+
+#: page.bulkextensions.php:1289
+msgid "Email From:"
+msgstr "E-postavsändare:"
+
+#: page.bulkextensions.php:1256
+msgid "Email Notification for New Accounts"
+msgstr "E-posta meddelande för nya konto"
+
+#: page.bulkextensions.php:1328
+msgid "Email Opening:"
+msgstr "Välkomsttext:"
+
+#: page.bulkextensions.php:1302
+msgid "Email Reply-To:"
+msgstr "Svarsadress:"
+
+#: page.bulkextensions.php:1315
+msgid "Email Subject:"
+msgstr "Ämne:"
+
+#: page.bulkextensions.php:1250
+msgid "Export Extensions"
+msgstr "Exportera anknytningar"
+
+#: page.bulkextensions.php:1011
+msgid "Extension: "
+msgstr "Anknytning:"
+
+#: page.bulkextensions.php:1266
+msgid ""
+"If a Default Address is specified, notification emails for new accounts "
+"without a Voicemail email address will be sent to the Default Address."
+msgstr ""
+
+#: page.bulkextensions.php:1278
+msgid ""
+"If an Override Address is specified, all notification emails will be sent to "
+"the Override Address only. Type \"noemail\" (without the quotes) as the "
+"Override Address to stop notification emails from being sent."
+msgstr ""
+"Om en e-postadress anges här, kommer alla e-postmeddelanden om "
+"kontoinformation för röstbrevlådorna att skickas till denna adress. Om ordet "
+"\"noemail\" (utan dubbelappostrof) skrivs in kommer inga e-postmeddelanden "
+"att skickas."
+
+#: page.bulkextensions.php:1252
+msgid "Load File"
+msgstr "Ladda upp fil"
+
+#: page.bulkextensions.php:1006
+msgid "Login information for your Voicemail account is as follows:"
+msgstr ""
+
+#: page.bulkextensions.php:1240
+msgid "Manage Extensions in bulk using CSV files."
+msgstr "Hantera anknytningar genom CSV-filer."
+
+#: page.bulkextensions.php:1244
+msgid ""
+"Modify the CSV file to add, edit, or delete Extensions as desired. Then load "
+"the CSV file. After the CSV file is processed, the action taken for each row "
+"will be displayed."
+msgstr ""
+"Ändra i CSV-filen för att lägga till, redigera eller radera anknytningar. "
+"Ladda därefter upp CSV-filen. Efter att filen laddats upp visas resultatet "
+"som en lista."
+
+#: page.bulkextensions.php:1277
+msgid "Override Address:"
+msgstr "Åsidosätt e-postadress:"
+
+#: page.bulkextensions.php:1242
+#, php-format
+msgid ""
+"Start by downloading the %s Template CSV file %s (right-click > save as) or "
+"clicking the Export Extensions button."
+msgstr ""
+"Börja med att ladda ner %s CSV mallfilen %s (högerklicka > spara som) eller "
+"klicka på Exportera anknytningar."
+
+#: page.bulkextensions.php:1344
+msgid ""
+"The Email Closing may be specified. If any text is entered, it will be "
+"inserted at the end of the email."
+msgstr ""
+"Skriv in avslutande text för e-postmeddelanden, denna text kommer att läggas "
+"till siste i e-postmeddelandet."
+
+#: page.bulkextensions.php:1291
+msgid ""
+"The Email From header may be specified. If left blank, the system default "
+"will be used."
+msgstr ""
+"Skriv in avsändaradressen för e-postmeddelanden. Om inget skrivs in kommer "
+"systemets standardavsändare att användas."
+
+#: page.bulkextensions.php:1330
+msgid ""
+"The Email Opening may be specified. If left blank, the default opening, "
+"\"Login information for your Voicemail account is as follows:\", will be "
+"used."
+msgstr ""
+
+#: page.bulkextensions.php:1304
+msgid ""
+"The Email Reply-To header may be specified. If left blank, the system "
+"default will be used."
+msgstr ""
+"Svarsadressen för e-postmeddelanden kan anges här. Om inget skrivs in kommer "
+"systemets standardavsändare att användas."
+
+#: page.bulkextensions.php:1317
+msgid ""
+"The Email Subject may be specified. If left blank, the default subject, "
+"\"Voicemail Account Activated\", will be used."
+msgstr ""
+"Skriv in ämnet för e-postmeddelanden. Om inget skrivs in kommer texten "
+"\"Voicemail Account Activated\" att användas."
+
+#: page.bulkextensions.php:1357
+msgid ""
+"The table below explains each column in the CSV file. You can change the "
+"column order of the CSV file as you like, however, the column names must be "
+"preserved."
+msgstr ""
+"Tabellen nedan förklarar varje kolumn i CSV-filen. Du kan ändra ordningen i "
+"kolumnen, men namnen kan inte ändras."
+
+#: page.bulkextensions.php:1230
+msgid ""
+"This module is depreciated in favor of Bulk Handler. Please use that "
+"instead. The two modules are not compatible!"
+msgstr ""
+
+#: page.bulkextensions.php:1236
+msgid "This module is only supported when FreePBX is in <b>extensions</b> mode"
+msgstr "Denna modul fungerar bara om FreePBX körs i läget <b>extensions</b>"
+
+#: page.bulkextensions.php:988
+msgid "Voicemail Account Activated"
+msgstr "Konto för röstbrevlåda aktiverat"
+
+#: page.bulkextensions.php:1012
+msgid "Voicemail Password: "
+msgstr "Lösenord för röstbrevlåda"
+
+#: page.bulkextensions.php:1235
+msgid "You are running FreePBX in <b>deviceanduser</b> mode"
+msgstr "Du kör FreePBX i läget <b>deviceanduser</b>"
+
+#~ msgid "Login information for your voicemail account is as follows:"
+#~ msgstr "Inloggning för din röstbrevlåda är följande:"
+
+#~ msgid ""
+#~ "By default, a notification email will be sent to the voicemail email "
+#~ "address set for each account added."
+#~ msgstr ""
+#~ "Som standard kommer ett meddelande innehållande kontouppgifter att e-"
+#~ "postas till röstbrevlådans e-postadress för varje konto som läggs till."
+
+#~ msgid ""
+#~ "If a Default Address is specified, notification emails for new accounts "
+#~ "without a voicemail email address will be sent to the Default Address."
+#~ msgstr ""
+#~ "Om denna e-postadress anges, kommer kontoinformationen för röstbrevlådan "
+#~ "för alla nya konto utan e-postadress, att skickas till denna adress."
+
+#~ msgid ""
+#~ "The Email Opening may be specified. If left blank, the default opening, "
+#~ "\"Login information for your voicemail account is as follows:\", will be "
+#~ "used."
+#~ msgstr ""
+#~ "Skriv in välkomsttexten för e-postmeddelanden. Om inget skrivs in här "
+#~ "kommer texten \"Login information for your voicemail account is as "
+#~ "follows:\" att användas."
+
+#~ msgid ""
+#~ " The account name, extension, and voicemail password will automatically "
+#~ "be inserted after the opening."
+#~ msgstr ""
+#~ "Kontonamnet, anknytningen och lösenordet för röstbrevlådan kommer "
+#~ "automatiskt att läggas till efter välkomsttexten."
