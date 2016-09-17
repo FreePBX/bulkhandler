@@ -75,9 +75,9 @@ class Bulkhandler implements \BMO {
 				$extension = strtolower($extension);
 				if($extension == 'csv') {
 					$tmp_name = $_FILES["import"]["tmp_name"];
-					$dname = $_FILES["import"]["name"];
+					$dname = basename($_FILES["import"]["name"]);
 					$id = time();
-					$name = pathinfo($_FILES["import"]["name"],PATHINFO_FILENAME) . '-' . $id . '.' . $extension;
+					$name = pathinfo($dname,PATHINFO_FILENAME) . '-' . $id . '.' . $extension;
 					move_uploaded_file($tmp_name, $temp."/".$name);
 					if(!file_exists($temp."/".$name)) {
 						return array("status" => false, "message" => _("Cant find uploaded file"), "localfilename" => $temp."/".$name);
