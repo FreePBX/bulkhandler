@@ -131,7 +131,9 @@ class Bulkhandler implements \BMO {
 					if($headerc != count($row)) {
 						throw new \Exception(_("Header row and data row count do not match"));
 					}
-					$rawData[] = array_combine($header, $row);
+					if(!empty($row)){
+						$rawData[] = array_combine($header, $row);
+					}
 				}
 			break;
 			default:
