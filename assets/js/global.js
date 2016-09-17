@@ -34,6 +34,7 @@ $(function() {
 		e.stopPropagation();
 		window.location = '?display=bulkhandler&activity=import';
 	});
+
 	$("#import").click(function(e) {
 		var count = 0, errors = 0, replace = $("#replaceexisting_yes").is(":checked");
 		e.preventDefault();
@@ -78,49 +79,51 @@ $(function() {
 		});
 	});
 });
-$("#validation-list").on("post-body.bs.table",function() {
-	$(".actions i").click(function() {
-		var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '', destid = 0;
-		if(type == "delete") {
-			$('table').bootstrapTable('remove', {field: 'id', values: [id.toString()]})
-			delete(imports[jsonid]);
-			total--;
-		} else if(type == "edit" && typeof jsonid !== "undefined") {
-			editId = jsonid;
-			$.each(imports[jsonid], function(i,v) {
-				var label = i;
-				var input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
+$(document).ready(function(){
+	$("#validation-list").on("post-body.bs.table",function() {
+		$("i.actions").click(function() {
+			var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '', destid = 0;
+			if(type == "delete") {
+				$('table').bootstrapTable('remove', {field: 'id', values: [id.toString()]})
+				delete(imports[jsonid]);
+				total--;
+			} else if(type == "edit" && typeof jsonid !== "undefined") {
+				editId = jsonid;
+				$.each(imports[jsonid], function(i,v) {
+					var label = i;
+					var input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
 
-				if (headers && (header = headers[i])) {
-					label = header['description'] ? header['description'] : i;
+					if (headers && (header = headers[i])) {
+						label = header['description'] ? header['description'] : i;
 
-					if (!header['type'] || header['type'] == 'string') {
-						if (header['values']) {
-							input = '<select id="'+i+'" class="form-control">';
-							$.each(header['values'], function(l) {
-								value = header['values'][l];
-								input = input + '<option value="'+l+'" '+(v==l?'selected':'')+'>'+value+'</option>';
+						if (!header['type'] || header['type'] == 'string') {
+							if (header['values']) {
+								input = '<select id="'+i+'" class="form-control">';
+								$.each(header['values'], function(l) {
+									value = header['values'][l];
+									input = input + '<option value="'+l+'" '+(v==l?'selected':'')+'>'+value+'</option>';
+								});
+								input = input + '</select>';
+							}
+						} else if (header['type'] == 'destination') {
+							/* TODO: Add destination dropdowns here.
+							/* Problem is that every destination can be slightly different than
+							/* the previous one if using custom. Forgo this for now
+							input = "<div id='dest-"+destid+"' class='destination-loading'>"+_("Loading")+"</div>";
+							$.post( "ajax.php", {module: "bulkhandler", command: "destinationdrawselect", id: i, value: v, destid: destid}, function( data ) {
+								$("#dest-"+data.destid).html(data.html);
 							});
-							input = input + '</select>';
+							destid++;
+							*/
+							input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
 						}
-					} else if (header['type'] == 'destination') {
-						/* TODO: Add destination dropdowns here.
-						/* Problem is that every destination can be slightly different than
-						/* the previous one if using custom. Forgo this for now
-						input = "<div id='dest-"+destid+"' class='destination-loading'>"+_("Loading")+"</div>";
-						$.post( "ajax.php", {module: "bulkhandler", command: "destinationdrawselect", id: i, value: v, destid: destid}, function( data ) {
-							$("#dest-"+data.destid).html(data.html);
-						});
-						destid++;
-						*/
-						input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
 					}
-				}
-				html = html + '<div class="form-group"><label for="'+i+'">'+label+'</label>' + input + '</div>';
-			});
-			$("#edit .edit-fields").html(html);
-			$('#edit').modal('show');
-		}
+					html = html + '<div class="form-group"><label for="'+i+'">'+label+'</label>' + input + '</div>';
+				});
+				$("#edit .edit-fields").html(html);
+				$('#edit').modal('show');
+			}
+		});
 	});
 });
 
