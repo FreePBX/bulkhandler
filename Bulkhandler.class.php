@@ -124,7 +124,7 @@ class Bulkhandler implements \BMO {
 				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
 				while ($row = fgetcsv($handle)) {
 					if ($header === null) {
-						$header = $row;
+						$header = array_map('strtolower',$row);
 						$headerc = count($header);
 						continue;
 					}
