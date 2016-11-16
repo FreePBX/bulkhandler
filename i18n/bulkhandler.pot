@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-16 19:13-0700\n"
+"POT-Creation-Date: 2016-11-17 09:05+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "File to Import"
 msgstr ""
 
-#: assets/js/global.js:77
+#: assets/js/global.js:86
 msgid "Finished"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: assets/js/global.js:112
+#: assets/js/global.js:121
 msgid "Loading"
 msgstr ""
 
@@ -135,15 +135,15 @@ msgstr ""
 msgid "No file was uploaded"
 msgstr ""
 
-#: assets/js/global.js:14
+#: assets/js/global.js:23
 msgid "Not file specified"
 msgstr ""
 
-#: assets/js/global.js:19
+#: assets/js/global.js:28
 msgid "Only CSV files are supported"
 msgstr ""
 
-#: assets/js/global.js:76
+#: assets/js/global.js:85
 msgid "Reimport"
 msgstr ""
 
@@ -184,11 +184,11 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: assets/js/global.js:49
+#: assets/js/global.js:58
 msgid "There is nothing to import!"
 msgstr ""
 
-#: assets/js/global.js:60
+#: assets/js/global.js:69
 #, perl-format
 msgid "There was an error importing row %s: %s"
 msgstr ""
