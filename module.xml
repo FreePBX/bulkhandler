@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.14.1</version>
+	<version>13.0.14.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 	</depends>
 	<info/>
 	<changelog>			
+		*13.0.14.2* FREEPBX-13642 Prefer localStorage over (deprecated) cookies
 		*13.0.14.1* FREEPBX-13051 When importing ignore null line, FREEPBX-13131 Fix action icons in card view during validation
 		*13.0.14* FREEPBX-11563 remember last tab selection and go back there
 		*13.0.13* Dont id the same as the real importer

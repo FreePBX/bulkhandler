@@ -1,4 +1,9 @@
-var editId = null, total=null, tabDisplay = $.cookie("bulkhandler-display");
+var editId = null, total=null;
+if (typeof(Storage) !== "undefined") {
+  var tabDisplay = localStorage.getItem("bulkhandler-display");
+} else {
+  var tabDisplay = $.cookie("bulkhandler-display");
+}
 if(typeof tabDisplay !== "undefined") {
 	$('[aria-controls='+tabDisplay+']').tab('show');
 }
@@ -6,7 +11,11 @@ if(typeof tabDisplay !== "undefined") {
 $(function() {
 	$('.nav-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 		var name = $(e.target).parents("li").data("name");
-		$.cookie("bulkhandler-display",name);
+		if (typeof(Storage) !== "undefined") {
+			localStorage.setItem("bulkhandler-display", name);
+		} else {
+			$.cookie("bulkhandler-display",name);
+		}
 	});
 	total = (typeof imports !== "undefined") ? imports.length : 0;
 	$("form.bulkhandler").submit(function() {
