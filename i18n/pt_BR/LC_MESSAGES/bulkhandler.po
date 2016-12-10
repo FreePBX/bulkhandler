@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2016-12-07 23:45+0200\n"
+"PO-Revision-Date: 2016-12-10 04:04+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pt_BR/>\n"
@@ -41,7 +41,7 @@ msgstr "Navegar"
 #: bulkhandler.i18n.php:4 bulkhandler.i18n.php:8 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
-msgstr "Gerenciador de Carga"
+msgstr "Movimentação em Massa"
 
 #: views/export.php:37 views/import.php:43
 msgid "CSV File"
@@ -121,13 +121,12 @@ msgid "No"
 msgstr "Não"
 
 #: views/export.php:10
-#, fuzzy
 msgid "No Bulk Exporters have been defined"
-msgstr "Nenhum Exportador de Carga foi definido"
+msgstr "Nenhum Exportador em Massa foi definido"
 
 #: views/import.php:10
 msgid "No Bulk Importers have been defined"
-msgstr "Nenhum Importador de Carga foi definido"
+msgstr "Nenhum Importador em Massa foi definido"
 
 #: Bulkhandler.class.php:101
 msgid "No file was uploaded"
