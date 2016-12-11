@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2016-12-10 04:04+0200\n"
+"PO-Revision-Date: 2016-12-10 21:44+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pt_BR/>\n"
@@ -34,9 +34,8 @@ msgid "Admin"
 msgstr "Administrador"
 
 #: views/import.php:47
-#, fuzzy
 msgid "Browse"
-msgstr "Navegar"
+msgstr "Visualizar"
 
 #: bulkhandler.i18n.php:4 bulkhandler.i18n.php:8 views/export.php:4
 #: views/import.php:4
@@ -102,7 +101,7 @@ msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 
 #: views/validate.php:28
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: Bulkhandler.class.php:335 views/export.php:7 views/import.php:7
 msgid "Import"
@@ -153,7 +152,6 @@ msgid "Required/Recommended Headers"
 msgstr "Cabeçalhos Requeridos/Recomendados"
 
 #: views/import.php:82
-#, fuzzy
 msgid ""
 "Required/Recommended headers are the minimum headers you must supply to be "
 "able to import. For a full list of all supported headers export out a CSV "
