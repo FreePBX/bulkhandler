@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2016-12-13 01:12+0200\n"
+"PO-Revision-Date: 2016-12-13 21:15+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pt_BR/>\n"
@@ -117,7 +117,7 @@ msgstr "Faltando uma pasta temporária"
 
 #: views/validate.php:15
 msgid "No"
-msgstr "Yes"
+msgstr "Não"
 
 #: views/export.php:10
 msgid "No Bulk Exporters have been defined"
