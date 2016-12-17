@@ -10,87 +10,90 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2016-11-17 09:05+1000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-12-16 21:03+0200\n"
+"Last-Translator: Sven <spiderrs4@web.de>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/bulkhandler/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Bulkhandler.class.php:110
 msgid "A PHP extension stopped the file upload"
-msgstr ""
+msgstr "Eine PHP Erweiterung hat den Datei Upload gestoppt"
 
 #: views/validate.php:35
 msgid "Actions"
-msgstr ""
+msgstr "Aktionen"
 
 #: bulkhandler.i18n.php:6 bulkhandler.i18n.php:10
 msgid "Admin"
-msgstr ""
+msgstr "Administrator"
 
 #: views/import.php:47
 msgid "Browse"
-msgstr ""
+msgstr "Durchsuchen"
 
 #: bulkhandler.i18n.php:4 bulkhandler.i18n.php:8 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
-msgstr ""
+msgstr "Bulk-Handler"
 
 #: views/export.php:37 views/import.php:43
 msgid "CSV File"
-msgstr ""
+msgstr "CSV-Datei"
 
 #: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
-msgstr ""
+msgstr "Es können keine hochgeladenen Dateien gefunden werden."
 
 #: Bulkhandler.class.php:340
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: Bulkhandler.class.php:68
 #, php-format
 msgid "Cant Create Temp Directory: %s"
-msgstr ""
+msgstr "Kann kein Temporäres Verzeichnis erstellen: %s"
 
 #: Bulkhandler.class.php:83
 msgid "Cant find uploaded file"
-msgstr ""
+msgstr "Es kann keine hochgeladene Datei gefunden werden."
 
 #: views/validate.php:69
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: views/validate.php:2
 msgid "Data Validation"
-msgstr ""
+msgstr "Datenüberprüfung"
 
 #: views/validate.php:62
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: views/export.php:6 views/export.php:40 views/import.php:6
 msgid "Export"
-msgstr ""
+msgstr "Exportieren"
 
 #: views/export.php:47
 msgid "Export to CSV"
-msgstr ""
+msgstr "Als CSV exportieren"
 
 #: Bulkhandler.class.php:107
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Fehler beim Speichern der Datei"
 
 #: views/import.php:56
 msgid "File to Import"
-msgstr ""
+msgstr "Datei Importieren"
 
 #: assets/js/global.js:86
 msgid "Finished"
-msgstr ""
+msgstr "Fertig"
 
 #: Bulkhandler.class.php:132
 msgid "Header row and data row count do not match"
@@ -98,35 +101,37 @@ msgstr ""
 
 #: views/validate.php:28
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: Bulkhandler.class.php:335 views/export.php:7 views/import.php:7
 msgid "Import"
-msgstr ""
+msgstr "Importieren"
 
 #: assets/js/global.js:121
 msgid "Loading"
-msgstr ""
+msgstr "Laden"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Fehlender temporärer Ordner"
 
 #: views/validate.php:15
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: views/export.php:10
+#, fuzzy
 msgid "No Bulk Exporters have been defined"
-msgstr ""
+msgstr "Es wurden keine Bulk-Exporteure definiert."
 
 #: views/import.php:10
+#, fuzzy
 msgid "No Bulk Importers have been defined"
-msgstr ""
+msgstr "Es wurden keine Bulk-Importeure definiert."
 
 #: Bulkhandler.class.php:101
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Es wurde keine Datei hochgeladen"
 
 #: assets/js/global.js:23
 msgid "Not file specified"
