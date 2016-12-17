@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2016-12-16 21:03+0200\n"
+"PO-Revision-Date: 2016-12-16 22:27+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/de_DE/>\n"
@@ -135,23 +135,23 @@ msgstr "Es wurde keine Datei hochgeladen"
 
 #: assets/js/global.js:23
 msgid "Not file specified"
-msgstr ""
+msgstr "Keine Datei angegeben"
 
 #: assets/js/global.js:28
 msgid "Only CSV files are supported"
-msgstr ""
+msgstr "Es werden nur CSV Dateien unterstützt."
 
 #: assets/js/global.js:85
 msgid "Reimport"
-msgstr ""
+msgstr "Reimportieren"
 
 #: views/validate.php:10
 msgid "Replace/Update existing data"
-msgstr ""
+msgstr "Bestehende Daten ersetzen/aktualisieren"
 
 #: views/import.php:66
 msgid "Required/Recommended Headers"
-msgstr ""
+msgstr "Erforderliche/Empfohlene Header"
 
 #: views/import.php:82
 msgid ""
@@ -159,51 +159,58 @@ msgid ""
 "able to import. For a full list of all supported headers export out a CSV "
 "file from the export display"
 msgstr ""
+"Erforderliche/Empohlene Header sind minimale Header, die Sie für den Import "
+"bereitstellen müssen. Für eine Vollständige Liste aller unterstützten Header "
+"exportieren Sie eine CSV-Datei aus dem Exportbereich."
 
 #: views/validate.php:70
 msgid "Save changes"
-msgstr ""
+msgstr "Änderungen speichern"
 
 #: views/import.php:92
 msgid "Submit"
-msgstr ""
+msgstr "Bestätigen"
 
 #: Bulkhandler.class.php:95
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
+"Die hochgeladene Datei überschreitet die Maximal zulässige Dateigröße welche "
+"als Wert \"MAX_FILE_SIZE\" in der HTML definiert wurde."
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
+"Die hochgeladene Datei überschreitet die maximal zulässige Dateigröße welche "
+"als Wert \"upload_max_filesize\" in der php.ini definiert wurde."
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen."
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
-msgstr ""
+msgstr "Es gibt nichts zum Importieren!"
 
 #: assets/js/global.js:69
 #, perl-format
 msgid "There was an error importing row %s: %s"
-msgstr ""
+msgstr "Beim Import der Zeile %s ist ein Fehler aufgetreten: %s"
 
 #: Bulkhandler.class.php:144
 msgid "Unable to parse file"
-msgstr ""
+msgstr "Datei konnte nicht analysiert werden."
 
 #: Bulkhandler.class.php:87 Bulkhandler.class.php:140
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Nicht unterstütztes Datei Format"
 
 #: views/export.php:24 views/import.php:27
 #, php-format
 msgid "What are \"%s\"?"
-msgstr ""
+msgstr "Was sind \"%s\"?"
 
 #: views/validate.php:13
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
