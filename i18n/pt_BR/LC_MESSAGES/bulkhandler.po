@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2016-12-13 21:15+0200\n"
+"PO-Revision-Date: 2016-12-16 21:37+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pt_BR/>\n"
@@ -48,7 +48,7 @@ msgstr "Arquivo CSV"
 
 #: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
-msgstr "Não é Possível Localizar os Arquivos Carregados"
+msgstr "Não é Possível Localizar Arquivos Carregados"
 
 #: Bulkhandler.class.php:340
 msgid "Cancel"
