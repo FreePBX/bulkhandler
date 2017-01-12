@@ -44,8 +44,8 @@
 					<td><?php echo $import[$identifier]?></td>
 				<?php } ?>
 				<td class="actions">
-					<i class="fa fa-pencil-square-o actions" data-type="edit" data-id="<?php echo $id?>"></i>
-					<i class="fa fa-trash-o actions" data-type="delete" data-id="<?php echo $id?>"></i>
+					<i class="fa fa-pencil-square-o actions clickable" data-type="edit" data-id="<?php echo $id?>"></i>
+					<i class="fa fa-trash-o actions clickable" data-type="delete" data-id="<?php echo $id?>"></i>
 				</td>
 			</tr>
 		<?php } ?>

@@ -89,7 +89,10 @@ $(function() {
 	});
 });
 $(document).ready(function(){
+  //Does the initial binds of the actions.
+  setTimeout(function() { $("#validation-list").trigger('post-body.bs.table'); }, 300);
 	$("#validation-list").on("post-body.bs.table",function() {
+    console.log("post-body-bs-table");
 		$("i.actions").click(function() {
 			var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '', destid = 0;
 			if(type == "delete") {
