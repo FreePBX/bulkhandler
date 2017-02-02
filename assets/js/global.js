@@ -88,8 +88,7 @@ $(function() {
 		});
 	});
 });
-$(document).ready(function(){
-	$("#validation-list").on("post-body.bs.table",function() {
+$("#validation-list").on("post-body.bs.table",function() {
 		$("i.actions").click(function() {
 			var type = $(this).data("type"), id = $(this).data("id"), jsonid = $(this).parents("tr").data("jsonid"), html = '', destid = 0;
 			if(type == "delete") {
@@ -133,7 +132,6 @@ $(document).ready(function(){
 				$('#edit').modal('show');
 			}
 		});
-	});
 });
 
 function htmlEntities(str) {
