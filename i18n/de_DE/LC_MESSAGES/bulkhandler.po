@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2017-01-09 20:32+0200\n"
-"Last-Translator: Sven <spiderrs4@web.de>\n"
+"PO-Revision-Date: 2017-03-03 15:51+0200\n"
+"Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/de_DE/>\n"
 "Language: de_DE\n"
@@ -48,7 +48,7 @@ msgstr "CSV-Datei"
 
 #: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
-msgstr "Es können keine hochgeladenen Dateien gefunden werden."
+msgstr "Es können keine hochgeladenen Dateien gefunden werden"
 
 #: Bulkhandler.class.php:340
 msgid "Cancel"
@@ -61,7 +61,7 @@ msgstr "Kann kein Temporäres Verzeichnis erstellen: %s"
 
 #: Bulkhandler.class.php:83
 msgid "Cant find uploaded file"
-msgstr "Es kann keine hochgeladene Datei gefunden werden."
+msgstr "Es kann keine hochgeladene Datei gefunden werden"
 
 #: views/validate.php:69
 msgid "Close"
@@ -167,7 +167,7 @@ msgstr "Änderungen speichern"
 
 #: views/import.php:92
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "absenden"
 
 #: Bulkhandler.class.php:95
 msgid ""
@@ -175,17 +175,17 @@ msgid ""
 "the HTML form"
 msgstr ""
 "Die hochgeladene Datei überschreitet die Maximal zulässige Dateigröße welche "
-"als Wert \"MAX_FILE_SIZE\" in der HTML definiert wurde."
+"als Wert \"MAX_FILE_SIZE\" in der HTML definiert wurde"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 "Die hochgeladene Datei überschreitet die maximal zulässige Dateigröße welche "
-"als Wert \"upload_max_filesize\" in der php.ini definiert wurde."
+"als Wert \"upload_max_filesize\" in der php.ini definiert wurde"
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen."
+msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
