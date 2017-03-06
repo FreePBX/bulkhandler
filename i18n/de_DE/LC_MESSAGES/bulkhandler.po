@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2017-03-03 15:51+0200\n"
+"PO-Revision-Date: 2017-03-06 02:36+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/de_DE/>\n"
@@ -97,7 +97,7 @@ msgstr "Fertig"
 
 #: Bulkhandler.class.php:132
 msgid "Header row and data row count do not match"
-msgstr ""
+msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 
 #: views/validate.php:28
 msgid "ID"
@@ -121,11 +121,11 @@ msgstr "Nein"
 
 #: views/export.php:10
 msgid "No Bulk Exporters have been defined"
-msgstr "Es wurden keine Bulk-Exporteure definiert."
+msgstr "Es wurden keine Bulk-Exporteure definiert"
 
 #: views/import.php:10
 msgid "No Bulk Importers have been defined"
-msgstr "Es wurden keine Bulk-Importeure definiert."
+msgstr "Es wurden keine Bulk-Importeure definiert"
 
 #: Bulkhandler.class.php:101
 msgid "No file was uploaded"
@@ -137,7 +137,7 @@ msgstr "Keine Datei angegeben"
 
 #: assets/js/global.js:28
 msgid "Only CSV files are supported"
-msgstr "Es werden nur CSV Dateien unterstützt."
+msgstr "Es werden nur CSV Dateien unterstützt"
 
 #: assets/js/global.js:85
 msgid "Reimport"
@@ -159,7 +159,7 @@ msgid ""
 msgstr ""
 "Erforderliche/Empohlene Header sind minimale Header, die Sie für den Import "
 "bereitstellen müssen. Für eine Vollständige Liste aller unterstützten Header "
-"exportieren Sie eine CSV-Datei aus dem Exportbereich."
+"exportieren Sie eine CSV-Datei aus dem Exportbereich"
 
 #: views/validate.php:70
 msgid "Save changes"
@@ -198,7 +198,7 @@ msgstr "Beim Import der Zeile %s ist ein Fehler aufgetreten: %s"
 
 #: Bulkhandler.class.php:144
 msgid "Unable to parse file"
-msgstr "Datei konnte nicht analysiert werden."
+msgstr "Datei konnte nicht analysiert werden"
 
 #: Bulkhandler.class.php:87 Bulkhandler.class.php:140
 msgid "Unsupported file format"
