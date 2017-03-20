@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2017-03-08 21:01+0200\n"
+"PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pt_BR/>\n"
@@ -174,16 +174,16 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
-"O arquivo enviado excede a diretiva MAX_FILE_SIZE que foi especificada no "
+"O arquivo enviado excede o atributo MAX_FILE_SIZE que foi especificado no "
 "formulário HTML"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr "O arquivo carregado excede a diretiva upload_max_filesize no php.ini"
+msgstr "O arquivo enviado excede o atributo upload_max_filesize no php.ini"
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr "O arquivo enviado foi carregado parcialmente"
+msgstr "O arquivo enviado foi parcialmente carregado"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
