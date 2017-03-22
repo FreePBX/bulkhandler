@@ -10,112 +10,115 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-02-01 16:45-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-03-21 23:19+0200\n"
+"Last-Translator: Michal <mboltz@tlen.pl>\n"
+"Language-Team: Polish (Polish) "
+"<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pl_PL/>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Bulkhandler.class.php:110
 msgid "A PHP extension stopped the file upload"
-msgstr ""
+msgstr "Rozszerzenie PHP zatrzymało przesyłanie plików"
 
 #: views/validate.php:35
 msgid "Actions"
-msgstr ""
+msgstr "Działania"
 
 #: bulkhandler.i18n.php:6
 msgid "Admin"
-msgstr ""
+msgstr "Administrator"
 
 #: views/import.php:47
 msgid "Browse"
-msgstr ""
+msgstr "Przeglądaj"
 
 #: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
-msgstr ""
+msgstr "Bulk Handler"
 
 #: views/export.php:37 views/import.php:43
 msgid "CSV File"
-msgstr ""
+msgstr "plik CSV"
 
 #: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
-msgstr ""
+msgstr "Nie znaleziono przesłanych plików"
 
 #: Bulkhandler.class.php:340
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: Bulkhandler.class.php:68
 #, php-format
 msgid "Cant Create Temp Directory: %s"
-msgstr ""
+msgstr "Nie można utworzyć katalogu: %s"
 
 #: Bulkhandler.class.php:83
 msgid "Cant find uploaded file"
-msgstr ""
+msgstr "Nie znaleziono przesłanych plików"
 
 #: views/validate.php:69
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: views/validate.php:2
 msgid "Data Validation"
-msgstr ""
+msgstr "Walidacja danych"
 
 #: views/validate.php:62
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 #: views/export.php:6 views/export.php:40 views/import.php:6
 msgid "Export"
-msgstr ""
+msgstr "Eksportuj"
 
 #: views/export.php:47
 msgid "Export to CSV"
-msgstr ""
+msgstr "Eksportuj do CSV"
 
 #: Bulkhandler.class.php:107
 msgid "Failed to write file to disk"
-msgstr ""
+msgstr "Nie udało się zapisać pliku na dysku"
 
 #: views/import.php:56
 msgid "File to Import"
-msgstr ""
+msgstr "Plik do zaimportowania"
 
 #: assets/js/global.js:86
 msgid "Finished"
-msgstr ""
+msgstr "Zakończono"
 
 #: Bulkhandler.class.php:132
 msgid "Header row and data row count do not match"
-msgstr ""
+msgstr "Wiersz nagłówka i liczba wierszy danych nie są zgodne"
 
 #: views/validate.php:28
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: Bulkhandler.class.php:335 views/export.php:7 views/import.php:7
 msgid "Import"
-msgstr ""
+msgstr "Importuj"
 
 #: assets/js/global.js:120
 msgid "Loading"
-msgstr ""
+msgstr "Ładowanie"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Brak folderu tymczasowego"
 
 #: views/validate.php:15
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 #: views/export.php:10
 msgid "No Bulk Exporters have been defined"
@@ -127,15 +130,15 @@ msgstr ""
 
 #: Bulkhandler.class.php:101
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Nie przesłano pliku"
 
 #: assets/js/global.js:23
 msgid "Not file specified"
-msgstr ""
+msgstr "Nie określono pliku"
 
 #: assets/js/global.js:28
 msgid "Only CSV files are supported"
-msgstr ""
+msgstr "Obsługiwane są tylko pliki CSV"
 
 #: assets/js/global.js:85
 msgid "Reimport"
@@ -143,11 +146,11 @@ msgstr ""
 
 #: views/validate.php:10
 msgid "Replace/Update existing data"
-msgstr ""
+msgstr "Zamień / Zaktualizuj istniejące dane"
 
 #: views/import.php:66
 msgid "Required/Recommended Headers"
-msgstr ""
+msgstr "Wymagane / zalecane nagłówki"
 
 #: views/import.php:82
 msgid ""
@@ -155,14 +158,17 @@ msgid ""
 "able to import. For a full list of all supported headers export out a CSV "
 "file from the export display"
 msgstr ""
+"Wymagane / zalecane nagłówki to minimalne nagłówki, które musisz podać, aby "
+"móc je importować. Aby uzyskać pełną listę wszystkich obsługiwanych "
+"nagłówków, wyeksportuj plik CSV z ekranu eksportowania"
 
 #: views/validate.php:70
 msgid "Save changes"
-msgstr ""
+msgstr "Zachowaj zmiany"
 
 #: views/import.php:92
 msgid "Submit"
-msgstr ""
+msgstr "Zatwierdź"
 
 #: Bulkhandler.class.php:95
 msgid ""
@@ -176,30 +182,30 @@ msgstr ""
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Przesłany plik został przesłany tylko częściowo"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
-msgstr ""
+msgstr "Nie ma niczego do zaimportowania!"
 
 #: assets/js/global.js:69
 #, perl-format
 msgid "There was an error importing row %s: %s"
-msgstr ""
+msgstr "Wystąpił błąd podczas importowania wiersza %s: %s"
 
 #: Bulkhandler.class.php:144
 msgid "Unable to parse file"
-msgstr ""
+msgstr "Nie można przeanalizować pliku"
 
 #: Bulkhandler.class.php:87 Bulkhandler.class.php:140
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Nieobsługiwany format pliku"
 
 #: views/export.php:24 views/import.php:27
 #, php-format
 msgid "What are \"%s\"?"
-msgstr ""
+msgstr "Co to jest \"%s\"?"
 
 #: views/validate.php:13
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
