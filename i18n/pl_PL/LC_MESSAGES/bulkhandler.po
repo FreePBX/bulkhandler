@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-03-21 23:19+0200\n"
+"PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pl_PL/>\n"
@@ -110,7 +110,7 @@ msgstr "Importuj"
 
 #: assets/js/global.js:120
 msgid "Loading"
-msgstr "Ładowanie"
+msgstr "Ładuję"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
