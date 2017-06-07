@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-06-05 22:27+0200\n"
+"PO-Revision-Date: 2017-06-07 08:28+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -40,7 +40,7 @@ msgstr "Trình duyệt"
 #: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
-msgstr "Bộ xử lý rời"
+msgstr "Bộ quản lý tổng hơp- Bulk Handler"
 
 #: views/export.php:37 views/import.php:43
 msgid "CSV File"
