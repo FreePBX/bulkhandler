@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-06-20 11:49+0200\n"
+"PO-Revision-Date: 2017-06-20 15:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: Bulkhandler.class.php:110
 msgid "A PHP extension stopped the file upload"
-msgstr "Một máy nhánh PHP dưng tải tệp lên"
+msgstr "Một máy nhánh PHP dừng tải tệp lên"
 
 #: views/validate.php:35
 msgid "Actions"
@@ -113,7 +113,7 @@ msgstr "Đang tải"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
-msgstr "Thiếu một Thư mục tạm thời"
+msgstr "Thiếu một thư mục tạm thời"
 
 #: views/validate.php:15
 msgid "No"
