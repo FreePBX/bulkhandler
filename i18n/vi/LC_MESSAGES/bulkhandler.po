@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-07-07 21:46+0200\n"
+"PO-Revision-Date: 2017-07-08 09:46+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: Bulkhandler.class.php:110
 msgid "A PHP extension stopped the file upload"
-msgstr "Một máy nhánh PHP dừng tải tệp lên"
+msgstr "Máy nhánh PHP đã ngừng tải tệp lên"
 
 #: views/validate.php:35
 msgid "Actions"
@@ -113,7 +113,7 @@ msgstr "Đang tải"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
-msgstr "Thiếu một thư mục tạm thời"
+msgstr "Thiếu một thư mục tạm"
 
 #: views/validate.php:15
 msgid "No"
@@ -173,19 +173,15 @@ msgstr "Gửi đi"
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
-"Các tệp được tải lên vượt quá kích cỡ tệp tối đa được xác định trong biểu "
-"mẫu HTML"
+msgstr "Tệp đã tải lên vượt quá kích cỡ tối đa được quy định trong mẫu HTML"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
-"Các tệp đã tải lên vượt quá kích thước tôi đã tại lên được xác định trong "
-"php.ini"
+msgstr "Tệp đã tải lên vượt qua kích cỡ tối đa quy định trong php.ini"
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr "Tệp tải lên chỉ được tải từng phần"
+msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
