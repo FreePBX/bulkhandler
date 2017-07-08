@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-06-22 08:37+0200\n"
+"PO-Revision-Date: 2017-07-07 21:46+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -48,7 +48,7 @@ msgstr "Tệp CSV"
 
 #: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
-msgstr "Không thể tìm thấy các tệp đã tải lên"
+msgstr "Không tìm thấy các tệp đã tải lên"
 
 #: Bulkhandler.class.php:340
 msgid "Cancel"
