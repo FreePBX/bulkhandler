@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-07-10 22:29+0200\n"
+"PO-Revision-Date: 2017-07-11 09:14+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -167,21 +167,23 @@ msgstr "Lưu các thay đổi"
 
 #: views/import.php:92
 msgid "Submit"
-msgstr "gửi đi"
+msgstr "Gửi đi"
 
 #: Bulkhandler.class.php:95
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
+"Tệp được tải lên vượt quá kích cỡ tệp tối đa được quy định trong mẫu HTML"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
+"Tệp được tải lên vượt quá kích cỡ tải lên tối đa được quy định trong php.ini"
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
+msgstr "Các tệp tải lên đã chỉ được tải lên từng phần"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
