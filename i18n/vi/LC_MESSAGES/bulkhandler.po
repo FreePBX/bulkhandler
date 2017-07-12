@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-07-11 09:14+0200\n"
+"PO-Revision-Date: 2017-07-11 21:35+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: Bulkhandler.class.php:110
 msgid "A PHP extension stopped the file upload"
-msgstr "Một máy nhánh PHP vừa ngừng tải tệp lên"
+msgstr "Máy nhánh PHP đã ngừng tải tệp lên"
 
 #: views/validate.php:35
 msgid "Actions"
@@ -48,7 +48,7 @@ msgstr "Tệp CSV"
 
 #: Bulkhandler.class.php:113
 msgid "Can Not Find Uploaded Files"
-msgstr "Không thể tìm thấy các tệp đã tải lên"
+msgstr "Không tìm thấy các tệp đã tải lên"
 
 #: Bulkhandler.class.php:340
 msgid "Cancel"
@@ -85,7 +85,7 @@ msgstr "Xuất đến CSV"
 
 #: Bulkhandler.class.php:107
 msgid "Failed to write file to disk"
-msgstr "Ghi tệp vào đã không thành công"
+msgstr "Ghi tệp vào đĩa không thành công"
 
 #: views/import.php:56
 msgid "File to Import"
@@ -113,7 +113,7 @@ msgstr "Đang tải"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
-msgstr "Bị thiếu một thư mục tạm"
+msgstr "Đang thiếu một thư mục tạm"
 
 #: views/validate.php:15
 msgid "No"
@@ -173,17 +173,15 @@ msgstr "Gửi đi"
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr ""
-"Tệp được tải lên vượt quá kích cỡ tệp tối đa được quy định trong mẫu HTML"
+msgstr "Tệp tải lên vượt quá kích cỡ tối đa đã quy định trong mẫu HTML"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
-"Tệp được tải lên vượt quá kích cỡ tải lên tối đa được quy định trong php.ini"
+msgstr "Tệp tải lên vượt quá kích cỡ tối đa đã quy định trong php.ini"
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr "Các tệp tải lên đã chỉ được tải lên từng phần"
+msgstr "Tệp tải lên đã chỉ được tải lên từng phần"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
