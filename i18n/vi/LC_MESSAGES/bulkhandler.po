@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-07-14 09:56+0200\n"
+"PO-Revision-Date: 2017-07-14 10:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -173,11 +173,12 @@ msgstr "Gửi đi"
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr "Tệp tải lên vượt quá kích cỡ tối đa đã quy định trong mẫu HTML"
+msgstr "Tệp được tải lên quá dung lượng tệp tối đa được quy định trong mẫu HTML"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr "Tệp tải lên vượt quá kích cỡ tối đa đã quy định trong php.ini"
+msgstr ""
+"Tệp được tải lên vượt quá dung lượng tệp tối đa đã quy định trong php.ini"
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
