@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-07-14 10:09+0200\n"
+"PO-Revision-Date: 2017-07-20 07:51+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -182,7 +182,7 @@ msgstr ""
 
 #: Bulkhandler.class.php:98
 msgid "The uploaded file was only partially uploaded"
-msgstr "Tệp tải lên đã chỉ được tải lên từng phần"
+msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
