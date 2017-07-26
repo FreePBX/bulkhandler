@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 16:45-0800\n"
-"PO-Revision-Date: 2017-07-21 10:16+0200\n"
+"PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
@@ -27,7 +27,7 @@ msgstr "Một máy nhánh PHP vừa dừng việc tải tệp lên"
 
 #: views/validate.php:35
 msgid "Actions"
-msgstr "Các Thao tác"
+msgstr "Các thao tác"
 
 #: bulkhandler.i18n.php:6
 msgid "Admin"
