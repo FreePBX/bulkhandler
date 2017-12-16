@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2017-12-14 16:41+0200\n"
+"PO-Revision-Date: 2017-12-15 18:54+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/de_DE/>\n"
@@ -202,7 +202,7 @@ msgstr "Datei konnte nicht analysiert werden"
 
 #: Bulkhandler.class.php:87 Bulkhandler.class.php:140
 msgid "Unsupported file format"
-msgstr "Nicht unterstütztes Datei Format"
+msgstr "Nicht unterstütztes Dateiformat"
 
 #: views/export.php:24 views/import.php:27
 #, php-format
