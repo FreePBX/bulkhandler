@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-17 09:05+1000\n"
-"PO-Revision-Date: 2018-02-16 18:10+0200\n"
+"PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/bulkhandler/de_DE/>\n"
@@ -31,7 +31,7 @@ msgstr "Aktionen"
 
 #: bulkhandler.i18n.php:6 bulkhandler.i18n.php:10
 msgid "Admin"
-msgstr "Admin"
+msgstr "Administrator"
 
 #: views/import.php:47
 msgid "Browse"
@@ -167,7 +167,7 @@ msgstr "Änderungen speichern"
 
 #: views/import.php:92
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Absenden"
 
 #: Bulkhandler.class.php:95
 msgid ""
