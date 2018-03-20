@@ -63,13 +63,17 @@
 														<div class="row">
 															<div class="form-group">
 																<div class="col-md-3">
-																	<label class="control-label" for="<?php echo $key?>-headers"><?php echo _('Required/Recommended Headers')?></label>
+																	<label class="control-label" for="<?php echo $key?>-headers"><?php echo _('Required(*)/Recommended Headers')?></label>
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-headers"></i>
 																</div>
 																<div class="col-md-9">
 																	<pre><?php
 																		foreach($type['headers'] as $key1 => $header) {
-																			echo $key1 . ($header['description'] ? " (" . $header['description'] . ")" : "") . ",\n";
+																			$mark = Null;
+																			if($header['required'] == 1){
+																				$mark = "*";
+																			}
+																			echo $key1.($header['description'] ? " (".$mark. $header['description'] . ")" : "") . ",\n";
 																		}
 																	?></pre>
 																</div>
@@ -79,7 +83,7 @@
 												</div>
 												<div class="row">
 													<div class="col-md-12">
-														<span id="<?php echo $key?>-headers-help" class="help-block fpbx-help-block"><?php echo _('Required/Recommended headers are the minimum headers you must supply to be able to import. For a full list of all supported headers export out a CSV file from the export display')?></span>
+														<span id="<?php echo $key?>-headers-help" class="help-block fpbx-help-block"><?php echo _('Required headers(*) are the minimum headers you must supply to be able to import. For a full list of all supported headers export out a CSV file from the export display')?></span>
 													</div>
 												</div>
 											</div>
