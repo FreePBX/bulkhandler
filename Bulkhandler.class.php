@@ -259,21 +259,25 @@ class Bulkhandler implements \BMO {
 	 * @param  bool $replaceExisting Replace or Update existing data
 	 */
 	public function import($type, $rawData, $replaceExisting = false) {
-		try {
-			$methods = $this->freepbx->Hooks->returnHooks();
-		} catch(\Exception $e) {
-			return array("status" => false, "message" => $e->getMessage());
-		}
-		$methods = is_array($methods) ? $methods : array();
-		foreach($methods as $method) {
-			$mod = $method['module'];
-			$meth = $method['method'];
-			$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
-			if($ret['status'] === false) {
-				return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
+		$val = $this->validate($type, $rawData);
+		if($val['status'] === true){
+			try {
+				$methods = $this->freepbx->Hooks->returnHooks();
+			} catch(\Exception $e) {
+				return array("status" => false, "message" => $e->getMessage());
 			}
+			$methods = is_array($methods) ? $methods : array();
+			foreach($methods as $method) {
+				$mod = $method['module'];
+				$meth = $method['method'];
+				$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
+				if($ret['status'] === false) {
+					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
+				}
+			}
+			return array("status" => true);
 		}
-		return array("status" => true);
+		return array("status" => false, "message" => $val['message']);
 	}
 
 	/**
@@ -318,11 +322,15 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function validate($type, $rawData) {
-		$modules = $this->freepbx->Hooks->processHooks($type, $rawData);
+		$methods = $this->freepbx->Hooks->processHooks($type, $rawData);
 		$methods = is_array($methods) ? $methods : array();
-		foreach($modules as $module) {
-			//TODO: This does nothing ok...
+		foreach($methods as $key => $method) {
+			if($method['status'] === false){
+				return array("status" => false, "message" => $method['message']);
+				continue;
+			}
 		}
+		return array("status" => true);
 	}
 	public function getActionBar($request) {
 		$buttons = array();
