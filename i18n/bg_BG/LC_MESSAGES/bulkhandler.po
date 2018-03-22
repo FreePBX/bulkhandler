@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-16 19:13-0700\n"
+"POT-Creation-Date: 2018-03-22 17:45-0400\n"
 "PO-Revision-Date: 2016-09-21 19:56+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian "
-"<http://weblate.freepbx.org/projects/freepbx/bulkhandler/bg_BG/>\n"
+"Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
+"bulkhandler/bg_BG/>\n"
 "Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Actions"
 msgstr "Действия"
 
-#: bulkhandler.i18n.php:6 bulkhandler.i18n.php:10
+#: bulkhandler.i18n.php:6
 msgid "Admin"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Browse"
 msgstr ""
 
-#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:8 views/export.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
 msgstr ""
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Can Not Find Uploaded Files"
 msgstr ""
 
-#: Bulkhandler.class.php:340
+#: Bulkhandler.class.php:348
 msgid "Cancel"
 msgstr ""
 
@@ -91,10 +91,6 @@ msgstr ""
 msgid "File to Import"
 msgstr ""
 
-#: assets/js/global.js:77
-msgid "Finished"
-msgstr ""
-
 #: Bulkhandler.class.php:132
 msgid "Header row and data row count do not match"
 msgstr ""
@@ -103,12 +99,8 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: Bulkhandler.class.php:335 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:343 views/export.php:7 views/import.php:7
 msgid "Import"
-msgstr ""
-
-#: assets/js/global.js:112
-msgid "Loading"
 msgstr ""
 
 #: Bulkhandler.class.php:104
@@ -131,38 +123,34 @@ msgstr ""
 msgid "No file was uploaded"
 msgstr ""
 
-#: assets/js/global.js:14
+#: assets/js/global.js:23
 msgid "Not file specified"
 msgstr ""
 
-#: assets/js/global.js:19
+#: assets/js/global.js:28
 msgid "Only CSV files are supported"
-msgstr ""
-
-#: assets/js/global.js:76
-msgid "Reimport"
 msgstr ""
 
 #: views/validate.php:10
 msgid "Replace/Update existing data"
 msgstr ""
 
-#: views/import.php:66
-msgid "Required/Recommended Headers"
+#: views/import.php:86
+msgid ""
+"Required headers(*) are the minimum headers you must supply to be able to "
+"import. For a full list of all supported headers export out a CSV file from "
+"the export display"
 msgstr ""
 
-#: views/import.php:82
-msgid ""
-"Required/Recommended headers are the minimum headers you must supply to be "
-"able to import. For a full list of all supported headers export out a CSV "
-"file from the export display"
+#: views/import.php:66
+msgid "Required(*)/Recommended Headers"
 msgstr ""
 
 #: views/validate.php:70
 msgid "Save changes"
 msgstr ""
 
-#: views/import.php:92
+#: views/import.php:96
 msgid "Submit"
 msgstr ""
 
@@ -180,13 +168,8 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: assets/js/global.js:49
+#: assets/js/global.js:58
 msgid "There is nothing to import!"
-msgstr ""
-
-#: assets/js/global.js:60
-#, perl-format
-msgid "There was an error importing row %s: %s"
 msgstr ""
 
 #: Bulkhandler.class.php:144

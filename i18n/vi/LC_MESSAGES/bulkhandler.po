@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 16:45-0800\n"
+"POT-Creation-Date: 2018-03-22 17:45-0400\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
-"Language-Team: Vietnamese "
-"<http://weblate.freepbx.org/projects/freepbx/bulkhandler/vi/>\n"
+"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
+"bulkhandler/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgstr "Tệp CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "Không tìm thấy các tệp đã tải lên"
 
-#: Bulkhandler.class.php:340
+#: Bulkhandler.class.php:348
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -91,10 +91,6 @@ msgstr "Ghi tệp vào đĩa không thành công"
 msgid "File to Import"
 msgstr "Tệp để nhập vào"
 
-#: assets/js/global.js:86
-msgid "Finished"
-msgstr "Hoàn thành"
-
 #: Bulkhandler.class.php:132
 msgid "Header row and data row count do not match"
 msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
@@ -103,13 +99,9 @@ msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:335 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:343 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Nhập vào"
-
-#: assets/js/global.js:120
-msgid "Loading"
-msgstr "Đang tải"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
@@ -139,33 +131,26 @@ msgstr "Không có tệp nào được xác định"
 msgid "Only CSV files are supported"
 msgstr "Chỉ các tệp CSV được hỗ trợ"
 
-#: assets/js/global.js:85
-msgid "Reimport"
-msgstr "Nhập lại"
-
 #: views/validate.php:10
 msgid "Replace/Update existing data"
 msgstr "Thay thế/ Cập nhật dữ liệu đang tồn tại"
 
-#: views/import.php:66
-msgid "Required/Recommended Headers"
-msgstr "Các tiêu đề được đề xuất/ Được yêu cầu"
-
-#: views/import.php:82
+#: views/import.php:86
 msgid ""
-"Required/Recommended headers are the minimum headers you must supply to be "
-"able to import. For a full list of all supported headers export out a CSV "
-"file from the export display"
+"Required headers(*) are the minimum headers you must supply to be able to "
+"import. For a full list of all supported headers export out a CSV file from "
+"the export display"
 msgstr ""
-"Các tiêu đề được đề xuất/ được yêu cầu là những tiêu đề tối thiểu bạn phải "
-"cung cấp để có thể nhập. Đối với một danh sách đầy đủ các tiêu đề được hỗ "
-"trợ xuất ra một tệp CSV từ màn hình xuất"
+
+#: views/import.php:66
+msgid "Required(*)/Recommended Headers"
+msgstr ""
 
 #: views/validate.php:70
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
 
-#: views/import.php:92
+#: views/import.php:96
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -173,7 +158,8 @@ msgstr "Gửi đi"
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
-msgstr "Tệp được tải lên quá dung lượng tệp tối đa được quy định trong mẫu HTML"
+msgstr ""
+"Tệp được tải lên quá dung lượng tệp tối đa được quy định trong mẫu HTML"
 
 #: Bulkhandler.class.php:92
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
@@ -187,11 +173,6 @@ msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
 msgstr "Không có gì để nhâp!"
-
-#: assets/js/global.js:69
-#, perl-format
-msgid "There was an error importing row %s: %s"
-msgstr "Đã có một lỗi trong hàng đang nhập %s: %s"
 
 #: Bulkhandler.class.php:144
 msgid "Unable to parse file"
@@ -209,3 +190,27 @@ msgstr "\"%s\" là gì?"
 #: views/validate.php:13
 msgid "Yes"
 msgstr "Có"
+
+#~ msgid "Finished"
+#~ msgstr "Hoàn thành"
+
+#~ msgid "Loading"
+#~ msgstr "Đang tải"
+
+#~ msgid "Reimport"
+#~ msgstr "Nhập lại"
+
+#~ msgid "Required/Recommended Headers"
+#~ msgstr "Các tiêu đề được đề xuất/ Được yêu cầu"
+
+#~ msgid ""
+#~ "Required/Recommended headers are the minimum headers you must supply to "
+#~ "be able to import. For a full list of all supported headers export out a "
+#~ "CSV file from the export display"
+#~ msgstr ""
+#~ "Các tiêu đề được đề xuất/ được yêu cầu là những tiêu đề tối thiểu bạn "
+#~ "phải cung cấp để có thể nhập. Đối với một danh sách đầy đủ các tiêu đề "
+#~ "được hỗ trợ xuất ra một tệp CSV từ màn hình xuất"
+
+#~ msgid "There was an error importing row %s: %s"
+#~ msgstr "Đã có một lỗi trong hàng đang nhập %s: %s"

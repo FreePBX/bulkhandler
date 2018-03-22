@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 16:45-0800\n"
+"POT-Creation-Date: 2018-03-22 17:45-0400\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
-"Language-Team: Polish (Polish) "
-"<http://weblate.freepbx.org/projects/freepbx/bulkhandler/pl_PL/>\n"
+"Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
+"bulkhandler/pl_PL/>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "plik CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "Nie znaleziono przesłanych plików"
 
-#: Bulkhandler.class.php:340
+#: Bulkhandler.class.php:348
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -92,10 +92,6 @@ msgstr "Nie udało się zapisać pliku na dysku"
 msgid "File to Import"
 msgstr "Plik do zaimportowania"
 
-#: assets/js/global.js:86
-msgid "Finished"
-msgstr "Zakończono"
-
 #: Bulkhandler.class.php:132
 msgid "Header row and data row count do not match"
 msgstr "Wiersz nagłówka i liczba wierszy danych nie są zgodne"
@@ -104,13 +100,9 @@ msgstr "Wiersz nagłówka i liczba wierszy danych nie są zgodne"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:335 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:343 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importuj"
-
-#: assets/js/global.js:120
-msgid "Loading"
-msgstr "Ładuję"
 
 #: Bulkhandler.class.php:104
 msgid "Missing a temporary folder"
@@ -140,33 +132,26 @@ msgstr "Nie określono pliku"
 msgid "Only CSV files are supported"
 msgstr "Obsługiwane są tylko pliki CSV"
 
-#: assets/js/global.js:85
-msgid "Reimport"
-msgstr ""
-
 #: views/validate.php:10
 msgid "Replace/Update existing data"
 msgstr "Zamień / Zaktualizuj istniejące dane"
 
-#: views/import.php:66
-msgid "Required/Recommended Headers"
-msgstr "Wymagane / zalecane nagłówki"
-
-#: views/import.php:82
+#: views/import.php:86
 msgid ""
-"Required/Recommended headers are the minimum headers you must supply to be "
-"able to import. For a full list of all supported headers export out a CSV "
-"file from the export display"
+"Required headers(*) are the minimum headers you must supply to be able to "
+"import. For a full list of all supported headers export out a CSV file from "
+"the export display"
 msgstr ""
-"Wymagane / zalecane nagłówki to minimalne nagłówki, które musisz podać, aby "
-"móc je importować. Aby uzyskać pełną listę wszystkich obsługiwanych "
-"nagłówków, wyeksportuj plik CSV z ekranu eksportowania"
+
+#: views/import.php:66
+msgid "Required(*)/Recommended Headers"
+msgstr ""
 
 #: views/validate.php:70
 msgid "Save changes"
 msgstr "Zachowaj zmiany"
 
-#: views/import.php:92
+#: views/import.php:96
 msgid "Submit"
 msgstr "Zatwierdź"
 
@@ -188,11 +173,6 @@ msgstr "Przesłany plik został przesłany tylko częściowo"
 msgid "There is nothing to import!"
 msgstr "Nie ma niczego do zaimportowania!"
 
-#: assets/js/global.js:69
-#, perl-format
-msgid "There was an error importing row %s: %s"
-msgstr "Wystąpił błąd podczas importowania wiersza %s: %s"
-
 #: Bulkhandler.class.php:144
 msgid "Unable to parse file"
 msgstr "Nie można przeanalizować pliku"
@@ -209,3 +189,24 @@ msgstr "Co to jest \"%s\"?"
 #: views/validate.php:13
 msgid "Yes"
 msgstr "Tak"
+
+#~ msgid "Finished"
+#~ msgstr "Zakończono"
+
+#~ msgid "Loading"
+#~ msgstr "Ładuję"
+
+#~ msgid "Required/Recommended Headers"
+#~ msgstr "Wymagane / zalecane nagłówki"
+
+#~ msgid ""
+#~ "Required/Recommended headers are the minimum headers you must supply to "
+#~ "be able to import. For a full list of all supported headers export out a "
+#~ "CSV file from the export display"
+#~ msgstr ""
+#~ "Wymagane / zalecane nagłówki to minimalne nagłówki, które musisz podać, "
+#~ "aby móc je importować. Aby uzyskać pełną listę wszystkich obsługiwanych "
+#~ "nagłówków, wyeksportuj plik CSV z ekranu eksportowania"
+
+#~ msgid "There was an error importing row %s: %s"
+#~ msgstr "Wystąpił błąd podczas importowania wiersza %s: %s"
