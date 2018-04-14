@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 17:45-0400\n"
+"POT-Creation-Date: 2018-04-13 20:05-0400\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Uma extensão PHP parou o carregamento do arquivo"
 
-#: views/validate.php:35
+#: views/validate.php:38
 msgid "Actions"
 msgstr "Ações"
 
@@ -63,7 +63,7 @@ msgstr "Não é possível criar o Diretório Temporário: %s"
 msgid "Cant find uploaded file"
 msgstr "Não é possivel encontrar o arquivo carregado"
 
-#: views/validate.php:69
+#: views/validate.php:72
 msgid "Close"
 msgstr "Fechar"
 
@@ -71,7 +71,7 @@ msgstr "Fechar"
 msgid "Data Validation"
 msgstr "Validação de Dados"
 
-#: views/validate.php:62
+#: views/validate.php:65
 msgid "Edit"
 msgstr "Editar"
 
@@ -95,7 +95,7 @@ msgstr "Arquivo para Importar"
 msgid "Header row and data row count do not match"
 msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 
-#: views/validate.php:28
+#: views/validate.php:31
 msgid "ID"
 msgstr "ID"
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
-#: views/validate.php:70
+#: views/validate.php:73
 msgid "Save changes"
 msgstr "Salvar Mudanças"
 

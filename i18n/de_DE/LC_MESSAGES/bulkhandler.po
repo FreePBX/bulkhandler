@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 17:45-0400\n"
+"POT-Creation-Date: 2018-04-13 20:05-0400\n"
 "PO-Revision-Date: 2018-02-16 20:01+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Eine PHP Erweiterung hat den Datei Upload gestoppt"
 
-#: views/validate.php:35
+#: views/validate.php:38
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -63,7 +63,7 @@ msgstr "Kann kein Temporäres Verzeichnis erstellen: %s"
 msgid "Cant find uploaded file"
 msgstr "Es kann keine hochgeladene Datei gefunden werden"
 
-#: views/validate.php:69
+#: views/validate.php:72
 msgid "Close"
 msgstr "Schließen"
 
@@ -71,7 +71,7 @@ msgstr "Schließen"
 msgid "Data Validation"
 msgstr "Datenüberprüfung"
 
-#: views/validate.php:62
+#: views/validate.php:65
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -95,7 +95,7 @@ msgstr "Datei Importieren"
 msgid "Header row and data row count do not match"
 msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 
-#: views/validate.php:28
+#: views/validate.php:31
 msgid "ID"
 msgstr "ID"
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
-#: views/validate.php:70
+#: views/validate.php:73
 msgid "Save changes"
 msgstr "Änderungen speichern"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 17:45-0400\n"
+"POT-Creation-Date: 2018-04-13 20:05-0400\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Một máy nhánh PHP vừa dừng việc tải tệp lên"
 
-#: views/validate.php:35
+#: views/validate.php:38
 msgid "Actions"
 msgstr "Các thao tác"
 
@@ -63,7 +63,7 @@ msgstr "Không thể tạo Thư mục Temp ( tạm thời):  %s"
 msgid "Cant find uploaded file"
 msgstr "Không thể tìm thấy tệp đã tải lên"
 
-#: views/validate.php:69
+#: views/validate.php:72
 msgid "Close"
 msgstr "Đóng"
 
@@ -71,7 +71,7 @@ msgstr "Đóng"
 msgid "Data Validation"
 msgstr "Tính hợp lệ của dữ liệu"
 
-#: views/validate.php:62
+#: views/validate.php:65
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
@@ -95,7 +95,7 @@ msgstr "Tệp để nhập vào"
 msgid "Header row and data row count do not match"
 msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 
-#: views/validate.php:28
+#: views/validate.php:31
 msgid "ID"
 msgstr "ID"
 
@@ -146,7 +146,7 @@ msgstr ""
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
-#: views/validate.php:70
+#: views/validate.php:73
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
 

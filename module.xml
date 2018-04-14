@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.14.5</version>
+	<version>13.0.14.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.14.6* Alert changed to innerHTML messages 
 		*13.0.14.5* FREEPBX-15499 Need to add a checklist for Required fields while uploading bulk handler and do proper error handling. 
 		*13.0.14.4* FREEPBX-13927 Fix action bindings on import
 		*13.0.14.3* FREEPBX-12760 Importing with Bulk Import of extension causes issues in Tech column
