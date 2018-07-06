@@ -12,12 +12,15 @@ class Bulkimport extends Command {
         ->setDescription('This command is used to import extensions and dids')
         ->setDefinition(array(
             new InputOption('type', 't', InputOption::VALUE_REQUIRED, 'Type of file'),
-            new InputArgument('filename', InputArgument::REQUIRED, 'Filename', null),))
-        ->setHelp('Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv');
+            new InputArgument('filename', InputArgument::REQUIRED, 'Filename', null),
+            new InputArgument('replace', InputArgument::OPTIONAL, 'To replace existing values, set this to true'),))
+        ->setHelp('Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv true(Replace the existing values)');
     }
     protected function execute(InputInterface $input, OutputInterface $output){
         $filename = $input->getArgument('filename');
         $type = $input->getOption('type');
+        $replace_value = $input->getArgument('replace');
+        $replace = $replace_value === 'true' ? true : false;
         if(file_exists($filename)){
           $data = \FreePBX::Bulkhandler()->fileToArray($filename);
         }else{
@@ -31,11 +34,11 @@ class Bulkimport extends Command {
         switch ($type) {
           case 'dids':
             $output->writeln('Importing bulk dids');
-            $ret = \FreePBX::Bulkhandler()->import('dids', $data);
+            $ret = \FreePBX::Bulkhandler()->import('dids', $data, $replace);
           break;
           case 'extensions':
             $output->writeln('Importing bulk extensions');
-            $ret = \FreePBX::Bulkhandler()->import('extensions', $data);
+            $ret = \FreePBX::Bulkhandler()->import('extensions', $data, $replace);
           break;
           default:
             $output->writeln('<error>You must specify the file type of --type=dids or --type=extensions</error>');
