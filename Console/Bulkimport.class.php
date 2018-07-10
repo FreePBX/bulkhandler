@@ -13,15 +13,16 @@ class Bulkimport extends Command {
         ->setDefinition(array(
             new InputOption('type', 't', InputOption::VALUE_REQUIRED, 'Type of file'),
             new InputArgument('filename', InputArgument::REQUIRED, 'Filename', null),
-            new InputArgument('replace', InputArgument::OPTIONAL, 'To replace existing values, set this to true'),))
-        ->setHelp('Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv true(Replace the existing values)');
+	     new InputOption('replace', null, InputOption::VALUE_NONE, 'To replace existing values'),))
+        ->setHelp('Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv --replace(Replace the existing values)');
     }
     protected function execute(InputInterface $input, OutputInterface $output){
         $filename = $input->getArgument('filename');
         $type = $input->getOption('type');
-        $replace_value = $input->getArgument('replace');
-        $replace = $replace_value === 'true' ? true : false;
-        if(file_exists($filename)){
+        if($input->getOption('replace')){
+	   $replace = true;
+	 }
+	 if(file_exists($filename)){
           $data = \FreePBX::Bulkhandler()->fileToArray($filename);
         }else{
           $output->writeln('<error>The specified file does not exist or we cannot read it</error>');
