@@ -66,7 +66,8 @@ $(function() {
 			$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v, replace: (replace ? 1 : 0)},function( data ) {
 				if(!data.status) {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
-					alert(sprintf(_("There was an error importing row %s: %s"),i,data.message));
+					var div = document.getElementById('error');
+					div.innerHTML += sprintf(_("There was an error importing row %s: %s"),i,data.message)+"<br />";
 					errors++;
 				} else {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");

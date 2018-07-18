@@ -15,6 +15,9 @@
 		<label for="replaceexisting_no"><?php echo _("No")?></label>
 	</div>
 </div>
+<div>
+<p id="error" style="color:red;"></p>
+</div>
 <table data-toggle="table"
 				data-toolbar="#toolbar-all"
         data-show-columns="true"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-22 17:45-0400\n"
+"POT-Creation-Date: 2018-04-13 20:05-0400\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Rozszerzenie PHP zatrzymało przesyłanie plików"
 
-#: views/validate.php:35
+#: views/validate.php:38
 msgid "Actions"
 msgstr "Działania"
 
@@ -64,7 +64,7 @@ msgstr "Nie można utworzyć katalogu: %s"
 msgid "Cant find uploaded file"
 msgstr "Nie znaleziono przesłanych plików"
 
-#: views/validate.php:69
+#: views/validate.php:72
 msgid "Close"
 msgstr "Zamknij"
 
@@ -72,7 +72,7 @@ msgstr "Zamknij"
 msgid "Data Validation"
 msgstr "Walidacja danych"
 
-#: views/validate.php:62
+#: views/validate.php:65
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -96,7 +96,7 @@ msgstr "Plik do zaimportowania"
 msgid "Header row and data row count do not match"
 msgstr "Wiersz nagłówka i liczba wierszy danych nie są zgodne"
 
-#: views/validate.php:28
+#: views/validate.php:31
 msgid "ID"
 msgstr "ID"
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
-#: views/validate.php:70
+#: views/validate.php:73
 msgid "Save changes"
 msgstr "Zachowaj zmiany"
 
