@@ -40,7 +40,7 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'],true)));
+								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "customfields"=> $this->getCustomField() ,"headers" => $this->getHeaders($_REQUEST['type'],true)));
 							} catch(\Exception $e) {
 								$activity = "import";
 								$message = $e->getMessage();
@@ -49,12 +49,12 @@ class Bulkhandler implements \BMO {
 					}
 				//fallthrough if there are no files
 				case "import":
-					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity,"customfields"=> $this->getCustomField($activity),  "types" => $this->getTypes($activity)));
 				break;
 				case "export":
 				default:
 					$activity = 'export';
-					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity,"customfields"=> $this->getCustomField($activity), "types" => $this->getTypes($activity)));
 				break;
 			}
 		}
@@ -183,7 +183,11 @@ class Bulkhandler implements \BMO {
 
 		return $headers;
 	}
-
+	public function getCustomField($type) {
+		$fields = array();
+		$modules = $this->freepbx->Hooks->processHooks($type);
+		return $modules;
+	}
 	public function getTypes($activity='import') {
 		$modules = $this->freepbx->Hooks->processHooks();
 		$types = array();

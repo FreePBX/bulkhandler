@@ -28,6 +28,54 @@
 								</div>
 							</div>
 							<div class="container-fluid">
+							<?php //lets do check for custom fields
+										$modupcase = ucfirst($type['type']);
+										if(is_array($customfields[$modupcase])){
+											foreach($customfields as $mod => $fields) {
+												if($mod) {
+													foreach($fields as $fieldname => $fieldval){
+											?>
+											<div class="element-container">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="row">
+															<div class="form-group">
+																<div class="col-md-3">
+																	<label class="control-label" for="<?php echo $fieldname?>-import"><?php echo _($fieldname)?></label>
+																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $fieldname?>-import"></i>
+																</div>
+																<?php 
+																foreach($fieldval as $ftype => $fields){
+																	if($ftype =='SELECT') { ?>
+																		<div class="col-md-9">
+																		<select class="form-control" name="<?php echo $fieldname?>"> 
+																		<?php foreach($fields as $val) {
+																			echo '<option value='. $val['id'] .'>'. $val['name'].'</option>';
+																		}?>
+																		</select>
+																		</div>
+																<?php
+																	}
+																}
+																?>
+																
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<span id="<?php echo $fieldname?>-import-help" class="help-block fpbx-help-block"><?php echo _($fieldname)?></span>
+													</div>
+												</div>
+											</div>
+													<?php
+													}
+												}
+											
+											}
+										}
+									?>
 									<div class="element-container">
 										<div class="row">
 											<div class="col-md-12">
