@@ -57,7 +57,14 @@
 																		<div class="col-md-9">
 																		<select class="form-control" name="<?php echo $fieldname?>"> 
 																		<?php foreach($fields as $val) {
-																			echo '<option value='. $val['id'] .'>'. $val['name'].'</option>';
+																				if(isset($_REQUEST[$fieldname])){
+																					if($val['id'] == $_REQUEST[$fieldname] ){
+																						$selected = 'selected';
+																					} else {
+																						$selected ='';
+																					}
+																				}
+																			echo '<option value="'. $val['id'] .'" '.$selected.' >'. $val['name'].'</option>';
 																		}?>
 																		</select>
 																		</div>
