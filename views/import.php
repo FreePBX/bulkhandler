@@ -48,7 +48,7 @@
 														<div class="row">
 															<div class="form-group">
 																<div class="col-md-3">
-																	<label class="control-label" for="<?php echo $fieldname?>-import"><?php echo _($fieldname)?></label>
+																	<label class="control-label" for="<?php echo $fieldname?>-import"><?php echo _($fieldval['label'])?></label>
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $fieldname?>-import"></i>
 																</div>
 																<?php 
@@ -72,7 +72,7 @@
 												</div>
 												<div class="row">
 													<div class="col-md-12">
-														<span id="<?php echo $fieldname?>-import-help" class="help-block fpbx-help-block"><?php echo _($fieldname)?></span>
+														<span id="<?php echo $fieldname?>-import-help" class="help-block fpbx-help-block"><?php echo _($fieldval['desc'])?></span>
 													</div>
 												</div>
 											</div>

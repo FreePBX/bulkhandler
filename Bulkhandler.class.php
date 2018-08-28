@@ -29,7 +29,7 @@ class Bulkhandler implements \BMO {
 		if(!empty($_REQUEST['quietmode']) && $_REQUEST['activity'] == 'export') {
 			$this->export($_REQUEST['export']);
 		} else {
-			$message = '';
+			$message = ''; 
 			$activity = !empty($_REQUEST['activity']) ? $_REQUEST['activity'] : 'export';
 			switch($activity) {
 				case "validate":
@@ -40,7 +40,34 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "customfields"=> $this->getCustomField() ,"headers" => $this->getHeaders($_REQUEST['type'],true)));
+								//lets replace the some custom values if we have
+								$customf = $_REQUEST;
+								//unset Bulkhandler related key => vals
+								unset($customf['display']); unset($customf['activity']);unset($customf['type']);unset($customf['extdisplay']);
+								// we have the array with  all custom values here ; Note , all possible custom values should be there in the identifier
+								$headers = $this->getHeaders($_REQUEST['type'],true);
+								$arraynew = array();
+								if(!is_array($customf)){
+									$customf = array();
+								}
+								foreach ($array as $key => $value) {
+									$row = array();
+									foreach($value as $fkey => $val){
+										dbug($fkey.'----'.print_r($customf,true));// Need to find out the reason why it is not compare
+										if (array_key_exists($fkey,$customf))
+										{
+											dbug($fkey .'=Key existssssss  value ='. $customf[$fkey]);
+										}
+																				
+										if($fkey == 'rate_deck_id'){ dbug('There is custom value');
+											$row[$fkey] = $customf[$fkey];
+										}else {
+											$row[$fkey] = $val;
+										}
+									}
+									$arraynew[$key] = $row;
+								} dbug(print_r($arraynew,true));
+								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields"=> $_REQUEST ,"headers" => $headers));
 							} catch(\Exception $e) {
 								$activity = "import";
 								$message = $e->getMessage();
@@ -275,7 +302,7 @@ class Bulkhandler implements \BMO {
 				$mod = $method['module'];
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
-				if($ret['status'] === false) {
+				if($ret['status'] === false) {dbug('thwer is '.$mod .' function ' .$meth);
 					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
 				}
 			}
