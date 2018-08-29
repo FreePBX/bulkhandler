@@ -143,6 +143,14 @@ public function removeBomUtf8($s){
 		return array("status" => false, "message" => _("Can Not Find Uploaded Files"));
 	}
 
+	public function removeBomUtf8($s){
+		if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+			return substr($s,3);
+		}else{
+			return $s;
+		}
+	}
+
 	public function fileToArray($file, $format='csv') {
 		$rawData = array();
 		switch($format) {
