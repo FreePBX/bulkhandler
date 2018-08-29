@@ -53,20 +53,16 @@ class Bulkhandler implements \BMO {
 								foreach ($array as $key => $value) {
 									$row = array();
 									foreach($value as $fkey => $val){
-										dbug($fkey.'----'.print_r($customf,true));// Need to find out the reason why it is not compare
-										if (array_key_exists($fkey,$customf))
-										{
-											dbug($fkey .'=Key existssssss  value ='. $customf[$fkey]);
-										}
-																				
-										if($fkey == 'rate_deck_id'){ dbug('There is custom value');
-											$row[$fkey] = $customf[$fkey];
+										 $fkey = $this->removeBomUtf8($fkey);
+										 if (array_key_exists($fkey,$customf)){
+											 //if any value is there in csv we dont want to override
+											$row[$fkey] = $val?$val:$customf[$fkey];
 										}else {
 											$row[$fkey] = $val;
 										}
 									}
 									$arraynew[$key] = $row;
-								} dbug(print_r($arraynew,true));
+								}
 								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields"=> $_REQUEST ,"headers" => $headers));
 							} catch(\Exception $e) {
 								$activity = "import";
@@ -87,6 +83,13 @@ class Bulkhandler implements \BMO {
 		}
 
 	}
+public function removeBomUtf8($s){
+	if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+		return substr($s,3);
+	}else{
+		return $s;
+	}
+}
 
 	private function uploadFile() {
 		$temp = sys_get_temp_dir() . "/bhimports";

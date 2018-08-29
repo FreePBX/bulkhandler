@@ -64,7 +64,7 @@
 																						$selected ='';
 																					}
 																				}
-																			echo '<option value="'. $val['id'] .'" '.$selected.' >'. $val['name'].'</option>';
+																			echo '<option value="'. $val[$fieldval['valuetopass']] .'" '.$selected.' >'. $val[$fieldval['valuetodisplay']].'</option>';
 																		}?>
 																		</select>
 																		</div>
