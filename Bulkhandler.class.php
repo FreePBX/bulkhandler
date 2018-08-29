@@ -53,6 +53,7 @@ class Bulkhandler implements \BMO {
 								foreach ($array as $key => $value) {
 									$row = array();
 									foreach($value as $fkey => $val){
+										$fkey = $this->removeBomUtf8($fkey);
 										dbug($fkey.'----'.print_r($customf,true));// Need to find out the reason why it is not compare
 										if (array_key_exists($fkey,$customf))
 										{
@@ -138,6 +139,14 @@ class Bulkhandler implements \BMO {
 			break;
 		}
 		return array("status" => false, "message" => _("Can Not Find Uploaded Files"));
+	}
+
+	public function removeBomUtf8($s){
+		if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+			return substr($s,3);
+		}else{
+			return $s;
+		}
 	}
 
 	public function fileToArray($file, $format='csv') {
