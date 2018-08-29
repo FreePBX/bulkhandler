@@ -27,7 +27,9 @@ class Bulkhandler implements \BMO {
 
 	public function showPage() {
 		if(!empty($_REQUEST['quietmode']) && $_REQUEST['activity'] == 'export') {
-			$this->export($_REQUEST['export']);
+			$customfields = $_REQUEST;
+			unset($customfields['display']);unset($customfields['quietmode']);unset($customfields['activity']);unset($customfields['export']);unset($customfields['extdisplay']);
+			$this->export($_REQUEST['export'],$customfields);
 		} else {
 			$message = ''; 
 			$activity = !empty($_REQUEST['activity']) ? $_REQUEST['activity'] : 'export';
@@ -63,7 +65,12 @@ class Bulkhandler implements \BMO {
 									}
 									$arraynew[$key] = $row;
 								}
-								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields"=> $_REQUEST ,"headers" => $headers));
+								if($_REQUEST['skip_validate'] =='Yes'){
+									$totalnows = count($arraynew);
+									return load_view(__DIR__."/views/direct_import.php",array("request"=>$_REQUEST, "type" => $_POST['type'], "activity" => $activity,"totalnows"=>$totalnows, "localfilename" => $ret['localfilename'],'filename'=>$ret['filename'],'extension'=> $ret['extension'], "customfields"=> $customf ,"headers" => $headers));
+								}else {
+									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields"=> $_REQUEST ,"headers" => $headers));
+								}
 							} catch(\Exception $e) {
 								$activity = "import";
 								$message = $e->getMessage();
@@ -143,14 +150,6 @@ public function removeBomUtf8($s){
 		return array("status" => false, "message" => _("Can Not Find Uploaded Files"));
 	}
 
-	public function removeBomUtf8($s){
-		if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
-			return substr($s,3);
-		}else{
-			return $s;
-		}
-	}
-
 	public function fileToArray($file, $format='csv') {
 		$rawData = array();
 		switch($format) {
@@ -224,7 +223,7 @@ public function removeBomUtf8($s){
 	public function getCustomField($type) {
 		$fields = array();
 		$modules = $this->freepbx->Hooks->processHooks($type);
-		return $modules;
+	return $modules;
 	}
 	public function getTypes($activity='import') {
 		$modules = $this->freepbx->Hooks->processHooks();
@@ -270,6 +269,7 @@ public function removeBomUtf8($s){
 		switch($req) {
 			case "import":
 			case "destinationdrawselect":
+			case "direct_import";
 				return true;
 			break;
 			default:
@@ -290,10 +290,61 @@ public function removeBomUtf8($s){
 				$this->freepbx->Modules->getDestinations();
 				$ret = array("status" => true, "destid" => $_POST['destid'], "html" => drawselects($_POST['value'],$_POST['id'], false, false));
 			break;
+			case "direct_import":
+					$ret = $this->readtempfile_for_import_status($_REQUEST['filename']);
+					return $ret;
+			break;
 		}
 		return $ret;
 	}
-
+	/*Read the temp file for bulk upload progress status*/
+	public function readtempfile_for_import_status($filename){
+		$return = array();
+		if(!file_exists($filename)){
+			$return['status'] = 'DONE';
+			$return['COUNT'] = '';
+			return $return;
+		}else {
+			$file = fopen($filename,"r");
+			while(! feof($file)){
+				$string = fgets($file);
+				if(strpos($string, '=') !== false){
+					$stringarr = explode('=',$string);
+					$return[$stringarr[0]] = trim($stringarr[1],PHP_EOL);;
+				}
+			}
+			fclose($file);
+			dbug(print_r($return,true));
+			return $return;
+			
+		}
+	}
+			
+	/**
+	 * direct_import  sending all the rows to the module to handle it 
+	 * @param  string $type            The type of data import
+	 * @param  array $fullData         Raws array of data to import
+	 * @param  $request is the other paramters (custom fileds anything if they have)
+	 */
+	public function direct_import($type, $fullData, $request,$file) {
+			try {
+				$methods = $this->freepbx->Hooks->returnHooks();
+			} catch(\Exception $e) {
+				return array("status" => false, "message" => $e->getMessage());
+			}
+			$methods = is_array($methods) ? $methods : array();
+			foreach($methods as $method) {
+				$mod = $method['module'];
+				$meth = $method['method'];
+				$ret = \FreePBX::$mod()->$meth($type, $fullData, $request,$file);
+				if($ret['status'] === false) {
+					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
+				}
+			}
+			return array("status" => true);
+		
+		return array("status" => false, "message" => $val['message']);
+	}
 	/**
 	 * Import Data
 	 * @param  string $type            The type of data import
@@ -313,7 +364,7 @@ public function removeBomUtf8($s){
 				$mod = $method['module'];
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
-				if($ret['status'] === false) {dbug('thwer is '.$mod .' function ' .$meth);
+				if($ret['status'] === false) {
 					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
 				}
 			}
@@ -326,9 +377,15 @@ public function removeBomUtf8($s){
 	 * Export Data
 	 * @param  string $type The type of export
 	 */
-	public function export($type) {
+	public function export($type,$customfields) {
+		if(count($customfields)> 0) { // we have custom fields
+			$customfields['moduletype'] = $type;
+			$new_var_type = $customfields;
+		}else {
+			$new_var_type = $type;
+		}
 		$time_start = microtime(true);
-		$modules = $this->freepbx->Hooks->processHooks($type);
+		$modules = $this->freepbx->Hooks->processHooks($new_var_type);
 		$rows = array();
 		$headers = array();
 		foreach($modules as $key => $module) {
@@ -360,7 +417,13 @@ public function removeBomUtf8($s){
 		}
 		array_unshift($rows,$headers);
 		//dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
-		$this->arrayToFile($rows, $type, 'csv');
+		// To work with  existing modules
+		if(is_array($new_var_type)){
+			$type_new = $new_var_type['moduletype'];
+		} else {
+			$type_new = $type;
+		}
+		$this->arrayToFile($rows, $type_new, 'csv');
 	}
 
 	public function validate($type, $rawData) {

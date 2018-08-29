@@ -28,12 +28,18 @@
 								</div>
 							</div>
 							<div class="container-fluid">
+							<form class="fpbx-submit bulkhandler" name="bulkhandlerexport" action="config.php?display=bulkhandler&amp;quietmode=1&amp;activity=export&amp;export=<?php echo $type['type']?>" method="post" role="form" >
 							<?php //lets do check for custom fields
 										$modupcase = ucfirst($type['type']);
 										if(is_array($customfields[$modupcase])){
 											foreach($customfields as $mod => $fields) {
 												if($mod) {
 													foreach($fields as $fieldname => $fieldval){
+														if(is_array($fieldval['activity'])){
+															if(!in_array('export',$fieldval['activity'])){//remove the unwanted custom paramters based on activity
+																continue;
+															}
+														}
 											?>
 											<div class="element-container">
 												<div class="row">
@@ -50,7 +56,7 @@
 																		<div class="col-md-9">
 																		<select class="form-control" name="<?php echo $fieldname?>"> 
 																		<?php foreach($fields as $val) {
-																			echo '<option value='. $val['id'] .'>'. $val['name'].'</option>';
+																			echo '<option value='. $val[$fieldval['valuetopass']] .'>'. $val[$fieldval['valuetodisplay']].'</option>';
 																		}?>
 																		</select>
 																		</div>
@@ -85,7 +91,7 @@
 															<label class="control-label" for="<?php echo $key?>-export"><?php echo _('CSV File')?></label>
 															<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-export"></i>
 														</div>
-														<div class="col-md-9"><a href="config.php?display=bulkhandler&amp;quietmode=1&amp;activity=export&amp;export=<?php echo $type['type']?>" target="_blank" class="btn" role="button"><?php echo _('Export')?></a></div>
+														<div class="col-md-9"><button type="submit" formtarget="_blank" class="btn" role="button"><?php echo _('Export')?> </button></div>
 													</div>
 												</div>
 											</div>
@@ -97,6 +103,7 @@
 										</div>
 									</div>
 								</div>
+								</form>
 							</div>
 						<?php } ?>
 					</div>

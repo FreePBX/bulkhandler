@@ -40,7 +40,10 @@
 										if(is_array($customfields[$modupcase])){
 											foreach($customfields as $mod => $fields) {
 												if($mod) {
-													foreach($fields as $fieldname => $fieldval){
+													foreach($fields as $fieldname => $fieldval){ 
+													if(!in_array('import',$fieldval['activity'])){//remove the unwanted custom paramters based on activity
+															continue;
+													}
 											?>
 											<div class="element-container">
 												<div class="row">
