@@ -67,9 +67,9 @@ class Bulkhandler implements \BMO {
 								}
 								if($_REQUEST['skip_validate'] =='Yes'){
 									$totalnows = count($arraynew);
-									return load_view(__DIR__."/views/direct_import.php",array("request"=>$_REQUEST, "type" => $_POST['type'], "activity" => $activity,"totalnows"=>$totalnows, "localfilename" => $ret['localfilename'],'filename'=>$ret['filename'],'extension'=> $ret['extension'], "customfields"=> $customf ,"headers" => $headers));
+									return load_view(__DIR__."/views/direct_import.php",array("request" => $_REQUEST, "type" => $_POST['type'], "activity" => $activity, "totalnows" => $totalnows, "localfilename" => $ret['localfilename'], 'filename' => $ret['filename'], 'extension' => $ret['extension'], "customfields" => $customf, "headers" => $headers));
 								}else {
-									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields"=> $_REQUEST ,"headers" => $headers));
+									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields" => $_REQUEST ,"headers" => $headers));
 								}
 							} catch(\Exception $e) {
 								$activity = "import";
@@ -79,12 +79,12 @@ class Bulkhandler implements \BMO {
 					}
 				//fallthrough if there are no files
 				case "import":
-					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity,"customfields"=> $this->getCustomField($activity),  "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)));
 				break;
 				case "export":
 				default:
 					$activity = 'export';
-					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity,"customfields"=> $this->getCustomField($activity), "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)));
 				break;
 			}
 		}
@@ -323,7 +323,7 @@ public function removeBomUtf8($s){
 	/**
 	 * direct_import  sending all the rows to the module to handle it 
 	 * @param  string $type            The type of data import
-	 * @param  array $fullData         Raws array of data to import
+	 * @param  array $fullData         array of data to import
 	 * @param  $request is the other paramters (custom fileds anything if they have)
 	 */
 	public function direct_import($type, $fullData, $request,$file) {

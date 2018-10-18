@@ -7,6 +7,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 class Bulkimport extends Command {
 	protected function configure(){
+		$mod_info = module_getinfo('callaccounting', MODULE_STATUS_ENABLED);
+		if (!isset($mod_info['callaccounting'])) {
+			$helptext = 'Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv --replace(Replace the existing values)';
+		} else {
+			$helptext = 'Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] filename.csv --replace(Replace the existing values)';
+		}
 		$this->setName('bulkimport')
 		->setAliases(array('bi'))
 		->setDescription('This command is used to import extensions and dids')
@@ -14,7 +20,7 @@ class Bulkimport extends Command {
 			new InputOption('type', 't', InputOption::VALUE_REQUIRED, 'Type of file'),
 			new InputArgument('filename', InputArgument::REQUIRED, 'Filename', null),
 			new InputOption('replace', null, InputOption::VALUE_NONE, 'To replace existing values'),))
-		->setHelp('Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] filename.csv --replace(Replace the existing values)');
+		->setHelp($helptext);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
 		$filename = $input->getArgument('filename');

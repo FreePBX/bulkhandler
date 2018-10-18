@@ -44,7 +44,7 @@ $array['customfields'] = $customfields;
 $array['header'] = $headers;
 $array['request'] = $request;
 
- $arg = escapeshellarg(base64_encode(json_encode($array)));
+$arg = escapeshellarg(base64_encode(json_encode($array)));
  
 dbug("SCRIPT: php ".$root."/admin/modules/bulkhandler/bulkimportprocess.php ".$arg." > /dev/null 2>&1 &", 0);
 exec("php ".$root."/admin/modules/bulkhandler/bulkimportprocess.php ".$arg." > /dev/null 2>&1 &");
