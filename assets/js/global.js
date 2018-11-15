@@ -156,3 +156,40 @@ function addslashes(str) {
     .replace(/[\\"']/g, '\\$&')
     .replace(/\u0000/g, '\\0');
 }
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+	if($('#direct_import').val() == 'yes'){
+		var tmpfile = $('#temp_file').val();
+		var total = $('#num_rows').val();
+		$("#action-bar").hide();
+		$(".progress").removeClass("hidden");
+		$(".progress-bar").addClass("active");
+		setInterval(function(){ 
+			$.post( "ajax.php", {command: 'direct_import',filename:tmpfile, module: 'bulkhandler'},function( data ) {
+			count = data.COUNT;
+			insert = data.INSERT;
+			update = data.UPDATE;
+			error = data.ERROR;
+			console.log('totral:'+total);
+			console.log('Pgcount:'+count);
+			console.log('inseert:'+insert);
+			console.log('update:'+update);
+			console.log(' Error:'+error);
+			var persentage = (count/total)*100 ;
+			persentage = persentage.toFixed(2);
+			$(".progress-bar").css("width",persentage + "%");
+			 $("#myspan").text(persentage + "% Completed");
+				if(count == total) {console.log('finished Importing Data');
+					$("#insertspan").text(insert + "  Rows Inserted");
+					$("#updatespan").text(update + " Rows updated ");
+					$("#baddata").text(error + "  Bad Data found ");
+					$(".alert").removeClass("hidden");
+					$(".progress-bar").removeClass("active");
+					$("#import").prop("disabled",false);
+
+				}
+			});
+		}, 5000);//time in milliseconds
+	}		
+});

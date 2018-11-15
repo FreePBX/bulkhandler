@@ -39,10 +39,10 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach($imports as $id => $import) { ?>
+		<?php foreach($imports as $id => $import) {?>
 			<tr class="scheme" data-unique-id="row-<?php echo $id?>" data-jsonid='<?php echo $id?>'>
 				<td><?php echo $id?></td>
-				<?php foreach ($identifiers as $identifier) { ?>
+				<?php foreach ($identifiers as $identifier) {?>
 
 					<td><?php echo $import[$identifier]?></td>
 				<?php } ?>

@@ -34,6 +34,66 @@
 								<form class="fpbx-submit bulkhandler" name="bulkhandler" action="config.php?display=bulkhandler&amp;activity=validate" method="post" role="form" enctype="multipart/form-data">
 									<input type="hidden" name="type" value="<?php echo $type['type']?>">
 									<div class="container-fluid">
+									
+									<?php //lets do check for custom fields
+										$modupcase = ucfirst($type['type']);
+										if(is_array($customfields[$modupcase])){
+											foreach($customfields as $mod => $fields) {
+												if($mod) {
+													foreach($fields as $fieldname => $fieldval){ 
+													if(!in_array('import',$fieldval['activity'])){//remove the unwanted custom paramters based on activity
+															continue;
+													}
+											?>
+											<div class="element-container">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="row">
+															<div class="form-group">
+																<div class="col-md-3">
+																	<label class="control-label" for="<?php echo $fieldname?>-import"><?php echo _($fieldval['label'])?></label>
+																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $fieldname?>-import"></i>
+																</div>
+																<?php 
+																foreach($fieldval as $ftype => $fields){
+																	if($ftype =='SELECT') { ?>
+																		<div class="col-md-9">
+																		<select class="form-control" name="<?php echo $fieldname?>"> 
+																		<?php foreach($fields as $val) {
+																				if(isset($_REQUEST[$fieldname])){
+																					if($val['id'] == $_REQUEST[$fieldname] ){
+																						$selected = 'selected';
+																					} else {
+																						$selected ='';
+																					}
+																				}
+																			echo '<option value="'. $val[$fieldval['valuetopass']] .'" '.$selected.' >'. $val[$fieldval['valuetodisplay']].'</option>';
+																		}?>
+																		</select>
+																		</div>
+																<?php
+																	}
+																}
+																?>
+																
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<span id="<?php echo $fieldname?>-import-help" class="help-block fpbx-help-block"><?php echo _($fieldval['desc'])?></span>
+													</div>
+												</div>
+											</div>
+													<?php
+													}
+												}
+											
+											}
+										}
+									
+									?>
 											<div class="element-container">
 												<div class="row">
 													<div class="col-md-12">

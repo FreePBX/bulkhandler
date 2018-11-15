@@ -27,9 +27,11 @@ class Bulkhandler implements \BMO {
 
 	public function showPage() {
 		if(!empty($_REQUEST['quietmode']) && $_REQUEST['activity'] == 'export') {
-			$this->export($_REQUEST['export']);
+			$customfields = $_REQUEST;
+			unset($customfields['display']);unset($customfields['quietmode']);unset($customfields['activity']);unset($customfields['export']);unset($customfields['extdisplay']);
+			$this->export($_REQUEST['export'],$customfields);
 		} else {
-			$message = '';
+			$message = ''; 
 			$activity = !empty($_REQUEST['activity']) ? $_REQUEST['activity'] : 'export';
 			switch($activity) {
 				case "validate":
@@ -40,7 +42,35 @@ class Bulkhandler implements \BMO {
 						} else {
 							try {
 								$array = $this->fileToArray($ret['localfilename'],$ret['extension']);
-								return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $array, "headers" => $this->getHeaders($_REQUEST['type'],true)));
+								//lets replace the some custom values if we have
+								$customf = $_REQUEST;
+								//unset Bulkhandler related key => vals
+								unset($customf['display']); unset($customf['activity']);unset($customf['type']);unset($customf['extdisplay']);
+								// we have the array with  all custom values here ; Note , all possible custom values should be there in the identifier
+								$headers = $this->getHeaders($_REQUEST['type'],true);
+								$arraynew = array();
+								if(!is_array($customf)){
+									$customf = array();
+								}
+								foreach ($array as $key => $value) {
+									$row = array();
+									foreach($value as $fkey => $val){
+										 $fkey = $this->removeBomUtf8($fkey);
+										 if (array_key_exists($fkey,$customf)){
+											 //if any value is there in csv we dont want to override
+											$row[$fkey] = $val?$val:$customf[$fkey];
+										}else {
+											$row[$fkey] = $val;
+										}
+									}
+									$arraynew[$key] = $row;
+								}
+								if($_REQUEST['skip_validate'] =='Yes'){
+									$totalnows = count($arraynew);
+									return load_view(__DIR__."/views/direct_import.php",array("request" => $_REQUEST, "type" => $_POST['type'], "activity" => $activity, "totalnows" => $totalnows, "localfilename" => $ret['localfilename'], 'filename' => $ret['filename'], 'extension' => $ret['extension'], "customfields" => $customf, "headers" => $headers));
+								}else {
+									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields" => $_REQUEST ,"headers" => $headers));
+								}
 							} catch(\Exception $e) {
 								$activity = "import";
 								$message = $e->getMessage();
@@ -49,17 +79,24 @@ class Bulkhandler implements \BMO {
 					}
 				//fallthrough if there are no files
 				case "import":
-					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)));
 				break;
 				case "export":
 				default:
 					$activity = 'export';
-					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)));
 				break;
 			}
 		}
 
 	}
+public function removeBomUtf8($s){
+	if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+		return substr($s,3);
+	}else{
+		return $s;
+	}
+}
 
 	private function uploadFile() {
 		$temp = sys_get_temp_dir() . "/bhimports";
@@ -183,7 +220,11 @@ class Bulkhandler implements \BMO {
 
 		return $headers;
 	}
-
+	public function getCustomField($type) {
+		$fields = array();
+		$modules = $this->freepbx->Hooks->processHooks($type);
+	return $modules;
+	}
 	public function getTypes($activity='import') {
 		$modules = $this->freepbx->Hooks->processHooks();
 		$types = array();
@@ -228,6 +269,7 @@ class Bulkhandler implements \BMO {
 		switch($req) {
 			case "import":
 			case "destinationdrawselect":
+			case "direct_import";
 				return true;
 			break;
 			default:
@@ -248,10 +290,61 @@ class Bulkhandler implements \BMO {
 				$this->freepbx->Modules->getDestinations();
 				$ret = array("status" => true, "destid" => $_POST['destid'], "html" => drawselects($_POST['value'],$_POST['id'], false, false));
 			break;
+			case "direct_import":
+					$ret = $this->readtempfile_for_import_status($_REQUEST['filename']);
+					return $ret;
+			break;
 		}
 		return $ret;
 	}
-
+	/*Read the temp file for bulk upload progress status*/
+	public function readtempfile_for_import_status($filename){
+		$return = array();
+		if(!file_exists($filename)){
+			$return['status'] = 'DONE';
+			$return['COUNT'] = '';
+			return $return;
+		}else {
+			$file = fopen($filename,"r");
+			while(! feof($file)){
+				$string = fgets($file);
+				if(strpos($string, '=') !== false){
+					$stringarr = explode('=',$string);
+					$return[$stringarr[0]] = trim($stringarr[1],PHP_EOL);;
+				}
+			}
+			fclose($file);
+			dbug(print_r($return,true));
+			return $return;
+			
+		}
+	}
+			
+	/**
+	 * direct_import  sending all the rows to the module to handle it 
+	 * @param  string $type            The type of data import
+	 * @param  array $fullData         array of data to import
+	 * @param  $request is the other paramters (custom fileds anything if they have)
+	 */
+	public function direct_import($type, $fullData, $request,$file) {
+			try {
+				$methods = $this->freepbx->Hooks->returnHooks();
+			} catch(\Exception $e) {
+				return array("status" => false, "message" => $e->getMessage());
+			}
+			$methods = is_array($methods) ? $methods : array();
+			foreach($methods as $method) {
+				$mod = $method['module'];
+				$meth = $method['method'];
+				$ret = \FreePBX::$mod()->$meth($type, $fullData, $request,$file);
+				if($ret['status'] === false) {
+					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
+				}
+			}
+			return array("status" => true);
+		
+		return array("status" => false, "message" => $val['message']);
+	}
 	/**
 	 * Import Data
 	 * @param  string $type            The type of data import
@@ -284,9 +377,15 @@ class Bulkhandler implements \BMO {
 	 * Export Data
 	 * @param  string $type The type of export
 	 */
-	public function export($type) {
+	public function export($type,$customfields) {
+		if(count($customfields)> 0) { // we have custom fields
+			$customfields['moduletype'] = $type;
+			$new_var_type = $customfields;
+		}else {
+			$new_var_type = $type;
+		}
 		$time_start = microtime(true);
-		$modules = $this->freepbx->Hooks->processHooks($type);
+		$modules = $this->freepbx->Hooks->processHooks($new_var_type);
 		$rows = array();
 		$headers = array();
 		foreach($modules as $key => $module) {
@@ -318,7 +417,13 @@ class Bulkhandler implements \BMO {
 		}
 		array_unshift($rows,$headers);
 		//dbug('Total execution time in seconds: ' . (microtime(true) - $time_start));
-		$this->arrayToFile($rows, $type, 'csv');
+		// To work with  existing modules
+		if(is_array($new_var_type)){
+			$type_new = $new_var_type['moduletype'];
+		} else {
+			$type_new = $type;
+		}
+		$this->arrayToFile($rows, $type_new, 'csv');
 	}
 
 	public function validate($type, $rawData) {
