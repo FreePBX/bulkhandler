@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 20:05-0400\n"
+"POT-Creation-Date: 2018-11-14 22:17-0500\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Bulkhandler.class.php:110
+#: Bulkhandler.class.php:147
 msgid "A PHP extension stopped the file upload"
 msgstr "Uma extensão PHP parou o carregamento do arquivo"
 
@@ -33,7 +33,7 @@ msgstr "Ações"
 msgid "Admin"
 msgstr "Admin"
 
-#: views/import.php:47
+#: views/import.php:107
 msgid "Browse"
 msgstr "Localizar"
 
@@ -42,30 +42,34 @@ msgstr "Localizar"
 msgid "Bulk Handler"
 msgstr "Movimentação em Massa"
 
-#: views/export.php:37 views/import.php:43
+#: views/export.php:91 views/import.php:103
 msgid "CSV File"
 msgstr "Arquivo CSV"
 
-#: Bulkhandler.class.php:113
+#: Bulkhandler.class.php:150
 msgid "Can Not Find Uploaded Files"
 msgstr "Não é Possível Localizar Arquivos Carregados"
 
-#: Bulkhandler.class.php:348
+#: Bulkhandler.class.php:453
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: Bulkhandler.class.php:68
+#: Bulkhandler.class.php:105
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr "Não é possível criar o Diretório Temporário: %s"
 
-#: Bulkhandler.class.php:83
+#: Bulkhandler.class.php:120
 msgid "Cant find uploaded file"
 msgstr "Não é possivel encontrar o arquivo carregado"
 
 #: views/validate.php:72
 msgid "Close"
 msgstr "Fechar"
+
+#: views/direct_import.php:3
+msgid "Data Importing"
+msgstr ""
 
 #: views/validate.php:2
 msgid "Data Validation"
@@ -75,23 +79,23 @@ msgstr "Validação de Dados"
 msgid "Edit"
 msgstr "Editar"
 
-#: views/export.php:6 views/export.php:40 views/import.php:6
+#: views/export.php:6 views/export.php:94 views/import.php:6
 msgid "Export"
 msgstr "Exportar"
 
-#: views/export.php:47
+#: views/export.php:101
 msgid "Export to CSV"
 msgstr "Exportar para CSV"
 
-#: Bulkhandler.class.php:107
+#: Bulkhandler.class.php:144
 msgid "Failed to write file to disk"
 msgstr "Falha ao gravar o arquivo no disco"
 
-#: views/import.php:56
+#: views/import.php:116
 msgid "File to Import"
 msgstr "Arquivo para Importar"
 
-#: Bulkhandler.class.php:132
+#: Bulkhandler.class.php:169
 msgid "Header row and data row count do not match"
 msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 
@@ -99,11 +103,11 @@ msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:343 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:448 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importar"
 
-#: Bulkhandler.class.php:104
+#: Bulkhandler.class.php:141
 msgid "Missing a temporary folder"
 msgstr "Faltando uma pasta temporária"
 
@@ -119,7 +123,7 @@ msgstr "Nenhum Exportador em Massa foi definido"
 msgid "No Bulk Importers have been defined"
 msgstr "Nenhum Importador em Massa foi definido"
 
-#: Bulkhandler.class.php:101
+#: Bulkhandler.class.php:138
 msgid "No file was uploaded"
 msgstr "Nenhum arquivo foi enviado"
 
@@ -135,14 +139,14 @@ msgstr "Somente arquivos CSV são suportados"
 msgid "Replace/Update existing data"
 msgstr "Substituir/Atualizar dados existentes"
 
-#: views/import.php:86
+#: views/import.php:146
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
 
-#: views/import.php:66
+#: views/import.php:126
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
@@ -150,11 +154,11 @@ msgstr ""
 msgid "Save changes"
 msgstr "Salvar Mudanças"
 
-#: views/import.php:96
+#: views/import.php:156
 msgid "Submit"
 msgstr "Enviar"
 
-#: Bulkhandler.class.php:95
+#: Bulkhandler.class.php:132
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
@@ -162,11 +166,11 @@ msgstr ""
 "O arquivo enviado excede o atributo MAX_FILE_SIZE que foi especificado no "
 "formulário HTML"
 
-#: Bulkhandler.class.php:92
+#: Bulkhandler.class.php:129
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr "O arquivo enviado excede o atributo upload_max_filesize no php.ini"
 
-#: Bulkhandler.class.php:98
+#: Bulkhandler.class.php:135
 msgid "The uploaded file was only partially uploaded"
 msgstr "O arquivo enviado foi parcialmente carregado"
 
@@ -174,11 +178,11 @@ msgstr "O arquivo enviado foi parcialmente carregado"
 msgid "There is nothing to import!"
 msgstr "Não há nada para importar!"
 
-#: Bulkhandler.class.php:144
+#: Bulkhandler.class.php:181
 msgid "Unable to parse file"
 msgstr "Não foi possível analisar o arquivo"
 
-#: Bulkhandler.class.php:87 Bulkhandler.class.php:140
+#: Bulkhandler.class.php:124 Bulkhandler.class.php:177
 msgid "Unsupported file format"
 msgstr "Formato de arquivo não suportado"
 
