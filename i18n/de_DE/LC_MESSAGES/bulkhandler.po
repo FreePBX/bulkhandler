@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-14 22:17-0500\n"
-"PO-Revision-Date: 2018-08-25 12:00+0000\n"
+"PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
 "Language: de_DE\n"
@@ -68,7 +68,7 @@ msgstr "Schließen"
 
 #: views/direct_import.php:3
 msgid "Data Importing"
-msgstr ""
+msgstr "Datenimport"
 
 #: views/validate.php:2
 msgid "Data Validation"
