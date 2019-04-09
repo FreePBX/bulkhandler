@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.14.8</version>
+	<version>13.0.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,10 +16,11 @@
 	</depends>
 	<info/>
 	<changelog>
-		*13.0.14.8* Improvement/FREEPBX-18409 
-		*13.0.14.7* FREEPBX-17774 Bulk Handler (cli version) does not update extension name 
-		*13.0.14.6* Alert changed to innerHTML messages 
-		*13.0.14.5* FREEPBX-15499 Need to add a checklist for Required fields while uploading bulk handler and do proper error handling. 
+		*13.0.15* Use lazy loading console commands
+		*13.0.14.8* Improvement/FREEPBX-18409
+		*13.0.14.7* FREEPBX-17774 Bulk Handler (cli version) does not update extension name
+		*13.0.14.6* Alert changed to innerHTML messages
+		*13.0.14.5* FREEPBX-15499 Need to add a checklist for Required fields while uploading bulk handler and do proper error handling.
 		*13.0.14.4* FREEPBX-13927 Fix action bindings on import
 		*13.0.14.3* FREEPBX-12760 Importing with Bulk Import of extension causes issues in Tech column
 		*13.0.14.2* FREEPBX-13642 Prefer localStorage over (deprecated) cookies
@@ -41,4 +42,10 @@
 	<supported>
 		<version>13.0</version>
 	</supported>
+	<console>
+		<command>
+			<name>bulkimport</name>
+			<alias>bi</alias>
+		</command>
+	</console>
 </module>
