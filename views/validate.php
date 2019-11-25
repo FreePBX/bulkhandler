@@ -18,24 +18,24 @@
 <div>
 <p id="error" style="color:red;"></p>
 </div>
-<table data-toggle="table"
-				data-toolbar="#toolbar-all"
+<table 	data-toggle="table"
+		data-toolbar="#toolbar-all"
         data-show-columns="true"
         data-show-toggle="true"
         data-toggle="table"
         data-pagination="false"
-        data-search="true"
-				id="validation-list">
+        data-search="true"  
+		id="validation-list">
 	<thead>
 		<tr>
 			<th data-field="id"><?php echo _('ID')?></th>
 			<?php foreach ($headers as $key => $header) { ?>
 				<?php if (isset($header['identifier']) && $header['identifier']) { ?>
 					<?php $identifiers[] = $key;?>
-					<th data-field="<?php echo $key?>" data-sortable="true"><?php echo $header['identifier']?></th>
+					<th data-field="<?php echo $key?>" data-sortable="true" data-escape="true"><?php echo $header['identifier']?></th>
 				<?php } ?>
 			<?php } ?>
-			<th data-field="actions"><?php echo _('Actions')?></th>
+			<th data-field="actions" ><?php echo _('Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
