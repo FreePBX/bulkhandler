@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.15</version>
+	<version>13.0.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.16* FREEI-913 Fix XSS Bootstrap Datatable Issues 
 		*13.0.15* Use lazy loading console commands
 		*13.0.14.8* Improvement/FREEPBX-18409
 		*13.0.14.7* FREEPBX-17774 Bulk Handler (cli version) does not update extension name
