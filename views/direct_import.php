@@ -22,6 +22,7 @@
 <input type="hidden" name="direct_import" id="direct_import" value="yes">
 <input type="hidden" name="num_rows" id="num_rows" value="<?php echo $totalnows;?>">
 
+<a href="?display=bulkhandler" class="btn btn-primary" align="right"><?php echo _("Go Back")?></a>
 <?php
 //to get the progress we need file with details 
 //This file will be handled by th module 
