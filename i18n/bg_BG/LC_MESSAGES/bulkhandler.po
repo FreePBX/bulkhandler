@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-14 22:17-0500\n"
+"POT-Creation-Date: 2020-03-04 16:47+0530\n"
 "PO-Revision-Date: 2016-09-21 19:56+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -93,6 +93,10 @@ msgstr ""
 
 #: views/import.php:116
 msgid "File to Import"
+msgstr ""
+
+#: views/direct_import.php:25
+msgid "Go Back"
 msgstr ""
 
 #: Bulkhandler.class.php:169

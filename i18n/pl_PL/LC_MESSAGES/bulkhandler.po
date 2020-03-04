@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-14 22:17-0500\n"
+"POT-Creation-Date: 2020-03-04 16:47+0530\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -95,6 +95,10 @@ msgstr "Nie udało się zapisać pliku na dysku"
 #: views/import.php:116
 msgid "File to Import"
 msgstr "Plik do zaimportowania"
+
+#: views/direct_import.php:25
+msgid "Go Back"
+msgstr ""
 
 #: Bulkhandler.class.php:169
 msgid "Header row and data row count do not match"
