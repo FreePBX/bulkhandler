@@ -152,6 +152,7 @@ public function removeBomUtf8($s){
 
 	public function fileToArray($file, $format='csv') {
 		$rawData = array();
+		$i = 0;
 		switch($format) {
 			case 'csv':
 				$header = null;
@@ -177,6 +178,14 @@ public function removeBomUtf8($s){
 				throw new \Exception(_("Unsupported file format"));
 			break;
 		}
+		foreach($rawData as $ext){
+			if($ext["tech"] != "virtual"){
+				$i++;
+			}
+		}
+		if(function_exists('sysadmin_extensions_limit') && sysadmin_extensions_limit() < $i) {
+			throw new \Exception(sprintf(_("Too many extensions to import. The limit is: %d physical extensions."),sysadmin_extensions_limit())); 
+		}		
 		if(empty($rawData)) {
 			throw new \Exception(_("Unable to parse file"));
 		}
