@@ -10,13 +10,13 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-08 19:14+0530\n"
-"PO-Revision-Date: 2020-04-11 23:42+0500\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2020-04-11 23:54+0500\n"
+"Language-Team: TranslAster\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3\n"
-"Last-Translator: \n"
+"Last-Translator: Dmitriy Q <dmitry@atsip.ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Language: ru_RU\n"
@@ -113,7 +113,7 @@ msgstr "Импорт"
 
 #: Bulkhandler.class.php:141
 msgid "Missing a temporary folder"
-msgstr ""
+msgstr "Отсутствует временная папка"
 
 #: views/validate.php:15
 msgid "No"
@@ -121,27 +121,27 @@ msgstr "Нет"
 
 #: views/export.php:10
 msgid "No Bulk Exporters have been defined"
-msgstr ""
+msgstr "Массовых экспортеров пока не определили"
 
 #: views/import.php:10
 msgid "No Bulk Importers have been defined"
-msgstr ""
+msgstr "Массовых импортеров пока не определили"
 
 #: Bulkhandler.class.php:138
 msgid "No file was uploaded"
-msgstr ""
+msgstr "Ни один файл не был загружен"
 
 #: assets/js/global.js:23
 msgid "Not file specified"
-msgstr ""
+msgstr "Не указан файл"
 
 #: assets/js/global.js:28
 msgid "Only CSV files are supported"
-msgstr ""
+msgstr "Поддерживаются только CSV-файлы"
 
 #: views/validate.php:10
 msgid "Replace/Update existing data"
-msgstr ""
+msgstr "Замена/обновление существующих данных"
 
 #: views/import.php:146
 msgid ""
@@ -149,10 +149,14 @@ msgid ""
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
+"Обязательные заголовки(*) - это минимально необходимые заголовки, которые "
+"вы должны предоставить для возможности импорта. Для получения полного "
+"списка всех поддерживаемых заголовков экспортируйте CSV файл с экрана "
+"экспорта"
 
 #: views/import.php:126
 msgid "Required(*)/Recommended Headers"
-msgstr ""
+msgstr "Обязательные(*)/Рекомендуемые заголовки"
 
 #: views/validate.php:73
 msgid "Save changes"
@@ -167,31 +171,35 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
+"Загруженный файл превышает директиву MAX_FILE_SIZE, которая указана в HTML-"
+"форме"
 
 #: Bulkhandler.class.php:129
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr ""
+msgstr "Загруженный файл превышает директиву upload_max_filesize в php.ini"
 
 #: Bulkhandler.class.php:135
 msgid "The uploaded file was only partially uploaded"
-msgstr ""
+msgstr "Загруженный файл был загружен только частично"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
-msgstr ""
+msgstr "Здесь нечего импортировать!"
 
 #: Bulkhandler.class.php:187
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
+"Слишком много расширений для импорта. Ограничение составляет: %d физических "
+"расширений."
 
 #: Bulkhandler.class.php:190
 msgid "Unable to parse file"
-msgstr ""
+msgstr "Невозможно разобрать файл"
 
 #: Bulkhandler.class.php:124 Bulkhandler.class.php:178
 msgid "Unsupported file format"
-msgstr ""
+msgstr "Неподдерживаемый формат файла"
 
 #: views/export.php:24 views/import.php:27
 #, php-format
