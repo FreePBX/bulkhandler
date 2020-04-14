@@ -58,10 +58,27 @@ $(function() {
 			alert(_("There is nothing to import!"));
 			return;
 		}
+		if($.isNumeric( $("#remaining_extension").val())){
+			var remaining_extension = $("#remaining_extension").val();
+			var licencecheck =true;
+		}
 		async.forEachOfSeries(imports, function (v, i, callback) {
 			if(typeof v === "undefined") {
 				callback();
 				return;
+			}
+			if(licencecheck == true){
+				if(remaining_extension == 0){
+					$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
+					var div = document.getElementById('error');
+					div.innerHTML += sprintf(_("There was an error importing row %s: %s"),i,"Exceeded the maximum allowed Extensions")+"<br />";
+					errors++;
+					$(".progress-bar").css("width",(100) + "%");
+					$(".progress-bar").removeClass("active");
+					$("#import").prop("disabled",false);
+					callback();
+					return;
+				}
 			}
 			$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v, replace: (replace ? 1 : 0)},function( data ) {
 				if(!data.status) {
@@ -71,9 +88,11 @@ $(function() {
 					errors++;
 				} else {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
+					if(licencecheck == true){
+						remaining_extension --;
+					}
 				}
 				count++;
-
 				$(".progress-bar").css("width",(count/total * 100) + "%");
 				if(count == total) {
 					$(".progress-bar").removeClass("active");

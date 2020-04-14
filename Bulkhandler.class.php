@@ -69,7 +69,12 @@ class Bulkhandler implements \BMO {
 									$totalnows = count($arraynew);
 									return load_view(__DIR__."/views/direct_import.php",array("request" => $_REQUEST, "type" => $_POST['type'], "activity" => $activity, "totalnows" => $totalnows, "localfilename" => $ret['localfilename'], 'filename' => $ret['filename'], 'extension' => $ret['extension'], "customfields" => $customf, "headers" => $headers));
 								}else {
-									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields" => $_REQUEST ,"headers" => $headers));
+									if($_POST['type'] =='extensions'){
+										$remaining_extension = function_exists('sysadmin_extensions_limit')?sysadmin_extensions_limit('remaining'):'NO';
+									} else {
+										$remaining_extension = 'NO';
+									}
+									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields" => $_REQUEST ,"headers" => $headers,'remaining_extension'=>$remaining_extension));
 								}
 							} catch(\Exception $e) {
 								$activity = "import";

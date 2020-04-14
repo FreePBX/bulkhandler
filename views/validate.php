@@ -14,6 +14,10 @@
 		<input type="radio" name="replaceexisting" id="replaceexisting_no" value="false">
 		<label for="replaceexisting_no"><?php echo _("No")?></label>
 	</div>
+		<?php if($remaining_extension !='NO'){?>
+		<label><?php echo _("Extensions allowed to import:"); echo $remaining_extension ?></label>
+		<input type="hidden" name="remaining_extension" id="remaining_extension" value=<?php echo $remaining_extension ?>>
+		<?php } ?>
 </div>
 <div>
 <p id="error" style="color:red;"></p>
