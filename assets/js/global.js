@@ -67,10 +67,15 @@ $(function() {
 				if(!data.status) {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
 					var div = document.getElementById('error');
-					div.innerHTML += sprintf(_("There was an error importing row %s: %s"),i,data.message)+"<br />";
-					errors++;
+					errors++;	
+					if(data.message == "over"){
+						div.innerHTML += sprintf(_("Import ID %s is over the system limit."),i )+"<br />";
+					}
+					else{
+						div.innerHTML += sprintf(_("There was an error importing row %s: %s"),i,data.message)+"<br />";					
+					}
 				} else {
-					$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");
+					$("tr[data-unique-id=row-"+i+"] td").css("background-color","lightgreen");			
 				}
 				count++;
 
