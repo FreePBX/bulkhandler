@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.18</version>
+	<version>13.0.19</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.19* FREEI-1502 Bulk handler issue with call accounting module 
 		*13.0.18* FREEI-1090 Error message when exceeding license count 
 		*13.0.17* FREEI-1264 Importing Dialpatterns entries through bulkhandler by setting Skip Validation to Yes does not give option to return back to the Bulkhandler page. 
 		*13.0.16* FREEI-913 Fix XSS Bootstrap Datatable Issues 

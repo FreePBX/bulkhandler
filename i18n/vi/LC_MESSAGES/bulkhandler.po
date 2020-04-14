@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-08 19:14+0530\n"
+"POT-Creation-Date: 2020-04-14 13:16+0530\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -50,7 +50,7 @@ msgstr "Tệp CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "Không tìm thấy các tệp đã tải lên"
 
-#: Bulkhandler.class.php:462
+#: Bulkhandler.class.php:453
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -99,7 +99,7 @@ msgstr "Tệp để nhập vào"
 msgid "Go Back"
 msgstr ""
 
-#: Bulkhandler.class.php:170
+#: Bulkhandler.class.php:169
 msgid "Header row and data row count do not match"
 msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 
@@ -107,7 +107,7 @@ msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:457 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:448 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Nhập vào"
 
@@ -182,16 +182,11 @@ msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 msgid "There is nothing to import!"
 msgstr "Không có gì để nhâp!"
 
-#: Bulkhandler.class.php:187
-#, php-format
-msgid "Too many extensions to import. The limit is: %d physical extensions."
-msgstr ""
-
-#: Bulkhandler.class.php:190
+#: Bulkhandler.class.php:181
 msgid "Unable to parse file"
 msgstr "Không thể phân tích tệp tin"
 
-#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
+#: Bulkhandler.class.php:124 Bulkhandler.class.php:177
 msgid "Unsupported file format"
 msgstr "Định dạng tệp không được hỗ trợ"
 
