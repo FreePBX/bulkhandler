@@ -152,6 +152,7 @@ public function removeBomUtf8($s){
 
 	public function fileToArray($file, $format='csv') {
 		$rawData = array();
+		$i = 0;
 		switch($format) {
 			case 'csv':
 				$header = null;
@@ -177,6 +178,21 @@ public function removeBomUtf8($s){
 				throw new \Exception(_("Unsupported file format"));
 			break;
 		}
+		
+		if($_REQUEST["type"] == "extensions" && $this->freepbx->Modules->checkStatus("sysadmin")){
+			$l = \FreePBX::Sysadmin()->get_sysadmin_extensions_limit();
+
+			foreach($rawData as $ext){
+				if(!empty($ext["tech"]) && $ext["tech"] != "virtual"){
+					$i++;
+				}
+			}
+			
+			if($l > 0 && $l < $i) {
+				throw new \Exception(sprintf(_("Too many extensions to import. The limit is: %d physical extensions."),$l)); 
+			}			
+		}
+      
 		if(empty($rawData)) {
 			throw new \Exception(_("Unable to parse file"));
 		}
@@ -282,6 +298,46 @@ public function removeBomUtf8($s){
 		$ret = array("status" => true);
 		switch ($_REQUEST['command']) {
 			case "import":
+				if($_POST['type'] == "extensions" && $this->freepbx->Modules->checkStatus("sysadmin")){
+					$current_ext= array();
+					$import_ext = array();
+
+					$sql 		= 'SELECT DISTINCT user FROM devices ORDER BY user ASC';
+					$sth 		= $this->db->prepare($sql);
+					$sth->execute();
+					$result 	= $sth->fetchAll(\PDO::FETCH_ASSOC);
+	
+					foreach($result as $ext){
+						$current_ext[] = $ext["user"];
+					}
+	
+					foreach($_POST['imports'] as $key => $val){
+						if($key == "tech" && $val != "virtual"){
+							$import_ext[] = $_POST['imports']["extension"];
+						}
+					}
+
+					$sys_limit = \FreePBX::Sysadmin()->get_sysadmin_extensions_limit();
+
+					switch($_POST["replace"]){
+						case "0":
+							if(array_search($_POST['imports']["extension"],$current_ext) !== false){
+								return array("status" => false, "message" => "Already exists");
+							}
+							$delta = count($current_ext) + count($import_ext);
+							if($sys_limit > 0 && $sys_limit < $delta ){					
+								return array("status" => false, "message" => "over");
+							}
+	
+							break;
+						case "1":	
+							$delta = count($current_ext) + count($import_ext);
+							if($sys_limit > 0 && $sys_limit < $delta && array_search($_POST['imports']["extension"],$current_ext) === false){					
+								return array("status" => false, "message" => "over");
+							}
+							break;
+					}					
+				}
 				$ret = $this->import($_POST['type'], array($_POST['imports']), (!empty($_POST['replace']) ? true : false));
 			break;
 			case "destinationdrawselect":
