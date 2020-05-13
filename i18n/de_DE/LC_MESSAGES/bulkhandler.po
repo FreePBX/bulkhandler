@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-14 13:16+0530\n"
+"POT-Creation-Date: 2020-05-13 17:19+0530\n"
 "PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
@@ -49,7 +49,7 @@ msgstr "CSV-Datei"
 msgid "Can Not Find Uploaded Files"
 msgstr "Es können keine hochgeladenen Dateien gefunden werden"
 
-#: Bulkhandler.class.php:453
+#: Bulkhandler.class.php:509
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -98,7 +98,7 @@ msgstr "Datei Importieren"
 msgid "Go Back"
 msgstr ""
 
-#: Bulkhandler.class.php:169
+#: Bulkhandler.class.php:170
 msgid "Header row and data row count do not match"
 msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 
@@ -106,7 +106,7 @@ msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:448 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:504 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importieren"
 
@@ -186,11 +186,16 @@ msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen"
 msgid "There is nothing to import!"
 msgstr "Es gibt nichts zum Importieren!"
 
-#: Bulkhandler.class.php:181
+#: Bulkhandler.class.php:192
+#, php-format
+msgid "Too many extensions to import. The limit is: %d physical extensions."
+msgstr ""
+
+#: Bulkhandler.class.php:197
 msgid "Unable to parse file"
 msgstr "Datei konnte nicht analysiert werden"
 
-#: Bulkhandler.class.php:124 Bulkhandler.class.php:177
+#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
