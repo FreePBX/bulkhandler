@@ -11,6 +11,10 @@
 	<menuitems>
 		<bulkhandler needsenginedb="yes">Bulk Handler</bulkhandler>
 	</menuitems>
+	<description>
+      Bulk Handler manages the bulk export or import of extensions, DIDs, user manager users, user manager groups, and contacts. You can export any of these as a CSV file. You can also upload a CSV file to save time versus having to enter each item individually. The module provides required/recommended headers for your CSV files.
+  	</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Bulk+Handler</more-info>
 	<depends>
 		<version>13.0</version>
 	</depends>
