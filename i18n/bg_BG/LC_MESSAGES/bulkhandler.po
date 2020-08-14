@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 07:14+0000\n"
+"POT-Creation-Date: 2020-08-14 07:15+0000\n"
 "PO-Revision-Date: 2016-09-21 19:56+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -40,6 +40,15 @@ msgstr ""
 #: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
+msgstr ""
+
+#: bulkhandler.i18n.php:8
+msgid ""
+"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
+"manager users, user manager groups, and contacts. You can export any of "
+"these as a CSV file. You can also upload a CSV file to save time versus "
+"having to enter each item individually. The module provides required/"
+"recommended headers for your CSV files."
 msgstr ""
 
 #: views/export.php:91 views/import.php:103
@@ -109,10 +118,6 @@ msgstr ""
 
 #: Bulkhandler.class.php:504 views/export.php:7 views/import.php:7
 msgid "Import"
-msgstr ""
-
-#: bulkhandler.i18n.php:8
-msgid "Invalid description"
 msgstr ""
 
 #: Bulkhandler.class.php:141
