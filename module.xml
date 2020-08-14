@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
 	<description/>
-	<version>13.0.20</version>
+	<version>13.0.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -20,6 +20,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.21* Packaging of ver 13.0.21
 		*13.0.20* Bugfix/FREEI-1502 bulk handler issue with call accounting module 
 		*13.0.19* FREEI-1502 Bulk handler issue with call accounting module 
 		*13.0.18* FREEI-1090 Error message when exceeding license count 

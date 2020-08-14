@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-13 17:19+0530\n"
+"POT-Creation-Date: 2020-08-14 07:14+0000\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -111,6 +111,10 @@ msgstr "ID"
 #: Bulkhandler.class.php:504 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importuj"
+
+#: bulkhandler.i18n.php:8
+msgid "Invalid description"
+msgstr ""
 
 #: Bulkhandler.class.php:141
 msgid "Missing a temporary folder"
