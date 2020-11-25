@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>13.0.22</version>
+	<version>13.0.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,12 +13,13 @@
 	<description>
       Bulk Handler manages the bulk export or import of extensions, DIDs, user manager users, user manager groups, and contacts. You can export any of these as a CSV file. You can also upload a CSV file to save time versus having to enter each item individually. The module provides required/recommended headers for your CSV files.
   	</description>
-  	<more-info>https://wiki.freepbx.org/display/F2/Bulk+Handler</more-info>
+  	<more-info>https://wiki.freepbx.org/display/FPG/Bulk+Handler</more-info>
 	<depends>
 		<version>13.0</version>
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.23* Packaging of ver 13.0.23
 		*13.0.22* Packaging of ver 13.0.22
 		*13.0.21* Packaging of ver 13.0.21
 		*13.0.20* Bugfix/FREEI-1502 bulk handler issue with call accounting module 
