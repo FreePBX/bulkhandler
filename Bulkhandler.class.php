@@ -420,7 +420,7 @@ public function removeBomUtf8($s){
 				$mod = $method['module'];
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
-				if($ret['status'] === false) {
+				if(isset($ret['status']) && $ret['status'] === false) {
 					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
 				}
 			}
@@ -486,7 +486,7 @@ public function removeBomUtf8($s){
 		$methods = $this->freepbx->Hooks->processHooks($type, $rawData);
 		$methods = is_array($methods) ? $methods : array();
 		foreach($methods as $key => $method) {
-			if($method['status'] === false){
+			if(isset($method['status']) && $method['status'] === false){
 				return array("status" => false, "message" => $method['message']);
 				continue;
 			}
