@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>13.0.23</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,39 +19,10 @@
 	</depends>
 	<info/>
 	<changelog>
-		*13.0.23* Packaging of ver 13.0.23
-		*13.0.22* Packaging of ver 13.0.22
-		*13.0.21* Packaging of ver 13.0.21
-		*13.0.20* Bugfix/FREEI-1502 bulk handler issue with call accounting module 
-		*13.0.19* FREEI-1502 Bulk handler issue with call accounting module 
-		*13.0.18* FREEI-1090 Error message when exceeding license count 
-		*13.0.17* FREEI-1264 Importing Dialpatterns entries through bulkhandler by setting Skip Validation to Yes does not give option to return back to the Bulkhandler page. 
-		*13.0.16* FREEI-913 Fix XSS Bootstrap Datatable Issues 
-		*13.0.15* Use lazy loading console commands
-		*13.0.14.8* Improvement/FREEPBX-18409
-		*13.0.14.7* FREEPBX-17774 Bulk Handler (cli version) does not update extension name
-		*13.0.14.6* Alert changed to innerHTML messages
-		*13.0.14.5* FREEPBX-15499 Need to add a checklist for Required fields while uploading bulk handler and do proper error handling.
-		*13.0.14.4* FREEPBX-13927 Fix action bindings on import
-		*13.0.14.3* FREEPBX-12760 Importing with Bulk Import of extension causes issues in Tech column
-		*13.0.14.2* FREEPBX-13642 Prefer localStorage over (deprecated) cookies
-		*13.0.14.1* FREEPBX-13051 When importing ignore null line, FREEPBX-13131 Fix action icons in card view during validation
-		*13.0.14* FREEPBX-11563 remember last tab selection and go back there
-		*13.0.13* Dont id the same as the real importer
-		*13.0.12* FREEPBX-10077 added edit functionality and better workflows
-		*13.0.11* Add fwconsole import. Update navigation.
-		*13.0.10* FREEPBX-10241 better error reporting when files are invalid
-		*13.0.9* FREEPBX-9952 Errors in Bulk Handler extension import/export
-		*13.0.8* FREEPBX-9596 Add cancel option when importing in Bulk Handler
-		*13.0.6* Require Asterisk to be running
-		*13.0.6* FREEPBX-9712 add progress bar and use action bar
-		*13.0.5* Fix invalid looping errors
-		*13.0.4* FREEPBX-9594 slightly better name for exported file
-		*13.0.3* Fixes to functionality
-		*13.0.2* Initial release to the world!
+		*16.0.1* Initial 16.0 release 
 	</changelog>
 	<supported>
-		<version>13.0</version>
+		<version>16.0</version>
 	</supported>
 	<console>
 		<command>
