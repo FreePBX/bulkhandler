@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>16.0.2</version>
+	<version>16.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*16.0.3* REEI-3374 Vuln-001 Stored Cross-Site Scripting 
 		*16.0.2* Packaging of ver 16.0.2
 		*16.0.1* Initial 16.0 release
 	</changelog>
