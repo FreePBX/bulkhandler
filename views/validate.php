@@ -32,7 +32,7 @@
 			<?php foreach ($headers as $key => $header) { ?>
 				<?php if (isset($header['identifier']) && $header['identifier']) { ?>
 					<?php $identifiers[] = $key;?>
-					<th data-field="<?php echo $key?>" data-sortable="true" data-escape="true"><?php echo $header['identifier']?></th>
+					<th data-field="<?php echo $key?>" data-sortable="true"><?php echo $header['identifier']?></th>
 				<?php } ?>
 			<?php } ?>
 			<th data-field="actions" ><?php echo _('Actions')?></th>
@@ -44,7 +44,7 @@
 				<td><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) {?>
 
-					<td><?php echo $import[$identifier]?></td>
+				<td data-value="<?php echo $identifier?>"> <?php echo $import[$identifier]?> </td>
 				<?php } ?>
 				<td class="actions">
 					<i class="fa fa-pencil-square-o actions clickable" data-type="edit" data-id="<?php echo $id?>"></i>
@@ -75,4 +75,21 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script>var type = "<?php echo $type?>"; var imports = <?php echo json_encode($imports)?>; var headers = <?php echo json_encode($headers)?>;</script>
+<script>
+	var data=[];
+	var type = "<?php echo $type?>";
+	var imports = <?php echo json_encode($imports)?>;
+	var headers = <?php echo json_encode($headers)?>;
+	var identifiers = <?php echo json_encode($identifiers) ?>;
+
+	$( document ).ready(function() {
+		var q = $('[class="scheme"]');
+		Object.keys(q).forEach((s, idx) => {
+			if(idx < q.length){
+				identifiers.forEach((identifier)=>{
+					$(".scheme[data-jsonid='"+idx+"']").find("[data-value='"+identifier+"']").text(imports[idx][identifier]);
+				})
+			}
+		})
+	});
+</script>
