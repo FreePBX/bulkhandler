@@ -44,7 +44,7 @@
 				<td><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) {?>
 
-				<td data-value="<?php echo $identifier?>"> <?php echo $import[$identifier]?> </td>
+				<td data-value="<?php echo $identifier?>"> <?php echo  htmlentities( $import[$identifier], ENT_COMPAT | ENT_HTML401, "UTF-8");?> </td>
 				<?php } ?>
 				<td class="actions">
 					<i class="fa fa-pencil-square-o actions clickable" data-type="edit" data-id="<?php echo $id?>"></i>
