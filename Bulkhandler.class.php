@@ -317,26 +317,24 @@ public function removeBomUtf8($s){
 						}
 					}
 
-					$sys_limit = \FreePBX::Sysadmin()->get_sysadmin_extensions_limit();
+					$sys_limit = \FreePBX::Sysadmin()->get_sysadmin_extensions_limit('remaining');
 
 					switch($_POST["replace"]){
 						case "0":
 							if(array_search($_POST['imports']["extension"],$current_ext) !== false){
 								return array("status" => false, "message" => "Already exists");
 							}
-							$delta = count($current_ext) + count($import_ext);
-							if($sys_limit > 0 && $sys_limit < $delta ){					
+							if($sys_limit < 1){
 								return array("status" => false, "message" => "over");
 							}
 	
 							break;
 						case "1":	
-							$delta = count($current_ext) + count($import_ext);
-							if($sys_limit > 0 && $sys_limit < $delta && array_search($_POST['imports']["extension"],$current_ext) === false){					
+							if($sys_limit < 1 && array_search($_POST['imports']["extension"],$current_ext) === false){
 								return array("status" => false, "message" => "over");
 							}
 							break;
-					}					
+					}
 				}
 				$ret = $this->import($_POST['type'], array($_POST['imports']), (!empty($_POST['replace']) ? true : false));
 			break;
