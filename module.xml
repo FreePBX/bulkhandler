@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>13.0.24</version>
+	<version>13.0.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*13.0.25* FREEI-4140 Import ID 0 is over the system limit (Bulk Handler) 
 		*13.0.24* REEI-3374 Vuln-001 Stored Cross-Site Scripting 
 		*13.0.23* Packaging of ver 13.0.23
 		*13.0.22* Packaging of ver 13.0.22
