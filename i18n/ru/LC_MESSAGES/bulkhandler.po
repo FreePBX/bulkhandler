@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-07 05:26+0000\n"
-"PO-Revision-Date: 2021-11-17 05:37+0000\n"
-"Last-Translator: Dmitriy Kuznetsov <krotesk@ya.ru>\n"
+"PO-Revision-Date: 2021-11-23 07:00+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "bulkhandler/ru/>\n"
 "Language: ru\n"
@@ -186,7 +186,7 @@ msgstr "Сохранить изменения"
 
 #: views/import.php:156
 msgid "Submit"
-msgstr "Подтвердить"
+msgstr "Применить"
 
 #: Bulkhandler.class.php:132
 msgid ""
