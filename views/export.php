@@ -18,15 +18,10 @@
 					<div class="tab-content display">
 						<?php foreach($types as $key => $type) {?>
 							<div id="<?php echo $key?>" class="tab-pane <?php echo $type['active'] ? 'active' : ''?>">
-							<div class="panel panel-info">
-								<div class="panel-heading">
-									<div class="panel-title">
-										<a href="#" data-toggle="collapse" data-target="#<?php echo $key?>-moreinfo"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo sprintf(_('What are "%s"?'),$type['type'])?></div>
-								</div>
-								<div class="panel-body collapse" id="<?php echo $key?>-moreinfo">
-									<?php echo $type['description']?>
-								</div>
-							</div>
+							
+							<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
+							<?php echo show_help( $type['description'], sprintf(_('What are "%s"?'),$type['type']), false, true, "info"); ?>
+							
 							<div class="container-fluid">
 							<form class="fpbx-submit bulkhandler" name="bulkhandlerexport" action="config.php?display=bulkhandler&amp;quietmode=1&amp;activity=export&amp;export=<?php echo $type['type']?>" method="post" role="form" >
 							<?php //lets do check for custom fields
