@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 05:26+0000\n"
+"POT-Creation-Date: 2021-11-23 09:04+0000\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -33,7 +33,7 @@ msgstr "Các thao tác"
 msgid "Admin"
 msgstr "Quản trị viên"
 
-#: views/import.php:107
+#: views/import.php:101
 msgid "Browse"
 msgstr "Trình duyệt"
 
@@ -51,7 +51,7 @@ msgid ""
 "recommended headers for your CSV files."
 msgstr ""
 
-#: views/export.php:91 views/import.php:103
+#: views/export.php:86 views/import.php:97
 msgid "CSV File"
 msgstr "Tệp CSV"
 
@@ -88,11 +88,11 @@ msgstr "Tính hợp lệ của dữ liệu"
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: views/export.php:6 views/export.php:94 views/import.php:6
+#: views/export.php:6 views/export.php:89 views/import.php:6
 msgid "Export"
 msgstr "Xuất ra"
 
-#: views/export.php:101
+#: views/export.php:96
 msgid "Export to CSV"
 msgstr "Xuất đến CSV"
 
@@ -100,7 +100,7 @@ msgstr "Xuất đến CSV"
 msgid "Failed to write file to disk"
 msgstr "Ghi tệp vào đĩa không thành công"
 
-#: views/import.php:116
+#: views/import.php:110
 msgid "File to Import"
 msgstr "Tệp để nhập vào"
 
@@ -152,14 +152,14 @@ msgstr "Chỉ các tệp CSV được hỗ trợ"
 msgid "Replace/Update existing data"
 msgstr "Thay thế/ Cập nhật dữ liệu đang tồn tại"
 
-#: views/import.php:146
+#: views/import.php:140
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
 
-#: views/import.php:126
+#: views/import.php:120
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
 
-#: views/import.php:156
+#: views/import.php:150
 msgid "Submit"
 msgstr "Gửi đi"
 
@@ -204,7 +204,7 @@ msgstr "Không thể phân tích tệp tin"
 msgid "Unsupported file format"
 msgstr "Định dạng tệp không được hỗ trợ"
 
-#: views/export.php:24 views/import.php:27
+#: views/export.php:23 views/import.php:26
 #, php-format
 msgid "What are \"%s\"?"
 msgstr "\"%s\" là gì?"

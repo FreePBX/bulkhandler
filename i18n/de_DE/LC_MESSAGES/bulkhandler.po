@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 05:26+0000\n"
+"POT-Creation-Date: 2021-11-23 09:04+0000\n"
 "PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
@@ -32,7 +32,7 @@ msgstr "Aktionen"
 msgid "Admin"
 msgstr "Administrator"
 
-#: views/import.php:107
+#: views/import.php:101
 msgid "Browse"
 msgstr "Durchsuchen"
 
@@ -50,7 +50,7 @@ msgid ""
 "recommended headers for your CSV files."
 msgstr ""
 
-#: views/export.php:91 views/import.php:103
+#: views/export.php:86 views/import.php:97
 msgid "CSV File"
 msgstr "CSV-Datei"
 
@@ -87,11 +87,11 @@ msgstr "Datenüberprüfung"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: views/export.php:6 views/export.php:94 views/import.php:6
+#: views/export.php:6 views/export.php:89 views/import.php:6
 msgid "Export"
 msgstr "Exportieren"
 
-#: views/export.php:101
+#: views/export.php:96
 msgid "Export to CSV"
 msgstr "Als CSV exportieren"
 
@@ -99,7 +99,7 @@ msgstr "Als CSV exportieren"
 msgid "Failed to write file to disk"
 msgstr "Fehler beim Speichern der Datei"
 
-#: views/import.php:116
+#: views/import.php:110
 msgid "File to Import"
 msgstr "Datei Importieren"
 
@@ -151,7 +151,7 @@ msgstr "Es werden nur CSV Dateien unterstützt"
 msgid "Replace/Update existing data"
 msgstr "Bestehende Daten ersetzen/aktualisieren"
 
-#: views/import.php:146
+#: views/import.php:140
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
@@ -161,7 +161,7 @@ msgstr ""
 "bereitstellen müssen. Für eine vollständige Liste aller unterstützten Header "
 "exportieren Sie eine CSV-Datei aus der Exportanzeige"
 
-#: views/import.php:126
+#: views/import.php:120
 msgid "Required(*)/Recommended Headers"
 msgstr "Erforderlich(*)/Empfohlene Header"
 
@@ -169,7 +169,7 @@ msgstr "Erforderlich(*)/Empfohlene Header"
 msgid "Save changes"
 msgstr "Änderungen speichern"
 
-#: views/import.php:156
+#: views/import.php:150
 msgid "Submit"
 msgstr "Absenden"
 
@@ -208,7 +208,7 @@ msgstr "Datei konnte nicht analysiert werden"
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
-#: views/export.php:24 views/import.php:27
+#: views/export.php:23 views/import.php:26
 #, php-format
 msgid "What are \"%s\"?"
 msgstr "Was sind \"%s\"?"

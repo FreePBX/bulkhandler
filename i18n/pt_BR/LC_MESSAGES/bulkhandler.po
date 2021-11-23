@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 05:26+0000\n"
+"POT-Creation-Date: 2021-11-23 09:04+0000\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -33,7 +33,7 @@ msgstr "Ações"
 msgid "Admin"
 msgstr "Admin"
 
-#: views/import.php:107
+#: views/import.php:101
 msgid "Browse"
 msgstr "Localizar"
 
@@ -51,7 +51,7 @@ msgid ""
 "recommended headers for your CSV files."
 msgstr ""
 
-#: views/export.php:91 views/import.php:103
+#: views/export.php:86 views/import.php:97
 msgid "CSV File"
 msgstr "Arquivo CSV"
 
@@ -88,11 +88,11 @@ msgstr "Validação de Dados"
 msgid "Edit"
 msgstr "Editar"
 
-#: views/export.php:6 views/export.php:94 views/import.php:6
+#: views/export.php:6 views/export.php:89 views/import.php:6
 msgid "Export"
 msgstr "Exportar"
 
-#: views/export.php:101
+#: views/export.php:96
 msgid "Export to CSV"
 msgstr "Exportar para CSV"
 
@@ -100,7 +100,7 @@ msgstr "Exportar para CSV"
 msgid "Failed to write file to disk"
 msgstr "Falha ao gravar o arquivo no disco"
 
-#: views/import.php:116
+#: views/import.php:110
 msgid "File to Import"
 msgstr "Arquivo para Importar"
 
@@ -152,14 +152,14 @@ msgstr "Somente arquivos CSV são suportados"
 msgid "Replace/Update existing data"
 msgstr "Substituir/Atualizar dados existentes"
 
-#: views/import.php:146
+#: views/import.php:140
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
 
-#: views/import.php:126
+#: views/import.php:120
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "Salvar Mudanças"
 
-#: views/import.php:156
+#: views/import.php:150
 msgid "Submit"
 msgstr "Enviar"
 
@@ -204,7 +204,7 @@ msgstr "Não foi possível analisar o arquivo"
 msgid "Unsupported file format"
 msgstr "Formato de arquivo não suportado"
 
-#: views/export.php:24 views/import.php:27
+#: views/export.php:23 views/import.php:26
 #, php-format
 msgid "What are \"%s\"?"
 msgstr "O que são \"%s\"?"

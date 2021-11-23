@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 05:26+0000\n"
+"POT-Creation-Date: 2021-11-23 09:04+0000\n"
 "PO-Revision-Date: 2021-11-23 07:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "bulkhandler/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
 #: Bulkhandler.class.php:147
@@ -34,13 +34,11 @@ msgstr "Действия"
 msgid "Admin"
 msgstr "Администратор"
 
-#: views/import.php:107
+#: views/import.php:101
 msgid "Browse"
 msgstr "Просмотр"
 
-#: bulkhandler.i18n.php:4
-#: bulkhandler.i18n.php:10
-#: views/export.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
 msgstr "Массовый обработчик"
@@ -60,8 +58,7 @@ msgstr ""
 "вводить каждый элемент по отдельности. Модуль предоставляет необходимые/"
 "рекомендуемые заголовки для ваших CSV-файлов."
 
-#: views/export.php:91
-#: views/import.php:103
+#: views/export.php:86 views/import.php:97
 msgid "CSV File"
 msgstr "CSV-файл"
 
@@ -98,13 +95,11 @@ msgstr "Проверка данных"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: views/export.php:6
-#: views/export.php:94
-#: views/import.php:6
+#: views/export.php:6 views/export.php:89 views/import.php:6
 msgid "Export"
 msgstr "Экспорт"
 
-#: views/export.php:101
+#: views/export.php:96
 msgid "Export to CSV"
 msgstr "Экспорт в CSV"
 
@@ -112,7 +107,7 @@ msgstr "Экспорт в CSV"
 msgid "Failed to write file to disk"
 msgstr "Ошибка записи файла на диск"
 
-#: views/import.php:116
+#: views/import.php:110
 msgid "File to Import"
 msgstr "Файл для импорта"
 
@@ -128,9 +123,7 @@ msgstr "Количество строк заголовка и строк дан�
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:502
-#: views/export.php:7
-#: views/import.php:7
+#: Bulkhandler.class.php:502 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Импорт"
 
@@ -166,7 +159,7 @@ msgstr "Поддерживаются только файлы CSV"
 msgid "Replace/Update existing data"
 msgstr "Заменить/обновить существующие данные"
 
-#: views/import.php:146
+#: views/import.php:140
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
@@ -176,7 +169,7 @@ msgstr ""
 "предоставить для импорта. Для получения полного списка всех поддерживаемых "
 "заголовков экспортируйте CSV файл с экрана экспорта"
 
-#: views/import.php:126
+#: views/import.php:120
 msgid "Required(*)/Recommended Headers"
 msgstr "Обязательные(*)/Рекомендуемые заголовки"
 
@@ -184,7 +177,7 @@ msgstr "Обязательные(*)/Рекомендуемые заголовк�
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
-#: views/import.php:156
+#: views/import.php:150
 msgid "Submit"
 msgstr "Применить"
 
@@ -221,13 +214,11 @@ msgstr ""
 msgid "Unable to parse file"
 msgstr "Невозможно проанализировать файл"
 
-#: Bulkhandler.class.php:124
-#: Bulkhandler.class.php:178
+#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
 msgid "Unsupported file format"
 msgstr "Неподдерживаемый формат файла"
 
-#: views/export.php:24
-#: views/import.php:27
+#: views/export.php:23 views/import.php:26
 #, php-format
 msgid "What are \"%s\"?"
 msgstr "Что означает \"%s\"?"
