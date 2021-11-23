@@ -63,7 +63,7 @@ $(function() {
 				callback();
 				return;
 			}
-			$.post( "ajax.php", {command: 'import', type: type, module: 'bulkhandler', imports: v, replace: (replace ? 1 : 0)},function( data ) {
+			$.post( window.FreePBX.ajaxurl, {command: 'import', type: type, module: 'bulkhandler', imports: v, replace: (replace ? 1 : 0)},function( data ) {
 				if(!data.status) {
 					$("tr[data-unique-id=row-"+i+"] td").css("background-color","red");
 					var div = document.getElementById('error');
@@ -124,7 +124,7 @@ $("#validation-list").on("post-body.bs.table",function() {
 							/* Problem is that every destination can be slightly different than
 							/* the previous one if using custom. Forgo this for now
 							input = "<div id='dest-"+destid+"' class='destination-loading'>"+_("Loading")+"</div>";
-							$.post( "ajax.php", {module: "bulkhandler", command: "destinationdrawselect", id: i, value: v, destid: destid}, function( data ) {
+							$.post( window.FreePBX.ajaxurl, {module: "bulkhandler", command: "destinationdrawselect", id: i, value: v, destid: destid}, function( data ) {
 								$("#dest-"+data.destid).html(data.html);
 							});
 							destid++;
@@ -171,7 +171,7 @@ $( document ).ready(function() {
 		$(".progress").removeClass("hidden");
 		$(".progress-bar").addClass("active");
 		setInterval(function(){ 
-			$.post( "ajax.php", {command: 'direct_import',filename:tmpfile, module: 'bulkhandler'},function( data ) {
+			$.post( window.FreePBX.ajaxurl, {command: 'direct_import',filename:tmpfile, module: 'bulkhandler'},function( data ) {
 			count = data.COUNT;
 			insert = data.INSERT;
 			update = data.UPDATE;
