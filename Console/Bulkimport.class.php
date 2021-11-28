@@ -9,18 +9,19 @@ class Bulkimport extends Command {
 	protected function configure(){
 		$mod_info = module_getinfo('callaccounting', MODULE_STATUS_ENABLED);
 		if (!isset($mod_info['callaccounting'])) {
-			$helptext = 'Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv --replace(Replace the existing values)';
+			$helptext = _('Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv --replace(Replace the existing values)');
 		} else {
-			$helptext = 'Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] filename.csv --replace(Replace the existing values)';
+			$helptext = _('Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] filename.csv --replace(Replace the existing values)');
 		}
 		$this->setName('bulkimport')
-		->setAliases(array('bi'))
-		->setDescription('This command is used to import extensions and dids')
-		->setDefinition(array(
-			new InputOption('type', 't', InputOption::VALUE_REQUIRED, 'Type of file'),
-			new InputArgument('filename', InputArgument::REQUIRED, 'Filename', null),
-			new InputOption('replace', null, InputOption::VALUE_NONE, 'To replace existing values'),))
-		->setHelp($helptext);
+			->setAliases(array('bi'))
+			->setDescription(_('This command is used to import extensions and dids'))
+			->setDefinition(array(
+				new InputOption('type', 't', InputOption::VALUE_REQUIRED, _('Type of file')),
+				new InputArgument('filename', InputArgument::REQUIRED, _('Filename'), null),
+				new InputOption('replace', null, InputOption::VALUE_NONE, _('To replace existing values')),)
+			)
+			->setHelp($helptext);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
 		$filename = $input->getArgument('filename');
@@ -31,34 +32,34 @@ class Bulkimport extends Command {
 		if (file_exists($filename)) {
 			$data = \FreePBX::Bulkhandler()->fileToArray($filename);
 		} else {
-			$output->writeln('<error>The specified file does not exist or we cannot read it</error>');
+			$output->writeln(_('<error>The specified file does not exist or we cannot read it</error>'));
 			return false;
 		}
 		if (!$data) {
-			$output->writeln('<error>The file provided did not process properly. Check the file formatting</error>');
+			$output->writeln(_('<error>The file provided did not process properly. Check the file formatting</error>'));
 			return false;
 		}
 
 		switch ($type) {
 			case 'dids':
-				$output->writeln('Importing bulk dids');
+				$output->writeln(_('Importing bulk dids'));
 				$ret = \FreePBX::Bulkhandler()->import('dids', $data, $replace);
 			break;
 			case 'extensions':
-				$output->writeln('Importing bulk extensions');
+				$output->writeln(_('Importing bulk extensions'));
 				$ret = \FreePBX::Bulkhandler()->import('extensions', $data, $replace);
 			break;
 			case 'callaccounting':
-				$output->writeln('Importing CallDECK Ratepatterns');
+				$output->writeln(_('Importing CallDECK Ratepatterns'));
 				$ret = \FreePBX::Bulkhandler()->import('callaccounting', $data, $replace);
 			 break;
 			default:
-				$output->writeln('<error>You must specify the file type of --type=dids or --type=extensions</error>');
+				$output->writeln(_('<error>You must specify the file type of --type=dids or --type=extensions</error>'));
 			return false;
 			break;
 		}
 		if (!$ret) {
-			$output->writeln('<error>The import failed</error>');
+			$output->writeln(_('<error>The import failed</error>'));
 			return false;
 		} else {
 			return true;
