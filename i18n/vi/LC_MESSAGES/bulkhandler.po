@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 09:04+0000\n"
+"POT-Creation-Date: 2021-11-29 04:24+0000\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,7 +21,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Bulkhandler.class.php:147
+#: Console/Bulkimport.class.php:39
+msgid ""
+"<error>The file provided did not process properly. Check the file "
+"formatting</error>"
+msgstr ""
+
+#: Console/Bulkimport.class.php:62
+msgid "<error>The import failed</error>"
+msgstr ""
+
+#: Console/Bulkimport.class.php:35
+msgid "<error>The specified file does not exist or we cannot read it</error>"
+msgstr ""
+
+#: Console/Bulkimport.class.php:57
+msgid ""
+"<error>You must specify the file type of --type=dids or --type=extensions</"
+"error>"
+msgstr ""
+
+#: views/direct_import.php:12
+#, php-format
+msgid "<strong>Success! </strong>%s Data Imported successfully."
+msgstr ""
+
+#: Bulkhandler.class.php:156
 msgid "A PHP extension stopped the file upload"
 msgstr "Một máy nhánh PHP vừa dừng việc tải tệp lên"
 
@@ -32,6 +57,10 @@ msgstr "Các thao tác"
 #: bulkhandler.i18n.php:6
 msgid "Admin"
 msgstr "Quản trị viên"
+
+#: Bulkhandler.class.php:334
+msgid "Already exists"
+msgstr ""
 
 #: views/import.php:101
 msgid "Browse"
@@ -55,26 +84,30 @@ msgstr ""
 msgid "CSV File"
 msgstr "Tệp CSV"
 
-#: Bulkhandler.class.php:150
+#: Bulkhandler.class.php:159
 msgid "Can Not Find Uploaded Files"
 msgstr "Không tìm thấy các tệp đã tải lên"
 
-#: Bulkhandler.class.php:507
+#: Bulkhandler.class.php:516
 msgid "Cancel"
 msgstr "Hủy"
 
-#: Bulkhandler.class.php:105
+#: Bulkhandler.class.php:114
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr "Không thể tạo Thư mục Temp ( tạm thời):  %s"
 
-#: Bulkhandler.class.php:120
+#: Bulkhandler.class.php:129
 msgid "Cant find uploaded file"
 msgstr "Không thể tìm thấy tệp đã tải lên"
 
 #: views/validate.php:72
 msgid "Close"
 msgstr "Đóng"
+
+#: views/direct_import.php:6 views/validate.php:5
+msgid "Complete"
+msgstr ""
 
 #: views/direct_import.php:3
 msgid "Data Importing"
@@ -96,7 +129,7 @@ msgstr "Xuất ra"
 msgid "Export to CSV"
 msgstr "Xuất đến CSV"
 
-#: Bulkhandler.class.php:144
+#: Bulkhandler.class.php:153
 msgid "Failed to write file to disk"
 msgstr "Ghi tệp vào đĩa không thành công"
 
@@ -104,11 +137,15 @@ msgstr "Ghi tệp vào đĩa không thành công"
 msgid "File to Import"
 msgstr "Tệp để nhập vào"
 
+#: Console/Bulkimport.class.php:21
+msgid "Filename"
+msgstr ""
+
 #: views/direct_import.php:25
 msgid "Go Back"
 msgstr ""
 
-#: Bulkhandler.class.php:170
+#: Bulkhandler.class.php:179
 msgid "Header row and data row count do not match"
 msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 
@@ -116,11 +153,35 @@ msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:502 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:511 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Nhập vào"
 
-#: Bulkhandler.class.php:141
+#: Console/Bulkimport.class.php:12
+msgid ""
+"Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv --"
+"replace(Replace the existing values)"
+msgstr ""
+
+#: Console/Bulkimport.class.php:14
+msgid ""
+"Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] "
+"filename.csv --replace(Replace the existing values)"
+msgstr ""
+
+#: Console/Bulkimport.class.php:53
+msgid "Importing CallDECK Ratepatterns"
+msgstr ""
+
+#: Console/Bulkimport.class.php:45
+msgid "Importing bulk dids"
+msgstr ""
+
+#: Console/Bulkimport.class.php:49
+msgid "Importing bulk extensions"
+msgstr ""
+
+#: Bulkhandler.class.php:150
 msgid "Missing a temporary folder"
 msgstr "Thiếu một tệp tạm thời"
 
@@ -136,7 +197,7 @@ msgstr "Không có bộ quản lý xuất ra (Bulk Exporter) được xác đinh
 msgid "No Bulk Importers have been defined"
 msgstr "Không có bộ quản lý nhập vào được xác định"
 
-#: Bulkhandler.class.php:138
+#: Bulkhandler.class.php:147
 msgid "No file was uploaded"
 msgstr "Không có tệp nào được tải lên"
 
@@ -171,19 +232,19 @@ msgstr "Lưu các thay đổi"
 msgid "Submit"
 msgstr "Gửi đi"
 
-#: Bulkhandler.class.php:132
+#: Bulkhandler.class.php:141
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
 "Tệp được tải lên quá dung lượng tệp tối đa được quy định trong mẫu HTML"
 
-#: Bulkhandler.class.php:129
+#: Bulkhandler.class.php:138
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 "Tệp được tải lên vượt quá dung lượng tệp tối đa đã quy định trong php.ini"
 
-#: Bulkhandler.class.php:135
+#: Bulkhandler.class.php:144
 msgid "The uploaded file was only partially uploaded"
 msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 
@@ -191,16 +252,28 @@ msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 msgid "There is nothing to import!"
 msgstr "Không có gì để nhâp!"
 
-#: Bulkhandler.class.php:192
+#: Console/Bulkimport.class.php:18
+msgid "This command is used to import extensions and dids"
+msgstr ""
+
+#: Console/Bulkimport.class.php:22
+msgid "To replace existing values"
+msgstr ""
+
+#: Bulkhandler.class.php:201
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
 
-#: Bulkhandler.class.php:197
+#: Console/Bulkimport.class.php:20
+msgid "Type of file"
+msgstr ""
+
+#: Bulkhandler.class.php:206
 msgid "Unable to parse file"
 msgstr "Không thể phân tích tệp tin"
 
-#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
+#: Bulkhandler.class.php:133 Bulkhandler.class.php:187
 msgid "Unsupported file format"
 msgstr "Định dạng tệp không được hỗ trợ"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-23 09:04+0000\n"
+"POT-Creation-Date: 2021-11-29 04:24+0000\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -21,7 +21,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Bulkhandler.class.php:147
+#: Console/Bulkimport.class.php:39
+msgid ""
+"<error>The file provided did not process properly. Check the file "
+"formatting</error>"
+msgstr ""
+
+#: Console/Bulkimport.class.php:62
+msgid "<error>The import failed</error>"
+msgstr ""
+
+#: Console/Bulkimport.class.php:35
+msgid "<error>The specified file does not exist or we cannot read it</error>"
+msgstr ""
+
+#: Console/Bulkimport.class.php:57
+msgid ""
+"<error>You must specify the file type of --type=dids or --type=extensions</"
+"error>"
+msgstr ""
+
+#: views/direct_import.php:12
+#, php-format
+msgid "<strong>Success! </strong>%s Data Imported successfully."
+msgstr ""
+
+#: Bulkhandler.class.php:156
 msgid "A PHP extension stopped the file upload"
 msgstr "Uma extensão PHP parou o carregamento do arquivo"
 
@@ -32,6 +57,10 @@ msgstr "Ações"
 #: bulkhandler.i18n.php:6
 msgid "Admin"
 msgstr "Admin"
+
+#: Bulkhandler.class.php:334
+msgid "Already exists"
+msgstr ""
 
 #: views/import.php:101
 msgid "Browse"
@@ -55,26 +84,30 @@ msgstr ""
 msgid "CSV File"
 msgstr "Arquivo CSV"
 
-#: Bulkhandler.class.php:150
+#: Bulkhandler.class.php:159
 msgid "Can Not Find Uploaded Files"
 msgstr "Não é Possível Localizar Arquivos Carregados"
 
-#: Bulkhandler.class.php:507
+#: Bulkhandler.class.php:516
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: Bulkhandler.class.php:105
+#: Bulkhandler.class.php:114
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr "Não é possível criar o Diretório Temporário: %s"
 
-#: Bulkhandler.class.php:120
+#: Bulkhandler.class.php:129
 msgid "Cant find uploaded file"
 msgstr "Não é possivel encontrar o arquivo carregado"
 
 #: views/validate.php:72
 msgid "Close"
 msgstr "Fechar"
+
+#: views/direct_import.php:6 views/validate.php:5
+msgid "Complete"
+msgstr ""
 
 #: views/direct_import.php:3
 msgid "Data Importing"
@@ -96,7 +129,7 @@ msgstr "Exportar"
 msgid "Export to CSV"
 msgstr "Exportar para CSV"
 
-#: Bulkhandler.class.php:144
+#: Bulkhandler.class.php:153
 msgid "Failed to write file to disk"
 msgstr "Falha ao gravar o arquivo no disco"
 
@@ -104,11 +137,15 @@ msgstr "Falha ao gravar o arquivo no disco"
 msgid "File to Import"
 msgstr "Arquivo para Importar"
 
+#: Console/Bulkimport.class.php:21
+msgid "Filename"
+msgstr ""
+
 #: views/direct_import.php:25
 msgid "Go Back"
 msgstr ""
 
-#: Bulkhandler.class.php:170
+#: Bulkhandler.class.php:179
 msgid "Header row and data row count do not match"
 msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 
@@ -116,11 +153,35 @@ msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:502 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:511 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importar"
 
-#: Bulkhandler.class.php:141
+#: Console/Bulkimport.class.php:12
+msgid ""
+"Import a file: fwconsole bulkimport --type=[extensions|dids] filename.csv --"
+"replace(Replace the existing values)"
+msgstr ""
+
+#: Console/Bulkimport.class.php:14
+msgid ""
+"Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] "
+"filename.csv --replace(Replace the existing values)"
+msgstr ""
+
+#: Console/Bulkimport.class.php:53
+msgid "Importing CallDECK Ratepatterns"
+msgstr ""
+
+#: Console/Bulkimport.class.php:45
+msgid "Importing bulk dids"
+msgstr ""
+
+#: Console/Bulkimport.class.php:49
+msgid "Importing bulk extensions"
+msgstr ""
+
+#: Bulkhandler.class.php:150
 msgid "Missing a temporary folder"
 msgstr "Faltando uma pasta temporária"
 
@@ -136,7 +197,7 @@ msgstr "Nenhum Exportador em Massa foi definido"
 msgid "No Bulk Importers have been defined"
 msgstr "Nenhum Importador em Massa foi definido"
 
-#: Bulkhandler.class.php:138
+#: Bulkhandler.class.php:147
 msgid "No file was uploaded"
 msgstr "Nenhum arquivo foi enviado"
 
@@ -171,7 +232,7 @@ msgstr "Salvar Mudanças"
 msgid "Submit"
 msgstr "Enviar"
 
-#: Bulkhandler.class.php:132
+#: Bulkhandler.class.php:141
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
@@ -179,11 +240,11 @@ msgstr ""
 "O arquivo enviado excede o atributo MAX_FILE_SIZE que foi especificado no "
 "formulário HTML"
 
-#: Bulkhandler.class.php:129
+#: Bulkhandler.class.php:138
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr "O arquivo enviado excede o atributo upload_max_filesize no php.ini"
 
-#: Bulkhandler.class.php:135
+#: Bulkhandler.class.php:144
 msgid "The uploaded file was only partially uploaded"
 msgstr "O arquivo enviado foi parcialmente carregado"
 
@@ -191,16 +252,28 @@ msgstr "O arquivo enviado foi parcialmente carregado"
 msgid "There is nothing to import!"
 msgstr "Não há nada para importar!"
 
-#: Bulkhandler.class.php:192
+#: Console/Bulkimport.class.php:18
+msgid "This command is used to import extensions and dids"
+msgstr ""
+
+#: Console/Bulkimport.class.php:22
+msgid "To replace existing values"
+msgstr ""
+
+#: Bulkhandler.class.php:201
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
 
-#: Bulkhandler.class.php:197
+#: Console/Bulkimport.class.php:20
+msgid "Type of file"
+msgstr ""
+
+#: Bulkhandler.class.php:206
 msgid "Unable to parse file"
 msgstr "Não foi possível analisar o arquivo"
 
-#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
+#: Bulkhandler.class.php:133 Bulkhandler.class.php:187
 msgid "Unsupported file format"
 msgstr "Formato de arquivo não suportado"
 
