@@ -2,7 +2,7 @@
 	<h1 class="header"><?php echo _("Data Validation")?></h1>
 	<div class="progress hidden">
 		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-			<span class="sr-only">0% Complete</span>
+			<span class="sr-only">0% <?php echo _("Complete") ?></span>
 		</div>
 	</div>
 </div>

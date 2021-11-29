@@ -3,20 +3,20 @@
 	<h1 class="header"><?php echo _("Data Importing")?></h1>
 	<div class="progress hidden">
 		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-			<span  id="myspan" class="is_scalar">0% Complete</span>
+			<span  id="myspan" class="is_scalar">0% <?php echo _("Complete")?></span>
 		</div>
 	</div>
 </div>
 <div class="alert alert-success hidden">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-    <strong>Success! </strong><?php echo $totalnows;?> Data Imported successfully.
+    <?php echo sprintf(_("<strong>Success! </strong>%s Data Imported successfully."), $totalnows)?>
 </div>
 
 <div class="alert alert-info hidden">
     <a href="#" class="close" data-dismiss="alert">&times;</a>
-   <span  id="insertspan" class="is_scalar"></span>
-  <br> <span  id="updatespan" class="is_scalar"></span>
-  <br> <span  id="baddata" class="is_scalar"></span>
+    <span  id="insertspan" class="is_scalar"></span><br>
+    <span  id="updatespan" class="is_scalar"></span><br>
+    <span  id="baddata" class="is_scalar"></span>
 </div>
 
 <input type="hidden" name="direct_import" id="direct_import" value="yes">

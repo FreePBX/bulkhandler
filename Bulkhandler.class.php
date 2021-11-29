@@ -28,7 +28,13 @@ class Bulkhandler implements \BMO {
 	public function showPage() {
 		if(!empty($_REQUEST['quietmode']) && $_REQUEST['activity'] == 'export') {
 			$customfields = $_REQUEST;
-			unset($customfields['display']);unset($customfields['quietmode']);unset($customfields['activity']);unset($customfields['export']);unset($customfields['extdisplay']);
+
+			unset($customfields['display']);
+			unset($customfields['quietmode']);
+			unset($customfields['activity']);
+			unset($customfields['export']);
+			unset($customfields['extdisplay']);
+
 			$this->export($_REQUEST['export'],$customfields);
 		} else {
 			$message = ''; 
@@ -45,7 +51,10 @@ class Bulkhandler implements \BMO {
 								//lets replace the some custom values if we have
 								$customf = $_REQUEST;
 								//unset Bulkhandler related key => vals
-								unset($customf['display']); unset($customf['activity']);unset($customf['type']);unset($customf['extdisplay']);
+								unset($customf['display']);
+								unset($customf['activity']);
+								unset($customf['type']);
+								unset($customf['extdisplay']);
 								// we have the array with  all custom values here ; Note , all possible custom values should be there in the identifier
 								$headers = $this->getHeaders($_REQUEST['type'],true);
 								$arraynew = array();
@@ -88,15 +97,15 @@ class Bulkhandler implements \BMO {
 				break;
 			}
 		}
+	}
 
+	public function removeBomUtf8($s){
+		if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+			return substr($s,3);
+		}else{
+			return $s;
+		}
 	}
-public function removeBomUtf8($s){
-	if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
-		return substr($s,3);
-	}else{
-		return $s;
-	}
-}
 
 	private function uploadFile() {
 		$temp = sys_get_temp_dir() . "/bhimports";
@@ -239,7 +248,7 @@ public function removeBomUtf8($s){
 	public function getCustomField($type) {
 		$fields = array();
 		$modules = $this->freepbx->Hooks->processHooks($type);
-	return $modules;
+		return $modules;
 	}
 	public function getTypes($activity='import') {
 		$modules = $this->freepbx->Hooks->processHooks();
@@ -322,7 +331,7 @@ public function removeBomUtf8($s){
 					switch($_POST["replace"]){
 						case "0":
 							if(array_search($_POST['imports']["extension"],$current_ext) !== false){
-								return array("status" => false, "message" => "Already exists");
+								return array("status" => false, "message" => _("Already exists"));
 							}
 							if($sys_limit < 1){
 								return array("status" => false, "message" => "over");
@@ -345,8 +354,8 @@ public function removeBomUtf8($s){
 				$ret = array("status" => true, "destid" => $_POST['destid'], "html" => drawselects($_POST['value'],$_POST['id'], false, false));
 			break;
 			case "direct_import":
-					$ret = $this->readtempfile_for_import_status($_REQUEST['filename']);
-					return $ret;
+				$ret = $this->readtempfile_for_import_status($_REQUEST['filename']);
+				return $ret;
 			break;
 		}
 		return $ret;
@@ -368,7 +377,7 @@ public function removeBomUtf8($s){
 				}
 			}
 			fclose($file);
-			dbug(print_r($return,true));
+			// dbug(print_r($return,true));
 			return $return;
 			
 		}
@@ -392,7 +401,7 @@ public function removeBomUtf8($s){
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $fullData, $request,$file);
 				if($ret['status'] === false) {
-					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
+					return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
 				}
 			}
 			return array("status" => true);
@@ -419,7 +428,7 @@ public function removeBomUtf8($s){
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
 				if(isset($ret['status']) && $ret['status'] === false) {
-					return array("status" => false, "message" => "There was an error in ".$mod.", message:".$ret['message']);
+					return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
 				}
 			}
 			return array("status" => true);
