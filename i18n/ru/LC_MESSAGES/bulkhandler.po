@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-07 05:26+0000\n"
-"PO-Revision-Date: 2021-11-30 15:00+0000\n"
+"PO-Revision-Date: 2021-12-02 12:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "bulkhandler/ru/>\n"
@@ -204,7 +204,7 @@ msgstr ""
 
 #: Bulkhandler.class.php:135
 msgid "The uploaded file was only partially uploaded"
-msgstr "Файл загружен частично"
+msgstr "Файл был загружен частично"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
