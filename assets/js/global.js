@@ -90,6 +90,9 @@ $(function() {
 			if(errors === 0) {
 				$("#import").prop("value",_("Reimport"));
 				$("#cancel").prop("value",_("Finished"));
+				$.post(window.FreePBX.ajaxurl, {command: 'import_finished', type: type, module: 'bulkhandler'}, function(data) {
+					console.log(data);
+				});
 			}
 		});
 	});
