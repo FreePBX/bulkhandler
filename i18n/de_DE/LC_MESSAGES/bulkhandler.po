@@ -10,9 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-07 05:26+0000\n"
-"PO-Revision-Date: 2019-02-25 12:15+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
-"Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
+"PO-Revision-Date: 2021-12-02 13:29+0000\n"
+"Last-Translator: florian alberts <alberts@ar-systems.de>\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/"
+"bulkhandler/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +50,12 @@ msgid ""
 "having to enter each item individually. The module provides required/"
 "recommended headers for your CSV files."
 msgstr ""
+"Bulk Handler verwaltet den Massenexport oder -import von Nebenstellen, DIDs, "
+"Benutzer-Manager-Benutzern, Benutzer-Manager-Gruppen und Kontakten. Sie "
+"können jede dieser Dateien als CSV-Datei exportieren. Sie können auch eine "
+"CSV-Datei hochladen, um Zeit zu sparen, anstatt jedes Element einzeln "
+"eingeben zu müssen. Das Modul bietet erforderliche/empfohlene Header für "
+"Ihre CSV-Dateien."
 
 #: views/export.php:91 views/import.php:103
 msgid "CSV File"
@@ -105,7 +112,7 @@ msgstr "Datei Importieren"
 
 #: views/direct_import.php:25
 msgid "Go Back"
-msgstr ""
+msgstr "Gehe zurück"
 
 #: Bulkhandler.class.php:170
 msgid "Header row and data row count do not match"
@@ -199,6 +206,8 @@ msgstr "Es gibt nichts zum Importieren!"
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
+"Zu viele Nebenstellen zum Importieren. Der Grenzwert ist: %d physische "
+"Nebenstellen."
 
 #: Bulkhandler.class.php:197
 msgid "Unable to parse file"
