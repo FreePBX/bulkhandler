@@ -3,31 +3,31 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for bulkhandler
-# Copyright (C) 2008-2016 Sangoma, Inc.
+# Copyright (C) 2008-2021 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-07 05:26+0000\n"
-"PO-Revision-Date: 2017-03-20 13:15+0200\n"
-"Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/bulkhandler/pt_BR/>\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2021-11-22 20:45+0000\n"
+"Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
+"bulkhandler/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Bulkhandler.class.php:147
 msgid "A PHP extension stopped the file upload"
-msgstr "Uma extensão PHP parou o carregamento do arquivo"
+msgstr "Una extensión de PHP detuvo la carga del archivo"
 
 #: views/validate.php:38
 msgid "Actions"
-msgstr "Ações"
+msgstr "Acciones"
 
 #: bulkhandler.i18n.php:6
 msgid "Admin"
@@ -35,12 +35,14 @@ msgstr "Admin"
 
 #: views/import.php:107
 msgid "Browse"
-msgstr "Localizar"
+msgstr "Explorar"
 
-#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
+#: bulkhandler.i18n.php:4
+#: bulkhandler.i18n.php:10
+#: views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
-msgstr "Movimentação em Massa"
+msgstr "Bulk Handler"
 
 #: bulkhandler.i18n.php:8
 msgid ""
@@ -50,14 +52,21 @@ msgid ""
 "having to enter each item individually. The module provides required/"
 "recommended headers for your CSV files."
 msgstr ""
+"Bulk Handler gestiona la exportación o importación masiva de extensiones, "
+"DID, usuarios y grupos del administrador de usuarios y contactos. Puede "
+"exportar cualquiera de estos como un archivo CSV. También puede cargar un "
+"archivo CSV para ahorrar tiempo en lugar de tener que ingresar cada elemento "
+"individualmente. El módulo proporciona encabezados obligatorios/recomendados "
+"para sus archivos CSV."
 
-#: views/export.php:91 views/import.php:103
+#: views/export.php:91
+#: views/import.php:103
 msgid "CSV File"
-msgstr "Arquivo CSV"
+msgstr "Archivo CSV"
 
 #: Bulkhandler.class.php:150
 msgid "Can Not Find Uploaded Files"
-msgstr "Não é Possível Localizar Arquivos Carregados"
+msgstr "No se pueden encontrar los archivos subidos"
 
 #: Bulkhandler.class.php:507
 msgid "Cancel"
@@ -66,91 +75,95 @@ msgstr "Cancelar"
 #: Bulkhandler.class.php:105
 #, php-format
 msgid "Cant Create Temp Directory: %s"
-msgstr "Não é possível criar o Diretório Temporário: %s"
+msgstr "No se puede crear el directorio temporal: %s"
 
 #: Bulkhandler.class.php:120
 msgid "Cant find uploaded file"
-msgstr "Não é possivel encontrar o arquivo carregado"
+msgstr "No puedo encontrar el archivo subido"
 
 #: views/validate.php:72
 msgid "Close"
-msgstr "Fechar"
+msgstr "Cerrar"
 
 #: views/direct_import.php:3
 msgid "Data Importing"
-msgstr ""
+msgstr "Importación de Datos"
 
 #: views/validate.php:2
 msgid "Data Validation"
-msgstr "Validação de Dados"
+msgstr "Validación de Datos"
 
 #: views/validate.php:65
 msgid "Edit"
 msgstr "Editar"
 
-#: views/export.php:6 views/export.php:94 views/import.php:6
+#: views/export.php:6
+#: views/export.php:94
+#: views/import.php:6
 msgid "Export"
 msgstr "Exportar"
 
 #: views/export.php:101
 msgid "Export to CSV"
-msgstr "Exportar para CSV"
+msgstr "Exportar a CSV"
 
 #: Bulkhandler.class.php:144
 msgid "Failed to write file to disk"
-msgstr "Falha ao gravar o arquivo no disco"
+msgstr "No se pudo escribir el archivo en el disco"
 
 #: views/import.php:116
 msgid "File to Import"
-msgstr "Arquivo para Importar"
+msgstr "Archivo a Importar"
 
 #: views/direct_import.php:25
 msgid "Go Back"
-msgstr ""
+msgstr "Volver"
 
 #: Bulkhandler.class.php:170
 msgid "Header row and data row count do not match"
-msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
+msgstr "La fila de encabezado y el recuento de filas de datos no coinciden"
 
 #: views/validate.php:31
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:502 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:502
+#: views/export.php:7
+#: views/import.php:7
 msgid "Import"
 msgstr "Importar"
 
 #: Bulkhandler.class.php:141
 msgid "Missing a temporary folder"
-msgstr "Faltando uma pasta temporária"
+msgstr "Falta la carpeta temporal"
 
 #: views/validate.php:15
 msgid "No"
-msgstr "Não"
+msgstr "No"
 
 #: views/export.php:10
 msgid "No Bulk Exporters have been defined"
-msgstr "Nenhum Exportador em Massa foi definido"
+msgstr "No se ha definido ningún exportador de forma masiva"
 
 #: views/import.php:10
 msgid "No Bulk Importers have been defined"
-msgstr "Nenhum Importador em Massa foi definido"
+msgstr "No se han definido importadores de forma masiva"
 
 #: Bulkhandler.class.php:138
 msgid "No file was uploaded"
-msgstr "Nenhum arquivo foi enviado"
+msgstr "No se subió ningún archivo"
 
 #: assets/js/global.js:23
 msgid "Not file specified"
-msgstr "Arquivo não especificado"
+msgstr "Archivo no especificado"
 
 #: assets/js/global.js:28
 msgid "Only CSV files are supported"
-msgstr "Somente arquivos CSV são suportados"
+msgstr "Solo se admiten archivos CSV"
 
 #: views/validate.php:10
 msgid "Replace/Update existing data"
-msgstr "Substituir/Atualizar dados existentes"
+msgstr "Reemplazar/Actualizar datos existentes"
 
 #: views/import.php:146
 msgid ""
@@ -158,14 +171,18 @@ msgid ""
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
+"Los encabezados obligatorios (*) son los encabezados mínimos que debe "
+"proporcionar para poder importar. Para obtener una lista completa de todos "
+"los encabezados admitidos, exporte un archivo CSV desde la pantalla de "
+"exportación"
 
 #: views/import.php:126
 msgid "Required(*)/Recommended Headers"
-msgstr ""
+msgstr "Encabezados Obligatorios(*)/Recomendados"
 
 #: views/validate.php:73
 msgid "Save changes"
-msgstr "Salvar Mudanças"
+msgstr "Guardar cambios"
 
 #: views/import.php:156
 msgid "Submit"
@@ -176,63 +193,42 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
-"O arquivo enviado excede o atributo MAX_FILE_SIZE que foi especificado no "
-"formulário HTML"
+"El archivo subido excede la directiva MAX_FILE_SIZE que se especificó en el "
+"formulario HTML"
 
 #: Bulkhandler.class.php:129
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
-msgstr "O arquivo enviado excede o atributo upload_max_filesize no php.ini"
+msgstr "El archivo subido excede la directiva upload_max_filesize en php.ini"
 
 #: Bulkhandler.class.php:135
 msgid "The uploaded file was only partially uploaded"
-msgstr "O arquivo enviado foi parcialmente carregado"
+msgstr "El archivo fue sólo parcialmente subido"
 
 #: assets/js/global.js:58
 msgid "There is nothing to import!"
-msgstr "Não há nada para importar!"
+msgstr "¡No hay nada que importar!"
 
 #: Bulkhandler.class.php:192
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
+"Demasiadas extensiones para importar. El límite es: %d extensiones físicas."
 
 #: Bulkhandler.class.php:197
 msgid "Unable to parse file"
-msgstr "Não foi possível analisar o arquivo"
+msgstr "No se puede analizar el archivo"
 
-#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
+#: Bulkhandler.class.php:124
+#: Bulkhandler.class.php:178
 msgid "Unsupported file format"
-msgstr "Formato de arquivo não suportado"
+msgstr "Formato de archivo no soportado"
 
-#: views/export.php:24 views/import.php:27
+#: views/export.php:24
+#: views/import.php:27
 #, php-format
 msgid "What are \"%s\"?"
-msgstr "O que são \"%s\"?"
+msgstr "¿Qué son \"%s\"?"
 
 #: views/validate.php:13
 msgid "Yes"
-msgstr "Sim"
-
-#~ msgid "Finished"
-#~ msgstr "Finalizado"
-
-#~ msgid "Loading"
-#~ msgstr "Carregando"
-
-#~ msgid "Reimport"
-#~ msgstr "Reimportar"
-
-#~ msgid "Required/Recommended Headers"
-#~ msgstr "Cabeçalhos Requeridos/Recomendados"
-
-#~ msgid ""
-#~ "Required/Recommended headers are the minimum headers you must supply to "
-#~ "be able to import. For a full list of all supported headers export out a "
-#~ "CSV file from the export display"
-#~ msgstr ""
-#~ "Os cabeçalhos Requeridos/Recomendados são o mínimo que você deve fornecer "
-#~ "para poder importar. Para obter uma lista completa de todos os cabeçalhos "
-#~ "suportados, exporte um arquivo CSV a partir da tela de exportação"
-
-#~ msgid "There was an error importing row %s: %s"
-#~ msgstr "Ocorreu um erro ao importar a linha %s: %s"
+msgstr "Sí"
