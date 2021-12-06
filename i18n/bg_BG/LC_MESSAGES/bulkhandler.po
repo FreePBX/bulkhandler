@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-29 04:24+0000\n"
+"POT-Creation-Date: 2021-12-06 04:25+0000\n"
 "PO-Revision-Date: 2016-09-21 19:56+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -58,7 +58,7 @@ msgstr "Действия"
 msgid "Admin"
 msgstr ""
 
-#: Bulkhandler.class.php:334
+#: Bulkhandler.class.php:337
 msgid "Already exists"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Can Not Find Uploaded Files"
 msgstr ""
 
-#: Bulkhandler.class.php:516
+#: Bulkhandler.class.php:523
 msgid "Cancel"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: Bulkhandler.class.php:511 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:518 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr ""
 

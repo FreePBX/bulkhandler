@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-29 04:24+0000\n"
+"POT-Creation-Date: 2021-12-06 04:25+0000\n"
 "PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
@@ -57,7 +57,7 @@ msgstr "Aktionen"
 msgid "Admin"
 msgstr "Administrator"
 
-#: Bulkhandler.class.php:334
+#: Bulkhandler.class.php:337
 msgid "Already exists"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr "CSV-Datei"
 msgid "Can Not Find Uploaded Files"
 msgstr "Es können keine hochgeladenen Dateien gefunden werden"
 
-#: Bulkhandler.class.php:516
+#: Bulkhandler.class.php:523
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -152,7 +152,7 @@ msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:511 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:518 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importieren"
 
