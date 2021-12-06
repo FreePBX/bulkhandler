@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 05:26+0000\n"
+"POT-Creation-Date: 2021-12-06 04:26+0000\n"
 "PO-Revision-Date: 2021-11-22 20:45+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
 "bulkhandler/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.0.1\n"
@@ -37,9 +37,7 @@ msgstr "Admin"
 msgid "Browse"
 msgstr "Explorar"
 
-#: bulkhandler.i18n.php:4
-#: bulkhandler.i18n.php:10
-#: views/export.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
 msgstr "Bulk Handler"
@@ -59,8 +57,7 @@ msgstr ""
 "individualmente. El módulo proporciona encabezados obligatorios/recomendados "
 "para sus archivos CSV."
 
-#: views/export.php:91
-#: views/import.php:103
+#: views/export.php:91 views/import.php:103
 msgid "CSV File"
 msgstr "Archivo CSV"
 
@@ -68,7 +65,7 @@ msgstr "Archivo CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "No se pueden encontrar los archivos subidos"
 
-#: Bulkhandler.class.php:507
+#: Bulkhandler.class.php:514
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -97,9 +94,7 @@ msgstr "Validación de Datos"
 msgid "Edit"
 msgstr "Editar"
 
-#: views/export.php:6
-#: views/export.php:94
-#: views/import.php:6
+#: views/export.php:6 views/export.php:94 views/import.php:6
 msgid "Export"
 msgstr "Exportar"
 
@@ -127,9 +122,7 @@ msgstr "La fila de encabezado y el recuento de filas de datos no coinciden"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:502
-#: views/export.php:7
-#: views/import.php:7
+#: Bulkhandler.class.php:509 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importar"
 
@@ -218,13 +211,11 @@ msgstr ""
 msgid "Unable to parse file"
 msgstr "No se puede analizar el archivo"
 
-#: Bulkhandler.class.php:124
-#: Bulkhandler.class.php:178
+#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
 msgid "Unsupported file format"
 msgstr "Formato de archivo no soportado"
 
-#: views/export.php:24
-#: views/import.php:27
+#: views/export.php:24 views/import.php:27
 #, php-format
 msgid "What are \"%s\"?"
 msgstr "¿Qué son \"%s\"?"

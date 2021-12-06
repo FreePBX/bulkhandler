@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 05:26+0000\n"
+"POT-Creation-Date: 2021-12-06 04:26+0000\n"
 "PO-Revision-Date: 2021-12-02 12:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
 "bulkhandler/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
 #: Bulkhandler.class.php:147
@@ -38,9 +38,7 @@ msgstr "Администратор"
 msgid "Browse"
 msgstr "Просмотр"
 
-#: bulkhandler.i18n.php:4
-#: bulkhandler.i18n.php:10
-#: views/export.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
 msgstr "Массовый обработчик"
@@ -60,8 +58,7 @@ msgstr ""
 "вводить каждый элемент по отдельности. Модуль предоставляет необходимые/"
 "рекомендуемые заголовки для ваших CSV-файлов."
 
-#: views/export.php:91
-#: views/import.php:103
+#: views/export.php:91 views/import.php:103
 msgid "CSV File"
 msgstr "CSV-файл"
 
@@ -69,7 +66,7 @@ msgstr "CSV-файл"
 msgid "Can Not Find Uploaded Files"
 msgstr "Загружаемые файлы не обнаружены"
 
-#: Bulkhandler.class.php:507
+#: Bulkhandler.class.php:514
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -98,9 +95,7 @@ msgstr "Проверка данных"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: views/export.php:6
-#: views/export.php:94
-#: views/import.php:6
+#: views/export.php:6 views/export.php:94 views/import.php:6
 msgid "Export"
 msgstr "Экспорт"
 
@@ -128,9 +123,7 @@ msgstr "Количество строк заголовка и строк дан�
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:502
-#: views/export.php:7
-#: views/import.php:7
+#: Bulkhandler.class.php:509 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Импорт"
 
@@ -221,13 +214,11 @@ msgstr ""
 msgid "Unable to parse file"
 msgstr "Невозможно проанализировать файл"
 
-#: Bulkhandler.class.php:124
-#: Bulkhandler.class.php:178
+#: Bulkhandler.class.php:124 Bulkhandler.class.php:178
 msgid "Unsupported file format"
 msgstr "Неподдерживаемый формат файла"
 
-#: views/export.php:24
-#: views/import.php:27
+#: views/export.php:24 views/import.php:27
 #, php-format
 msgid "What are \"%s\"?"
 msgstr "Что означает \"%s\"?"
