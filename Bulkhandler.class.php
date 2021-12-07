@@ -522,27 +522,22 @@ public function removeBomUtf8($s){
 	/**
 	 * Import Finished
 	 * @param  string $type            The type of data import
-	 * @param  array $rawData         Raw array of data to import
 	 */
-	public function importFinished($type, $rawData) {
-		$val = $this->validate($type, $rawData);
-		if($val['status'] === true){
-			try {
-				$methods = $this->freepbx->Hooks->returnHooks();
-			} catch(\Exception $e) {
-				return array("status" => false, "message" => $e->getMessage());
-			}
-			$methods = is_array($methods) ? $methods : array();
-			foreach($methods as $method) {
-				$mod = $method['module'];
-				$meth = $method['method'];
-				$ret = \FreePBX::$mod()->$meth($type, $rawData);
-				if(isset($ret['status']) && $ret['status'] === false) {
-					return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
-				}
-			}
-			return array("status" => true);
+	public function importFinished($type) {
+		try {
+			$methods = $this->freepbx->Hooks->returnHooks();
+		} catch(\Exception $e) {
+			return array("status" => false, "message" => $e->getMessage());
 		}
-		return array("status" => false, "message" => $val['message']);
+		$methods = is_array($methods) ? $methods : array();
+		foreach($methods as $method) {
+			$mod = $method['module'];
+			$meth = $method['method'];
+			$ret = \FreePBX::$mod()->$meth($type);
+			if(isset($ret['status']) && $ret['status'] === false) {
+				return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
+			}
+		}
+		return array("status" => true);
 	}
 }
