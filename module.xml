@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>15.0.2</version>
+	<version>15.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*15.0.3* SCD-113 when contact is bulk imported, scd contact reload is triggering for each group 
 		*15.0.2* SCD-113 Need to handle SCD bulk import 
 		*15.0.1*  15.0 release
 	</changelog>
