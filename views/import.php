@@ -13,9 +13,9 @@
 					<div class="alert alert-danger" role="alert"><?php echo $message?></div>
 				<?php } ?>
 				<div class="fpbx-container">
-						<ul class="nav nav-tabs" role="tablist">
+						<ul class="nav nav-tabs pb-0" role="tablist">
 							<?php foreach($types as $key => $type) {?>
-								<li data-name="<?php echo $key?>" class="change-tab <?php echo $type['active'] ? 'active' : ''?>"><a href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $type['name']?></a></li>
+								<li data-name="<?php echo $key?>" class="change-tab"><a class="nav-link <?php echo $type['active'] ? 'active' : ''?>" href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $type['name']?></a></li>
 							<?php } ?>
 						</ul>
 						<div class="tab-content display">
@@ -42,8 +42,8 @@
 											<div class="element-container">
 												<div class="row">
 													<div class="col-md-12">
-														<div class="row">
-															<div class="form-group">
+														<div class="">
+															<div class="row form-group">
 																<div class="col-md-3">
 																	<label class="control-label" for="<?php echo $fieldname?>-import"><?php echo _($fieldval['label'])?></label>
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $fieldname?>-import"></i>
@@ -91,8 +91,8 @@
 											<div class="element-container">
 												<div class="row">
 													<div class="col-md-12">
-														<div class="row">
-															<div class="form-group">
+														<div class="">
+															<div class="row form-group">
 																<div class="col-md-3">
 																	<label class="control-label" for="<?php echo $key?>-import"><?php echo _('CSV File')?></label>
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-import"></i>
@@ -114,8 +114,8 @@
 											<div class="element-container">
 												<div class="row">
 													<div class="col-md-12">
-														<div class="row">
-															<div class="form-group">
+														<div class="">
+															<div class="row form-group">
 																<div class="col-md-3">
 																	<label class="control-label" for="<?php echo $key?>-headers"><?php echo _('Required(*)/Recommended Headers')?></label>
 																	<i class="fa fa-question-circle fpbx-help-icon" data-for="<?php echo $key?>-headers"></i>
@@ -144,8 +144,8 @@
 											<div class="element-container">
 												<div class="row">
 													<div class="col-md-12">
-														<div class="row">
-															<div class="form-group">
+														<div class="">
+															<div class="row form-group">
 																<div class="col-md-3"></div>
 																<div class="col-md-9"><input type="submit" value="<?php echo _('Submit')?>"></div>
 															</div>
