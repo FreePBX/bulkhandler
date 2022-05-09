@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 04:25+0000\n"
+"POT-Creation-Date: 2022-05-09 02:16+0000\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Data Validation"
 msgstr "Walidacja danych"
 
-#: views/validate.php:65
+#: views/validate.php:64
 msgid "Edit"
 msgstr "Edytuj"
 

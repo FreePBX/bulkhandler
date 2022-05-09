@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>16.0.9</version>
+	<version>16.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*16.0.10* FREEI-4793 
 		*16.0.9* Packaging of ver 16.0.9
 		*16.0.8* SCD-113 Need to handle SCD bulk import 
 		*16.0.7* Packaging of ver 16.0.7

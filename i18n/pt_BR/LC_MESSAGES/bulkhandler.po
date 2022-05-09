@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 04:25+0000\n"
+"POT-Creation-Date: 2022-05-09 02:16+0000\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Data Validation"
 msgstr "Validação de Dados"
 
-#: views/validate.php:65
+#: views/validate.php:64
 msgid "Edit"
 msgstr "Editar"
 
