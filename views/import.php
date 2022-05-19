@@ -3,8 +3,8 @@
 		<div class="col-sm-12">
 			<h1><?php echo _("Bulk Handler")?></h1>
 				<ul class="nav nav-pills">
-					<li role="presentation"><a href="?display=bulkhandler&amp;activity=export" class="list-group-item <?php echo ($activity == "export") ? 'active' : ''?>"><?php echo _('Export')?></a></li>
-					<li role="presentation"  class="active"><a href="?display=bulkhandler&amp;activity=import" class="list-group-item <?php echo ($activity == "import") ? 'active' : ''?>"><?php echo _('Import');?></a></li>
+					<li role="presentation"><a href="?display=bulkhandler&amp;activity=export" class="list-group-item import__export__btn<?php echo ($activity == "export") ? 'active' : ''?>"><?php echo _('Export')?></a></li>
+					<li role="presentation"  class="active"><a href="?display=bulkhandler&amp;activity=import" class="list-group-item import__export__btn <?php echo ($activity == "import") ? 'active' : ''?>"><?php echo _('Import');?></a></li>
 				</ul>
 			<?php if(empty($types)) {?>
 				<div class="alert alert-warning" role="alert"><?php echo _('No Bulk Importers have been defined')?></div>
