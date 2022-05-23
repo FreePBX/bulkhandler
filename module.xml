@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>16.0.12</version>
+	<version>17.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,21 +19,10 @@
 	</depends>
 	<info/>
 	<changelog>
-		*16.0.12* Packaging of ver 16.0.12
-		*16.0.11* Packaging of ver 16.0.11
-		*16.0.10* FREEI-4793 
-		*16.0.9* Packaging of ver 16.0.9
-		*16.0.8* SCD-113 Need to handle SCD bulk import 
-		*16.0.7* Packaging of ver 16.0.7
-		*16.0.6* FREEPBX-23086: Add i18n detection to phrases that are not detected 
-		*16.0.5* FREEPBX-23062 - Update js to use ajaxurl and usar show_help box info 
-		*16.0.4* FREEI-4140 Import ID 0 is over the system limit (Bulk Handler) 
-		*16.0.3* REEI-3374 Vuln-001 Stored Cross-Site Scripting 
-		*16.0.2* Packaging of ver 16.0.2
-		*16.0.1* Initial 16.0 release
+		*17.0.1* Initial 17.0 release
 	</changelog>
 	<supported>
-		<version>16.0</version>
+		<version>17.0</version>
 	</supported>
 	<console>
 		<command>
