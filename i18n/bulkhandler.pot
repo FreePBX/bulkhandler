@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 09:59+0000\n"
+"POT-Creation-Date: 2022-09-15 12:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Can Not Find Uploaded Files"
 msgstr ""
 
-#: Bulkhandler.class.php:523
+#: Bulkhandler.class.php:527
 msgid "Cancel"
 msgstr ""
 
@@ -156,7 +156,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: Bulkhandler.class.php:518
+#: Bulkhandler.class.php:522
 #: views/export.php:7
 #: views/import.php:7
 msgid "Import"

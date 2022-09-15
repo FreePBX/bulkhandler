@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 04:25+0000\n"
+"POT-Creation-Date: 2022-09-15 12:03+0000\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -88,7 +88,7 @@ msgstr "Arquivo CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "Não é Possível Localizar Arquivos Carregados"
 
-#: Bulkhandler.class.php:523
+#: Bulkhandler.class.php:527
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -153,7 +153,7 @@ msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:518 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:522 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importar"
 
