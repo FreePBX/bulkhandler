@@ -34,6 +34,11 @@ $(function() {
 		$(".edit-fields input").each(function() {
 			var id = $(this).prop("id");
 			var val = $(this).val();
+			$('#validation-list').bootstrapTable('updateCell', {
+				index: editId,
+				field: id,
+				value: val
+			});
 			imports[editId][id] = val;
 		});
 		$('#edit').modal('hide');
@@ -112,17 +117,9 @@ $("#validation-list").on("post-body.bs.table",function() {
 
 					if (headers && (header = headers[i])) {
 						label = header['description'] ? header['description'] : i;
-
-						if (!header['type'] || header['type'] == 'string') {
-							if (header['values']) {
-								input = '<select id="'+i+'" class="form-control">';
-								$.each(header['values'], function(l) {
-									value = header['values'][l];
-									input = input + '<option value="'+l+'" '+(v==l?'selected':'')+'>'+value+'</option>';
-								});
-								input = input + '</select>';
-							}
-						} else if (header['type'] == 'destination') {
+					switch (header['type'])
+					{
+						case 'destination':
 							/* TODO: Add destination dropdowns here.
 							/* Problem is that every destination can be slightly different than
 							/* the previous one if using custom. Forgo this for now
@@ -133,6 +130,31 @@ $("#validation-list").on("post-body.bs.table",function() {
 							destid++;
 							*/
 							input = '<input type="text" class="form-control" id="'+i+'" value=\''+v+'\'>';
+						break;
+
+						case 'number':
+							let limits = "";
+							if (typeof header['val_min'] != "undefined") {
+								limits += sprintf(' min="%s" ', header['val_min']);
+							}
+							if (typeof header['val_max'] != "undefined") {
+								limits += sprintf(' max="%s" ', header['val_max']);
+							}
+							input = sprintf('<input type="number" class="form-control" %s id="%s" value="%s">', limits, i, v);
+						break;
+
+						case '':
+						case 'string':
+						default:
+							if (header['values']) {
+								input = '<select id="'+i+'" class="form-control">';
+								$.each(header['values'], function(l) {
+									value = header['values'][l];
+									input = input + '<option value="'+l+'" '+(v==l?'selected':'')+'>'+value+'</option>';
+								});
+								input = input + '</select>';
+							}
+						break;
 						}
 					}
 					html = html + '<div class="form-group"><label for="'+i+'">'+label+'</label>' + input + '</div>';
