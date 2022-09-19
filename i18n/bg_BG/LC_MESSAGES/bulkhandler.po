@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-15 12:03+0000\n"
+"POT-Creation-Date: 2022-09-19 01:46+0000\n"
 "PO-Revision-Date: 2016-09-21 19:56+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/"
@@ -246,7 +246,7 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: assets/js/global.js:58
+#: assets/js/global.js:63
 msgid "There is nothing to import!"
 msgstr ""
 

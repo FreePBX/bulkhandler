@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-15 12:03+0000\n"
+"POT-Creation-Date: 2022-09-19 01:46+0000\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -248,7 +248,7 @@ msgstr "O arquivo enviado excede o atributo upload_max_filesize no php.ini"
 msgid "The uploaded file was only partially uploaded"
 msgstr "O arquivo enviado foi parcialmente carregado"
 
-#: assets/js/global.js:58
+#: assets/js/global.js:63
 msgid "There is nothing to import!"
 msgstr "Não há nada para importar!"
 

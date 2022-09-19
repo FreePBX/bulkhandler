@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>16.0.14</version>
+	<version>16.0.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*16.0.15* FREEPBX-23729 
 		*16.0.14* FREEI-5222 trimming both ends of csv columns 
 		*16.0.13* Reverting Bootstrap and dependent libs fixes 
 		*16.0.9* Packaging of ver 16.0.9

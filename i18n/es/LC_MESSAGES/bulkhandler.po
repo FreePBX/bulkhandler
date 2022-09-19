@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-15 12:03+0000\n"
+"POT-Creation-Date: 2022-09-19 01:46+0000\n"
 "PO-Revision-Date: 2021-11-22 20:45+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -258,7 +258,7 @@ msgstr "El archivo subido excede la directiva upload_max_filesize en php.ini"
 msgid "The uploaded file was only partially uploaded"
 msgstr "El archivo fue sólo parcialmente subido"
 
-#: assets/js/global.js:58
+#: assets/js/global.js:63
 msgid "There is nothing to import!"
 msgstr "¡No hay nada que importar!"
 
