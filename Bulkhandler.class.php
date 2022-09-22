@@ -64,12 +64,12 @@ class Bulkhandler implements \BMO {
 								foreach ($array as $key => $value) {
 									$row = array();
 									foreach($value as $fkey => $val){
-										 $fkey = $this->removeBomUtf8($fkey);
+										 $fkey = trim($this->removeBomUtf8($fkey));
 										 if (array_key_exists($fkey,$customf)){
 											 //if any value is there in csv we dont want to override
-											$row[$fkey] = $val?$val:$customf[$fkey];
+											$row[$fkey] = $val?trim($val):$customf[$fkey];
 										}else {
-											$row[$fkey] = $val;
+											$row[$fkey] = trim($val);
 										}
 									}
 									$arraynew[$key] = $row;
@@ -358,6 +358,10 @@ class Bulkhandler implements \BMO {
 			break;
 			case "direct_import":
 				$ret = $this->readtempfile_for_import_status($_REQUEST['filename']);
+				return $ret;
+			break;
+			case "import_finished":
+				$ret = $this->importFinished($_POST['type'], -1);
 				return $ret;
 			break;
 			case "import_finished":
