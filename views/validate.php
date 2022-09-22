@@ -28,25 +28,25 @@
 		id="validation-list">
 	<thead>
 		<tr>
-			<th data-field="id"><?php echo _('ID')?></th>
+			<th data-field="id" class="id"><?php echo _('ID')?></th>
 			<?php foreach ($headers as $key => $header) { ?>
 				<?php if (isset($header['identifier']) && $header['identifier']) { ?>
 					<?php $identifiers[] = $key;?>
 					<th data-field="<?php echo $key?>" data-sortable="true"><?php echo $header['identifier']?></th>
 				<?php } ?>
 			<?php } ?>
-			<th data-field="actions" ><?php echo _('Actions')?></th>
+			<th data-field="actions" class="actions"><?php echo _('Actions')?></th>
 		</tr>
 	</thead>
 	<tbody>
 		<?php foreach($imports as $id => $import) {?>
 			<tr class="scheme" data-unique-id="row-<?php echo $id?>" data-jsonid='<?php echo $id?>'>
-				<td><?php echo $id?></td>
+				<td class="id"><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) {?>
 
 				<td data-value="<?php echo $identifier?>"> <?php echo  htmlentities( $import[$identifier], ENT_COMPAT | ENT_HTML401, "UTF-8");?> </td>
 				<?php } ?>
-				<td class="actions">
+				<td class="actions" class="actions">
 					<i class="fa fa-pencil-square-o actions clickable" data-type="edit" data-id="<?php echo $id?>"></i>
 					<i class="fa fa-trash-o actions clickable" data-type="delete" data-id="<?php echo $id?>"></i>
 				</td>
