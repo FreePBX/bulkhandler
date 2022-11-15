@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-19 01:46+0000\n"
+"POT-Creation-Date: 2022-11-15 07:46+0000\n"
 "PO-Revision-Date: 2021-11-22 20:45+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -175,6 +175,12 @@ msgid ""
 "filename.csv --replace(Replace the existing values)"
 msgstr ""
 
+#: assets/js/global.js:24
+msgid ""
+"Imported trunks will not be associated with any routes need to create/assign "
+"the routes manually after import"
+msgstr ""
+
 #: Console/Bulkimport.class.php:53
 msgid "Importing CallDECK Ratepatterns"
 msgstr ""
@@ -207,11 +213,11 @@ msgstr "No se han definido importadores de forma masiva"
 msgid "No file was uploaded"
 msgstr "No se subió ningún archivo"
 
-#: assets/js/global.js:23
+#: assets/js/global.js:37
 msgid "Not file specified"
 msgstr "Archivo no especificado"
 
-#: assets/js/global.js:28
+#: assets/js/global.js:42
 msgid "Only CSV files are supported"
 msgstr "Solo se admiten archivos CSV"
 
@@ -233,6 +239,12 @@ msgstr ""
 #: views/import.php:120
 msgid "Required(*)/Recommended Headers"
 msgstr "Encabezados Obligatorios(*)/Recomendados"
+
+#: assets/js/global.js:31
+msgid ""
+"Route configuration is not exported need to create the routes manually while "
+"importing the trunks."
+msgstr ""
 
 #: views/validate.php:73
 msgid "Save changes"
@@ -258,7 +270,7 @@ msgstr "El archivo subido excede la directiva upload_max_filesize en php.ini"
 msgid "The uploaded file was only partially uploaded"
 msgstr "El archivo fue sólo parcialmente subido"
 
-#: assets/js/global.js:63
+#: assets/js/global.js:77
 msgid "There is nothing to import!"
 msgstr "¡No hay nada que importar!"
 
