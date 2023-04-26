@@ -19,6 +19,20 @@ $(function() {
 	});
 	total = (typeof imports !== "undefined") ? imports.length : 0;
 	$("form.bulkhandler").submit(function() {
+		if($(".list-group-item.active").text() == "Import"){
+			if($("#Core-trunks").hasClass("active") ){
+				if(!confirm(_("Imported trunks will not be associated with any routes need to create/assign the routes manually after import"))){
+					return false;
+				};
+			}
+		}
+		if($(".list-group-item.active").text() == "Export"){
+			if($("#Core-trunks").hasClass("active")){
+				if(!confirm(_("Route configuration is not exported need to create the routes manually while importing the trunks."))){
+					return false;
+				};
+			}
+		}
 		if($(".importer:visible").val() === "") {
 			alert(_("Not file specified"));
 			$(".importer:visible").focus();
