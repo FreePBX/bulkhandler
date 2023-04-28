@@ -26,7 +26,7 @@
 							<form class="fpbx-submit bulkhandler" name="bulkhandlerexport" action="config.php?display=bulkhandler&amp;quietmode=1&amp;activity=export&amp;export=<?php echo $type['type']?>" method="post" role="form" >
 							<?php //lets do check for custom fields
 										$modupcase = ucfirst($type['type']);
-										if(is_array($customfields[$modupcase])){
+										if(isset($customfields[$modupcase]) && is_array($customfields[$modupcase])){
 											foreach($customfields as $mod => $fields) {
 												if($mod) {
 													foreach($fields as $fieldname => $fieldval){
