@@ -31,7 +31,7 @@
 									
 									<?php //lets do check for custom fields
 										$modupcase = ucfirst($type['type']);
-										if(is_array($customfields[$modupcase])){
+										if(isset($customfields[$modupcase]) && is_array($customfields[$modupcase])){
 											foreach($customfields as $mod => $fields) {
 												if($mod) {
 													foreach($fields as $fieldname => $fieldval){ 
@@ -124,7 +124,7 @@
 																	<pre><?php
 																		foreach($type['headers'] as $key1 => $header) {
 																			$mark = Null;
-																			if($header['required'] == 1){
+																			if(isset($header['required']) && $header['required'] == 1){
 																				$mark = "*";
 																			}
 																			echo $key1.($header['description'] ? " (".$mark. $header['description'] . ")" : "") . ",\n";
