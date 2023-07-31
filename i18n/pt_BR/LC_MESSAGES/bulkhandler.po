@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 02:16+0000\n"
+"POT-Creation-Date: 2023-07-31 05:50+0000\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -88,7 +88,7 @@ msgstr "Arquivo CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "Não é Possível Localizar Arquivos Carregados"
 
-#: Bulkhandler.class.php:523
+#: Bulkhandler.class.php:527
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -153,7 +153,7 @@ msgstr "A linha do cabeçalho e a contagem de linhas de dados não correspondem"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:518 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:522 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importar"
 
@@ -167,6 +167,12 @@ msgstr ""
 msgid ""
 "Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] "
 "filename.csv --replace(Replace the existing values)"
+msgstr ""
+
+#: assets/js/global.js:24
+msgid ""
+"Imported trunks will not be associated with any routes need to create/assign "
+"the routes manually after import"
 msgstr ""
 
 #: Console/Bulkimport.class.php:53
@@ -201,11 +207,11 @@ msgstr "Nenhum Importador em Massa foi definido"
 msgid "No file was uploaded"
 msgstr "Nenhum arquivo foi enviado"
 
-#: assets/js/global.js:23
+#: assets/js/global.js:37
 msgid "Not file specified"
 msgstr "Arquivo não especificado"
 
-#: assets/js/global.js:28
+#: assets/js/global.js:42
 msgid "Only CSV files are supported"
 msgstr "Somente arquivos CSV são suportados"
 
@@ -222,6 +228,12 @@ msgstr ""
 
 #: views/import.php:120
 msgid "Required(*)/Recommended Headers"
+msgstr ""
+
+#: assets/js/global.js:31
+msgid ""
+"Route configuration is not exported need to create the routes manually while "
+"importing the trunks."
 msgstr ""
 
 #: views/validate.php:73
@@ -248,7 +260,7 @@ msgstr "O arquivo enviado excede o atributo upload_max_filesize no php.ini"
 msgid "The uploaded file was only partially uploaded"
 msgstr "O arquivo enviado foi parcialmente carregado"
 
-#: assets/js/global.js:58
+#: assets/js/global.js:77
 msgid "There is nothing to import!"
 msgstr "Não há nada para importar!"
 

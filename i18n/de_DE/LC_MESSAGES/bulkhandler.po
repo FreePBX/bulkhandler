@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 02:16+0000\n"
+"POT-Creation-Date: 2023-07-31 05:50+0000\n"
 "PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
@@ -87,7 +87,7 @@ msgstr "CSV-Datei"
 msgid "Can Not Find Uploaded Files"
 msgstr "Es können keine hochgeladenen Dateien gefunden werden"
 
-#: Bulkhandler.class.php:523
+#: Bulkhandler.class.php:527
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -152,7 +152,7 @@ msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:518 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:522 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importieren"
 
@@ -166,6 +166,12 @@ msgstr ""
 msgid ""
 "Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] "
 "filename.csv --replace(Replace the existing values)"
+msgstr ""
+
+#: assets/js/global.js:24
+msgid ""
+"Imported trunks will not be associated with any routes need to create/assign "
+"the routes manually after import"
 msgstr ""
 
 #: Console/Bulkimport.class.php:53
@@ -200,11 +206,11 @@ msgstr "Es wurden keine Bulk-Importeure definiert"
 msgid "No file was uploaded"
 msgstr "Es wurde keine Datei hochgeladen"
 
-#: assets/js/global.js:23
+#: assets/js/global.js:37
 msgid "Not file specified"
 msgstr "Keine Datei angegeben"
 
-#: assets/js/global.js:28
+#: assets/js/global.js:42
 msgid "Only CSV files are supported"
 msgstr "Es werden nur CSV Dateien unterstützt"
 
@@ -225,6 +231,12 @@ msgstr ""
 #: views/import.php:120
 msgid "Required(*)/Recommended Headers"
 msgstr "Erforderlich(*)/Empfohlene Header"
+
+#: assets/js/global.js:31
+msgid ""
+"Route configuration is not exported need to create the routes manually while "
+"importing the trunks."
+msgstr ""
 
 #: views/validate.php:73
 msgid "Save changes"
@@ -252,7 +264,7 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded"
 msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen"
 
-#: assets/js/global.js:58
+#: assets/js/global.js:77
 msgid "There is nothing to import!"
 msgstr "Es gibt nichts zum Importieren!"
 

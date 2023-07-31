@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for bulkhandler
-# Copyright (C) 2008-2022 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2023 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-19 07:02+0000\n"
+"POT-Creation-Date: 2023-07-31 05:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Can Not Find Uploaded Files"
 msgstr ""
 
-#: Bulkhandler.class.php:523
+#: Bulkhandler.class.php:527
 msgid "Cancel"
 msgstr ""
 
@@ -156,7 +156,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: Bulkhandler.class.php:518
+#: Bulkhandler.class.php:522
 #: views/export.php:7
 #: views/import.php:7
 msgid "Import"
@@ -172,6 +172,12 @@ msgstr ""
 msgid ""
 "Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] "
 "filename.csv --replace(Replace the existing values)"
+msgstr ""
+
+#: assets/js/global.js:24
+msgid ""
+"Imported trunks will not be associated with any routes need to create/assign "
+"the routes manually after import"
 msgstr ""
 
 #: Console/Bulkimport.class.php:53
@@ -206,11 +212,11 @@ msgstr ""
 msgid "No file was uploaded"
 msgstr ""
 
-#: assets/js/global.js:23
+#: assets/js/global.js:37
 msgid "Not file specified"
 msgstr ""
 
-#: assets/js/global.js:28
+#: assets/js/global.js:42
 msgid "Only CSV files are supported"
 msgstr ""
 
@@ -227,6 +233,12 @@ msgstr ""
 
 #: views/import.php:120
 msgid "Required(*)/Recommended Headers"
+msgstr ""
+
+#: assets/js/global.js:31
+msgid ""
+"Route configuration is not exported need to create the routes manually while "
+"importing the trunks."
 msgstr ""
 
 #: views/validate.php:73
@@ -251,7 +263,7 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded"
 msgstr ""
 
-#: assets/js/global.js:58
+#: assets/js/global.js:77
 msgid "There is nothing to import!"
 msgstr ""
 
