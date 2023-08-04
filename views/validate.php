@@ -44,7 +44,7 @@
 				<td class="id"><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) {?>
 
-				<td data-value="<?php echo $identifier?>"> <?php echo  htmlentities( $import[$identifier], ENT_COMPAT | ENT_HTML401, "UTF-8");?> </td>
+				<td data-value="<?php echo $identifier?>"> <?php echo  htmlentities( (string) ($import[$identifier] ?? ''), ENT_COMPAT | ENT_HTML401, "UTF-8");?> </td>
 				<?php } ?>
 				<td class="actions" class="actions">
 					<i class="fa fa-pencil-square-o actions clickable" data-type="edit" data-id="<?php echo $id?>"></i>
@@ -78,9 +78,9 @@
 <script>
 	var data=[];
 	var type = "<?php echo $type?>";
-	var imports = <?php echo json_encode($imports)?>;
-	var headers = <?php echo json_encode($headers)?>;
-	var identifiers = <?php echo json_encode($identifiers) ?>;
+	var imports = <?php echo json_encode($imports, JSON_THROW_ON_ERROR)?>;
+	var headers = <?php echo json_encode($headers, JSON_THROW_ON_ERROR)?>;
+	var identifiers = <?php echo json_encode($identifiers, JSON_THROW_ON_ERROR) ?>;
 
 	$( document ).ready(function() {
 		var q = $('[class="scheme"]');

@@ -26,11 +26,11 @@ if (($handle = fopen($filename, "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 10240, ",")) !== FALSE)
     {
         $row++;
-        list($converted_headers, $converted_data[]) = convert($headers, $data);
+        [$converted_headers, $converted_data[]] = convert($headers, $data);
     }
     fclose($handle);
 
-    $output_filename = substr($filename, 0, strpos($filename, ".")).'-bulk_handler.csv';
+    $output_filename = substr((string) $filename, 0, strpos((string) $filename, ".")).'-bulk_handler.csv';
     $fo = fopen($output_filename, "w");
     fputcsv($fo, $converted_headers);
     foreach($converted_data as $row)
@@ -42,12 +42,12 @@ if (($handle = fopen($filename, "r")) !== FALSE) {
 
 function convert($headers, $data)
 {
-    $output_data = array();
-    $ouput_header = array();
+    $output_data = [];
+    $ouput_header = [];
 
     $column = 0;
     $output_column = 0;
-    $ending_voicemail_data = array();
+    $ending_voicemail_data = [];
     foreach($headers as $header)
     {
         switch($header)
@@ -167,7 +167,7 @@ function convert($headers, $data)
                 $output_column++;
             break;
             case 'devinfo_mailbox':
-                $output_data[$output_column] = str_replace('@default', '@device', $data[$column]);
+                $output_data[$output_column] = str_replace('@default', '@device', (string) $data[$column]);
                 $output_headers[$output_column] = 'mailbox';
                 $output_column++;
             break;
@@ -361,5 +361,5 @@ function convert($headers, $data)
             $output_column++;
         }
     }
-    return array($output_headers, $output_data);
+    return [$output_headers, $output_data];
 }

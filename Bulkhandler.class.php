@@ -57,28 +57,28 @@ class Bulkhandler implements \BMO {
 								unset($customf['extdisplay']);
 								// we have the array with  all custom values here ; Note , all possible custom values should be there in the identifier
 								$headers = $this->getHeaders($_REQUEST['type'],true);
-								$arraynew = array();
+								$arraynew = [];
 								if(!is_array($customf)){
-									$customf = array();
+									$customf = [];
 								}
 								foreach ($array as $key => $value) {
-									$row = array();
+									$row = [];
 									foreach($value as $fkey => $val){
-										 $fkey = trim($this->removeBomUtf8($fkey));
+										 $fkey = trim((string) $this->removeBomUtf8($fkey));
 										 if (array_key_exists($fkey,$customf)){
 											 //if any value is there in csv we dont want to override
-											$row[$fkey] = $val?trim($val):$customf[$fkey];
+											$row[$fkey] = $val?trim((string) $val):$customf[$fkey];
 										}else {
-											$row[$fkey] = trim($val);
+											$row[$fkey] = trim((string) $val);
 										}
 									}
 									$arraynew[$key] = $row;
 								}
-								if($_REQUEST['skip_validate'] =='Yes'){
+								if(isset($_REQUEST['skip_validate']) && $_REQUEST['skip_validate'] =='Yes'){
 									$totalnows = count($arraynew);
-									return load_view(__DIR__."/views/direct_import.php",array("request" => $_REQUEST, "type" => $_POST['type'], "activity" => $activity, "totalnows" => $totalnows, "localfilename" => $ret['localfilename'], 'filename' => $ret['filename'], 'extension' => $ret['extension'], "customfields" => $customf, "headers" => $headers));
+									return load_view(__DIR__."/views/direct_import.php",["request" => $_REQUEST, "type" => $_POST['type'], "activity" => $activity, "totalnows" => $totalnows, "localfilename" => $ret['localfilename'], 'filename' => $ret['filename'], 'extension' => $ret['extension'], "customfields" => $customf, "headers" => $headers]);
 								}else {
-									return load_view(__DIR__."/views/validate.php",array("type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields" => $_REQUEST ,"headers" => $headers));
+									return load_view(__DIR__."/views/validate.php",["type" => $_POST['type'], "activity" => $activity, "imports" => $arraynew, "customfields" => $_REQUEST, "headers" => $headers]);
 								}
 							} catch(\Exception $e) {
 								$activity = "import";
@@ -88,20 +88,20 @@ class Bulkhandler implements \BMO {
 					}
 				//fallthrough if there are no files
 				case "import":
-					return load_view(__DIR__."/views/import.php",array("message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/import.php",["message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)]);
 				break;
 				case "export":
 				default:
 					$activity = 'export';
-					return load_view(__DIR__."/views/export.php",array("message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)));
+					return load_view(__DIR__."/views/export.php",["message" => $message, "activity" => $activity, "customfields" => $this->getCustomField($activity), "types" => $this->getTypes($activity)]);
 				break;
 			}
 		}
 	}
 
 	public function removeBomUtf8($s){
-		if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
-			return substr($s,3);
+		if(substr((string) $s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+			return substr((string) $s,3);
 		}else{
 			return $s;
 		}
@@ -111,67 +111,67 @@ class Bulkhandler implements \BMO {
 		$temp = sys_get_temp_dir() . "/bhimports";
 		if(!file_exists($temp)) {
 			if(!mkdir($temp)) {
-				return array("status" => false, "message" => sprintf(_("Cant Create Temp Directory: %s"),$temp));
+				return ["status" => false, "message" => sprintf(_("Cant Create Temp Directory: %s"),$temp)];
 			}
 		}
 		$error = $_FILES["import"]["error"];
 		switch($error) {
 			case UPLOAD_ERR_OK:
-				$extension = pathinfo($_FILES["import"]["name"], PATHINFO_EXTENSION);
-				$extension = strtolower($extension);
+				$extension = pathinfo((string) $_FILES["import"]["name"], PATHINFO_EXTENSION);
+				$extension = strtolower($extension ?? '');
 				if($extension == 'csv') {
 					$tmp_name = $_FILES["import"]["tmp_name"];
-					$dname = basename($_FILES["import"]["name"]);
+					$dname = basename((string) $_FILES["import"]["name"]);
 					$id = time();
 					$name = pathinfo($dname,PATHINFO_FILENAME) . '-' . $id . '.' . $extension;
 					move_uploaded_file($tmp_name, $temp."/".$name);
 					if(!file_exists($temp."/".$name)) {
-						return array("status" => false, "message" => _("Cant find uploaded file"), "localfilename" => $temp."/".$name);
+						return ["status" => false, "message" => _("Cant find uploaded file"), "localfilename" => $temp."/".$name];
 					}
-					return array("status" => true, "filename" => $dname, "localfilename" => $temp."/".$name, "id" => $id, "extension" => $extension);
+					return ["status" => true, "filename" => $dname, "localfilename" => $temp."/".$name, "id" => $id, "extension" => $extension];
 				} else {
-					return array("status" => false, "message" => _("Unsupported file format"));
+					return ["status" => false, "message" => _("Unsupported file format")];
 					break;
 				}
 			break;
 			case UPLOAD_ERR_INI_SIZE:
-				return array("status" => false, "message" => _("The uploaded file exceeds the upload_max_filesize directive in php.ini"));
+				return ["status" => false, "message" => _("The uploaded file exceeds the upload_max_filesize directive in php.ini")];
 			break;
 			case UPLOAD_ERR_FORM_SIZE:
-				return array("status" => false, "message" => _("The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form"));
+				return ["status" => false, "message" => _("The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form")];
 			break;
 			case UPLOAD_ERR_PARTIAL:
-				return array("status" => false, "message" => _("The uploaded file was only partially uploaded"));
+				return ["status" => false, "message" => _("The uploaded file was only partially uploaded")];
 			break;
 			case UPLOAD_ERR_NO_FILE:
-				return array("status" => false, "message" => _("No file was uploaded"));
+				return ["status" => false, "message" => _("No file was uploaded")];
 			break;
 			case UPLOAD_ERR_NO_TMP_DIR:
-				return array("status" => false, "message" => _("Missing a temporary folder"));
+				return ["status" => false, "message" => _("Missing a temporary folder")];
 			break;
 			case UPLOAD_ERR_CANT_WRITE:
-				return array("status" => false, "message" => _("Failed to write file to disk"));
+				return ["status" => false, "message" => _("Failed to write file to disk")];
 			break;
 			case UPLOAD_ERR_EXTENSION:
-				return array("status" => false, "message" => _("A PHP extension stopped the file upload"));
+				return ["status" => false, "message" => _("A PHP extension stopped the file upload")];
 			break;
 		}
-		return array("status" => false, "message" => _("Can Not Find Uploaded Files"));
+		return ["status" => false, "message" => _("Can Not Find Uploaded Files")];
 	}
 
 	public function fileToArray($file, $format='csv') {
-		$rawData = array();
+		$rawData = [];
 		$i = 0;
 		switch($format) {
 			case 'csv':
 				$header = null;
-				ini_set("auto_detect_line_endings", true);
+				// ini_set("auto_detect_line_endings", true);
 				$handle = fopen($file, "r");
 				$headerc = 0;
 				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
 				while ($row = fgetcsv($handle)) {
 					if ($header === null) {
-						$header = array_map('strtolower',$row);
+						$header = array_map('strtolower',$row ?? '');
 						$headerc = count($header);
 						continue;
 					}
@@ -212,7 +212,7 @@ class Bulkhandler implements \BMO {
 		switch($format) {
 			case 'csv':
 			default:
-				$filename = ($type ? $type : 'export') . '.csv';
+				$filename = ($type ?: 'export') . '.csv';
 				$out = fopen('php://output', 'w');
 				header('Content-type: application/octet-stream');
 				header('Content-Disposition: attachment; filename="' . $filename . '"');
@@ -225,12 +225,12 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function getHeaders($type,$validation=false) {
-		$headers = array();
+		$headers = [];
 
 		$modules = $this->freepbx->Hooks->processHooks($type);
 		foreach ($modules as $key => $module) {
 			if ($module) {
-				$final = array();
+				$final = [];
 				foreach($module as $key1 => $data1) {
 					if(!$validation && isset($data1['display']) && !$data1['display']) {
 						continue;
@@ -246,13 +246,13 @@ class Bulkhandler implements \BMO {
 		return $headers;
 	}
 	public function getCustomField($type) {
-		$fields = array();
+		$fields = [];
 		$modules = $this->freepbx->Hooks->processHooks($type);
 		return $modules;
 	}
 	public function getTypes($activity='import') {
 		$modules = $this->freepbx->Hooks->processHooks();
-		$types = array();
+		$types = [];
 		foreach($modules as $key => $module) {
 			if(empty($module)) {
 				continue;
@@ -261,27 +261,14 @@ class Bulkhandler implements \BMO {
 				case "import":
 					foreach($module as $type => $name) {
 						if(!isset($types[$key."-".$type])) {
-							$types[$key."-".$type] = array(
-								"name" => $name['name'],
-								"description" => $name['description'],
-								"mod" => $key,
-								"type" => $type,
-								"active" => !empty($_COOKIE['bulkhandler-display']) ? ($_COOKIE['bulkhandler-display'] == $key."-".$type) : (count($types) == 0),
-								"headers" => $this->getHeaders($type,false)
-							);
+							$types[$key."-".$type] = ["name" => $name['name'], "description" => $name['description'], "mod" => $key, "type" => $type, "active" => !empty($_COOKIE['bulkhandler-display']) ? ($_COOKIE['bulkhandler-display'] == $key."-".$type) : (count($types) == 0), "headers" => $this->getHeaders($type,false)];
 						}
 					}
 				break;
 				case "export":
 					foreach($module as $type => $name) {
 						if(!isset($types[$key."-".$type])) {
-							$types[$key."-".$type] = array(
-								"name" => $name['name'],
-								"description" => $name['description'],
-								"mod" => $key,
-								"type" => $type,
-								"active" => !empty($_COOKIE['bulkhandler-display']) ? ($_COOKIE['bulkhandler-display'] == $key."-".$type) : (count($types) == 0),
-							);
+							$types[$key."-".$type] = ["name" => $name['name'], "description" => $name['description'], "mod" => $key, "type" => $type, "active" => !empty($_COOKIE['bulkhandler-display']) ? ($_COOKIE['bulkhandler-display'] == $key."-".$type) : (count($types) == 0)];
 						}
 					}
 				break;
@@ -291,28 +278,20 @@ class Bulkhandler implements \BMO {
 	}
 
 	public function ajaxRequest($req, &$setting) {
-		switch($req) {
-			case "import":
-			case "destinationdrawselect":
-			case "direct_import";
-				return true;
-			break;
-			case "import_finished":
-				return true;
-			break;
-			default:
-				return false;
-			break;
-		}
+		return match ($req) {
+      "import", "destinationdrawselect", "direct_import" => true,
+      "import_finished" => true,
+      default => false,
+  };
 	}
 
 	public function ajaxHandler() {
-		$ret = array("status" => true);
+		$ret = ["status" => true];
 		switch ($_REQUEST['command']) {
 			case "import":
 				if($_POST['type'] == "extensions" && $this->freepbx->Modules->checkStatus("sysadmin")){
-					$current_ext= array();
-					$import_ext = array();
+					$current_ext= [];
+					$import_ext = [];
 
 					$sql 		= 'SELECT DISTINCT user FROM devices ORDER BY user ASC';
 					$sth 		= $this->db->prepare($sql);
@@ -334,38 +313,38 @@ class Bulkhandler implements \BMO {
 					switch($_POST["replace"]){
 						case "0":
 							if(array_search($_POST['imports']["extension"],$current_ext) !== false){
-								return array("status" => false, "message" => _("Already exists"));
+								return ["status" => false, "message" => _("Already exists")];
 							}
 							if($sys_limit < 1){
-								return array("status" => false, "message" => "over");
+								return ["status" => false, "message" => "over"];
 							}
 	
 							break;
 						case "1":	
 							if($sys_limit < 1 && array_search($_POST['imports']["extension"],$current_ext) === false){
-								return array("status" => false, "message" => "over");
+								return ["status" => false, "message" => "over"];
 							}
 							break;
 					}
 				}
-				$ret = $this->import($_POST['type'], array($_POST['imports']), (!empty($_POST['replace']) ? true : false));
+				$ret = $this->import($_POST['type'], [$_POST['imports']], (!empty($_POST['replace']) ? true : false));
 			break;
 			case "destinationdrawselect":
 				global $active_modules;
 				$active_modules = $this->freepbx->Modules->getActiveModules();
 				$this->freepbx->Modules->getDestinations();
-				$ret = array("status" => true, "destid" => $_POST['destid'], "html" => drawselects($_POST['value'],$_POST['id'], false, false));
+				$ret = ["status" => true, "destid" => $_POST['destid'], "html" => drawselects($_POST['value'],$_POST['id'], false, false)];
 			break;
 			case "direct_import":
 				$ret = $this->readtempfile_for_import_status($_REQUEST['filename']);
 				return $ret;
 			break;
 			case "import_finished":
-				$ret = $this->importFinished($_POST['type'], -1);
+				$ret = $this->importFinished($_POST['type']);
 				return $ret;
 			break;
 			case "import_finished":
-				$ret = $this->importFinished($_POST['type'], -1);
+				$ret = $this->importFinished($_POST['type']);
 				return $ret;
 			break;
 		}
@@ -373,7 +352,7 @@ class Bulkhandler implements \BMO {
 	}
 	/*Read the temp file for bulk upload progress status*/
 	public function readtempfile_for_import_status($filename){
-		$return = array();
+		$return = [];
 		if(!file_exists($filename)){
 			$return['status'] = 'DONE';
 			$return['COUNT'] = '';
@@ -382,7 +361,7 @@ class Bulkhandler implements \BMO {
 			$file = fopen($filename,"r");
 			while(! feof($file)){
 				$string = fgets($file);
-				if(strpos($string, '=') !== false){
+				if(str_contains($string, '=')){
 					$stringarr = explode('=',$string);
 					$return[$stringarr[0]] = trim($stringarr[1],PHP_EOL);;
 				}
@@ -404,20 +383,20 @@ class Bulkhandler implements \BMO {
 			try {
 				$methods = $this->freepbx->Hooks->returnHooks();
 			} catch(\Exception $e) {
-				return array("status" => false, "message" => $e->getMessage());
+				return ["status" => false, "message" => $e->getMessage()];
 			}
-			$methods = is_array($methods) ? $methods : array();
+			$methods = is_array($methods) ? $methods : [];
 			foreach($methods as $method) {
 				$mod = $method['module'];
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $fullData, $request,$file);
 				if($ret['status'] === false) {
-					return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
+					return ["status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message'])];
 				}
 			}
-			return array("status" => true);
+			return ["status" => true];
 		
-		return array("status" => false, "message" => $val['message']);
+		return ["status" => false, "message" => $val['message']];
 	}
 	/**
 	 * Import Data
@@ -431,20 +410,20 @@ class Bulkhandler implements \BMO {
 			try {
 				$methods = $this->freepbx->Hooks->returnHooks();
 			} catch(\Exception $e) {
-				return array("status" => false, "message" => $e->getMessage());
+				return ["status" => false, "message" => $e->getMessage()];
 			}
-			$methods = is_array($methods) ? $methods : array();
+			$methods = is_array($methods) ? $methods : [];
 			foreach($methods as $method) {
 				$mod = $method['module'];
 				$meth = $method['method'];
 				$ret = \FreePBX::$mod()->$meth($type, $rawData, $replaceExisting);
 				if(isset($ret['status']) && $ret['status'] === false) {
-					return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
+					return ["status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message'])];
 				}
 			}
-			return array("status" => true);
+			return ["status" => true];
 		}
-		return array("status" => false, "message" => $val['message']);
+		return ["status" => false, "message" => $val['message']];
 	}
 
 	/**
@@ -452,7 +431,7 @@ class Bulkhandler implements \BMO {
 	 * @param  string $type The type of export
 	 */
 	public function export($type,$customfields) {
-		if(count($customfields)> 0) { // we have custom fields
+		if((is_countable($customfields) ? count($customfields) : 0)> 0) { // we have custom fields
 			$customfields['moduletype'] = $type;
 			$new_var_type = $customfields;
 		}else {
@@ -460,8 +439,8 @@ class Bulkhandler implements \BMO {
 		}
 		$time_start = microtime(true);
 		$modules = $this->freepbx->Hooks->processHooks($new_var_type);
-		$rows = array();
-		$headers = array();
+		$rows = [];
+		$headers = [];
 		foreach($modules as $key => $module) {
 			if(empty($module)) {
 				continue;
@@ -502,31 +481,20 @@ class Bulkhandler implements \BMO {
 
 	public function validate($type, $rawData) {
 		$methods = $this->freepbx->Hooks->processHooks($type, $rawData);
-		$methods = is_array($methods) ? $methods : array();
+		$methods = is_array($methods) ? $methods : [];
 		foreach($methods as $key => $method) {
 			if(isset($method['status']) && $method['status'] === false){
-				return array("status" => false, "message" => $method['message']);
+				return ["status" => false, "message" => $method['message']];
 				continue;
 			}
 		}
-		return array("status" => true);
+		return ["status" => true];
 	}
 	public function getActionBar($request) {
-		$buttons = array();
+		$buttons = [];
 		switch($request['activity']) {
 			case "validate":
-				$buttons = array(
-					'import' => array(
-						'name' => 'import',
-						'id' => 'import',
-						'value' => _('Import')
-					),
-					'cancel' => array(
-						'name' => 'cancel',
-						'id' => 'cancel',
-						'value' => _('Cancel')
-					)
-				);
+				$buttons = ['import' => ['name' => 'import', 'id' => 'import', 'value' => _('Import')], 'cancel' => ['name' => 'cancel', 'id' => 'cancel', 'value' => _('Cancel')]];
 			break;
 		}
 		return $buttons;
@@ -540,17 +508,17 @@ class Bulkhandler implements \BMO {
 		try {
 			$methods = $this->freepbx->Hooks->returnHooks();
 		} catch(\Exception $e) {
-			return array("status" => false, "message" => $e->getMessage());
+			return ["status" => false, "message" => $e->getMessage()];
 		}
-		$methods = is_array($methods) ? $methods : array();
+		$methods = is_array($methods) ? $methods : [];
 		foreach($methods as $method) {
 			$mod = $method['module'];
 			$meth = $method['method'];
 			$ret = \FreePBX::$mod()->$meth($type);
 			if(isset($ret['status']) && $ret['status'] === false) {
-				return array("status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message']));
+				return ["status" => false, "message" => sprintf("There was an error in %s, message: %s", $mod, $ret['message'])];
 			}
 		}
-		return array("status" => true);
+		return ["status" => true];
 	}
 }

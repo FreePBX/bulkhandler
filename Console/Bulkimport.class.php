@@ -14,12 +14,9 @@ class Bulkimport extends Command {
 			$helptext = _('Import a file: fwconsole bulkimport --type=[extensions|dids|callaccounting] filename.csv --replace(Replace the existing values)');
 		}
 		$this->setName('bulkimport')
-			->setAliases(array('bi'))
+			->setAliases(['bi'])
 			->setDescription(_('This command is used to import extensions and dids'))
-			->setDefinition(array(
-				new InputOption('type', 't', InputOption::VALUE_REQUIRED, _('Type of file')),
-				new InputArgument('filename', InputArgument::REQUIRED, _('Filename'), null),
-				new InputOption('replace', null, InputOption::VALUE_NONE, _('To replace existing values')),)
+			->setDefinition([new InputOption('type', 't', InputOption::VALUE_REQUIRED, _('Type of file')), new InputArgument('filename', InputArgument::REQUIRED, _('Filename'), null), new InputOption('replace', null, InputOption::VALUE_NONE, _('To replace existing values'))]
 			)
 			->setHelp($helptext);
 	}

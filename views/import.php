@@ -30,7 +30,7 @@
 									<div class="container-fluid">
 									
 									<?php //lets do check for custom fields
-										$modupcase = ucfirst($type['type']);
+										$modupcase = ucfirst((string) $type['type']);
 										if(isset($customfields[$modupcase]) && is_array($customfields[$modupcase])){
 											foreach($customfields as $mod => $fields) {
 												if($mod) {

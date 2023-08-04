@@ -3,13 +3,13 @@ if (function_exists('proc_nice')) {
 	@proc_nice(10);
 }
 $bootstrap_settings['include_compress'] = false;
-$restrict_mods = array('bulkhandler' => true);
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
+$restrict_mods = ['bulkhandler' => true];
+if (!@include_once(getenv('FREEPBX_CONF') ?: '/etc/freepbx.conf')) {
 	include_once('/etc/asterisk/freepbx.conf');
 }
 $freepbx = FreePBX::Create();
 
-$json = json_decode(base64_decode($argv[1]),true);
+$json = json_decode(base64_decode($argv[1]),true, 512, JSON_THROW_ON_ERROR);
 extract($json);
 $bh = $freepbx->Bulkhandler();
 foreach ($json['header'] as $key => $header) { 
@@ -17,22 +17,22 @@ foreach ($json['header'] as $key => $header) {
 			$identifiers[] = $key;		
 		} 
 	} 
-	$eachrow = array();
-	$dataarray = array();
+	$eachrow = [];
+	$dataarray = [];
 	$array = $bh->fileToArray($json['localfilename'],$json['extension']);
-	$arraynew = array();
+	$arraynew = [];
 	if(!is_array($json['customfields'])){
-		$customf = array();
+		$customf = [];
 	}else {
 		$customf = $json['customfields'];
 	}
 	foreach ($array as $key => $value) {
-		$row = array();
+		$row = [];
 		foreach($value as $fkey => $val){
 			 $fkey = $bh->removeBomUtf8($fkey);
 			 if (array_key_exists($fkey,$customf)){
 			 //if any value is there in csv we dont want to override
-				$row[$fkey] = $val?$val:$customf[$fkey];
+				$row[$fkey] = $val ?: $customf[$fkey];
 			}else {
 				$row[$fkey] = $val;
 			}
