@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:50+0000\n"
+"POT-Creation-Date: 2023-08-08 12:08+0000\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -22,21 +22,21 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Console/Bulkimport.class.php:39
+#: Console/Bulkimport.class.php:36
 msgid ""
 "<error>The file provided did not process properly. Check the file "
 "formatting</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:62
+#: Console/Bulkimport.class.php:59
 msgid "<error>The import failed</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:35
+#: Console/Bulkimport.class.php:32
 msgid "<error>The specified file does not exist or we cannot read it</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:57
+#: Console/Bulkimport.class.php:54
 msgid ""
 "<error>You must specify the file type of --type=dids or --type=extensions</"
 "error>"
@@ -59,7 +59,7 @@ msgstr "Działania"
 msgid "Admin"
 msgstr "Administrator"
 
-#: Bulkhandler.class.php:337
+#: Bulkhandler.class.php:316
 msgid "Already exists"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr "plik CSV"
 msgid "Can Not Find Uploaded Files"
 msgstr "Nie znaleziono przesłanych plików"
 
-#: Bulkhandler.class.php:527
+#: Bulkhandler.class.php:497
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -138,7 +138,7 @@ msgstr "Nie udało się zapisać pliku na dysku"
 msgid "File to Import"
 msgstr "Plik do zaimportowania"
 
-#: Console/Bulkimport.class.php:21
+#: Console/Bulkimport.class.php:19
 msgid "Filename"
 msgstr ""
 
@@ -154,7 +154,7 @@ msgstr "Wiersz nagłówka i liczba wierszy danych nie są zgodne"
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:522 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:497 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importuj"
 
@@ -176,15 +176,15 @@ msgid ""
 "the routes manually after import"
 msgstr ""
 
-#: Console/Bulkimport.class.php:53
+#: Console/Bulkimport.class.php:50
 msgid "Importing CallDECK Ratepatterns"
 msgstr ""
 
-#: Console/Bulkimport.class.php:45
+#: Console/Bulkimport.class.php:42
 msgid "Importing bulk dids"
 msgstr ""
 
-#: Console/Bulkimport.class.php:49
+#: Console/Bulkimport.class.php:46
 msgid "Importing bulk extensions"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr "Nie ma niczego do zaimportowania!"
 msgid "This command is used to import extensions and dids"
 msgstr ""
 
-#: Console/Bulkimport.class.php:22
+#: Console/Bulkimport.class.php:19
 msgid "To replace existing values"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgstr ""
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
 
-#: Console/Bulkimport.class.php:20
+#: Console/Bulkimport.class.php:19
 msgid "Type of file"
 msgstr ""
 
