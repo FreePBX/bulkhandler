@@ -54,6 +54,7 @@
 																		<div class="col-md-9">
 																		<select class="form-control" name="<?php echo $fieldname?>"> 
 																		<?php foreach($fields as $val) {
+																				$selected??='';
 																				if(isset($_REQUEST[$fieldname])){
 																					if($val['id'] == $_REQUEST[$fieldname] ){
 																						$selected = 'selected';
