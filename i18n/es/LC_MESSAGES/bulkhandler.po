@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 12:08+0000\n"
+"POT-Creation-Date: 2023-09-05 06:04+0000\n"
 "PO-Revision-Date: 2021-11-22 20:45+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -62,7 +62,7 @@ msgstr "Admin"
 msgid "Already exists"
 msgstr ""
 
-#: views/import.php:101
+#: views/import.php:102
 msgid "Browse"
 msgstr "Explorar"
 
@@ -86,7 +86,7 @@ msgstr ""
 "individualmente. El módulo proporciona encabezados obligatorios/recomendados "
 "para sus archivos CSV."
 
-#: views/export.php:86 views/import.php:97
+#: views/export.php:86 views/import.php:98
 msgid "CSV File"
 msgstr "Archivo CSV"
 
@@ -139,7 +139,7 @@ msgstr "Exportar a CSV"
 msgid "Failed to write file to disk"
 msgstr "No se pudo escribir el archivo en el disco"
 
-#: views/import.php:110
+#: views/import.php:111
 msgid "File to Import"
 msgstr "Archivo a Importar"
 
@@ -225,7 +225,7 @@ msgstr "Solo se admiten archivos CSV"
 msgid "Replace/Update existing data"
 msgstr "Reemplazar/Actualizar datos existentes"
 
-#: views/import.php:140
+#: views/import.php:141
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
@@ -236,7 +236,7 @@ msgstr ""
 "los encabezados admitidos, exporte un archivo CSV desde la pantalla de "
 "exportación"
 
-#: views/import.php:120
+#: views/import.php:121
 msgid "Required(*)/Recommended Headers"
 msgstr "Encabezados Obligatorios(*)/Recomendados"
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "Guardar cambios"
 
-#: views/import.php:150
+#: views/import.php:151
 msgid "Submit"
 msgstr "Enviar"
 

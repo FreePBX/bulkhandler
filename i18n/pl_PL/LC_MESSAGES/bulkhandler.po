@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 12:08+0000\n"
+"POT-Creation-Date: 2023-09-05 06:04+0000\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,7 +63,7 @@ msgstr "Administrator"
 msgid "Already exists"
 msgstr ""
 
-#: views/import.php:101
+#: views/import.php:102
 msgid "Browse"
 msgstr "Przeglądaj"
 
@@ -81,7 +81,7 @@ msgid ""
 "recommended headers for your CSV files."
 msgstr ""
 
-#: views/export.php:86 views/import.php:97
+#: views/export.php:86 views/import.php:98
 msgid "CSV File"
 msgstr "plik CSV"
 
@@ -134,7 +134,7 @@ msgstr "Eksportuj do CSV"
 msgid "Failed to write file to disk"
 msgstr "Nie udało się zapisać pliku na dysku"
 
-#: views/import.php:110
+#: views/import.php:111
 msgid "File to Import"
 msgstr "Plik do zaimportowania"
 
@@ -220,14 +220,14 @@ msgstr "Obsługiwane są tylko pliki CSV"
 msgid "Replace/Update existing data"
 msgstr "Zamień / Zaktualizuj istniejące dane"
 
-#: views/import.php:140
+#: views/import.php:141
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
 
-#: views/import.php:120
+#: views/import.php:121
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "Zachowaj zmiany"
 
-#: views/import.php:150
+#: views/import.php:151
 msgid "Submit"
 msgstr "Zatwierdź"
 

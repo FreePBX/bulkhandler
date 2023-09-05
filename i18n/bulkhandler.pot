@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 12:08+0000\n"
+"POT-Creation-Date: 2023-09-05 06:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Already exists"
 msgstr ""
 
-#: views/import.php:101
+#: views/import.php:102
 msgid "Browse"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgid ""
 msgstr ""
 
 #: views/export.php:86
-#: views/import.php:97
+#: views/import.php:98
 msgid "CSV File"
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Failed to write file to disk"
 msgstr ""
 
-#: views/import.php:110
+#: views/import.php:111
 msgid "File to Import"
 msgstr ""
 
@@ -224,14 +224,14 @@ msgstr ""
 msgid "Replace/Update existing data"
 msgstr ""
 
-#: views/import.php:140
+#: views/import.php:141
 msgid ""
 "Required headers(*) are the minimum headers you must supply to be able to "
 "import. For a full list of all supported headers export out a CSV file from "
 "the export display"
 msgstr ""
 
-#: views/import.php:120
+#: views/import.php:121
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: views/import.php:150
+#: views/import.php:151
 msgid "Submit"
 msgstr ""
 
