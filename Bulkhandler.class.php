@@ -1,6 +1,7 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
+#[\AllowDynamicProperties]
 class Bulkhandler implements \BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
