@@ -119,7 +119,7 @@ class Bulkhandler implements \BMO {
 		switch($error) {
 			case UPLOAD_ERR_OK:
 				$extension = pathinfo((string) $_FILES["import"]["name"], PATHINFO_EXTENSION);
-				$extension = strtolower($extension ?? '');
+				$extension = ($extension) ? strtolower((string) $extension) : '';
 				if($extension == 'csv') {
 					$tmp_name = $_FILES["import"]["tmp_name"];
 					$dname = basename((string) $_FILES["import"]["name"]);
@@ -172,8 +172,9 @@ class Bulkhandler implements \BMO {
 				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
 				while ($row = fgetcsv($handle)) {
 					if ($header === null) {
-						$header = array_map('strtolower',$row ?? '');
-						$headerc = count($header);
+						// dump($row);exit;
+						$header = ($row[0] != null) ? array_map('strtolower', $row) : '';
+						$headerc = $header ? count($header) : 0;
 						continue;
 					}
 					if($headerc != count($row)) {
