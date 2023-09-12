@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-05 06:04+0000\n"
+"POT-Creation-Date: 2023-09-12 09:36+0000\n"
 "PO-Revision-Date: 2021-11-23 07:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "<strong>Success! </strong>%s Data Imported successfully."
 msgstr ""
 
-#: Bulkhandler.class.php:156
+#: Bulkhandler.class.php:157
 msgid "A PHP extension stopped the file upload"
 msgstr "Расширение PHP остановило загрузку файла"
 
@@ -55,11 +55,7 @@ msgstr "Расширение PHP остановило загрузку файл�
 msgid "Actions"
 msgstr "Действия"
 
-#: bulkhandler.i18n.php:6
-msgid "Admin"
-msgstr "Администратор"
-
-#: Bulkhandler.class.php:316
+#: Bulkhandler.class.php:318
 msgid "Already exists"
 msgstr ""
 
@@ -67,44 +63,28 @@ msgstr ""
 msgid "Browse"
 msgstr "Просмотр"
 
-#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
-#: views/import.php:4
+#: views/export.php:4 views/import.php:4
 msgid "Bulk Handler"
 msgstr "Массовый обработчик"
-
-#: bulkhandler.i18n.php:8
-msgid ""
-"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
-"manager users, user manager groups, and contacts. You can export any of "
-"these as a CSV file. You can also upload a CSV file to save time versus "
-"having to enter each item individually. The module provides required/"
-"recommended headers for your CSV files."
-msgstr ""
-"Массовый обработчик управляет массовым экспортом или импортом внутренних "
-"номеров, DID'ов, пользователей Менеджера пользователей, групп Менеджера "
-"пользователей и контактов. Вы можете экспортировать любой из них в виде CSV-"
-"файла. Вы также можете загрузить CSV-файл для экономии времени чтобы не "
-"вводить каждый элемент по отдельности. Модуль предоставляет необходимые/"
-"рекомендуемые заголовки для ваших CSV-файлов."
 
 #: views/export.php:86 views/import.php:98
 msgid "CSV File"
 msgstr "CSV-файл"
 
-#: Bulkhandler.class.php:159
+#: Bulkhandler.class.php:160
 msgid "Can Not Find Uploaded Files"
 msgstr "Загружаемые файлы не обнаружены"
 
-#: Bulkhandler.class.php:497
+#: Bulkhandler.class.php:499
 msgid "Cancel"
 msgstr "Отмена"
 
-#: Bulkhandler.class.php:114
+#: Bulkhandler.class.php:115
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr "Невозможно создать временный каталог: %s"
 
-#: Bulkhandler.class.php:129
+#: Bulkhandler.class.php:130
 msgid "Cant find uploaded file"
 msgstr "Загружаемый файл не обнаружен"
 
@@ -136,7 +116,7 @@ msgstr "Экспорт"
 msgid "Export to CSV"
 msgstr "Экспорт в CSV"
 
-#: Bulkhandler.class.php:153
+#: Bulkhandler.class.php:154
 msgid "Failed to write file to disk"
 msgstr "Ошибка записи файла на диск"
 
@@ -152,7 +132,7 @@ msgstr ""
 msgid "Go Back"
 msgstr "Вернуться"
 
-#: Bulkhandler.class.php:179
+#: Bulkhandler.class.php:181
 msgid "Header row and data row count do not match"
 msgstr "Количество строк заголовка и строк данных не совпадают"
 
@@ -160,7 +140,7 @@ msgstr "Количество строк заголовка и строк дан�
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:497 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:499 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Импорт"
 
@@ -194,7 +174,7 @@ msgstr ""
 msgid "Importing bulk extensions"
 msgstr ""
 
-#: Bulkhandler.class.php:150
+#: Bulkhandler.class.php:151
 msgid "Missing a temporary folder"
 msgstr "Отсутствует временная папка"
 
@@ -210,7 +190,7 @@ msgstr "Массовые экспортеры не определены"
 msgid "No Bulk Importers have been defined"
 msgstr "Массовые импортеры не определены"
 
-#: Bulkhandler.class.php:147
+#: Bulkhandler.class.php:148
 msgid "No file was uploaded"
 msgstr "Файл не загружен"
 
@@ -254,7 +234,7 @@ msgstr "Сохранить изменения"
 msgid "Submit"
 msgstr "Применить"
 
-#: Bulkhandler.class.php:141
+#: Bulkhandler.class.php:142
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
@@ -262,13 +242,13 @@ msgstr ""
 "Размер загруженного файла превысил значение директивы MAX_FILE_SIZE, "
 "указанной в HTML-форме"
 
-#: Bulkhandler.class.php:138
+#: Bulkhandler.class.php:139
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 "Размер загруженного файла превысил значение директивы upload_max_filesize, "
 "указанной в php.ini"
 
-#: Bulkhandler.class.php:144
+#: Bulkhandler.class.php:145
 msgid "The uploaded file was only partially uploaded"
 msgstr "Файл загружен частично"
 
@@ -284,7 +264,7 @@ msgstr ""
 msgid "To replace existing values"
 msgstr ""
 
-#: Bulkhandler.class.php:201
+#: Bulkhandler.class.php:203
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
@@ -295,11 +275,11 @@ msgstr ""
 msgid "Type of file"
 msgstr ""
 
-#: Bulkhandler.class.php:206
+#: Bulkhandler.class.php:208
 msgid "Unable to parse file"
 msgstr "Невозможно проанализировать файл"
 
-#: Bulkhandler.class.php:133 Bulkhandler.class.php:187
+#: Bulkhandler.class.php:134 Bulkhandler.class.php:189
 msgid "Unsupported file format"
 msgstr "Неподдерживаемый формат файла"
 
@@ -311,3 +291,20 @@ msgstr "Что означает \"%s\"?"
 #: views/validate.php:13
 msgid "Yes"
 msgstr "Да"
+
+#~ msgid "Admin"
+#~ msgstr "Администратор"
+
+#~ msgid ""
+#~ "Bulk Handler manages the bulk export or import of extensions, DIDs, user "
+#~ "manager users, user manager groups, and contacts. You can export any of "
+#~ "these as a CSV file. You can also upload a CSV file to save time versus "
+#~ "having to enter each item individually. The module provides required/"
+#~ "recommended headers for your CSV files."
+#~ msgstr ""
+#~ "Массовый обработчик управляет массовым экспортом или импортом внутренних "
+#~ "номеров, DID'ов, пользователей Менеджера пользователей, групп Менеджера "
+#~ "пользователей и контактов. Вы можете экспортировать любой из них в виде "
+#~ "CSV-файла. Вы также можете загрузить CSV-файл для экономии времени чтобы "
+#~ "не вводить каждый элемент по отдельности. Модуль предоставляет "
+#~ "необходимые/рекомендуемые заголовки для ваших CSV-файлов."
