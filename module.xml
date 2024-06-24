@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>17.0.4</version>
+	<version>17.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,7 +13,7 @@
 	<description>
       Bulk Handler manages the bulk export or import of extensions, DIDs, user manager users, user manager groups, and contacts. You can export any of these as a CSV file. You can also upload a CSV file to save time versus having to enter each item individually. The module provides required/recommended headers for your CSV files.
   	</description>
-  	<more-info>https://wiki.freepbx.org/display/FPG/Bulk+Handler</more-info>
+  	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/20840584/PBX+GUI+-+Bulk+Handler</more-info>
 	<depends>
 		<version>13.0</version>
 	</depends>

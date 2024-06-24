@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for bulkhandler
-# Copyright (C) 2008-2023 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2024 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-12 09:36+0000\n"
+"POT-Creation-Date: 2024-06-24 07:50-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,10 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
+#: bulkhandler.i18n.php:6
+msgid "Admin"
+msgstr ""
+
 #: Bulkhandler.class.php:318
 msgid "Already exists"
 msgstr ""
@@ -59,9 +63,20 @@ msgstr ""
 msgid "Browse"
 msgstr ""
 
+#: bulkhandler.i18n.php:4
+#: bulkhandler.i18n.php:10
 #: views/export.php:4
 #: views/import.php:4
 msgid "Bulk Handler"
+msgstr ""
+
+#: bulkhandler.i18n.php:8
+msgid ""
+"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
+"manager users, user manager groups, and contacts. You can export any of "
+"these as a CSV file. You can also upload a CSV file to save time versus "
+"having to enter each item individually. The module provides required/"
+"recommended headers for your CSV files."
 msgstr ""
 
 #: views/export.php:86

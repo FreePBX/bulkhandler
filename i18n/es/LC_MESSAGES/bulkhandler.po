@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-12 09:36+0000\n"
+"POT-Creation-Date: 2024-06-24 07:50-0400\n"
 "PO-Revision-Date: 2021-11-22 20:45+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -54,6 +54,10 @@ msgstr "Una extensión de PHP detuvo la carga del archivo"
 msgid "Actions"
 msgstr "Acciones"
 
+#: bulkhandler.i18n.php:6
+msgid "Admin"
+msgstr "Admin"
+
 #: Bulkhandler.class.php:318
 msgid "Already exists"
 msgstr ""
@@ -62,9 +66,25 @@ msgstr ""
 msgid "Browse"
 msgstr "Explorar"
 
-#: views/export.php:4 views/import.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
+#: views/import.php:4
 msgid "Bulk Handler"
 msgstr "Bulk Handler"
+
+#: bulkhandler.i18n.php:8
+msgid ""
+"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
+"manager users, user manager groups, and contacts. You can export any of "
+"these as a CSV file. You can also upload a CSV file to save time versus "
+"having to enter each item individually. The module provides required/"
+"recommended headers for your CSV files."
+msgstr ""
+"Bulk Handler gestiona la exportación o importación masiva de extensiones, "
+"DID, usuarios y grupos del administrador de usuarios y contactos. Puede "
+"exportar cualquiera de estos como un archivo CSV. También puede cargar un "
+"archivo CSV para ahorrar tiempo en lugar de tener que ingresar cada elemento "
+"individualmente. El módulo proporciona encabezados obligatorios/recomendados "
+"para sus archivos CSV."
 
 #: views/export.php:86 views/import.php:98
 msgid "CSV File"
@@ -288,20 +308,3 @@ msgstr "¿Qué son \"%s\"?"
 #: views/validate.php:13
 msgid "Yes"
 msgstr "Sí"
-
-#~ msgid "Admin"
-#~ msgstr "Admin"
-
-#~ msgid ""
-#~ "Bulk Handler manages the bulk export or import of extensions, DIDs, user "
-#~ "manager users, user manager groups, and contacts. You can export any of "
-#~ "these as a CSV file. You can also upload a CSV file to save time versus "
-#~ "having to enter each item individually. The module provides required/"
-#~ "recommended headers for your CSV files."
-#~ msgstr ""
-#~ "Bulk Handler gestiona la exportación o importación masiva de extensiones, "
-#~ "DID, usuarios y grupos del administrador de usuarios y contactos. Puede "
-#~ "exportar cualquiera de estos como un archivo CSV. También puede cargar un "
-#~ "archivo CSV para ahorrar tiempo en lugar de tener que ingresar cada "
-#~ "elemento individualmente. El módulo proporciona encabezados obligatorios/"
-#~ "recomendados para sus archivos CSV."

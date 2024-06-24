@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-12 09:36+0000\n"
+"POT-Creation-Date: 2024-06-24 07:50-0400\n"
 "PO-Revision-Date: 2017-03-20 13:15+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -54,6 +54,10 @@ msgstr "Uma extensão PHP parou o carregamento do arquivo"
 msgid "Actions"
 msgstr "Ações"
 
+#: bulkhandler.i18n.php:6
+msgid "Admin"
+msgstr "Admin"
+
 #: Bulkhandler.class.php:318
 msgid "Already exists"
 msgstr ""
@@ -62,9 +66,19 @@ msgstr ""
 msgid "Browse"
 msgstr "Localizar"
 
-#: views/export.php:4 views/import.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
+#: views/import.php:4
 msgid "Bulk Handler"
 msgstr "Movimentação em Massa"
+
+#: bulkhandler.i18n.php:8
+msgid ""
+"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
+"manager users, user manager groups, and contacts. You can export any of "
+"these as a CSV file. You can also upload a CSV file to save time versus "
+"having to enter each item individually. The module provides required/"
+"recommended headers for your CSV files."
+msgstr ""
 
 #: views/export.php:86 views/import.php:98
 msgid "CSV File"
@@ -283,9 +297,6 @@ msgstr "O que são \"%s\"?"
 #: views/validate.php:13
 msgid "Yes"
 msgstr "Sim"
-
-#~ msgid "Admin"
-#~ msgstr "Admin"
 
 #~ msgid "Finished"
 #~ msgstr "Finalizado"
