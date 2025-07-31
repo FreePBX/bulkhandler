@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 07:46+0000\n"
+"POT-Creation-Date: 2025-07-31 08:24+0000\n"
 "PO-Revision-Date: 2021-11-22 20:45+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Una extensión de PHP detuvo la carga del archivo"
 
-#: views/validate.php:38
+#: views/validate.php:49
 msgid "Actions"
 msgstr "Acciones"
 
@@ -107,11 +107,11 @@ msgstr "No se puede crear el directorio temporal: %s"
 msgid "Cant find uploaded file"
 msgstr "No puedo encontrar el archivo subido"
 
-#: views/validate.php:72
+#: views/validate.php:83
 msgid "Close"
 msgstr "Cerrar"
 
-#: views/direct_import.php:6 views/validate.php:5
+#: views/direct_import.php:6 views/validate.php:16
 msgid "Complete"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr "Importación de Datos"
 
-#: views/validate.php:2
+#: views/validate.php:13
 msgid "Data Validation"
 msgstr "Validación de Datos"
 
-#: views/validate.php:65
+#: views/validate.php:76
 msgid "Edit"
 msgstr "Editar"
 
@@ -155,7 +155,7 @@ msgstr "Volver"
 msgid "Header row and data row count do not match"
 msgstr "La fila de encabezado y el recuento de filas de datos no coinciden"
 
-#: views/validate.php:31
+#: views/validate.php:42
 msgid "ID"
 msgstr "ID"
 
@@ -197,7 +197,7 @@ msgstr ""
 msgid "Missing a temporary folder"
 msgstr "Falta la carpeta temporal"
 
-#: views/validate.php:15
+#: views/validate.php:26
 msgid "No"
 msgstr "No"
 
@@ -221,7 +221,7 @@ msgstr "Archivo no especificado"
 msgid "Only CSV files are supported"
 msgstr "Solo se admiten archivos CSV"
 
-#: views/validate.php:10
+#: views/validate.php:21
 msgid "Replace/Update existing data"
 msgstr "Reemplazar/Actualizar datos existentes"
 
@@ -246,7 +246,7 @@ msgid ""
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:73
+#: views/validate.php:84
 msgid "Save changes"
 msgstr "Guardar cambios"
 
@@ -305,6 +305,6 @@ msgstr "Formato de archivo no soportado"
 msgid "What are \"%s\"?"
 msgstr "¿Qué son \"%s\"?"
 
-#: views/validate.php:13
+#: views/validate.php:24
 msgid "Yes"
 msgstr "Sí"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 07:46+0000\n"
+"POT-Creation-Date: 2025-07-31 08:24+0000\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Một máy nhánh PHP vừa dừng việc tải tệp lên"
 
-#: views/validate.php:38
+#: views/validate.php:49
 msgid "Actions"
 msgstr "Các thao tác"
 
@@ -101,11 +101,11 @@ msgstr "Không thể tạo Thư mục Temp ( tạm thời):  %s"
 msgid "Cant find uploaded file"
 msgstr "Không thể tìm thấy tệp đã tải lên"
 
-#: views/validate.php:72
+#: views/validate.php:83
 msgid "Close"
 msgstr "Đóng"
 
-#: views/direct_import.php:6 views/validate.php:5
+#: views/direct_import.php:6 views/validate.php:16
 msgid "Complete"
 msgstr ""
 
@@ -113,11 +113,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr ""
 
-#: views/validate.php:2
+#: views/validate.php:13
 msgid "Data Validation"
 msgstr "Tính hợp lệ của dữ liệu"
 
-#: views/validate.php:65
+#: views/validate.php:76
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Header row and data row count do not match"
 msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 
-#: views/validate.php:31
+#: views/validate.php:42
 msgid "ID"
 msgstr "ID"
 
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Missing a temporary folder"
 msgstr "Thiếu một tệp tạm thời"
 
-#: views/validate.php:15
+#: views/validate.php:26
 msgid "No"
 msgstr "Không"
 
@@ -215,7 +215,7 @@ msgstr "Không có tệp nào được xác định"
 msgid "Only CSV files are supported"
 msgstr "Chỉ các tệp CSV được hỗ trợ"
 
-#: views/validate.php:10
+#: views/validate.php:21
 msgid "Replace/Update existing data"
 msgstr "Thay thế/ Cập nhật dữ liệu đang tồn tại"
 
@@ -236,7 +236,7 @@ msgid ""
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:73
+#: views/validate.php:84
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
 
@@ -294,7 +294,7 @@ msgstr "Định dạng tệp không được hỗ trợ"
 msgid "What are \"%s\"?"
 msgstr "\"%s\" là gì?"
 
-#: views/validate.php:13
+#: views/validate.php:24
 msgid "Yes"
 msgstr "Có"
 

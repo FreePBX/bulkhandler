@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 07:46+0000\n"
+"POT-Creation-Date: 2025-07-31 08:24+0000\n"
 "PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Eine PHP Erweiterung hat den Datei Upload gestoppt"
 
-#: views/validate.php:38
+#: views/validate.php:49
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -100,11 +100,11 @@ msgstr "Kann kein Temporäres Verzeichnis erstellen: %s"
 msgid "Cant find uploaded file"
 msgstr "Es kann keine hochgeladene Datei gefunden werden"
 
-#: views/validate.php:72
+#: views/validate.php:83
 msgid "Close"
 msgstr "Schließen"
 
-#: views/direct_import.php:6 views/validate.php:5
+#: views/direct_import.php:6 views/validate.php:16
 msgid "Complete"
 msgstr ""
 
@@ -112,11 +112,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr "Datenimport"
 
-#: views/validate.php:2
+#: views/validate.php:13
 msgid "Data Validation"
 msgstr "Datenüberprüfung"
 
-#: views/validate.php:65
+#: views/validate.php:76
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Header row and data row count do not match"
 msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 
-#: views/validate.php:31
+#: views/validate.php:42
 msgid "ID"
 msgstr "ID"
 
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Missing a temporary folder"
 msgstr "Fehlender temporärer Ordner"
 
-#: views/validate.php:15
+#: views/validate.php:26
 msgid "No"
 msgstr "Nein"
 
@@ -214,7 +214,7 @@ msgstr "Keine Datei angegeben"
 msgid "Only CSV files are supported"
 msgstr "Es werden nur CSV Dateien unterstützt"
 
-#: views/validate.php:10
+#: views/validate.php:21
 msgid "Replace/Update existing data"
 msgstr "Bestehende Daten ersetzen/aktualisieren"
 
@@ -238,7 +238,7 @@ msgid ""
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:73
+#: views/validate.php:84
 msgid "Save changes"
 msgstr "Änderungen speichern"
 
@@ -298,7 +298,7 @@ msgstr "Nicht unterstütztes Dateiformat"
 msgid "What are \"%s\"?"
 msgstr "Was sind \"%s\"?"
 
-#: views/validate.php:13
+#: views/validate.php:24
 msgid "Yes"
 msgstr "Ja"
 
