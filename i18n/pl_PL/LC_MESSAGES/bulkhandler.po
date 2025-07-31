@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 07:50-0400\n"
+"POT-Creation-Date: 2025-07-31 04:55-0400\n"
 "PO-Revision-Date: 2017-06-07 15:31+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr "Rozszerzenie PHP zatrzymało przesyłanie plików"
 
-#: views/validate.php:38
+#: views/validate.php:49
 msgid "Actions"
 msgstr "Działania"
 
@@ -102,11 +102,11 @@ msgstr "Nie można utworzyć katalogu: %s"
 msgid "Cant find uploaded file"
 msgstr "Nie znaleziono przesłanych plików"
 
-#: views/validate.php:72
+#: views/validate.php:83
 msgid "Close"
 msgstr "Zamknij"
 
-#: views/direct_import.php:6 views/validate.php:5
+#: views/direct_import.php:6 views/validate.php:16
 msgid "Complete"
 msgstr ""
 
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr ""
 
-#: views/validate.php:2
+#: views/validate.php:13
 msgid "Data Validation"
 msgstr "Walidacja danych"
 
-#: views/validate.php:64
+#: views/validate.php:75
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "Header row and data row count do not match"
 msgstr "Wiersz nagłówka i liczba wierszy danych nie są zgodne"
 
-#: views/validate.php:31
+#: views/validate.php:42
 msgid "ID"
 msgstr "ID"
 
@@ -192,7 +192,7 @@ msgstr ""
 msgid "Missing a temporary folder"
 msgstr "Brak folderu tymczasowego"
 
-#: views/validate.php:15
+#: views/validate.php:26
 msgid "No"
 msgstr "Nie"
 
@@ -216,7 +216,7 @@ msgstr "Nie określono pliku"
 msgid "Only CSV files are supported"
 msgstr "Obsługiwane są tylko pliki CSV"
 
-#: views/validate.php:10
+#: views/validate.php:21
 msgid "Replace/Update existing data"
 msgstr "Zamień / Zaktualizuj istniejące dane"
 
@@ -237,7 +237,7 @@ msgid ""
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:73
+#: views/validate.php:84
 msgid "Save changes"
 msgstr "Zachowaj zmiany"
 
@@ -293,7 +293,7 @@ msgstr "Nieobsługiwany format pliku"
 msgid "What are \"%s\"?"
 msgstr "Co to jest \"%s\"?"
 
-#: views/validate.php:13
+#: views/validate.php:24
 msgid "Yes"
 msgstr "Tak"
 
