@@ -1,3 +1,14 @@
+<?php
+// Enforce UTF-8 on imports
+foreach($imports as $id => &$import) {
+	foreach($import as $key => &$value) {
+		if (!mb_detect_encoding($value, 'UTF-8', true)) {
+			$value = mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1');
+		}
+	}
+}
+header('Content-Type: text/html; charset=utf-8');
+?>
 <div class="header-section">
 	<h1 class="header"><?php echo _("Data Validation")?></h1>
 	<div class="progress hidden">
@@ -44,7 +55,7 @@
 				<td class="id"><?php echo $id?></td>
 				<?php foreach ($identifiers as $identifier) {?>
 
-				<td data-value="<?php echo $identifier?>"> <?php echo  htmlentities( $import[$identifier], ENT_COMPAT | ENT_HTML401, "UTF-8");?> </td>
+				<td data-value="<?php echo $identifier?>"></td>
 				<?php } ?>
 				<td class="actions" class="actions">
 					<i class="fa fa-pencil-square-o actions clickable" data-type="edit" data-id="<?php echo $id?>"></i>
@@ -76,20 +87,20 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <script>
-	var data=[];
-	var type = "<?php echo $type?>";
-	var imports = <?php echo json_encode($imports)?>;
-	var headers = <?php echo json_encode($headers)?>;
+	var type = "<?php echo $type ?>";
+	var imports = <?php echo json_encode($imports, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
 	var identifiers = <?php echo json_encode($identifiers) ?>;
 
-	$( document ).ready(function() {
-		var q = $('[class="scheme"]');
-		Object.keys(q).forEach((s, idx) => {
-			if(idx < q.length){
-				identifiers.forEach((identifier)=>{
-					$(".scheme[data-jsonid='"+idx+"']").find("[data-value='"+identifier+"']").text(imports[idx][identifier]);
-				})
-			}
-		})
+	$(document).ready(function () {
+		Object.keys(imports).forEach(function (idx) {
+			identifiers.forEach(function (identifier) {
+				var cell = $(".scheme[data-jsonid='" + idx + "']").find("[data-value='" + identifier + "']");
+				var raw = imports[idx][identifier] ?? "";
+
+				// HTML-escape safely using jQuery
+				var safeHtml = $('<div>').text(raw).html();
+				cell.html(safeHtml);
+			});
+		});
 	});
 </script>
