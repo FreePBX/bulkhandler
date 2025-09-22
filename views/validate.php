@@ -1,9 +1,9 @@
 <?php
 // Enforce UTF-8 on imports
-foreach($imports as $id => &$import) {
-	foreach($import as $key => &$value) {
+foreach($imports as $id => $import) {
+	foreach($import as $key => $value) {
 		if (!mb_detect_encoding($value, 'UTF-8', true)) {
-			$value = mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1');
+			$imports[$id][$key] = mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1');
 		}
 	}
 }
@@ -90,6 +90,7 @@ header('Content-Type: text/html; charset=utf-8');
 	var type = "<?php echo $type ?>";
 	var imports = <?php echo json_encode($imports, JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>;
 	var identifiers = <?php echo json_encode($identifiers) ?>;
+	var headers = <?php echo json_encode($headers)?>;
 
 	$(document).ready(function () {
 		Object.keys(imports).forEach(function (idx) {
