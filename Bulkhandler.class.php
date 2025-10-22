@@ -306,7 +306,7 @@ class Bulkhandler implements \BMO {
 	
 					foreach($_POST['imports'] as $key => $val){
 						if($key == "tech" && $val != "virtual"){
-							$import_ext[] = $_POST['imports']["extension"];
+							$import_ext[] = $_POST['imports']["extension"] ?? '';
 						}
 					}
 
