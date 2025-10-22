@@ -2,7 +2,7 @@
 	<rawname>bulkhandler</rawname>
 	<repo>standard</repo>
 	<name>Bulk Handler</name>
-	<version>17.0.7</version>
+	<version>17.0.7.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 	</depends>
 	<info/>
 	<changelog>
+		*17.0.7.1* FREEI-2457 Fixing undefined array key issue 
 		*17.0.7* #issues -858 Bulk Handler Trunk Import 
 		*17.0.6* FREEI-2153 Importing contact list fails if contact name has an Umlaut 
 		*17.0.4* Packaging of ver 17.0.4
