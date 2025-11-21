@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 08:24+0000\n"
+"POT-Creation-Date: 2025-11-21 04:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "A PHP extension stopped the file upload"
 msgstr ""
 
-#: views/validate.php:49
+#: views/validate.php:58
 msgid "Actions"
 msgstr ""
 
@@ -101,12 +101,12 @@ msgstr ""
 msgid "Cant find uploaded file"
 msgstr ""
 
-#: views/validate.php:83
+#: views/validate.php:90
 msgid "Close"
 msgstr ""
 
 #: views/direct_import.php:6
-#: views/validate.php:16
+#: views/validate.php:19
 msgid "Complete"
 msgstr ""
 
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr ""
 
-#: views/validate.php:13
+#: views/validate.php:16
 msgid "Data Validation"
 msgstr ""
 
-#: views/validate.php:76
+#: views/validate.php:84
 msgid "Edit"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgstr ""
 msgid "Header row and data row count do not match"
 msgstr ""
 
-#: views/validate.php:42
+#: views/validate.php:48
 msgid "ID"
 msgstr ""
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Missing a temporary folder"
 msgstr ""
 
-#: views/validate.php:26
+#: views/validate.php:30
 msgid "No"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Only CSV files are supported"
 msgstr ""
 
-#: views/validate.php:21
+#: views/validate.php:25
 msgid "Replace/Update existing data"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgid ""
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:84
+#: views/validate.php:91
 msgid "Save changes"
 msgstr ""
 
@@ -299,6 +299,6 @@ msgstr ""
 msgid "What are \"%s\"?"
 msgstr ""
 
-#: views/validate.php:24
+#: views/validate.php:28
 msgid "Yes"
 msgstr ""
