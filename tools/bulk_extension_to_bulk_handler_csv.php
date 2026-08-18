@@ -22,8 +22,8 @@ else
 
 $row = 1;
 if (($handle = fopen($filename, "r")) !== FALSE) {
-    $headers = fgetcsv($handle, 10240, ",");
-    while (($data = fgetcsv($handle, 10240, ",")) !== FALSE)
+    $headers = fgetcsv($handle, 10240, ",", "\"", "\\");
+    while (($data = fgetcsv($handle, 10240, ",", "\"", "\\")) !== FALSE)
     {
         $row++;
         [$converted_headers, $converted_data[]] = convert($headers, $data);
@@ -32,9 +32,9 @@ if (($handle = fopen($filename, "r")) !== FALSE) {
 
     $output_filename = substr((string) $filename, 0, strpos((string) $filename, ".")).'-bulk_handler.csv';
     $fo = fopen($output_filename, "w");
-    fputcsv($fo, $converted_headers);
+    fputcsv($fo, $converted_headers, ",", "\"", "\\");
     foreach($converted_data as $row)
-        fputcsv($fo, $row);
+        fputcsv($fo, $row, ",", "\"", "\\");
     fclose($fo);
 
     echo "Output file is: ".$output_filename."\n";

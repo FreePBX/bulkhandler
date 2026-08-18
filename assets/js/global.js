@@ -1,14 +1,11 @@
 var editId = null, total=null;
-if (typeof(Storage) !== "undefined") {
-  var tabDisplay = localStorage.getItem("bulkhandler-display");
-} else {
-  var tabDisplay = $.cookie("bulkhandler-display");
-}
-if(typeof tabDisplay !== "undefined") {
-	$('[aria-controls='+tabDisplay+']').tab('show');
-}
 
 $(function() {
+	var tabDisplay = (typeof(Storage) !== "undefined") ? localStorage.getItem("bulkhandler-display") : $.cookie("bulkhandler-display");
+	//Bootstrap 5 only attaches its jQuery plugins once the DOM is ready
+	if(tabDisplay && $.fn.tab) {
+		$('[aria-controls="'+tabDisplay+'"]').tab('show');
+	}
 	$('.nav-tabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 		var name = $(e.target).parents("li").data("name");
 		if (typeof(Storage) !== "undefined") {

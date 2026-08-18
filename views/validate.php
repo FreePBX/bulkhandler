@@ -1,5 +1,6 @@
 <?php
 // Enforce UTF-8 on imports
+$identifiers = [];
 foreach($imports as $id => $import) {
 	foreach($import as $key => $value) {
 		if (!mb_detect_encoding($value, 'UTF-8', true)) {
@@ -73,14 +74,14 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="modal-content">
       <div class="modal-header">
 		  <h4 class="modal-title mr-auto"><?php echo _('Edit')?></h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
 				<div class="edit-fields">
 				</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _('Close')?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-bs-dismiss="modal"><?php echo _('Close')?></button>
         <button type="button" class="btn btn-primary save"><?php echo _('Save changes')?></button>
       </div>
     </div><!-- /.modal-content -->
