@@ -12,7 +12,7 @@
 				<div class="fpbx-container">
 					<ul class="nav nav-tabs pb-0" role="tablist">
 						<?php foreach($types as $key => $type) {?>
-							<li data-name="<?php echo $key?>" class="change-tab"><a class="nav-link <?php echo $type['active'] ? 'active' : ''?>" href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab"><?php echo $type['name']?></a></li>
+							<li data-name="<?php echo $key?>" class="change-tab"><a class="nav-link <?php echo $type['active'] ? 'active' : ''?>" href="#<?php echo $key?>" aria-controls="<?php echo $key?>" role="tab" data-toggle="tab" data-bs-toggle="tab"><?php echo $type['name']?></a></li>
 						<?php } ?>
 					</ul>
 					<div class="tab-content display">

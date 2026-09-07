@@ -1,8 +1,10 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
-#[\AllowDynamicProperties]
 class Bulkhandler implements \BMO {
+	private $freepbx;
+	private $db;
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new \Exception("Not given a FreePBX Object");
@@ -166,24 +168,26 @@ class Bulkhandler implements \BMO {
 		switch($format) {
 			case 'csv':
 				$header = null;
-				// ini_set("auto_detect_line_endings", true);
 				$handle = fopen($file, "r");
+				if ($handle === false) {
+					throw new \Exception(_("Unable to open file"));
+				}
 				$headerc = 0;
-				//http://php.net/manual/en/filesystem.configuration.php#ini.auto-detect-line-endings
-				while ($row = fgetcsv($handle)) {
+				while (($row = fgetcsv($handle, 0, ',', '"', '\\')) !== false) {
 					if ($header === null) {
-						// dump($row);exit;
 						$header = ($row[0] != null) ? array_map('strtolower', $row) : '';
 						$headerc = $header ? count($header) : 0;
 						continue;
 					}
 					if($headerc != count($row)) {
+						fclose($handle);
 						throw new \Exception(_("Header row and data row count do not match"));
 					}
 					if(!empty($row)){
 						$rawData[] = array_combine($header, $row);
 					}
 				}
+				fclose($handle);
 			break;
 			default:
 				throw new \Exception(_("Unsupported file format"));
@@ -216,10 +220,13 @@ class Bulkhandler implements \BMO {
 			default:
 				$filename = ($type ?: 'export') . '.csv';
 				$out = fopen('php://output', 'w');
+				if ($out === false) {
+					throw new \Exception(_("Unable to open output stream"));
+				}
 				header('Content-type: application/octet-stream');
 				header('Content-Disposition: attachment; filename="' . $filename . '"');
 				foreach($rawData as $row) {
-					fputcsv($out,  $row);
+					fputcsv($out, $row, ',', '"', '\\');
 				}
 				fclose($out);
 			break;
@@ -345,10 +352,6 @@ class Bulkhandler implements \BMO {
 				$ret = $this->importFinished($_POST['type']);
 				return $ret;
 			break;
-			case "import_finished":
-				$ret = $this->importFinished($_POST['type']);
-				return $ret;
-			break;
 		}
 		return $ret;
 	}
@@ -359,20 +362,22 @@ class Bulkhandler implements \BMO {
 			$return['status'] = 'DONE';
 			$return['COUNT'] = '';
 			return $return;
-		}else {
-			$file = fopen($filename,"r");
-			while(! feof($file)){
-				$string = fgets($file);
-				if(str_contains($string, '=')){
-					$stringarr = explode('=',$string);
-					$return[$stringarr[0]] = trim($stringarr[1],PHP_EOL);;
-				}
-			}
-			fclose($file);
-			// dbug(print_r($return,true));
-			return $return;
-			
 		}
+		$file = fopen($filename,"r");
+		if ($file === false) {
+			$return['status'] = 'DONE';
+			$return['COUNT'] = '';
+			return $return;
+		}
+		while(! feof($file)){
+			$string = fgets($file);
+			if(str_contains($string, '=')){
+				$stringarr = explode('=',$string);
+				$return[$stringarr[0]] = trim($stringarr[1],PHP_EOL);
+			}
+		}
+		fclose($file);
+		return $return;
 	}
 			
 	/**
