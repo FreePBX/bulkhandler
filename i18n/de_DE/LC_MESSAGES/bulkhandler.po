@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 04:55-0400\n"
+"POT-Creation-Date: 2026-09-22 06:52-0400\n"
 "PO-Revision-Date: 2019-02-25 12:15+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/bulkhandler/de/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: Console/Bulkimport.class.php:36
+#: Console/Bulkimport.class.php:37
 msgid ""
 "<error>The file provided did not process properly. Check the file "
 "formatting</error>"
@@ -30,11 +30,11 @@ msgstr ""
 msgid "<error>The import failed</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:32
+#: Console/Bulkimport.class.php:33
 msgid "<error>The specified file does not exist or we cannot read it</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:54
+#: Console/Bulkimport.class.php:55
 msgid ""
 "<error>You must specify the file type of --type=dids or --type=extensions</"
 "error>"
@@ -45,19 +45,15 @@ msgstr ""
 msgid "<strong>Success! </strong>%s Data Imported successfully."
 msgstr ""
 
-#: Bulkhandler.class.php:157
+#: Bulkhandler.class.php:159
 msgid "A PHP extension stopped the file upload"
 msgstr "Eine PHP Erweiterung hat den Datei Upload gestoppt"
 
-#: views/validate.php:49
+#: views/validate.php:50
 msgid "Actions"
 msgstr "Aktionen"
 
-#: bulkhandler.i18n.php:6
-msgid "Admin"
-msgstr "Administrator"
-
-#: Bulkhandler.class.php:318
+#: Bulkhandler.class.php:325
 msgid "Already exists"
 msgstr ""
 
@@ -65,46 +61,36 @@ msgstr ""
 msgid "Browse"
 msgstr "Durchsuchen"
 
-#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
-#: views/import.php:4
+#: views/export.php:4 views/import.php:4
 msgid "Bulk Handler"
 msgstr "Bulk-Handler"
-
-#: bulkhandler.i18n.php:8
-msgid ""
-"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
-"manager users, user manager groups, and contacts. You can export any of "
-"these as a CSV file. You can also upload a CSV file to save time versus "
-"having to enter each item individually. The module provides required/"
-"recommended headers for your CSV files."
-msgstr ""
 
 #: views/export.php:86 views/import.php:98
 msgid "CSV File"
 msgstr "CSV-Datei"
 
-#: Bulkhandler.class.php:160
+#: Bulkhandler.class.php:162
 msgid "Can Not Find Uploaded Files"
 msgstr "Es können keine hochgeladenen Dateien gefunden werden"
 
-#: Bulkhandler.class.php:499
+#: Bulkhandler.class.php:504
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: Bulkhandler.class.php:115
+#: Bulkhandler.class.php:117
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr "Kann kein Temporäres Verzeichnis erstellen: %s"
 
-#: Bulkhandler.class.php:130
+#: Bulkhandler.class.php:132
 msgid "Cant find uploaded file"
 msgstr "Es kann keine hochgeladene Datei gefunden werden"
 
-#: views/validate.php:83
+#: views/validate.php:84
 msgid "Close"
 msgstr "Schließen"
 
-#: views/direct_import.php:6 views/validate.php:16
+#: views/direct_import.php:6 views/validate.php:17
 msgid "Complete"
 msgstr ""
 
@@ -112,11 +98,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr "Datenimport"
 
-#: views/validate.php:13
+#: views/validate.php:14
 msgid "Data Validation"
 msgstr "Datenüberprüfung"
 
-#: views/validate.php:75
+#: views/validate.php:76
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -128,7 +114,7 @@ msgstr "Exportieren"
 msgid "Export to CSV"
 msgstr "Als CSV exportieren"
 
-#: Bulkhandler.class.php:154
+#: Bulkhandler.class.php:156
 msgid "Failed to write file to disk"
 msgstr "Fehler beim Speichern der Datei"
 
@@ -136,7 +122,7 @@ msgstr "Fehler beim Speichern der Datei"
 msgid "File to Import"
 msgstr "Datei Importieren"
 
-#: Console/Bulkimport.class.php:19
+#: Console/Bulkimport.class.php:21
 msgid "Filename"
 msgstr ""
 
@@ -144,15 +130,15 @@ msgstr ""
 msgid "Go Back"
 msgstr ""
 
-#: Bulkhandler.class.php:181
+#: Bulkhandler.class.php:184
 msgid "Header row and data row count do not match"
 msgstr "Header- und Daten-Zeilenzähler stimmen nicht überein"
 
-#: views/validate.php:42
+#: views/validate.php:43
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:499 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:504 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Importieren"
 
@@ -168,29 +154,29 @@ msgid ""
 "filename.csv --replace(Replace the existing values)"
 msgstr ""
 
-#: assets/js/global.js:24
+#: assets/js/global.js:21
 msgid ""
 "Imported trunks will not be associated with any routes need to create/assign "
 "the routes manually after import"
 msgstr ""
 
-#: Console/Bulkimport.class.php:50
+#: Console/Bulkimport.class.php:51
 msgid "Importing CallDECK Ratepatterns"
 msgstr ""
 
-#: Console/Bulkimport.class.php:42
+#: Console/Bulkimport.class.php:43
 msgid "Importing bulk dids"
 msgstr ""
 
-#: Console/Bulkimport.class.php:46
+#: Console/Bulkimport.class.php:47
 msgid "Importing bulk extensions"
 msgstr ""
 
-#: Bulkhandler.class.php:151
+#: Bulkhandler.class.php:153
 msgid "Missing a temporary folder"
 msgstr "Fehlender temporärer Ordner"
 
-#: views/validate.php:26
+#: views/validate.php:27
 msgid "No"
 msgstr "Nein"
 
@@ -202,19 +188,19 @@ msgstr "Es wurden keine Bulk-Exporteure definiert"
 msgid "No Bulk Importers have been defined"
 msgstr "Es wurden keine Bulk-Importeure definiert"
 
-#: Bulkhandler.class.php:148
+#: Bulkhandler.class.php:150
 msgid "No file was uploaded"
 msgstr "Es wurde keine Datei hochgeladen"
 
-#: assets/js/global.js:37
+#: assets/js/global.js:34
 msgid "Not file specified"
 msgstr "Keine Datei angegeben"
 
-#: assets/js/global.js:42
+#: assets/js/global.js:39
 msgid "Only CSV files are supported"
 msgstr "Es werden nur CSV Dateien unterstützt"
 
-#: views/validate.php:21
+#: views/validate.php:22
 msgid "Replace/Update existing data"
 msgstr "Bestehende Daten ersetzen/aktualisieren"
 
@@ -232,13 +218,13 @@ msgstr ""
 msgid "Required(*)/Recommended Headers"
 msgstr "Erforderlich(*)/Empfohlene Header"
 
-#: assets/js/global.js:31
+#: assets/js/global.js:28
 msgid ""
 "Route configuration is not exported need to create the routes manually while "
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:84
+#: views/validate.php:85
 msgid "Save changes"
 msgstr "Änderungen speichern"
 
@@ -246,7 +232,7 @@ msgstr "Änderungen speichern"
 msgid "Submit"
 msgstr "Absenden"
 
-#: Bulkhandler.class.php:142
+#: Bulkhandler.class.php:144
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
@@ -254,17 +240,17 @@ msgstr ""
 "Die hochgeladene Datei überschreitet die maximal zulässige Dateigröße, die "
 "als Wert \"MAX_FILE_SIZE\" im HTML-Formular festgelegt wurde"
 
-#: Bulkhandler.class.php:139
+#: Bulkhandler.class.php:141
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 "Die hochgeladene Datei überschreitet die maximal zulässige Dateigröße, die "
 "in der 'upload_max_filesize'-Direktive in der php.ini festgelegt wurde"
 
-#: Bulkhandler.class.php:145
+#: Bulkhandler.class.php:147
 msgid "The uploaded file was only partially uploaded"
 msgstr "Die hochgeladene Datei wurde nur teilweise hochgeladen"
 
-#: assets/js/global.js:77
+#: assets/js/global.js:74
 msgid "There is nothing to import!"
 msgstr "Es gibt nichts zum Importieren!"
 
@@ -272,24 +258,32 @@ msgstr "Es gibt nichts zum Importieren!"
 msgid "This command is used to import extensions and dids"
 msgstr ""
 
-#: Console/Bulkimport.class.php:19
+#: Console/Bulkimport.class.php:22
 msgid "To replace existing values"
 msgstr ""
 
-#: Bulkhandler.class.php:203
+#: Bulkhandler.class.php:207
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
 
-#: Console/Bulkimport.class.php:19
+#: Console/Bulkimport.class.php:20
 msgid "Type of file"
 msgstr ""
 
-#: Bulkhandler.class.php:208
+#: Bulkhandler.class.php:173
+msgid "Unable to open file"
+msgstr ""
+
+#: Bulkhandler.class.php:224
+msgid "Unable to open output stream"
+msgstr ""
+
+#: Bulkhandler.class.php:212
 msgid "Unable to parse file"
 msgstr "Datei konnte nicht analysiert werden"
 
-#: Bulkhandler.class.php:134 Bulkhandler.class.php:189
+#: Bulkhandler.class.php:136 Bulkhandler.class.php:193
 msgid "Unsupported file format"
 msgstr "Nicht unterstütztes Dateiformat"
 
@@ -298,9 +292,12 @@ msgstr "Nicht unterstütztes Dateiformat"
 msgid "What are \"%s\"?"
 msgstr "Was sind \"%s\"?"
 
-#: views/validate.php:24
+#: views/validate.php:25
 msgid "Yes"
 msgstr "Ja"
+
+#~ msgid "Admin"
+#~ msgstr "Administrator"
 
 #~ msgid "Finished"
 #~ msgstr "Fertig"

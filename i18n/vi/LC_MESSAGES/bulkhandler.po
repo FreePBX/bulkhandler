@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 04:55-0400\n"
+"POT-Creation-Date: 2026-09-22 06:52-0400\n"
 "PO-Revision-Date: 2017-07-25 21:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Console/Bulkimport.class.php:36
+#: Console/Bulkimport.class.php:37
 msgid ""
 "<error>The file provided did not process properly. Check the file "
 "formatting</error>"
@@ -31,11 +31,11 @@ msgstr ""
 msgid "<error>The import failed</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:32
+#: Console/Bulkimport.class.php:33
 msgid "<error>The specified file does not exist or we cannot read it</error>"
 msgstr ""
 
-#: Console/Bulkimport.class.php:54
+#: Console/Bulkimport.class.php:55
 msgid ""
 "<error>You must specify the file type of --type=dids or --type=extensions</"
 "error>"
@@ -46,19 +46,15 @@ msgstr ""
 msgid "<strong>Success! </strong>%s Data Imported successfully."
 msgstr ""
 
-#: Bulkhandler.class.php:157
+#: Bulkhandler.class.php:159
 msgid "A PHP extension stopped the file upload"
 msgstr "Một máy nhánh PHP vừa dừng việc tải tệp lên"
 
-#: views/validate.php:49
+#: views/validate.php:50
 msgid "Actions"
 msgstr "Các thao tác"
 
-#: bulkhandler.i18n.php:6
-msgid "Admin"
-msgstr "Quản trị viên"
-
-#: Bulkhandler.class.php:318
+#: Bulkhandler.class.php:325
 msgid "Already exists"
 msgstr ""
 
@@ -66,46 +62,36 @@ msgstr ""
 msgid "Browse"
 msgstr "Trình duyệt"
 
-#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
-#: views/import.php:4
+#: views/export.php:4 views/import.php:4
 msgid "Bulk Handler"
 msgstr "Bộ quản lý tổng hơp- Bulk Handler"
-
-#: bulkhandler.i18n.php:8
-msgid ""
-"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
-"manager users, user manager groups, and contacts. You can export any of "
-"these as a CSV file. You can also upload a CSV file to save time versus "
-"having to enter each item individually. The module provides required/"
-"recommended headers for your CSV files."
-msgstr ""
 
 #: views/export.php:86 views/import.php:98
 msgid "CSV File"
 msgstr "Tệp CSV"
 
-#: Bulkhandler.class.php:160
+#: Bulkhandler.class.php:162
 msgid "Can Not Find Uploaded Files"
 msgstr "Không tìm thấy các tệp đã tải lên"
 
-#: Bulkhandler.class.php:499
+#: Bulkhandler.class.php:504
 msgid "Cancel"
 msgstr "Hủy"
 
-#: Bulkhandler.class.php:115
+#: Bulkhandler.class.php:117
 #, php-format
 msgid "Cant Create Temp Directory: %s"
 msgstr "Không thể tạo Thư mục Temp ( tạm thời):  %s"
 
-#: Bulkhandler.class.php:130
+#: Bulkhandler.class.php:132
 msgid "Cant find uploaded file"
 msgstr "Không thể tìm thấy tệp đã tải lên"
 
-#: views/validate.php:83
+#: views/validate.php:84
 msgid "Close"
 msgstr "Đóng"
 
-#: views/direct_import.php:6 views/validate.php:16
+#: views/direct_import.php:6 views/validate.php:17
 msgid "Complete"
 msgstr ""
 
@@ -113,11 +99,11 @@ msgstr ""
 msgid "Data Importing"
 msgstr ""
 
-#: views/validate.php:13
+#: views/validate.php:14
 msgid "Data Validation"
 msgstr "Tính hợp lệ của dữ liệu"
 
-#: views/validate.php:75
+#: views/validate.php:76
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
@@ -129,7 +115,7 @@ msgstr "Xuất ra"
 msgid "Export to CSV"
 msgstr "Xuất đến CSV"
 
-#: Bulkhandler.class.php:154
+#: Bulkhandler.class.php:156
 msgid "Failed to write file to disk"
 msgstr "Ghi tệp vào đĩa không thành công"
 
@@ -137,7 +123,7 @@ msgstr "Ghi tệp vào đĩa không thành công"
 msgid "File to Import"
 msgstr "Tệp để nhập vào"
 
-#: Console/Bulkimport.class.php:19
+#: Console/Bulkimport.class.php:21
 msgid "Filename"
 msgstr ""
 
@@ -145,15 +131,15 @@ msgstr ""
 msgid "Go Back"
 msgstr ""
 
-#: Bulkhandler.class.php:181
+#: Bulkhandler.class.php:184
 msgid "Header row and data row count do not match"
 msgstr "Hàng tiêu đề và đếm hàng dữ liệu không khớp nhau"
 
-#: views/validate.php:42
+#: views/validate.php:43
 msgid "ID"
 msgstr "ID"
 
-#: Bulkhandler.class.php:499 views/export.php:7 views/import.php:7
+#: Bulkhandler.class.php:504 views/export.php:7 views/import.php:7
 msgid "Import"
 msgstr "Nhập vào"
 
@@ -169,29 +155,29 @@ msgid ""
 "filename.csv --replace(Replace the existing values)"
 msgstr ""
 
-#: assets/js/global.js:24
+#: assets/js/global.js:21
 msgid ""
 "Imported trunks will not be associated with any routes need to create/assign "
 "the routes manually after import"
 msgstr ""
 
-#: Console/Bulkimport.class.php:50
+#: Console/Bulkimport.class.php:51
 msgid "Importing CallDECK Ratepatterns"
 msgstr ""
 
-#: Console/Bulkimport.class.php:42
+#: Console/Bulkimport.class.php:43
 msgid "Importing bulk dids"
 msgstr ""
 
-#: Console/Bulkimport.class.php:46
+#: Console/Bulkimport.class.php:47
 msgid "Importing bulk extensions"
 msgstr ""
 
-#: Bulkhandler.class.php:151
+#: Bulkhandler.class.php:153
 msgid "Missing a temporary folder"
 msgstr "Thiếu một tệp tạm thời"
 
-#: views/validate.php:26
+#: views/validate.php:27
 msgid "No"
 msgstr "Không"
 
@@ -203,19 +189,19 @@ msgstr "Không có bộ quản lý xuất ra (Bulk Exporter) được xác đinh
 msgid "No Bulk Importers have been defined"
 msgstr "Không có bộ quản lý nhập vào được xác định"
 
-#: Bulkhandler.class.php:148
+#: Bulkhandler.class.php:150
 msgid "No file was uploaded"
 msgstr "Không có tệp nào được tải lên"
 
-#: assets/js/global.js:37
+#: assets/js/global.js:34
 msgid "Not file specified"
 msgstr "Không có tệp nào được xác định"
 
-#: assets/js/global.js:42
+#: assets/js/global.js:39
 msgid "Only CSV files are supported"
 msgstr "Chỉ các tệp CSV được hỗ trợ"
 
-#: views/validate.php:21
+#: views/validate.php:22
 msgid "Replace/Update existing data"
 msgstr "Thay thế/ Cập nhật dữ liệu đang tồn tại"
 
@@ -230,13 +216,13 @@ msgstr ""
 msgid "Required(*)/Recommended Headers"
 msgstr ""
 
-#: assets/js/global.js:31
+#: assets/js/global.js:28
 msgid ""
 "Route configuration is not exported need to create the routes manually while "
 "importing the trunks."
 msgstr ""
 
-#: views/validate.php:84
+#: views/validate.php:85
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
 
@@ -244,23 +230,23 @@ msgstr "Lưu các thay đổi"
 msgid "Submit"
 msgstr "Gửi đi"
 
-#: Bulkhandler.class.php:142
+#: Bulkhandler.class.php:144
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form"
 msgstr ""
 "Tệp được tải lên quá dung lượng tệp tối đa được quy định trong mẫu HTML"
 
-#: Bulkhandler.class.php:139
+#: Bulkhandler.class.php:141
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
 msgstr ""
 "Tệp được tải lên vượt quá dung lượng tệp tối đa đã quy định trong php.ini"
 
-#: Bulkhandler.class.php:145
+#: Bulkhandler.class.php:147
 msgid "The uploaded file was only partially uploaded"
 msgstr "Tệp đã tải lên chỉ được tải lên từng phần"
 
-#: assets/js/global.js:77
+#: assets/js/global.js:74
 msgid "There is nothing to import!"
 msgstr "Không có gì để nhâp!"
 
@@ -268,24 +254,32 @@ msgstr "Không có gì để nhâp!"
 msgid "This command is used to import extensions and dids"
 msgstr ""
 
-#: Console/Bulkimport.class.php:19
+#: Console/Bulkimport.class.php:22
 msgid "To replace existing values"
 msgstr ""
 
-#: Bulkhandler.class.php:203
+#: Bulkhandler.class.php:207
 #, php-format
 msgid "Too many extensions to import. The limit is: %d physical extensions."
 msgstr ""
 
-#: Console/Bulkimport.class.php:19
+#: Console/Bulkimport.class.php:20
 msgid "Type of file"
 msgstr ""
 
-#: Bulkhandler.class.php:208
+#: Bulkhandler.class.php:173
+msgid "Unable to open file"
+msgstr ""
+
+#: Bulkhandler.class.php:224
+msgid "Unable to open output stream"
+msgstr ""
+
+#: Bulkhandler.class.php:212
 msgid "Unable to parse file"
 msgstr "Không thể phân tích tệp tin"
 
-#: Bulkhandler.class.php:134 Bulkhandler.class.php:189
+#: Bulkhandler.class.php:136 Bulkhandler.class.php:193
 msgid "Unsupported file format"
 msgstr "Định dạng tệp không được hỗ trợ"
 
@@ -294,9 +288,12 @@ msgstr "Định dạng tệp không được hỗ trợ"
 msgid "What are \"%s\"?"
 msgstr "\"%s\" là gì?"
 
-#: views/validate.php:24
+#: views/validate.php:25
 msgid "Yes"
 msgstr "Có"
+
+#~ msgid "Admin"
+#~ msgstr "Quản trị viên"
 
 #~ msgid "Finished"
 #~ msgstr "Hoàn thành"
