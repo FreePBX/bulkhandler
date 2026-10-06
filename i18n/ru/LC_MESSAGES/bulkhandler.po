@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:52-0400\n"
+"POT-Creation-Date: 2026-10-06 06:14-0400\n"
 "PO-Revision-Date: 2021-11-23 07:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/"
@@ -55,6 +55,10 @@ msgstr "Расширение PHP остановило загрузку файл�
 msgid "Actions"
 msgstr "Действия"
 
+#: bulkhandler.i18n.php:6
+msgid "Admin"
+msgstr "Администратор"
+
 #: Bulkhandler.class.php:325
 msgid "Already exists"
 msgstr ""
@@ -63,9 +67,25 @@ msgstr ""
 msgid "Browse"
 msgstr "Просмотр"
 
-#: views/export.php:4 views/import.php:4
+#: bulkhandler.i18n.php:4 bulkhandler.i18n.php:10 views/export.php:4
+#: views/import.php:4
 msgid "Bulk Handler"
 msgstr "Массовый обработчик"
+
+#: bulkhandler.i18n.php:8
+msgid ""
+"Bulk Handler manages the bulk export or import of extensions, DIDs, user "
+"manager users, user manager groups, and contacts. You can export any of "
+"these as a CSV file. You can also upload a CSV file to save time versus "
+"having to enter each item individually. The module provides required/"
+"recommended headers for your CSV files."
+msgstr ""
+"Массовый обработчик управляет массовым экспортом или импортом внутренних "
+"номеров, DID'ов, пользователей Менеджера пользователей, групп Менеджера "
+"пользователей и контактов. Вы можете экспортировать любой из них в виде CSV-"
+"файла. Вы также можете загрузить CSV-файл для экономии времени чтобы не "
+"вводить каждый элемент по отдельности. Модуль предоставляет необходимые/"
+"рекомендуемые заголовки для ваших CSV-файлов."
 
 #: views/export.php:86 views/import.php:98
 msgid "CSV File"
@@ -299,20 +319,3 @@ msgstr "Что означает \"%s\"?"
 #: views/validate.php:25
 msgid "Yes"
 msgstr "Да"
-
-#~ msgid "Admin"
-#~ msgstr "Администратор"
-
-#~ msgid ""
-#~ "Bulk Handler manages the bulk export or import of extensions, DIDs, user "
-#~ "manager users, user manager groups, and contacts. You can export any of "
-#~ "these as a CSV file. You can also upload a CSV file to save time versus "
-#~ "having to enter each item individually. The module provides required/"
-#~ "recommended headers for your CSV files."
-#~ msgstr ""
-#~ "Массовый обработчик управляет массовым экспортом или импортом внутренних "
-#~ "номеров, DID'ов, пользователей Менеджера пользователей, групп Менеджера "
-#~ "пользователей и контактов. Вы можете экспортировать любой из них в виде "
-#~ "CSV-файла. Вы также можете загрузить CSV-файл для экономии времени чтобы "
-#~ "не вводить каждый элемент по отдельности. Модуль предоставляет "
-#~ "необходимые/рекомендуемые заголовки для ваших CSV-файлов."
