@@ -23,9 +23,7 @@ class Bulkimport extends Command {
 	protected function execute(InputInterface $input, OutputInterface $output){
 		$filename = $input->getArgument('filename');
 		$type = $input->getOption('type');
-		if ($input->getOption('replace')) {
-			$replace = true;
-		}
+		$replace = (bool) $input->getOption('replace');
 		if (file_exists($filename)) {
 			$data = \FreePBX::Bulkhandler()->fileToArray($filename);
 		} else {
